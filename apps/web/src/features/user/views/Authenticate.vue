@@ -17,7 +17,7 @@ const handleRegister = (ev: UserRegisterInterface) => {
 
 <template>
   <div className="relative">
-    <div className="m-auto max-w-md rounded-md bg-neutral-200 dark:bg-neutral-800 shadow-md p-5 pt-2 ">
+    <div className="m-auto max-w-md rounded-md bg-white dark:bg-gray-900 shadow-md p-5 pt-2 ">
       <VTabs centered>
         <VTab :name="t('user.authenticate.login')">
           <LoginForm :onSubmit="handleLogin"></LoginForm>

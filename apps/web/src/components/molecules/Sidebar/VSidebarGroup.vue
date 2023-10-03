@@ -12,7 +12,7 @@ defineProps<{
 <template>
   <details class="[&_summary::-webkit-details-marker]:hidden">
     <summary
-      class="box-border flex h-10 items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+      class="box-border flex h-10 items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 hover:shadow-sm [&.active]:shadow-sm"
     >
       <div class="flex items-center gap-2">
         <Icon v-if="icon" :icon="icon" width="24" v-bind="iconSettings" />

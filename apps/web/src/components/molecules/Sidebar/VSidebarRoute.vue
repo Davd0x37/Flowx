@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 import { RouteRecordNormalized, RouteRecordRaw } from 'vue-router';
-import { VLink } from 'app/components';
+import { VButtonLink } from 'app/components';
 import VSidebarGroup from './VSidebarGroup.vue';
 import VSidebarRoute from './VSidebarRoute.vue';
 
@@ -28,13 +28,13 @@ const routeIcon = (props.route.meta?.icon as string) || '';
     </VSidebarGroup>
   </div>
 
-  <VLink
+  <VButtonLink
     v-else
     :to="{
       name: route.name,
     }"
     :icon="route?.meta?.icon"
     v-if="routeTitle"
-    >{{ t(routeTitle) }}</VLink
+    >{{ t(routeTitle) }}</VButtonLink
   >
 </template>

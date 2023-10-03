@@ -8,7 +8,7 @@ import { VSidebar } from 'app/components';
 
 <template>
   <div
-    class="flex h-screen w-screen flex-row gap-6 bg-zinc-100 font-sans text-base text-neutral-900 antialiased transition-colors dark:bg-zinc-900 dark:text-neutral-100"
+    class="flex h-screen w-screen flex-row gap-6 bg-white font-sans text-base text-neutral-900 antialiased transition-colors dark:bg-gray-900 dark:text-neutral-100"
   >
     <v-sidebar class="col-span-2 max-w-xs flex-1" />
 
