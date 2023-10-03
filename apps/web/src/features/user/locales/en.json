@@ -1,0 +1,16 @@
+{
+  "user": {
+    "title": "Profile",
+    "settings": { "title": "Settings" },
+    "email": "Email",
+    "password": "Password",
+    "authenticate": {
+      "title": "Autoryzacja",
+      "login": "Login",
+      "register": "Register",
+      "email": "@:user.email",
+      "password": "@:user.password",
+      "repeatPassword": "Repeat password"
+    }
+  }
+}

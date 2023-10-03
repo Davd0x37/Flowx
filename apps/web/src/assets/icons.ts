@@ -1,0 +1,11 @@
+export const Safe = 'mdi:safe';
+export const Warning = 'mdi:alert-circle';
+export const Home = 'mdi:home-outline';
+export const Auth = 'mdi:account-lock-outline';
+export const Settings = 'mdi:cog-outline';
+export const Profile = 'mdi:account';
+export const Code = 'mdi:code-braces-box';
+export const VaultOpen = 'mdi:package-variant';
+export const VaultClosed = 'mdi:package-variant-closed';
+export const ChevronUp = 'mdi:chevron-up';
+export const ChevronDown = 'mdi:chevron-down';

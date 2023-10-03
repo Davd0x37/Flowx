@@ -1,0 +1,21 @@
+{
+  "button": {
+    "login": "Zaloguj",
+    "register": "Zarejestruj",
+    "createAccount": "Załóż konto"
+  },
+
+  "home": {
+    "title": "Strona główna"
+  },
+
+  "error": {
+    "userAlreadyExists": "Użytkownik już istnieje",
+    "incorrectPassword": "Nieprawidłowe hasło",
+    "repeatPassword": "Hasła muszą być takie same"
+  },
+
+  "placeholder": {
+    "email": "email{'@'}example.com"
+  }
+}
