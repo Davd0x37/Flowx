@@ -1,6 +1,5 @@
 import tailwindForms from '@tailwindcss/forms';
 import tailwindTypography from '@tailwindcss/typography';
-import daisyUI from 'daisyui';
 
 const APP_COLORS = {
   secondary: '#8dbe7e',
@@ -28,14 +27,5 @@ export default {
       },
     },
   },
-  // daisyui: {
-  //   themes: [
-  //     {
-  //       mytheme: {
-  //         ...APP_COLORS,
-  //       },
-  //     },
-  //   ],
-  // },
-  plugins: [/* daisyUI,  */ tailwindTypography, tailwindForms],
+  plugins: [tailwindTypography, tailwindForms],
 };

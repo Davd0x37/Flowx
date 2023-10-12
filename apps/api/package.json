@@ -30,9 +30,6 @@
     "dotenv": "^16.3.1",
     "fastify": "^4.23.2",
     "fastify-plugin": "^4.5.1",
-    "graphql": "^16.8.1",
-    "graphql-yoga": "^4.0.4",
-    "knex": "^2.5.1",
-    "zod": "^3.22.2"
+    "knex": "^2.5.1"
   }
 }
