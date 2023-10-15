@@ -10,7 +10,7 @@ const disableSidebar = computed(() => route.meta?.disableSidebar);
 
 <template>
   <div class="flex h-screen w-screen flex-row gap-6 font-sans text-base antialiased transition-colors">
-    <v-sidebar class="col-span-2 max-w-xs flex-1" v-if="!disableSidebar" />
+    <v-sidebar class="flex-1" v-if="!disableSidebar" />
 
     <div class="flex-1">
       <router-view></router-view>

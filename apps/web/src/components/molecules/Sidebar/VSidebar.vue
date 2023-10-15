@@ -8,11 +8,15 @@ const routes = getNestedRoutes(router.getRoutes());
 </script>
 
 <template>
-  <div class="bg-base-200 border-e border-e-gray-700 px-5 py-1 shadow-md">
-    <div class="space-y-2">
-      <div v-for="[_, route] of routes" :key="route.name">
-        <LinkRoute v-bind="{ route }" />
-      </div>
-    </div>
+  <div class="bg-base-200 max-w-xs border-e border-e-gray-700 px-5 py-1 shadow-md">
+    <ul class="menu gap-2">
+      <LinkRoute v-for="[_, route] of routes" :key="route.name" v-bind="{ route }" />
+    </ul>
   </div>
 </template>
+
+<style scoped>
+.menu :where(li ul):before {
+  display: none;
+}
+</style>

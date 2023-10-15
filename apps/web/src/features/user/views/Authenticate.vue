@@ -21,7 +21,7 @@ const handleRegister = (ev: UserRegisterInterface) => {
 </script>
 
 <template>
-  <div className="m-auto h-full max-w-lg p-5 pt-2 flex flex-col justify-center ">
+  <div className="m-auto h-full max-w-lg p-5 pt-2 flex flex-col justify-center">
     <h1 class="mb-6 text-center text-4xl font-bold">{{ authenticationModeTitle }}</h1>
 
     <LoginForm v-bind:onSubmit="handleLogin" v-if="loginMode"></LoginForm>
