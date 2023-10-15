@@ -10,7 +10,13 @@
       "register": "Rejestracja",
       "email": "@:user.email",
       "password": "@:user.password",
-      "repeatPassword": "Powtórz hasło"
+      "repeatPassword": "Powtórz hasło",
+      "recoverPassword": "Odzyskaj hasło",
+      "remember": "Zapamiętaj mnie",
+      "loginWith": {
+        "google": "Zaloguj się kontem Google",
+        "passkeys": "Zaloguj się używając Passkeys"
+      }
     }
   }
 }
