@@ -8,14 +8,14 @@ import { VInputLabel } from 'app/components';
 
 const props = defineProps<{
   onSubmit: (data: UserInterface) => void;
+  toggleMode: () => void;
 }>();
 
 const { t } = useI18n();
 const hasError = ref(false);
-const formData = reactive<UserInterface & { rememberMe: boolean }>({
+const formData = reactive<UserInterface>({
   email: '',
   password: '',
-  rememberMe: false,
 });
 
 const handleSubmit = (ev: Event) => {
@@ -26,6 +26,13 @@ const handleSubmit = (ev: Event) => {
 </script>
 
 <template>
+  <button class="btn btn-outline mt-6" type="button">
+    <Icon :icon="PassKey" height="20" />
+    <span class="hidden md:block">{{ t('user.authenticate.loginWith.passkeys') }}</span>
+  </button>
+
+  <span class="h-1px mb-6 mt-10 w-full border-t border-gray-700"></span>
+
   <form method="POST" action="/" @submit="handleSubmit">
     <div class="form-control gap-2">
       <VInputLabel
@@ -52,21 +59,22 @@ const handleSubmit = (ev: Event) => {
         :error-message="t('error.incorrectPassword')"
       />
 
-      <div class="block text-right">
-        <button class="btn btn-sm btn-link" type="button">{{ t('user.authenticate.recoverPassword') }}</button>
-      </div>
+      <!-- <div class="block text-right">
+        <button class="btn btn-sm btn-link normal-case" type="button">
+          {{ t('user.authenticate.recoverPassword') }}
+        </button>
+      </div> -->
 
-      <button class="btn btn-primary" type="submit">
+      <button class="btn btn-primary mt-4" type="submit">
         <Icon :icon="SignIn" height="20" />
         {{ t('button.login') }}
       </button>
+
+      <div class="block text-right">
+        <button class="btn btn-sm btn-link text-secondary justify-end normal-case" type="button" @click="toggleMode">
+          {{ t('user.authenticate.dontHaveAccountSignUp') }}
+        </button>
+      </div>
     </div>
   </form>
-
-  <span class="h-1px my-6 w-full border-t border-gray-700"></span>
-
-  <button class="btn btn-outline" type="submit">
-    <Icon :icon="PassKey" height="20" />
-    <span class="hidden md:block">{{ t('user.authenticate.loginWith.passkeys') }}</span>
-  </button>
 </template>

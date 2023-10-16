@@ -16,7 +16,9 @@
       "loginWith": {
         "google": "Zaloguj się kontem Google",
         "passkeys": "Zaloguj się używając Passkeys"
-      }
+      },
+      "dontHaveAccountSignUp": "Nie masz konta? Załóż je!",
+      "alreadyHaveAccountSignIn": "Masz już konto? Zaloguj się!"
     }
   }
 }

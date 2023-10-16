@@ -8,6 +8,7 @@ import { VInputLabel } from 'app/components';
 
 const props = defineProps<{
   onSubmit: (data: UserRegisterInterface) => void;
+  toggleMode: () => void;
 }>();
 
 const { t } = useI18n();
@@ -56,7 +57,7 @@ const handleSubmit = (ev: Event) => {
         id="repeatPassword"
         :label="t('user.authenticate.repeatPassword')"
         input-type="password"
-        v-model="formData.password"
+        v-model="formData.repeatPassword"
         minlength="8"
         autocomplete="new-password"
         required
@@ -68,6 +69,12 @@ const handleSubmit = (ev: Event) => {
         <Icon :icon="SignIn" height="20" />
         {{ t('button.createAccount') }}
       </button>
+
+      <div class="block text-right">
+        <button class="btn btn-sm btn-link text-secondary justify-end normal-case" type="button" @click="toggleMode">
+          {{ t('user.authenticate.alreadyHaveAccountSignIn') }}
+        </button>
+      </div>
     </div>
   </form>
 </template>

@@ -18,13 +18,17 @@ const handleLogin = (ev: UserInterface) => {
 const handleRegister = (ev: UserRegisterInterface) => {
   console.log(ev);
 };
+
+const toggleMode = () => {
+  loginMode.value = !loginMode.value;
+};
 </script>
 
 <template>
   <div className="m-auto h-full max-w-lg p-5 pt-2 flex flex-col justify-center">
     <h1 class="mb-6 text-center text-4xl font-bold">{{ authenticationModeTitle }}</h1>
 
-    <LoginForm v-bind:onSubmit="handleLogin" v-if="loginMode"></LoginForm>
-    <RegisterForm v-bind:onSubmit="handleRegister" v-else></RegisterForm>
+    <LoginForm v-if="loginMode" :onSubmit="handleLogin" :toggle-mode="toggleMode"></LoginForm>
+    <RegisterForm v-else :onSubmit="handleRegister" :toggle-mode="toggleMode"></RegisterForm>
   </div>
 </template>

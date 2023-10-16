@@ -24,7 +24,13 @@ const errorClass = computed(() => ({ 'input-error': props.showError }));
       <span v-if="labelTopRight" class="label-text">{{ labelTopRight }}</span>
     </label>
 
-    <input :id="id" :class="['input input-bordered w-full', errorClass]" :type="inputType" v-bind="$attrs" />
+    <input
+      :id="id"
+      :class="['input input-bordered w-full', errorClass]"
+      :type="inputType"
+      v-bind="$attrs"
+      @input="$emit('update:modelValue', $event.target.value)"
+    />
 
     <label class="label" v-if="showError">
       <span class="label-text-alt text-error">
