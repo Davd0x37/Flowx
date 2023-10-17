@@ -38,6 +38,6 @@
     // ?
     "maxNodeModuleJsDepth": 5
   },
-  "include": ["src", "src/knexfile.ts"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }
