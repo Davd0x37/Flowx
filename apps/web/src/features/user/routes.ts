@@ -18,6 +18,8 @@ router.addRoute({
       meta: {
         title: 'user.authenticate.title',
         icon: Auth,
+        disableSidebar: true,
+        // displayInNav: false
       },
     },
     {

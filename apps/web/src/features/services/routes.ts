@@ -1,4 +1,4 @@
-import { VaultClosed } from 'app/assets/icons';
+import { Vault } from 'app/assets/icons';
 import router from 'app/routes';
 import { ServiceList } from './views';
 
@@ -8,7 +8,7 @@ router.addRoute({
   component: ServiceList,
   meta: {
     title: 'services.title',
-    icon: VaultClosed,
+    icon: Vault,
   },
 });
 

@@ -4,35 +4,24 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev:ts-node": "node --loader ts-node/esm src/index.ts",
-    "dev": "nodemon --exec \"node --loader @swc-node/register/esm\" ./src/index.ts",
-    "knex:run": "NODE_OPTIONS='--loader ts-node/esm' knex --knexfile src/knexfile.ts",
-    "migrate:currentVersion": "pnpm knex:run migrate:currentVersion",
-    "migrate:up": "pnpm knex:run migrate:up",
-    "migrate:list": "pnpm knex:run migrate:list",
-    "migrate:make": "pnpm knex:run migrate:make",
-    "migrate:latest": "pnpm knex:run migrate:latest --debug",
-    "migrate:rollback": "pnpm knex:run migrate:rollback --all --debug",
-    "seed:make": "pnpm knex:run seed:make",
-    "seed:run": "pnpm knex:run seed:run --debug"
+    "dev": "nodemon --exec \"tsx\" ./src/index.ts",
+    "migrate:up": "tsx src/db/migrations.ts --up",
+    "migrate:rollback": "tsx src/db/migrations.ts --rollback"
   },
   "devDependencies": {
-    "@swc-node/register": "^1.6.8",
-    "@types/node": "^20.7.0",
+    "@types/better-sqlite3": "^7.6.6",
+    "@types/node": "^20.8.7",
     "nodemon": "^3.0.1",
-    "ts-node": "^10.9.1",
+    "tsx": "^3.14.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
     "@fastify/helmet": "^11.1.1",
     "@flowx/shared": "workspace:^",
-    "better-sqlite3": "^8.6.0",
+    "better-sqlite3": "^9.0.0",
     "dotenv": "^16.3.1",
-    "fastify": "^4.23.2",
+    "fastify": "^4.24.2",
     "fastify-plugin": "^4.5.1",
-    "graphql": "^16.8.1",
-    "graphql-yoga": "^4.0.4",
-    "knex": "^2.5.1",
-    "zod": "^3.22.2"
+    "kysely": "^0.26.3"
   }
 }

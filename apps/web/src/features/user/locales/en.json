@@ -10,7 +10,15 @@
       "register": "Register",
       "email": "@:user.email",
       "password": "@:user.password",
-      "repeatPassword": "Repeat password"
+      "repeatPassword": "Repeat password",
+      "recoverPassword": "Recover password",
+      "remember": "Remember me",
+      "loginWith": {
+        "google": "Sign in with Google",
+        "passkeys": "Sign in with Passkeys"
+      },
+      "dontHaveAccountSignUp": "Don't have account? Sign up",
+      "alreadyHaveAccountSignIn": "Already have account? Sign in!"
     }
   }
 }

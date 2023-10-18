@@ -10,9 +10,7 @@
   },
   "dependencies": {
     "@flowx/shared": "workspace:^",
-    "@tanstack/vue-query": "^4.35.6",
-    "@webcontainer/api": "^1.1.5",
-    "pinia": "^2.1.6",
+    "pinia": "^2.1.7",
     "vue": "^3.3.4",
     "vue-i18n": "^9.4.1",
     "vue-router": "^4.2.5"
@@ -23,13 +21,13 @@
     "@tailwindcss/typography": "^0.5.10",
     "@vitejs/plugin-vue": "^4.3.4",
     "autoprefixer": "^10.4.16",
-    "daisyui": "^3.8.1",
+    "daisyui": "^3.9.3",
     "postcss": "^8.4.30",
     "postcss-nested": "^6.0.1",
     "postcss-preset-env": "^9.1.4",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2",
-    "vite": "^4.4.9",
+    "vite": "^4.5.0",
     "vue-tsc": "^1.8.15"
   }
 }

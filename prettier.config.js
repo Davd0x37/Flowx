@@ -6,7 +6,11 @@ export default {
   singleQuote: true,
   tabWidth: 2,
   useTabs: false,
-  plugins: ['@trivago/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
+  plugins: [
+    // package.json - "@trivago/prettier-plugin-sort-imports": "^4.2.0",
+    // '@trivago/prettier-plugin-sort-imports',
+    'prettier-plugin-tailwindcss'
+  ],
   importOrder: [
     '^dotenv(.*)$',
     '^vue(.*)$',

@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { Icon } from '@iconify/vue';
 import { UserRegisterInterface } from '@flowx/shared';
-import { VButton, VInputLabel } from 'app/components';
+import { SignIn } from 'app/assets/icons';
+import { VInputLabel } from 'app/components';
 
 const props = defineProps<{
   onSubmit: (data: UserRegisterInterface) => void;
+  toggleMode: () => void;
 }>();
 
 const { t } = useI18n();
@@ -24,50 +27,54 @@ const handleSubmit = (ev: Event) => {
 </script>
 
 <template>
-  <form method="GET" action="/" @submit="handleSubmit">
-    <div class="flex flex-col space-y-4">
-      <div>
-        <VInputLabel
-          html-for="email"
-          input-type="email"
-          v-model="formData.email"
-          autocomplete="email"
-          required
-          :placeholder="t('placeholder.email')"
-          :show-error="hasError"
-          :error-message="t('error.userAlreadyExists')"
-          >{{ t('user.authenticate.email') }}</VInputLabel
-        >
-      </div>
+  <form method="POST" action="/" @submit="handleSubmit">
+    <div class="form-control gap-2">
+      <VInputLabel
+        id="email"
+        :label="t('user.authenticate.email')"
+        input-type="email"
+        v-model="formData.email"
+        autocomplete="email"
+        required
+        :placeholder="t('placeholder.email')"
+        :show-error="hasError"
+        :error-message="t('error.userAlreadyExists')"
+      />
 
-      <div>
-        <VInputLabel
-          html-for="password"
-          input-type="password"
-          v-model="formData.password"
-          minlength="8"
-          autocomplete="new-password"
-          required
-          :show-error="hasError"
-          :error-message="t('error.incorrectPassword')"
-          >{{ t('user.authenticate.password') }}</VInputLabel
-        >
-      </div>
+      <VInputLabel
+        id="password"
+        :label="t('user.authenticate.password')"
+        input-type="password"
+        v-model="formData.password"
+        minlength="8"
+        autocomplete="new-password"
+        required
+        :show-error="hasError"
+        :error-message="t('error.incorrectPassword')"
+      />
 
-      <div>
-        <VInputLabel
-          html-for="repeatPassword"
-          input-type="password"
-          v-model="formData.password"
-          minlength="8"
-          autocomplete="new-password"
-          required
-          :show-error="hasError"
-          :error-message="t('error.incorrectPassword')"
-          >{{ t('user.authenticate.repeatPassword') }}</VInputLabel
-        >
+      <VInputLabel
+        id="repeatPassword"
+        :label="t('user.authenticate.repeatPassword')"
+        input-type="password"
+        v-model="formData.repeatPassword"
+        minlength="8"
+        autocomplete="new-password"
+        required
+        :show-error="hasError"
+        :error-message="t('error.incorrectPassword')"
+      />
+
+      <button class="btn btn-primary mt-4" type="submit">
+        <Icon :icon="SignIn" height="20" />
+        {{ t('button.createAccount') }}
+      </button>
+
+      <div class="block text-right">
+        <button class="btn btn-sm btn-link text-secondary justify-end normal-case" type="button" @click="toggleMode">
+          {{ t('user.authenticate.alreadyHaveAccountSignIn') }}
+        </button>
       </div>
     </div>
-    <VButton class="mt-6 w-full" type="submit">{{ t('button.createAccount') }}</VButton>
   </form>
 </template>

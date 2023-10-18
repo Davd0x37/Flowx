@@ -8,6 +8,7 @@
         :key="idx"
         type="button"
         :class="[
+          linkClass,
           'tab tab-bordered tab-lg hover:text-secondary [&.tab-active]:text-secondary [&.tab-active]:!border-secondary text-sm font-semibold',
           { 'tab-active': id === activeTab },
         ]"

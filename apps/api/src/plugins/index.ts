@@ -1,3 +1,3 @@
-import knex from './knex';
+import kysely from './kysely';
 
-export default [knex];
+export default [kysely];

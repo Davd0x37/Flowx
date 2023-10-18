@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 import { RouteRecordNormalized, RouteRecordRaw } from 'vue-router';
-import { VLink } from 'app/components';
+import { VButtonLink } from 'app/components';
 import VSidebarGroup from './VSidebarGroup.vue';
 import VSidebarRoute from './VSidebarRoute.vue';
 
@@ -22,19 +22,17 @@ const routeIcon = (props.route.meta?.icon as string) || '';
 </script>
 
 <template>
-  <div v-if="childRoutesLength > 0">
-    <VSidebarGroup :icon="routeIcon" v-if="routeTitle" :title="t(routeTitle)">
+  <li v-if="routeTitle && childRoutesLength > 0">
+    <VSidebarGroup :icon="routeIcon" :title="t(routeTitle)">
       <VSidebarRoute v-for="[_, item] in route.children?.entries()" :key="item.name" :route="item" />
     </VSidebarGroup>
-  </div>
+  </li>
 
-  <VLink
-    v-else
-    :to="{
-      name: route.name,
-    }"
-    :icon="route?.meta?.icon"
-    v-if="routeTitle"
-    >{{ t(routeTitle) }}</VLink
-  >
+  <li v-else>
+    <!-- <span class="tooltip tooltip-right" :data-tip="t(routeTitle)"> -->
+    <VButtonLink :to="{ name: route.name }" :icon="route?.meta?.icon" v-if="routeTitle">
+      <span class="[.--collapsed_&]:hidden">{{ t(routeTitle) }}</span>
+    </VButtonLink>
+    <!-- </span> -->
+  </li>
 </template>
