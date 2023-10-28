@@ -6,11 +6,13 @@
   "scripts": {
     "dev": "nodemon --exec \"tsx\" ./src/index.ts",
     "migrate:up": "tsx src/db/migrations.ts --up",
-    "migrate:rollback": "tsx src/db/migrations.ts --rollback"
+    "migrate:rollback": "tsx src/db/migrations.ts --rollback",
+    "lint": "eslint --config .eslintrc.cjs src",
+    "lint:fix": "eslint --fix --config .eslintrc.cjs src"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.6",
-    "@types/node": "^20.8.7",
+    "@types/node": "^20.8.9",
     "nodemon": "^3.0.1",
     "tsx": "^3.14.0",
     "typescript": "^5.2.2"
@@ -20,7 +22,7 @@
     "@flowx/shared": "workspace:^",
     "better-sqlite3": "^9.0.0",
     "dotenv": "^16.3.1",
-    "fastify": "^4.24.2",
+    "fastify": "^4.24.3",
     "fastify-plugin": "^4.5.1",
     "kysely": "^0.26.3"
   }

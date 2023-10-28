@@ -12,6 +12,7 @@ export function setLocaleLang(locale: LocaleType) {
 }
 
 // @FIXME: add proper typer
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const installLocale = (locale: LocaleType, messages: any) => {
   i18n.global.mergeLocaleMessage(locale, messages);
 };

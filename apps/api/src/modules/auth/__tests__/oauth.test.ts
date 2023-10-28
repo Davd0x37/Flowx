@@ -38,27 +38,27 @@ const authOptions: OAuthAuthorizeParameters = {
   scope: ['user', 'email'],
 };
 
-const redirectedURLWithCode = `http://localhost:5173/authorize/spotify?code=ultra_secret_code&state=secret_state`;
-const redirectedURLWithError = `http://localhost:5173/authorize/spotify?code=ultra_secret_code&state=secret_state`;
+// const redirectedURLWithCode = `http://localhost:5173/authorize/spotify?code=ultra_secret_code&state=secret_state`;
+// const redirectedURLWithError = `http://localhost:5173/authorize/spotify?code=ultra_secret_code&state=secret_state`;
 
 const auth = new OAuth2(serviceOptions, Fetch);
 
 let codeGlobal: string;
 let challengeGlobal: OAuthCodeChallengeStruct;
-let urlGlobal: string | null;
+// let urlGlobal: string | null;
 
 beforeEach(async () => {
   codeGlobal = auth.generateCodeVerifier();
   challengeGlobal = await auth.generatePKCECodeChallenge(codeGlobal);
 
-  const { codeChallenge, codeChallengeMethod } = challengeGlobal;
+  // const { codeChallenge, codeChallengeMethod } = challengeGlobal;
 
-  urlGlobal = auth.getAuthorizeURL({
-    ...authOptions,
-    state: 'secret_state',
-    codeChallenge,
-    codeChallengeMethod,
-  });
+  // urlGlobal = auth.getAuthorizeURL({
+  //   ...authOptions,
+  //   state: 'secret_state',
+  //   codeChallenge,
+  //   codeChallengeMethod,
+  // });
 });
 
 describe('Test OAuth service', () => {
@@ -83,6 +83,7 @@ describe('Test OAuth service', () => {
     expect.assertions(3);
 
     try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       await auth.generatePKCECodeChallenge(null as any);
     } catch (error) {
       expect(error).toBeInstanceOf(AppError);

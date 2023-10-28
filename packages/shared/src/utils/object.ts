@@ -4,7 +4,7 @@ export const Obj = {
   get: (input: Record<PropertyKey, unknown>, selector: string): unknown | null => {
     const parsed = selector.split('.');
     const [el, ...rest] = parsed;
-    const isArrElem = typeof el === 'string' && isArr(el) ? parseInt(el.slice(1, -1)) : el;
+    const isArrElem = isArr(el) ? parseInt(el.slice(1, -1)) : el;
 
     if (parsed.length == 0) return null;
     if (!(isArrElem in input)) return null;
