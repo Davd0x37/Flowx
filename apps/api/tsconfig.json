@@ -1,12 +1,7 @@
 {
-  "ts-node": {
-    "esm": true,
-    "experimentalSpecifierResolution": "node"
-  },
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-
     // Build options
     "declaration": true,
     "useDefineForClassFields": true,
@@ -18,8 +13,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
-
+    "maxNodeModuleJsDepth": 5,
     // Linting
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
@@ -28,15 +22,11 @@
     "noFallthroughCasesInSwitch": true,
     "strict": true,
     "skipLibCheck": true,
-
     // Paths
     "baseUrl": ".",
     "paths": {
       "app/*": ["./src/*"]
-    },
-
-    // ?
-    "maxNodeModuleJsDepth": 5
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules"]

@@ -7,13 +7,13 @@ defineProps<{ icon?: string | unknown; iconSettings?: Omit<IconProps, 'icon'>; t
 
 <template>
   <router-link
+    v-slot="{ isActive, isExactActive }"
     :to="to"
     exact-active-class="active"
-    v-slot="{ isActive, isExactActive }"
     class="flex items-center gap-3"
   >
     <Icon v-if="icon" :icon="icon as string" width="22" v-bind="iconSettings" />
 
-    <span class="text-sm font-medium"><slot :isActive="isActive" :isExactActive="isExactActive"></slot></span>
+    <span class="text-sm font-medium"><slot :is-active="isActive" :is-exact-active="isExactActive"></slot></span>
   </router-link>
 </template>

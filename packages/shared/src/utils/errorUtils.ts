@@ -49,6 +49,7 @@ export class BaseError<T extends string> extends Error {
 }
 
 export class RuntimeAppError extends BaseError<RUNTIME_ERRORS> {}
+
 export class AppError extends BaseError<APP_ERRORS> {}
 
 function printAdditionals(params: DebugParams) {

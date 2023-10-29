@@ -5,7 +5,7 @@ defineProps<{ to: RouteLocationRaw }>();
 </script>
 
 <template>
-  <router-link :to="to" exact-active-class="active" class="btn btn-link" v-slot="{ isActive, isExactActive }">
-    <span class="text-sm font-medium"><slot :isActive="isActive" :isExactActive="isExactActive"></slot></span>
+  <router-link v-slot="{ isActive, isExactActive }" :to="to" exact-active-class="active" class="btn btn-link">
+    <span class="text-sm font-medium"><slot :is-active="isActive" :is-exact-active="isExactActive"></slot></span>
   </router-link>
 </template>

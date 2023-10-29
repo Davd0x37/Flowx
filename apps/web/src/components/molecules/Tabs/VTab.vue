@@ -1,5 +1,5 @@
 <template>
-  <div :id="computedId" v-if="isActiveTab">
+  <div v-if="isActiveTab" :id="computedId">
     <slot />
   </div>
 </template>

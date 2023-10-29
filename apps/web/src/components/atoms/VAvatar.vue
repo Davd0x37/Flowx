@@ -8,6 +8,7 @@ withDefaults(
   {
     title: 'Avatar',
     placeholder: true,
+    url: '',
   },
 );
 </script>

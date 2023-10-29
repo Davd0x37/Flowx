@@ -7,9 +7,12 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "test": "vitest"
+    "test": "vitest",
+    "lint": "eslint --ext .ts,.vue,.tsx src",
+    "lint:fix": "pnpm lint --fix"
   },
   "devDependencies": {
+    "@flowx/eslint-config-flowx": "workspace:^",
     "typescript": "^5.2.2",
     "vite": "^4.5.0",
     "vitest": "^0.34.5"

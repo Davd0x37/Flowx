@@ -30,7 +30,7 @@ const routeIcon = (props.route.meta?.icon as string) || '';
 
   <li v-else>
     <!-- <span class="tooltip tooltip-right" :data-tip="t(routeTitle)"> -->
-    <VButtonLink :to="{ name: route.name }" :icon="route?.meta?.icon" v-if="routeTitle">
+    <VButtonLink v-if="routeTitle" :to="{ name: route.name }" :icon="route?.meta?.icon">
       <span class="[.--collapsed_&]:hidden">{{ t(routeTitle) }}</span>
     </VButtonLink>
     <!-- </span> -->

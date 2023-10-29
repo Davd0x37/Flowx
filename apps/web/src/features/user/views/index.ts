@@ -1,4 +1,4 @@
-import Authenticate from './Authenticate.vue';
+import Authenticate from './AuthenticateView.vue';
 import UserDefault from './UserDefault.vue';
 import UserDetails from './UserDetails.vue';
 import UserSettings from './UserSettings.vue';

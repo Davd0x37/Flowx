@@ -8,7 +8,7 @@
     // Build options
     "declaration": true,
     "useDefineForClassFields": true,
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "incremental": true,
     "noEmit": true,
     "isolatedModules": true,

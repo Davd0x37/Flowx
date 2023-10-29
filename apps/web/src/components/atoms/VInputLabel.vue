@@ -14,6 +14,8 @@ const props = defineProps<{
   errorMessage?: string;
 }>();
 
+defineEmits(['update:modelValue']);
+
 const errorClass = computed(() => ({ 'input-error': props.showError }));
 </script>
 
@@ -32,9 +34,9 @@ const errorClass = computed(() => ({ 'input-error': props.showError }));
       @input="$emit('update:modelValue', $event.target.value)"
     />
 
-    <label class="label" v-if="showError">
+    <label v-if="showError" class="label">
       <span class="label-text-alt text-error">
-        <Icon :icon="errorIcon || Warning" fontSize="1rem" class="mr-1 inline-block" />
+        <Icon :icon="errorIcon || Warning" font-size="1rem" class="mr-1 inline-block" />
         <span>{{ errorMessage }}</span>
       </span>
 

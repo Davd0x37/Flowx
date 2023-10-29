@@ -1,0 +1,22 @@
+{
+  "name": "@flowx/eslint-config-flowx",
+  "exports": {
+    ".": "./typescript.js",
+    "./vue": "./vue.js"
+  },
+  "devDependencies": {
+    "@graphql-eslint/eslint-plugin": "^3.20.1",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard-with-typescript": "^39.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-vue": "^9.18.1",
+    "prettier": "3.0.3",
+    "typescript": "5.2.2",
+    "vue-eslint-parser": "^9.3.1"
+  }
+}

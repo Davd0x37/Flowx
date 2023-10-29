@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "extends": [
+    "@flowx/eslint-config-flowx"
+  ],
+  "parserOptions": {
+    "tsconfigRootDir": "./",
+    "project": "./tsconfig.json"
+  },
+  "ignorePatterns": [
+    ".eslintrc",
+    "tsconfig.json"
+  ]
+}
