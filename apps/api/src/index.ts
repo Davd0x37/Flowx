@@ -1,5 +1,7 @@
 import 'dotenv/config';
+import FastifyFormBody from '@fastify/formbody';
 import helmet from '@fastify/helmet';
+// import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import Fastify from 'fastify';
 import Plugins from './plugins';
 import Routes from './routes';
@@ -8,9 +10,13 @@ import Routes from './routes';
 const fastify = Fastify({
   logger: true,
 });
+// .withTypeProvider<TypeBoxTypeProvider>();
 
 // Register security/logging/other plugins
 fastify.register(helmet);
+
+// Multipart form body handler
+fastify.register(FastifyFormBody);
 
 // Register plugins (database, fetch, auth, etc.)
 Plugins.forEach((plugin) => {
@@ -22,15 +28,11 @@ Routes.forEach((route) => {
   fastify.register(route);
 });
 
-fastify.get('/', async (_request, _reply) => {
-  return { hello: 'world' };
-});
-
-(async () => {
-  try {
-    await fastify.listen({ port: 3000 });
-  } catch (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
-})();
+// (async () => {
+try {
+  await fastify.listen({ port: 3000 });
+} catch (err) {
+  fastify.log.error(err);
+  process.exit(1);
+}
+// })();

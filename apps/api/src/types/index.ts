@@ -1,5 +1,5 @@
-import { UserTable } from 'app/models/user.model';
+import { UserModel } from 'app/models/user.model';
 
 export interface Database {
-  user: UserTable;
+  user: UserModel;
 }

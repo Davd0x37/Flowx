@@ -17,3 +17,5 @@ export const sqliteDialect = new SqliteDialect({
 export const db = new Kysely<Database>({
   dialect: sqliteDialect,
 });
+
+export type DBType = typeof db;

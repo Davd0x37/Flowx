@@ -1,6 +1,7 @@
+import { Type } from '@sinclair/typebox';
 import { ColumnType, Generated, Insertable, Selectable, Updateable } from 'kysely';
 
-export interface UserTable {
+export interface UserModel {
   // Used to distinguish the user
   id: Generated<number>;
 
@@ -26,6 +27,12 @@ export interface UserTable {
   // lastActive: Date;
 }
 
-export type User = Selectable<UserTable>;
-export type NewUser = Insertable<UserTable>;
-export type UpdateUser = Updateable<UserTable>;
+export const NewUserRouteScheme = Type.Object({
+  login: Type.String(),
+  password: Type.String(),
+  avatar: Type.Optional(Type.String()),
+});
+
+export type User = Selectable<UserModel>;
+export type NewUser = Insertable<UserModel>;
+export type UpdateUser = Updateable<UserModel>;

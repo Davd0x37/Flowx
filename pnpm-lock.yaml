@@ -38,12 +38,21 @@ importers:
 
   apps/api:
     dependencies:
+      '@fastify/formbody':
+        specifier: ^7.4.0
+        version: 7.4.0
       '@fastify/helmet':
         specifier: ^11.1.1
         version: 11.1.1
+      '@fastify/type-provider-typebox':
+        specifier: ^3.5.0
+        version: 3.5.0(@sinclair/typebox@0.31.21)
       '@flowx/shared':
         specifier: workspace:^
         version: link:../../packages/shared
+      '@sinclair/typebox':
+        specifier: ^0.31.21
+        version: 0.31.21
       better-sqlite3:
         specifier: ^9.0.0
         version: 9.0.0
@@ -1067,11 +1076,26 @@ packages:
       fast-json-stringify: 5.8.0
     dev: false
 
+  /@fastify/formbody@7.4.0:
+    resolution: {integrity: sha512-H3C6h1GN56/SMrZS8N2vCT2cZr7mIHzBHzOBa5OPpjfB/D6FzP9mMpE02ZzrFX0ANeh0BAJdoXKOF2e7IbV+Og==}
+    dependencies:
+      fast-querystring: 1.1.2
+      fastify-plugin: 4.5.1
+    dev: false
+
   /@fastify/helmet@11.1.1:
     resolution: {integrity: sha512-pjJxjk6SLEimITWadtYIXt6wBMfFC1I6OQyH/jYVCqSAn36sgAIFjeNiibHtifjCd+e25442pObis3Rjtame6A==}
     dependencies:
       fastify-plugin: 4.5.1
       helmet: 7.0.0
+    dev: false
+
+  /@fastify/type-provider-typebox@3.5.0(@sinclair/typebox@0.31.21):
+    resolution: {integrity: sha512-f48uGzvLflE/y4pvXOS8qjAC+mZmlqev9CPHnB8NDsBSL4EbeydO61IgPuzOkeNlAYeRP9Y56UOKj1XWFibgMw==}
+    peerDependencies:
+      '@sinclair/typebox': '>=0.26 <=0.31'
+    dependencies:
+      '@sinclair/typebox': 0.31.21
     dev: false
 
   /@graphql-eslint/eslint-plugin@3.20.1(@babel/core@7.23.2)(graphql@16.8.1):
@@ -1509,6 +1533,10 @@ packages:
   /@sinclair/typebox@0.27.8:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
+
+  /@sinclair/typebox@0.31.21:
+    resolution: {integrity: sha512-Wtq/K44EMkREaXytK+2c5DrygtYsH7ZxT0StQL8HMJz2BoOM7NZ/xfrUFBVuZxDrhJCoXf5Im282P2CCz5DHwQ==}
+    dev: false
 
   /@tailwindcss/forms@0.5.6(tailwindcss@3.3.5):
     resolution: {integrity: sha512-Fw+2BJ0tmAwK/w01tEFL5TiaJBX1NLT1/YbWgvm7ws3Qcn11kiXxzNTEQDMs5V3mQemhB56l3u0i9dwdzSQldA==}
