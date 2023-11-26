@@ -12,19 +12,19 @@
   },
   "devDependencies": {
     "@flowx/eslint-config-flowx": "workspace:^",
-    "@types/better-sqlite3": "^7.6.6",
-    "@types/node": "^20.8.9",
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/node": "^20.10.0",
     "nodemon": "^3.0.1",
-    "tsx": "^3.14.0",
-    "typescript": "^5.2.2"
+    "tsx": "^4.5.0",
+    "typescript": "^5.3.2"
   },
   "dependencies": {
     "@fastify/formbody": "^7.4.0",
     "@fastify/helmet": "^11.1.1",
     "@fastify/type-provider-typebox": "^3.5.0",
     "@flowx/shared": "workspace:^",
-    "@sinclair/typebox": "^0.31.21",
-    "better-sqlite3": "^9.0.0",
+    "@sinclair/typebox": "^0.31.28",
+    "better-sqlite3": "^9.1.1",
     "dotenv": "^16.3.1",
     "fastify": "^4.24.3",
     "fastify-plugin": "^4.5.1",

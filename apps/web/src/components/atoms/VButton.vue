@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// @FIXME: check why v-bind adds class attribute twice
+// 
 </script>
 
 <template>
