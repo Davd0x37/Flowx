@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n';
 import { Icon } from '@iconify/vue';
 import { UserInterface } from '@flowx/shared';
 import { PassKey, SignIn } from 'app/assets/icons';
-import { VInputLabel } from 'app/components';
+import { VButton, VInputLabel } from 'app/components';
 
 const props = defineProps<{
   onSubmit: (data: UserInterface) => void;
@@ -26,10 +26,10 @@ const handleSubmit = (ev: Event) => {
 </script>
 
 <template>
-  <button class="btn btn-outline mt-6" type="button">
+  <VButton class="mt-6" outline>
     <Icon :icon="PassKey" height="20" />
     <span class="hidden md:block">{{ t('user.authenticate.loginWith.passkeys') }}</span>
-  </button>
+  </VButton>
 
   <span class="h-1px mb-6 mt-10 w-full border-t border-gray-700"></span>
 
@@ -65,15 +65,15 @@ const handleSubmit = (ev: Event) => {
         </button>
       </div> -->
 
-      <button class="btn btn-primary mt-4" type="submit">
+      <VButton class="mt-4" color="primary" type="submit">
         <Icon :icon="SignIn" height="20" />
         {{ t('button.login') }}
-      </button>
+      </VButton>
 
       <div class="block text-right">
-        <button class="btn btn-sm btn-link text-secondary justify-end normal-case" type="button" @click="toggleMode">
+        <VButton class="mt-4" color="link" size="sm" type="button" @click="toggleMode">
           {{ t('user.authenticate.dontHaveAccountSignUp') }}
-        </button>
+        </VButton>
       </div>
     </div>
   </form>
