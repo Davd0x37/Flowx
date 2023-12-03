@@ -14,7 +14,7 @@
     "@flowx/shared": "workspace:^",
     "pinia": "^2.1.7",
     "vue": "^3.3.9",
-    "vue-i18n": "^9.7.1",
+    "vue-i18n": "^9.8.0",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
@@ -22,15 +22,15 @@
     "@iconify/vue": "^4.1.1",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
-    "@vitejs/plugin-vue": "^4.5.0",
+    "@vitejs/plugin-vue": "^4.5.1",
     "autoprefixer": "^10.4.16",
-    "daisyui": "^4.4.9",
-    "postcss": "^8.4.30",
+    "daisyui": "^4.4.17",
+    "postcss": "^8.4.32",
     "postcss-nested": "^6.0.1",
     "postcss-preset-env": "^9.3.0",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.3.2",
-    "vite": "^5.0.2",
-    "vue-tsc": "^1.8.22"
+    "vite": "^5.0.4",
+    "vue-tsc": "^1.8.24"
   }
 }
