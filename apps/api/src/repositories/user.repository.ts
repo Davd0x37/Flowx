@@ -1,6 +1,8 @@
 import { debugError } from '@flowx/shared';
+
 import { db } from 'app/db';
 import { NewUser, UpdateUser, User, UserModel } from 'app/models/user.model';
+
 import { BaseRepository } from './base.repository';
 
 export default class UserRepository implements BaseRepository<UserModel> {

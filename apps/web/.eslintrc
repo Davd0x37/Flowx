@@ -1,15 +1,9 @@
 {
   "root": true,
-  "extends": [
-    "@flowx/eslint-config-flowx/vue"
-  ],
+  "extends": ["@flowx/eslint-config-flowx/react"],
   "parserOptions": {
     "tsconfigRootDir": "./",
     "project": "./tsconfig.json"
-    //    extraFileExtensions: ['.vue']
   },
-  "ignorePatterns": [
-    ".eslintrc",
-    "tsconfig.json"
-  ]
+  "ignorePatterns": [".eslintrc", "tsconfig.json"]
 }

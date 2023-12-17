@@ -2,6 +2,7 @@ import SQLite from 'better-sqlite3';
 import { Kysely, SqliteDialect } from 'kysely';
 import { resolve } from 'path';
 import { fileURLToPath } from 'url';
+
 import { type Database } from 'app/types';
 
 export const __dbDirname = fileURLToPath(new URL('.', import.meta.url));

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { Obj } from '../object';
 
 const TEST_OBJ = {

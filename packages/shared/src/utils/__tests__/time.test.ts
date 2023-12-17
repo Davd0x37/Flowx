@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { isExpired } from '../time';
 
 const expires = 3600; // 1 hour

@@ -1,6 +1,8 @@
 import { AppError, RequestBuilder, URLBuilder, base64UrlEncodeAB, debug, resolveUrl } from '@flowx/shared';
 import type { ResultWrapper } from '@flowx/shared';
+
 import type { RequestClient } from 'app/lib/fetch';
+
 import { generateRandomValue, hash } from '../crypto';
 import type {
   CodeChallengeMethodType,

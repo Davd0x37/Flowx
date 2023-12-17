@@ -28,11 +28,7 @@
 
     // Paths
     "baseUrl": ".",
-    //    "paths": {
-    //      "app/*": ["./src/*"]
-    //    },
 
-    // ?
     "maxNodeModuleJsDepth": 5
   },
   "include": ["src"],

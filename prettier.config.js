@@ -9,13 +9,15 @@ export default {
   plugins: ['@trivago/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
   importOrder: [
     '^dotenv(.*)$',
+    '^react(.*)$',
     '^vue(.*)$',
     '<THIRD_PARTY_MODULES>',
     '^@flowx/(.*)$',
     '^app/(.*)$',
+    '^features/(.*)$',
     '^[./].*(?<!\\.(c|sc)ss)$',
     '(c|sc)ss$',
   ],
-  importOrderSeparation: false,
+  importOrderSeparation: true,
   importOrderSortSpecifiers: true,
 };

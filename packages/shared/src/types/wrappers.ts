@@ -1,4 +1,4 @@
-export interface ResultWrapper<T> {
+export interface ResultWrapper<T, E> {
   data?: T;
-  error?: unknown;
+  error?: E;
 }

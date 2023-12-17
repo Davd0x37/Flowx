@@ -1,0 +1,19 @@
+{
+  "Email": "Email",
+  "Password": "Password",
+  "Login": "Login",
+  "Logout": "Logout",
+  "Register": "Register",
+  "Repeat password": "Repeat password",
+  "Recover password": "Recover password",
+  "Create account": "Create account",
+  "Remember me": "Remember me",
+  "Passwords doesn't match": "Passwords doesn't match",
+  "User already exists": "User already exists",
+  "Sign in with Google": "Sign in with Google",
+  "Sign in with Passkeys": "Sign in with Passkeys",
+  "Don't have account? Sign up!": "Don't have account? Sign up!",
+  "Already have account? Sign in!": "Already have account? Sign in!",
+  "Your email address used to login into app": "Your email address used to login into app",
+  "Your super secret password that will allow you to use the app": "Your super secret password that will allow you to use the app"
+}

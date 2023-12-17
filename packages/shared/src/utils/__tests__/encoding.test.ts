@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { arrayBufferToString, base64UrlEncode, base64UrlEncodeAB, stringToArrayBuffer } from '../encoding';
 
 const exampleText = 'text_to_encode';

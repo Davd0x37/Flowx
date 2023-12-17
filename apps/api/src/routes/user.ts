@@ -1,6 +1,7 @@
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import { Type } from '@sinclair/typebox';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
+
 import { NewUserRouteScheme } from 'app/models/user.model';
 import UserRepository from 'app/repositories/user.repository';
 

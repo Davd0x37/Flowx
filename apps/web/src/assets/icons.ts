@@ -1,12 +1,33 @@
-export const Warning = 'majesticons:alert-circle-line';
-export const Home = 'majesticons:home-line';
-export const Auth = 'majesticons:scan-user-line';
-export const Settings = 'majesticons:settings-cog';
-export const Profile = 'majesticons:user';
-export const Code = 'majesticons:code';
-export const Vault = 'majesticons:box-line';
-export const ChevronUp = 'majesticons:chevron-up';
-export const ChevronDown = 'majesticons:chevron-down';
-export const PassKey = 'octicon:passkey-fill-24';
-export const SignOut = 'octicon:sign-out-16';
-export const SignIn = 'octicon:sign-in-16';
+import PassKey from '~icons/octicon/passkey-fill-24';
+import Warning from '~icons/tabler/alert-circle';
+import ArrowLeft from '~icons/tabler/arrow-left';
+import ArrowRight from '~icons/tabler/arrow-right';
+import Box from '~icons/tabler/box';
+import ChevronDown from '~icons/tabler/chevron-down';
+import ChevronUp from '~icons/tabler/chevron-up';
+import Code from '~icons/tabler/code-dots';
+import Home from '~icons/tabler/home';
+import Login from '~icons/tabler/login';
+import Logout from '~icons/tabler/logout';
+import Reload from '~icons/tabler/reload';
+import Settings from '~icons/tabler/settings';
+import User from '~icons/tabler/user';
+import Auth from '~icons/tabler/user-scan';
+
+export {
+  Warning,
+  Home,
+  Auth,
+  Settings,
+  User,
+  Code,
+  Box,
+  ChevronUp,
+  ChevronDown,
+  ArrowLeft,
+  ArrowRight,
+  Reload,
+  PassKey,
+  Logout,
+  Login,
+};

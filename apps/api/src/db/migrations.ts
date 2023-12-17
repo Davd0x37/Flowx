@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs';
 import { FileMigrationProvider, Migrator } from 'kysely';
 import * as path from 'path';
+
 import { __dbDirname, db } from './database';
 
 const migrationFolder = path.resolve(__dbDirname, 'migrations');
