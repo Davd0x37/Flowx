@@ -4,33 +4,26 @@ import { useTranslation } from 'react-i18next';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { Button } from 'app/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from 'app/components/ui/form';
-import { Input } from 'app/components/ui/input';
-import { UserRegisterForm, UserRegisterFormModel } from 'app/features/user/models/user.model';
+import { UserRegisterForm } from 'app/features/user/models/user.model';
+
+import { Button } from 'ui/button';
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from 'ui/form';
+import { Input } from 'ui/input';
 
 type Props = {
-  onSubmit: (data: UserRegisterFormModel) => void;
+  onSubmit: (data: UserRegisterForm) => void;
   toggleMode: () => void;
 };
 
 const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
   const { t } = useTranslation('user');
 
-  const form = useForm<UserRegisterFormModel>({
+  const form = useForm<UserRegisterForm>({
     resolver: zodResolver(UserRegisterForm),
     defaultValues: {
       email: '',
       password: '',
-      repeatPassword: '',
+      confirmPassword: '',
     },
   });
 
@@ -70,7 +63,7 @@ const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
 
           <FormField
             control={form.control}
-            name="repeatPassword"
+            name="confirmPassword"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>{t('Repeat password')}</FormLabel>

@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 import { nanoid } from 'nanoid';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'app/components/ui/accordion';
 import { type SidebarItem, SidebarLinkList } from 'app/config/routes';
 import { cn } from 'app/utils/classNames';
 
-import { Button, buttonVariants } from '../ui/button';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'ui/accordion';
+import { Button, buttonVariants } from 'ui/button';
 
 type Props = {};
 

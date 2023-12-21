@@ -5,29 +5,22 @@ import { useTranslation } from 'react-i18next';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { PassKey } from 'app/assets/icons';
-import { Button } from 'app/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from 'app/components/ui/form';
-import { Input } from 'app/components/ui/input';
-import { Separator } from 'app/components/ui/separator';
-import { UserForm, UserFormModel } from 'app/features/user/models/user.model';
+import { UserForm } from 'app/features/user/models/user.model';
+
+import { Button } from 'ui/button';
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from 'ui/form';
+import { Input } from 'ui/input';
+import { Separator } from 'ui/separator';
 
 type Props = {
-  onSubmit: (data: UserFormModel) => void;
+  onSubmit: (data: UserForm) => void;
   toggleMode: () => void;
 };
 
 const LoginForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
   const { t } = useTranslation('user');
 
-  const form = useForm<UserFormModel>({
+  const form = useForm<UserForm>({
     resolver: zodResolver(UserForm),
     defaultValues: {
       email: '',

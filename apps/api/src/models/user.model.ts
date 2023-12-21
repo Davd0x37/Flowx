@@ -1,4 +1,3 @@
-import { Type } from '@sinclair/typebox';
 import { ColumnType, Generated, Insertable, Selectable, Updateable } from 'kysely';
 
 export interface UserModel {
@@ -26,12 +25,6 @@ export interface UserModel {
   // Date of last activity
   // lastActive: Date;
 }
-
-export const NewUserRouteScheme = Type.Object({
-  login: Type.String(),
-  password: Type.String(),
-  avatar: Type.Optional(Type.String()),
-});
 
 export type User = Selectable<UserModel>;
 export type NewUser = Insertable<UserModel>;

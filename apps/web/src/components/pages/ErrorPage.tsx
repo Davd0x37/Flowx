@@ -1,5 +1,6 @@
 import { Reload } from 'app/assets/icons';
-import { Button } from 'app/components/ui/button';
+
+import { Button } from 'ui/button';
 
 const ErrorPage = () => {
   const refreshPage = () => window.location.reload();

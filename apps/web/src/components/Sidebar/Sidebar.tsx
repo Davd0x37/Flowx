@@ -7,8 +7,9 @@ import useUserStore from 'app/features/user/stores/user';
 import { cn } from 'app/utils/classNames';
 import { getAcronyms } from 'app/utils/strings';
 
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { Button } from '../ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from 'ui/avatar';
+import { Button } from 'ui/button';
+
 import SidebarLinks from './SidebarLinks';
 
 type Props = {

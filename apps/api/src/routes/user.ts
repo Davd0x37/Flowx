@@ -1,9 +1,9 @@
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
-import { Type } from '@sinclair/typebox';
+// import { Value } from '@sinclair/typebox/value';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 
-import { NewUserRouteScheme } from 'app/models/user.model';
 import UserRepository from 'app/repositories/user.repository';
+import { NewUserRouteScheme, UserID } from 'app/types';
 
 export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
   const fastifyTypeBox = fastify.withTypeProvider<TypeBoxTypeProvider>();
@@ -15,61 +15,36 @@ export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) 
     response.send(users);
   });
 
-  fastifyTypeBox.get(
-    '/users/:userId',
-    {
-      schema: {
-        params: Type.Object({ userId: Type.Number() }),
-      },
-    },
-    async (request, response) => {
-      const { userId } = request.params;
+  fastifyTypeBox.get<{ Params: UserID }>('/users/:userId', async (request, response) => {
+    const { userId } = request.params;
 
-      const user = await userRepo.read(userId);
+    const user = await userRepo.read(userId);
 
-      response.send(user);
-    },
-  );
+    response.send(user);
+  });
 
-  fastifyTypeBox.post(
-    '/users',
-    {
-      schema: {
-        body: NewUserRouteScheme,
-      },
-    },
-    async (request, response) => {
-      const { login, password, avatar } = request.body;
+  fastifyTypeBox.post<{ Body: NewUserRouteScheme }>('/users', async (request, response) => {
+    const { login, password, avatar } = request.body;
 
-      const user = await userRepo.create({ login, password, avatar });
+    const user = await userRepo.create({ login, password, avatar });
 
-      if (user) {
-        response.code(200).send('User created');
-      } else {
-        response.code(403).send('Cannot create user!');
-      }
-    },
-  );
+    if (user) {
+      response.code(200).send('User created');
+    } else {
+      response.code(403).send('Cannot create user!');
+    }
+  });
 
-  fastifyTypeBox.put(
-    '/users/:userId',
-    {
-      schema: {
-        params: Type.Object({ userId: Type.Number() }),
-        body: NewUserRouteScheme,
-      },
-    },
-    async (request, response) => {
-      const { userId } = request.params;
-      const { login, password, avatar } = request.body;
+  fastifyTypeBox.put<{ Body: NewUserRouteScheme; Params: UserID }>('/users/:userId', async (request, response) => {
+    const { userId } = request.params;
+    const { login, password, avatar } = request.body;
 
-      const createdUser = await userRepo.update(userId, { login, password, avatar });
-      if (!createdUser) {
-        response.code(403).send('Cannot update user!');
-        return;
-      }
+    const createdUser = await userRepo.update(userId, { login, password, avatar });
+    if (!createdUser) {
+      response.code(403).send('Cannot update user!');
+      return;
+    }
 
-      response.code(200).send('User updated');
-    },
-  );
+    response.code(200).send('User updated');
+  });
 };

@@ -15,6 +15,7 @@ export default {
     '^@flowx/(.*)$',
     '^app/(.*)$',
     '^features/(.*)$',
+    '^ui/(.*)$',
     '^[./].*(?<!\\.(c|sc)ss)$',
     '(c|sc)ss$',
   ],
