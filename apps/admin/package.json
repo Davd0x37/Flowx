@@ -13,8 +13,8 @@
   "dependencies": {
     "@flowx/shared": "workspace:^",
     "pinia": "^2.1.7",
-    "vue": "^3.3.12",
-    "vue-i18n": "^9.8.0",
+    "vue": "^3.4.15",
+    "vue-i18n": "^9.9.0",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
@@ -22,15 +22,15 @@
     "@iconify/vue": "^4.1.1",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
-    "@vitejs/plugin-vue": "^4.5.2",
-    "autoprefixer": "^10.4.16",
-    "daisyui": "^4.4.20",
-    "postcss": "^8.4.32",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "autoprefixer": "^10.4.17",
+    "daisyui": "^4.6.0",
+    "postcss": "^8.4.33",
     "postcss-nested": "^6.0.1",
     "postcss-preset-env": "^9.3.0",
-    "tailwindcss": "^3.3.6",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3",
-    "vite": "^5.0.10",
-    "vue-tsc": "^1.8.25"
+    "vite": "^5.0.12",
+    "vue-tsc": "^1.8.27"
   }
 }

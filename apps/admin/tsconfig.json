@@ -31,13 +31,13 @@
     "baseUrl": ".",
     "paths": {
       "app/*": ["./src/*"],
-      "features/*": ["./src/features/*"]
+      "features/*": ["./src/features/*"],
     },
 
     // ?
-    "maxNodeModuleJsDepth": 5
+    "maxNodeModuleJsDepth": 5,
   },
   "include": ["src"],
   "exclude": ["node_modules"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

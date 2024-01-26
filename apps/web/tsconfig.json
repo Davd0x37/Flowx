@@ -24,16 +24,16 @@
     "baseUrl": ".",
     "paths": {
       "app/*": ["./src/*"],
-      "ui/*": ["./src/components/ui/*"]
+      "ui/*": ["./src/components/ui/*"],
     },
 
     // Unplugin-icons typings for react
     "types": ["unplugin-icons/types/react"],
 
     // ?
-    "maxNodeModuleJsDepth": 5
+    "maxNodeModuleJsDepth": 5,
   },
   "include": ["src"],
   "exclude": ["node_modules"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

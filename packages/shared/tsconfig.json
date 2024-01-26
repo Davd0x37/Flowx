@@ -29,8 +29,8 @@
     // Paths
     "baseUrl": ".",
 
-    "maxNodeModuleJsDepth": 5
+    "maxNodeModuleJsDepth": 5,
   },
   "include": ["src"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }
