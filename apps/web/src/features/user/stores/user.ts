@@ -1,15 +1,32 @@
-import { create } from 'zustand';
+import { ref } from 'vue';
+
+import { defineStore } from 'pinia';
 
 import { UserStatus, UserStore } from '../types/user';
 
-const useUserStore = create<UserStore>((set) => ({
-  name: 'Test User',
-  avatar: '',
-  status: 'idle',
+const useUserStore = defineStore('user', () => {
+  const userName = ref('Test user');
+  const avatar = ref('');
+  const status = ref('idle');
 
-  changeName: (name: UserStore['name']) => set(() => ({ name })),
-  changeAvatar: (avatar: UserStore['avatar']) => set(() => ({ avatar })),
-  changeStatus: (status: UserStatus) => set(() => ({ status })),
-}));
+  const changeName = (name: UserStore['name']) => {
+    userName.value = name;
+  };
+  const changeAvatar = (avatarValue: UserStore['avatar']) => {
+    avatar.value = avatarValue;
+  };
+  const changeStatus = (statusValue: UserStatus) => {
+    status.value = statusValue;
+  };
 
-export default useUserStore;
+  return {
+    userName,
+    avatar,
+    status,
+    changeName,
+    changeAvatar,
+    changeStatus,
+  };
+});
+
+export { useUserStore };

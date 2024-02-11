@@ -13,6 +13,7 @@ import Reload from '~icons/tabler/reload';
 import Settings from '~icons/tabler/settings';
 import User from '~icons/tabler/user';
 import Auth from '~icons/tabler/user-scan';
+import UserBox from '~icons/tabler/user-square-rounded';
 
 export {
   Warning,
@@ -20,6 +21,7 @@ export {
   Auth,
   Settings,
   User,
+  UserBox,
   Code,
   Box,
   ChevronUp,

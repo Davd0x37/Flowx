@@ -1,39 +1,47 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "target": "ESNext",
     "module": "ESNext",
-    "skipLibCheck": true,
+    "jsx": "preserve",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
 
-    /* Bundler mode */
+    // Build options
+    "declaration": true,
+    "useDefineForClassFields": true,
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
+    "incremental": true,
     "noEmit": true,
-    "jsx": "react-jsx",
+    "isolatedModules": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
 
-    /* Linting */
-    "strict": true,
+    // Linting
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "strict": true,
+    "skipLibCheck": true,
 
     // Paths
     "baseUrl": ".",
     "paths": {
       "app/*": ["./src/*"],
-      "ui/*": ["./src/components/ui/*"],
+      "features/*": ["./src/features/*"],
+      "ui/*": ["./src/components/ui/*"]
     },
 
-    // Unplugin-icons typings for react
-    "types": ["unplugin-icons/types/react"],
+    // Unplugin-icons typings for vue
+    "types": ["unplugin-icons/types/vue"],
 
     // ?
-    "maxNodeModuleJsDepth": 5,
+    "maxNodeModuleJsDepth": 5
   },
   "include": ["src"],
   "exclude": ["node_modules"],
-  "references": [{ "path": "./tsconfig.node.json" }],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
