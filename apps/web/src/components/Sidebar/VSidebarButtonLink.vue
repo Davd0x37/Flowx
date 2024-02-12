@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { RouteLocationRaw } from 'vue-router';
 
-// import { Icon, IconProps } from '@iconify/vue';
+type Props = { icon?: string | unknown; to: RouteLocationRaw };
 
-defineProps<{ icon?: string | unknown; /* iconSettings?: Omit<IconProps, 'icon'>; */ to: RouteLocationRaw }>();
+defineProps<Props>();
 </script>
 
 <template>
@@ -13,7 +13,7 @@ defineProps<{ icon?: string | unknown; /* iconSettings?: Omit<IconProps, 'icon'>
     exact-active-class="active"
     class="flex items-center gap-3"
   >
-    <component :is="icon" v-if="icon" width="22" />
+    <component :is="icon" v-if="icon" font-size="1.1rem" />
 
     <span class="text-sm font-medium"><slot :is-active="isActive" :is-exact-active="isExactActive"></slot></span>
   </router-link>

@@ -1,8 +1,8 @@
-const UserStatus = {
-  available: 'AVAILABLE',
-  idle: 'IDLE',
-  doNotDisturb: 'DO_NOT_DISTURB',
-  invisible: 'INVISIBLE',
+export const UserStatus = {
+  available: 'available',
+  idle: 'idle',
+  doNotDisturb: 'doNotDisturb',
+  invisible: 'invisible',
 } as const;
 
 export type UserStatus = keyof typeof UserStatus;

@@ -2,8 +2,10 @@ import tailwindForms from '@tailwindcss/forms';
 import tailwindTypography from '@tailwindcss/typography';
 import DaisyUI from 'daisyui';
 import colors from 'tailwindcss/colors';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const { cyan, green, lime, orange, red, sky, slate, teal } = colors;
+const { fontFamily } = defaultTheme;
 
 const COLORS = {
   primary: {
@@ -41,9 +43,8 @@ export default {
   content: ['./src/**/*.{html,js,ts,tsx,vue}'],
   theme: {
     extend: {
-      gridTemplateColumns: {
-        app: '350px 1fr',
-        header: '150px minmax(auto, 1fr) 150px',
+      fontFamily: {
+        sans: ['"Rethink Sans"', ...fontFamily.sans],
       },
       colors: COLORS,
     },
@@ -57,6 +58,6 @@ export default {
       'light',
       'night',
     ],
-    darkTheme: 'mainTheme',
+    darkTheme: 'light',
   },
 };

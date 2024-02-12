@@ -5,9 +5,9 @@ import { defineStore } from 'pinia';
 import { UserStatus, UserStore } from '../types/user';
 
 const useUserStore = defineStore('user', () => {
-  const userName = ref('Test user');
-  const avatar = ref('');
-  const status = ref('idle');
+  const userName = ref<UserStore['name']>('Test user');
+  const avatar = ref<UserStore['avatar']>('');
+  const status = ref<UserStatus>('invisible');
 
   const changeName = (name: UserStore['name']) => {
     userName.value = name;

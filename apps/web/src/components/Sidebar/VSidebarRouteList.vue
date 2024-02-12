@@ -3,10 +3,14 @@ import { FunctionalComponent, SVGAttributes } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { RouteRecordNormalized, RouteRecordRaw } from 'vue-router';
 
-import VButtonLink from 'ui/VButtonLink.vue';
+import VSidebarButtonLink from './VSidebarButtonLink.vue';
+import VSidebarRouteList from './VSidebarRouteList.vue';
 
-import VSidebarGroup from './VSidebarGroup.vue';
-import VSidebarRoute from './VSidebarRoute.vue';
+/**
+ * @TODO: refactor current component in free time
+ * @FIXME: change default font-size for icons, use ref or standard font size.
+ * Maybe move "VSidebarButtonLink" here?
+ */
 
 const { t } = useI18n();
 
@@ -26,14 +30,27 @@ const routeIcon = (props.route.meta?.icon as FunctionalComponent<SVGAttributes>)
 
 <template>
   <li v-if="routeTitle && childRoutesLength > 0">
-    <VSidebarGroup :icon="routeIcon" :title="t(routeTitle)">
-      <VSidebarRoute v-for="[_, item] in route.children?.entries()" :key="item.name" :route="item" />
-    </VSidebarGroup>
+    <details>
+      <summary>
+        <component :is="routeIcon" v-if="routeIcon" font-size="1.1rem" />
+        <span class="text-sm font-medium">{{ t(routeTitle) }}</span>
+      </summary>
+
+      <ul class="mt-2 space-y-2">
+        <v-sidebar-route-list v-for="[_, item] in route.children?.entries()" :key="item.name" :route="item" />
+      </ul>
+    </details>
   </li>
 
   <li v-else-if="routeTitle">
-    <VButtonLink :to="{ name: route.name }" :icon="route?.meta?.icon">
+    <v-sidebar-button-link :to="{ name: route.name }" :icon="route?.meta?.icon">
       <span class="[.--collapsed_&]:hidden">{{ t(routeTitle) }}</span>
-    </VButtonLink>
+    </v-sidebar-button-link>
   </li>
 </template>
+
+<style scoped>
+/* .menu :where(li ul):before {
+  display: none;
+} */
+</style>
