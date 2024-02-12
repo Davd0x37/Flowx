@@ -1,14 +1,10 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
-
 import { AVATAR_FALLBACK } from 'app/config/constants';
 import { routes } from 'app/router';
 import { getAcronyms } from 'app/utils/strings';
-
 import { useUserStore } from 'features/user/stores/user';
-
 import VAvatar from 'ui/VAvatar.vue';
-
 import VSidebarRouteList from './VSidebarRouteList.vue';
 
 const userStore = useUserStore();

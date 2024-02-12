@@ -19,6 +19,6 @@ export default {
     '^[./].*(?<!\\.(c|sc)ss)$',
     '(c|sc)ss$',
   ],
-  importOrderSeparation: true,
+  importOrderSeparation: false, //true,
   importOrderSortSpecifiers: true,
 };

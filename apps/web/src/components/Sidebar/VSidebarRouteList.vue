@@ -2,7 +2,6 @@
 import { FunctionalComponent, SVGAttributes } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { RouteRecordNormalized, RouteRecordRaw } from 'vue-router';
-
 import VSidebarButtonLink from './VSidebarButtonLink.vue';
 import VSidebarRouteList from './VSidebarRouteList.vue';
 

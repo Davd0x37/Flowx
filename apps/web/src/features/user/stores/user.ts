@@ -1,7 +1,5 @@
 import { ref } from 'vue';
-
 import { defineStore } from 'pinia';
-
 import { UserStatus, UserStore } from '../types/user';
 
 const useUserStore = defineStore('user', () => {

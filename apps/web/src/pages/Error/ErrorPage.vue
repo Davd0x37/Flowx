@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Reload } from 'app/assets/icons';
-
 import VButton from 'ui/VButton.vue';
 
 const refreshPage = () => window.location.reload();

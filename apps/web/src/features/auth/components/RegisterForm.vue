@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-
 import { UserRegisterInterface } from '@flowx/shared';
-
 import VButton from 'ui/VButton.vue';
 import VInputLabel from 'ui/VInputLabel.vue';
 

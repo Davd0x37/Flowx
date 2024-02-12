@@ -25,7 +25,6 @@
 
 <script setup lang="ts">
 import { onMounted, provide } from 'vue';
-
 import { TabsComposable, tabsComposableSymbol, useTabs } from 'app/composables/useTabs';
 
 withDefaults(

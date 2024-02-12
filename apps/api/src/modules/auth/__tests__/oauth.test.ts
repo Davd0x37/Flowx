@@ -1,9 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-
 import { AppError } from '@flowx/shared';
-
 import { Fetch } from 'app/lib/fetch';
-
 import { OAuth2 } from '../oauth';
 import { OAuthAuthorizeParameters, OAuthCodeChallengeStruct, OAuthSettings } from '../types';
 

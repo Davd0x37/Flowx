@@ -1,5 +1,4 @@
 import { Kysely, sql } from 'kysely';
-
 import { Database } from 'app/types';
 
 export async function up(db: Kysely<Database>): Promise<void> {

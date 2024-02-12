@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest';
-
 import { resolveUrl } from '../network';
 
 const TEST_URL = 'https://localhost.local';

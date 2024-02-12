@@ -1,10 +1,8 @@
 import 'dotenv/config';
-
 import FastifyFormBody from '@fastify/formbody';
 import helmet from '@fastify/helmet';
 import redis from '@fastify/redis';
 import Fastify from 'fastify';
-
 import Plugins from './plugins';
 import Routes from './routes';
 
