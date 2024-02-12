@@ -13,7 +13,7 @@ const refreshPage = () => window.location.reload();
         We're currently experiencing difficulties displaying the website for you.
       </h3>
 
-      <VButton class="text-lg" @click="refreshPage"> Refresh <Reload class="ml-2" fontSize="1.6rem" /> </VButton>
+      <VButton class="text-lg" @click="refreshPage"> Refresh <Reload class="ml-2" font-size="1.6rem" /> </VButton>
     </div>
   </div>
 </template>

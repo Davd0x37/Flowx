@@ -27,5 +27,6 @@ module.exports = {
       },
     ],
     'vue/no-unused-vars': ['error', { ignorePattern: '^_' }],
+    '@typescript-eslint/method-signature-style': ['error', 'property'],
   },
 };

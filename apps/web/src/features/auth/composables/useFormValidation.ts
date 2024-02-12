@@ -56,7 +56,7 @@ const useFormValidation = <T>(fields: FormFieldsRecord<T>): ValidationResultReco
   const validateObject = {} as ValidationResultRecord<T>['fields'];
 
   // @TODO: change to object.entries maybe?
-  for (let key in fields) {
+  for (const key in fields) {
     const field = fields[key];
 
     validateObject[key] = reactive({
@@ -66,7 +66,7 @@ const useFormValidation = <T>(fields: FormFieldsRecord<T>): ValidationResultReco
 
     watch(
       () => validateObject[key].value,
-      (newVal, oldVal) => {
+      (newVal, _oldVal) => {
         const { valid, message } = field.validate(newVal as T[typeof key]);
 
         if (!valid) {

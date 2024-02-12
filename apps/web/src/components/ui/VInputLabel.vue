@@ -6,7 +6,7 @@ import { type VariantProps, cva } from 'class-variance-authority';
 import { Warning } from 'app/assets/icons';
 import { cn } from 'app/utils/classNames';
 
-const model = defineModel();
+const model = defineModel<unknown>();
 
 const InputSettings = cva('input', {
   variants: {
@@ -49,7 +49,13 @@ type Props = {
 };
 
 const props = withDefaults(defineProps<Props>(), {
+  variant: null,
+  size: null,
+  labelTopRight: undefined,
+  labelBottomRight: undefined,
   bordered: true,
+  errorIcon: undefined,
+  errorMessage: undefined,
 });
 
 const inputClass = computed(() => [
@@ -74,11 +80,11 @@ const inputClass = computed(() => [
     <input
       :id="id"
       v-bind="$attrs"
+      v-model="model"
       :class="cn(...inputClass)"
       :type="type"
       :disabled="disabled"
       :aria-disabled="disabled"
-      v-model="model"
     />
 
     <label v-if="showError" class="label">

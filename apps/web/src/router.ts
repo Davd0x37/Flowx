@@ -7,11 +7,11 @@ import {
   Settings as SettingsIcon,
   User as UserIcon,
 } from 'app/assets/icons';
-import Auth from 'app/pages/Authenticate/Auth.vue';
-import Home from 'app/pages/Dashboard/Home.vue';
+import Auth from 'app/pages/Authenticate/AuthView.vue';
+import Home from 'app/pages/Dashboard/HomeView.vue';
 import NotFound from 'app/pages/Error/NotFound.vue';
-import UserDetails from 'app/pages/User/Details.vue';
-import UserSettings from 'app/pages/User/Settings.vue';
+import UserDetails from 'app/pages/User/DetailsView.vue';
+import UserSettings from 'app/pages/User/SettingsView.vue';
 
 export const routes: RouteRecordRaw[] = [
   {

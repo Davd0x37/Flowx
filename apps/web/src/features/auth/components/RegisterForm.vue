@@ -33,8 +33,8 @@ const handleSubmit = (ev: Event) => {
     <div class="form-control gap-4">
       <VInputLabel
         id="email"
-        type="email"
         v-model="formData.email"
+        type="email"
         :label="t('auth.email')"
         autocomplete="email"
         required
@@ -45,8 +45,8 @@ const handleSubmit = (ev: Event) => {
 
       <VInputLabel
         id="password"
-        type="password"
         v-model="formData.password"
+        type="password"
         :label="t('auth.password')"
         minlength="8"
         autocomplete="new-password"
@@ -56,8 +56,8 @@ const handleSubmit = (ev: Event) => {
 
       <VInputLabel
         id="repeatPassword"
-        type="password"
         v-model="formData.repeatPassword"
+        type="password"
         :label="t('auth.repeat_password')"
         minlength="8"
         autocomplete="new-password"

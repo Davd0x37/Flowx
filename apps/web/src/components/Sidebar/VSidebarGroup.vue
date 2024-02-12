@@ -13,7 +13,7 @@ defineProps<{
 <template>
   <details>
     <summary>
-      <component v-if="icon" :is="icon" width="24" />
+      <component :is="icon" v-if="icon" width="24" />
       <span class="text-sm font-medium">{{ title }}</span>
     </summary>
 

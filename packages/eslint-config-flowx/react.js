@@ -39,6 +39,7 @@ module.exports = {
         caughtErrorsIgnorePattern: '^_',
       },
     ],
+    '@typescript-eslint/method-signature-style': ['error', 'property'],
   },
 
   settings: {

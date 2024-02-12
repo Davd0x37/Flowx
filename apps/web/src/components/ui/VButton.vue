@@ -30,6 +30,9 @@ const ButtonSettings = cva('btn', {
       error: 'btn-error',
     },
   },
+  defaultVariants: {
+    size: 'md',
+  },
 });
 
 type ButtonProps = VariantProps<typeof ButtonSettings>;
@@ -52,12 +55,16 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'button',
+  variant: null,
+  size: 'md',
+  corners: null,
   active: false,
   outline: false,
   disabled: false,
   wide: false,
   block: false,
   disableAnimation: false,
+  class: '',
 });
 
 const buttonClass = computed(() => [

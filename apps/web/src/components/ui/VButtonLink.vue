@@ -13,7 +13,7 @@ defineProps<{ icon?: string | unknown; /* iconSettings?: Omit<IconProps, 'icon'>
     exact-active-class="active"
     class="flex items-center gap-3"
   >
-    <component v-if="icon" :is="icon" width="22" />
+    <component :is="icon" v-if="icon" width="22" />
 
     <span class="text-sm font-medium"><slot :is-active="isActive" :is-exact-active="isExactActive"></slot></span>
   </router-link>

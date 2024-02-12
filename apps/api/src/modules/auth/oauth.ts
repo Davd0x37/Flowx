@@ -19,10 +19,6 @@ import type {
 
 // https://github.com/panva/oauth4webapi
 
-abstract class BasicAuth {
-  public abstract auth(): void;
-}
-
 /**
  * Constant size for code verifier in Uint8Array - default 32 bytes
  */
