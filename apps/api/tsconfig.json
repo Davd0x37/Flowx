@@ -1,33 +1,14 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    // Build options
-    "declaration": true,
-    "useDefineForClassFields": true,
-    "moduleResolution": "node",
-    "incremental": true,
-    "noEmit": true,
-    "isolatedModules": true,
-    "allowJs": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
-    "maxNodeModuleJsDepth": 5,
-    // Linting
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "strict": true,
-    "skipLibCheck": true,
+
     // Paths
     "baseUrl": ".",
     "paths": {
       "app/*": ["./src/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": ["src"]
 }

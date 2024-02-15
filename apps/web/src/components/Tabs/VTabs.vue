@@ -18,7 +18,7 @@
       </button>
     </nav>
     <div class="container mt-4">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>

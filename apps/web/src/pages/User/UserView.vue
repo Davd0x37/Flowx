@@ -4,5 +4,5 @@
 
 <template>
   <div>USER</div>
-  <router-view></router-view>
+  <router-view />
 </template>

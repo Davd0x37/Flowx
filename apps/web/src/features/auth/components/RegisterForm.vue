@@ -63,7 +63,9 @@ const handleSubmit = (ev: Event) => {
         :show-error="hasError"
       />
 
-      <VButton type="submit" variant="primary" class="mt-2">{{ t('auth.create_account') }}</VButton>
+      <VButton type="submit" variant="primary" class="mt-2">
+        {{ t('auth.create_account') }}
+      </VButton>
 
       <div class="block text-right">
         <VButton type="button" variant="link" @click="toggleMode">

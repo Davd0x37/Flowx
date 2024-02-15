@@ -20,7 +20,7 @@ router.afterEach((to) => {
 
 <template>
   <component :is="layoutRef">
-    <router-view></router-view>
+    <router-view />
   </component>
 </template>
 

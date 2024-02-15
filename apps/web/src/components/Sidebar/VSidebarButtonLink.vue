@@ -15,6 +15,6 @@ defineProps<Props>();
   >
     <component :is="icon" v-if="icon" font-size="1.1rem" />
 
-    <span class="text-sm font-medium"><slot :is-active="isActive" :is-exact-active="isExactActive"></slot></span>
+    <span class="text-sm font-medium"><slot :is-active="isActive" :is-exact-active="isExactActive" /></span>
   </router-link>
 </template>

@@ -22,7 +22,9 @@ const avatarFallback = acronymError ? AVATAR_FALLBACK : acronymData;
       <v-avatar :url="avatar" :fallback="avatarFallback" :status="status" />
 
       <!-- User name -->
-      <p className="text-sm">{{ userName }}</p>
+      <p className="text-sm">
+        {{ userName }}
+      </p>
     </div>
 
     <!-- All routes that can be displayed in sidebar -->

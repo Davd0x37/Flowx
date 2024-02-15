@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "lint": "pnpm --filter {apps/*} --filter {packages/*} run lint",
+    "lint": "eslint .",
     "lint:fix": "pnpm lint --fix",
     "format": "prettier --write \"**/*.{cjs,js,ts,tsx,html,css,scss,json,yml,md,vue}\"",
     "api:run": "pnpm --filter api",
@@ -22,19 +22,29 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/eslint": "^8.56.2",
     "@vitest/ui": "^1.2.2",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^9.0.10",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-vue": "^9.21.1",
+    "globals": "^14.0.0",
+    "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "typescript": "^5.3.3",
-    "vite": "^5.1.1",
-    "vitest": "^1.2.2"
+    "typescript-eslint": "^7.0.1",
+    "vite": "^5.1.2",
+    "vitest": "^1.2.2",
+    "vue-eslint-parser": "^9.4.2"
   },
   "lint-staged": {
     "**/*.{js,json,tsx,vue}": [
-      "eslint --fix",
+      "eslint . --fix",
       "prettier --config prettier.config.js --write \"**/*.{ts,tsx,html,scss,json,yml,md,vue}\""
     ]
   },

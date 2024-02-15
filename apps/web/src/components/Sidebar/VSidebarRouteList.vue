@@ -36,7 +36,7 @@ const routeIcon = (props.route.meta?.icon as FunctionalComponent<SVGAttributes>)
       </summary>
 
       <ul class="mt-2 space-y-2">
-        <v-sidebar-route-list v-for="[_, item] in route.children?.entries()" :key="item.name" :route="item" />
+        <v-sidebar-route-list v-for="[, item] in route.children?.entries()" :key="item.name" :route="item" />
       </ul>
     </details>
   </li>

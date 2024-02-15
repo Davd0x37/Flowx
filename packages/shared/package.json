@@ -8,11 +8,10 @@
     "dev": "tsc --watch",
     "build": "tsc",
     "test": "vitest",
-    "lint": "eslint --ext .ts,.vue,.tsx src",
+    "lint": "eslint src",
     "lint:fix": "pnpm lint --fix"
   },
   "devDependencies": {
-    "@flowx/eslint-config-flowx": "workspace:^",
     "typescript": "^5.3.3",
     "vitest": "^1.2.2"
   }

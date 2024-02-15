@@ -24,9 +24,11 @@ const toggleMode = () => {
 
 <template>
   <div class="m-auto flex h-full w-full max-w-sm flex-col justify-center p-5 pt-2">
-    <h1 class="mb-12 text-center text-4xl font-bold">{{ authenticationModeTitle }}</h1>
+    <h1 class="mb-12 text-center text-4xl font-bold">
+      {{ authenticationModeTitle }}
+    </h1>
 
-    <LoginForm v-if="loginMode" :on-submit="handleLogin" :toggle-mode="toggleMode"></LoginForm>
-    <RegisterForm v-else :on-submit="handleRegister" :toggle-mode="toggleMode"></RegisterForm>
+    <LoginForm v-if="loginMode" :on-submit="handleLogin" :toggle-mode="toggleMode" />
+    <RegisterForm v-else :on-submit="handleRegister" :toggle-mode="toggleMode" />
   </div>
 </template>

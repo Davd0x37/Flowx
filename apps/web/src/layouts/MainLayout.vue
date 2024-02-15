@@ -7,7 +7,7 @@ import Sidebar from 'app/components/Sidebar/VSidebar.vue';
     <Sidebar open-sidebar class="flex-1" />
 
     <div class="flex-1">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>

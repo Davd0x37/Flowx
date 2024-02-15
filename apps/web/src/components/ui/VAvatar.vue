@@ -60,12 +60,14 @@ const statusIndicator = computed(() => {
 
 <template>
   <div class="indicator">
-    <span :class="statusIndicator"></span>
+    <span :class="statusIndicator" />
 
     <div :class="['avatar', { placeholder: showPlaceholder }]">
       <div :class="['size-10 rounded-full text-white', { 'bg-gray-500': showPlaceholder }]">
         <img v-if="url" v-show="imgLoaded" :src="url" @load="onImgLoad" />
-        <div v-show="showPlaceholder">{{ fallback }}</div>
+        <div v-show="showPlaceholder">
+          {{ fallback }}
+        </div>
       </div>
     </div>
   </div>

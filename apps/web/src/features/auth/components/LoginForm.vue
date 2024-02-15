@@ -33,7 +33,7 @@ const handleSubmit = (ev: Event) => {
 
   <!-- <Separator className="mb-6 mt-8 " /> -->
 
-  <span class="h-1px mb-6 mt-10 w-full border-t border-gray-700"></span>
+  <span class="h-1px mb-6 mt-10 w-full border-t border-gray-700" />
 
   <form method="POST" action="/" @submit="handleSubmit">
     <div class="form-control gap-4">
@@ -63,7 +63,9 @@ const handleSubmit = (ev: Event) => {
         </VButton>
       </div> -->
 
-      <VButton type="submit" variant="primary" class="mt-2">{{ t('auth.login') }}</VButton>
+      <VButton type="submit" variant="primary" class="mt-2">
+        {{ t('auth.login') }}
+      </VButton>
 
       <div class="block text-right">
         <VButton type="button" variant="link" @click="toggleMode">

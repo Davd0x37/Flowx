@@ -2,7 +2,7 @@ import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 // import { Value } from '@sinclair/typebox/value';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import UserRepository from 'app/repositories/user.repository';
-import { NewUserRouteScheme, UserID } from 'app/types';
+import type { NewUserRouteSchemeType, UserIDType } from 'app/types';
 
 export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
   const fastifyTypeBox = fastify.withTypeProvider<TypeBoxTypeProvider>();
@@ -14,7 +14,7 @@ export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) 
     response.send(users);
   });
 
-  fastifyTypeBox.get<{ Params: UserID }>('/users/:userId', async (request, response) => {
+  fastifyTypeBox.get<{ Params: UserIDType }>('/users/:userId', async (request, response) => {
     const { userId } = request.params;
 
     const user = await userRepo.read(userId);
@@ -22,7 +22,7 @@ export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) 
     response.send(user);
   });
 
-  fastifyTypeBox.post<{ Body: NewUserRouteScheme }>('/users', async (request, response) => {
+  fastifyTypeBox.post<{ Body: NewUserRouteSchemeType }>('/users', async (request, response) => {
     const { login, password, avatar } = request.body;
 
     const user = await userRepo.create({ login, password, avatar });
@@ -34,16 +34,19 @@ export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) 
     }
   });
 
-  fastifyTypeBox.put<{ Body: NewUserRouteScheme; Params: UserID }>('/users/:userId', async (request, response) => {
-    const { userId } = request.params;
-    const { login, password, avatar } = request.body;
+  fastifyTypeBox.put<{ Body: NewUserRouteSchemeType; Params: UserIDType }>(
+    '/users/:userId',
+    async (request, response) => {
+      const { userId } = request.params;
+      const { login, password, avatar } = request.body;
 
-    const createdUser = await userRepo.update(userId, { login, password, avatar });
-    if (!createdUser) {
-      response.code(403).send('Cannot update user!');
-      return;
-    }
+      const createdUser = await userRepo.update(userId, { login, password, avatar });
+      if (!createdUser) {
+        response.code(403).send('Cannot update user!');
+        return;
+      }
 
-    response.code(200).send('User updated');
-  });
+      response.code(200).send('User updated');
+    },
+  );
 };
