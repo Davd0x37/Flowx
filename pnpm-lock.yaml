@@ -147,9 +147,6 @@ importers:
       pinia:
         specifier: ^2.1.7
         version: 2.1.7(typescript@5.3.3)(vue@3.4.19)
-      primevue:
-        specifier: ^3.48.1
-        version: 3.48.1(vue@3.4.19)
       tailwind-merge:
         specifier: ^2.2.1
         version: 2.2.1
@@ -5672,14 +5669,6 @@ packages:
       ansi-styles: 5.2.0
       react-is: 18.2.0
     dev: true
-
-  /primevue@3.48.1(vue@3.4.19):
-    resolution: {integrity: sha512-lyJ+E0ZCv2pR9jIpdPLBysU8zB2hOKrN7q78orloWelPx05zSYoMVKAWaqKTHNpunD52xffjaqovt1y6B/9XoQ==}
-    peerDependencies:
-      vue: ^3.0.0
-    dependencies:
-      vue: 3.4.19(typescript@5.3.3)
-    dev: false
 
   /process-warning@2.3.2:
     resolution: {integrity: sha512-n9wh8tvBe5sFmsqlg+XQhaQLumwpqoAUruLwjCopgTmUBjJ/fjtBsJzKleCaIGBOMXYEhp1YfKl4d7rJ5ZKJGA==}
