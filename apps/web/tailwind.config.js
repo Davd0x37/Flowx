@@ -58,6 +58,6 @@ export default {
       'light',
       'night',
     ],
-    darkTheme: 'light',
+    darkTheme: 'mainTheme',
   },
 };
