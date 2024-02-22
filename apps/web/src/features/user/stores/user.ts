@@ -5,7 +5,7 @@ import { UserStatus, UserStore } from '../types/user';
 const useUserStore = defineStore('user', () => {
   const userName = ref<UserStore['name']>('Test user');
   const avatar = ref<UserStore['avatar']>('');
-  const status = ref<UserStatus>('invisible');
+  const status = ref<UserStatus>('offline');
 
   const changeName = (name: UserStore['name']) => {
     userName.value = name;

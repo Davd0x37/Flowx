@@ -15,14 +15,14 @@ const statusClass = cva(
   {
     variants: {
       status: {
-        [UserStatus.available]: 'bg-green-500',
+        [UserStatus.active]: 'bg-green-500',
         [UserStatus.idle]: 'bg-yellow-500',
         [UserStatus.doNotDisturb]: 'bg-red-500',
-        [UserStatus.invisible]: 'bg-gray-400',
+        [UserStatus.offline]: 'bg-gray-400',
       },
     },
     defaultVariants: {
-      status: UserStatus.invisible,
+      status: UserStatus.offline,
     },
   },
 );

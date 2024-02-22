@@ -1,8 +1,8 @@
 export const UserStatus = {
-  available: 'available',
+  active: 'active',
   idle: 'idle',
   doNotDisturb: 'doNotDisturb',
-  invisible: 'invisible',
+  offline: 'offline',
 } as const;
 
 export type UserStatus = keyof typeof UserStatus;
