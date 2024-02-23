@@ -3,7 +3,6 @@ import vueEslintParser from 'vue-eslint-parser';
 import { FlatCompat } from '@eslint/eslintrc';
 import eslint from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
-// import eslintPluginN from 'eslint-plugin-n';
 
 /**
  * Add later when eslint-plugin-promise starts supporting flat file config
@@ -13,7 +12,9 @@ import eslintPluginVue from 'eslint-plugin-vue';
 import globals from 'globals';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+// import eslintPluginN from 'eslint-plugin-n';
 import typescriptEslint from 'typescript-eslint';
+import WebAppEslintAutoImport from './config/eslintrc-auto-import.json';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -99,8 +100,11 @@ export default [
     },
 
     languageOptions: {
-      // @ts-ignore
-      globals: config?.languageOptions?.globals || {},
+      globals: {
+        // @ts-ignore
+        ...(config?.languageOptions?.globals || {}),
+        ...(typeof WebAppEslintAutoImport === 'object' ? WebAppEslintAutoImport?.globals : {}),
+      },
       parser: vueEslintParser,
       parserOptions: {
         parser: typescriptEslint.parser,
