@@ -1,5 +1,4 @@
 import { createApp } from 'vue';
-// import 'app/assets/base.css';
 import App from 'app/App.vue';
 // Plugins
 import plugins from 'app/plugins';
