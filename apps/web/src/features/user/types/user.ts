@@ -5,10 +5,10 @@ export const UserStatus = {
   offline: 'offline',
 } as const;
 
-export type UserStatus = keyof typeof UserStatus;
+export type TUserStatus = keyof typeof UserStatus;
 
 export type UserStore = {
   name: string;
   avatar: string;
-  status: UserStatus;
+  status: TUserStatus;
 };

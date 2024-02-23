@@ -1,4 +1,4 @@
-import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router';
+import { type RouteRecordRaw, createRouter, createWebHistory } from 'vue-router';
 import {
   Auth as AuthIcon,
   Home as HomeIcon,

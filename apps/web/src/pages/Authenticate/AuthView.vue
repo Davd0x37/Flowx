@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { UserInterface, UserRegisterInterface } from '@flowx/shared';
 import LoginForm from 'features/auth/components/LoginForm.vue';
 import RegisterForm from 'features/auth/components/RegisterForm.vue';

@@ -1,11 +1,9 @@
-import { ref } from 'vue';
-import { defineStore } from 'pinia';
-import { UserStatus, UserStore } from '../types/user';
+import type { TUserStatus, UserStore } from '../types/user';
 
 const useUserStore = defineStore('user', () => {
   const userName = ref<UserStore['name']>('Test user');
   const avatar = ref<UserStore['avatar']>('');
-  const status = ref<UserStatus>('offline');
+  const status = ref<TUserStatus>('offline');
 
   const changeName = (name: UserStore['name']) => {
     userName.value = name;
@@ -13,7 +11,7 @@ const useUserStore = defineStore('user', () => {
   const changeAvatar = (avatarValue: UserStore['avatar']) => {
     avatar.value = avatarValue;
   };
-  const changeStatus = (statusValue: UserStatus) => {
+  const changeStatus = (statusValue: TUserStatus) => {
     status.value = statusValue;
   };
 

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { UserInterface } from '@flowx/shared';
 import { PassKey } from 'app/assets/icons';
 import VButton from 'ui/VButton.vue';

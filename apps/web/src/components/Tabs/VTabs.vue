@@ -1,3 +1,28 @@
+<script setup lang="ts">
+import { TabsComposable, tabsComposableSymbol, useTabs } from 'app/composables/useTabs';
+
+withDefaults(
+  defineProps<{
+    centered: boolean;
+  }>(),
+  {
+    centered: false,
+  },
+);
+
+const linkClass =
+  "transition-color transition-background after:content-[''] relative whitespace-nowrap border-b border-transparent p-3 text-sm font-semibold text-neutral-600 transition-colors after:absolute after:-bottom-[2px] after:left-0 after:h-[2px] after:w-full after:rounded after:transition-colors hover:text-secondary after:hover:bg-secondary dark:text-neutral-400 [&.active]:text-secondary [&.active]:after:bg-secondary";
+
+const tabsComposable = useTabs();
+const { activateFirstTab, setActiveTab, tabs, activeTab } = tabsComposable;
+
+onMounted(() => {
+  activateFirstTab();
+});
+
+provide<TabsComposable>(tabsComposableSymbol, tabsComposable);
+</script>
+
 <template>
   <div>
     <nav
@@ -22,29 +47,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { onMounted, provide } from 'vue';
-import { TabsComposable, tabsComposableSymbol, useTabs } from 'app/composables/useTabs';
-
-withDefaults(
-  defineProps<{
-    centered: boolean;
-  }>(),
-  {
-    centered: false,
-  },
-);
-
-const linkClass =
-  "transition-color transition-background after:content-[''] relative whitespace-nowrap border-b border-transparent p-3 text-sm font-semibold text-neutral-600 transition-colors after:absolute after:-bottom-[2px] after:left-0 after:h-[2px] after:w-full after:rounded after:transition-colors hover:text-secondary after:hover:bg-secondary dark:text-neutral-400 [&.active]:text-secondary [&.active]:after:bg-secondary";
-
-const tabsComposable = useTabs();
-const { activateFirstTab, setActiveTab, tabs, activeTab } = tabsComposable;
-
-onMounted(() => {
-  activateFirstTab();
-});
-
-provide<TabsComposable>(tabsComposableSymbol, tabsComposable);
-</script>

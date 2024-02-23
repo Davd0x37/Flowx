@@ -1,4 +1,4 @@
-import { RouteRecordNormalized } from 'vue-router';
+import type { RouteRecordNormalized } from 'vue-router';
 
 export const getNestedRoutes = (routes: RouteRecordNormalized[]) => {
   const allRoutes = new Map(routes.map((route) => [route.name, route])) as Map<string, RouteRecordNormalized>;

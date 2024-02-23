@@ -1,5 +1,3 @@
-import { ref } from 'vue';
-
 const READ_TYPE = {
   TEXT: 'TEXT',
   ARRAY_BUFFER: 'ARRAYBUFFER',

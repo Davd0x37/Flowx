@@ -1,4 +1,4 @@
-import { Ref, ref, watchEffect } from 'vue';
+import type { Ref } from 'vue';
 import { internalGuard } from '@flowx/shared';
 
 export default (elementRef: Ref<HTMLElement>, defaultState = false) => {

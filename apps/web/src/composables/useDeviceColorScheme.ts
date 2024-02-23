@@ -1,5 +1,3 @@
-import { ref } from 'vue';
-
 export default () => {
   const deviceColorScheme = matchMedia('(prefers-color-scheme: dark)');
 

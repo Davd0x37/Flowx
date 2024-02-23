@@ -3,18 +3,21 @@ import vueEslintParser from 'vue-eslint-parser';
 import { FlatCompat } from '@eslint/eslintrc';
 import eslint from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintPluginVue from 'eslint-plugin-vue';
+import globals from 'globals';
+import { readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import typescriptEslint from 'typescript-eslint';
+
+const WebAppEslintAutoImport = JSON.parse(readFileSync(resolve('./apps/web/eslintrc-auto-import.json'), 'utf-8'));
 
 /**
  * Add later when eslint-plugin-promise starts supporting flat file config
  * import eslintPluginPromise from "eslint-plugin-promise";
+ *
+ * import eslintPluginN from 'eslint-plugin-n';
  */
-import eslintPluginVue from 'eslint-plugin-vue';
-import globals from 'globals';
-import { dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-// import eslintPluginN from 'eslint-plugin-n';
-import typescriptEslint from 'typescript-eslint';
-import WebAppEslintAutoImport from './config/eslintrc-auto-import.json';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -49,6 +52,11 @@ export default [
   // Default Typescript configs - by default it's parser and rules
   ...typescriptEslint.configs.recommended.map((conf) => ({ ...conf, files: ['**/.*ts'] })),
 
+  // Ignore node modules and other directories
+  {
+    ignores: ['!node_modules/', 'node_modules/*'],
+  },
+
   // Env configs
   {
     files: ['**/*.ts', '**/*.vue'],
@@ -59,11 +67,6 @@ export default [
         ...globals.browser,
       },
     },
-  },
-
-  // Ignore node modules and other directories
-  {
-    ignores: ['!node_modules/', 'node_modules/*'],
   },
 
   // Custom Typescript config
@@ -87,6 +90,19 @@ export default [
     },
   },
 
+  // Env configs for Web app - used with unplugin-import
+  {
+    files: ['apps/web/**/*.ts'],
+
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        // @ts-ignore
+        ...(typeof WebAppEslintAutoImport === 'object' ? WebAppEslintAutoImport?.globals : {}),
+      },
+    },
+  },
+
   // Vue config
   // @FIXME: replace this when eslint-plugin-vue receive flat config file support
   ...compat.extends('plugin:vue/vue3-strongly-recommended').map((config) => ({
@@ -103,6 +119,7 @@ export default [
       globals: {
         // @ts-ignore
         ...(config?.languageOptions?.globals || {}),
+        // @ts-ignore
         ...(typeof WebAppEslintAutoImport === 'object' ? WebAppEslintAutoImport?.globals : {}),
       },
       parser: vueEslintParser,

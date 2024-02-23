@@ -1,4 +1,4 @@
-import { RouteRecordName } from 'vue-router';
+import type { RouteRecordName } from 'vue-router';
 
 export interface Notification {
   mode: NotificationMode;

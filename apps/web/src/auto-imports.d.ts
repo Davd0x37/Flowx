@@ -57,7 +57,6 @@ declare global {
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
   const storeToRefs: typeof import('pinia')['storeToRefs']
-  const tabsComposableSymbol: typeof import('./composables/useTabs')['tabsComposableSymbol']
   const toRaw: typeof import('vue')['toRaw']
   const toRef: typeof import('vue')['toRef']
   const toRefs: typeof import('vue')['toRefs']
@@ -67,16 +66,11 @@ declare global {
   const useAttrs: typeof import('vue')['useAttrs']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
-  const useDeviceColorScheme: typeof import('./composables/useDeviceColorScheme')['default']
-  const useFileReader: typeof import('./composables/useFileReader')['default']
   const useI18n: typeof import('vue-i18n')['useI18n']
-  const useIsOnScreen: typeof import('./composables/useIsOnScreen')['default']
   const useLink: typeof import('vue-router')['useLink']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
   const useSlots: typeof import('vue')['useSlots']
-  const useStorage: typeof import('./composables/useStorage')['default']
-  const useTabs: typeof import('./composables/useTabs')['useTabs']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
   const watchPostEffect: typeof import('vue')['watchPostEffect']
@@ -145,7 +139,6 @@ declare module 'vue' {
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
     readonly storeToRefs: UnwrapRef<typeof import('pinia')['storeToRefs']>
-    readonly tabsComposableSymbol: UnwrapRef<typeof import('./composables/useTabs')['tabsComposableSymbol']>
     readonly toRaw: UnwrapRef<typeof import('vue')['toRaw']>
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
@@ -155,16 +148,11 @@ declare module 'vue' {
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
-    readonly useDeviceColorScheme: UnwrapRef<typeof import('./composables/useDeviceColorScheme')['default']>
-    readonly useFileReader: UnwrapRef<typeof import('./composables/useFileReader')['default']>
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
-    readonly useIsOnScreen: UnwrapRef<typeof import('./composables/useIsOnScreen')['default']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
-    readonly useStorage: UnwrapRef<typeof import('./composables/useStorage')['default']>
-    readonly useTabs: UnwrapRef<typeof import('./composables/useTabs')['useTabs']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
@@ -226,7 +214,6 @@ declare module '@vue/runtime-core' {
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
     readonly storeToRefs: UnwrapRef<typeof import('pinia')['storeToRefs']>
-    readonly tabsComposableSymbol: UnwrapRef<typeof import('./composables/useTabs')['tabsComposableSymbol']>
     readonly toRaw: UnwrapRef<typeof import('vue')['toRaw']>
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
@@ -236,16 +223,11 @@ declare module '@vue/runtime-core' {
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
-    readonly useDeviceColorScheme: UnwrapRef<typeof import('./composables/useDeviceColorScheme')['default']>
-    readonly useFileReader: UnwrapRef<typeof import('./composables/useFileReader')['default']>
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
-    readonly useIsOnScreen: UnwrapRef<typeof import('./composables/useIsOnScreen')['default']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
-    readonly useStorage: UnwrapRef<typeof import('./composables/useStorage')['default']>
-    readonly useTabs: UnwrapRef<typeof import('./composables/useTabs')['useTabs']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
