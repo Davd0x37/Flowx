@@ -5,10 +5,10 @@ import { cn } from 'app/utils/classNames';
 const ButtonSettings = cva('btn', {
   variants: {
     size: {
-      xs: 'xs',
-      sm: 'sm',
-      md: 'md',
-      lg: 'lg',
+      xs: 'btn-xs',
+      sm: 'btn-sm',
+      md: 'btn-md',
+      lg: 'btn-lg',
     },
     corners: {
       square: 'btn-square',
@@ -34,10 +34,8 @@ const ButtonSettings = cva('btn', {
 
 type ButtonProps = VariantProps<typeof ButtonSettings>;
 
-type ButtonType = Pick<HTMLButtonElement, 'type'>['type'];
-
 interface Props {
-  type?: ButtonType;
+  type?: Pick<HTMLButtonElement, 'type'>['type'];
   variant?: ButtonProps['variant'];
   size?: ButtonProps['size'];
   corners?: ButtonProps['corners'];
