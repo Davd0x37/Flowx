@@ -10,6 +10,8 @@ import VueDevTools from 'vite-plugin-vue-devtools';
 import tailwindConfig from './tailwind.config';
 import tailwind from 'tailwindcss';
 
+const filePath = resolve(__dirname, 'eslintrc-auto-import.json');
+
 export default defineConfig({
   plugins: [
     // Vue 3
@@ -28,7 +30,7 @@ export default defineConfig({
       dts: './src/auto-imports.d.ts',
       eslintrc: {
         enabled: true,
-        filepath: './eslintrc-auto-import.json',
+        filepath: filePath,
       },
     }),
 

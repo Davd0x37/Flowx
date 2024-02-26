@@ -12,19 +12,19 @@
   },
   "dependencies": {
     "@flowx/shared": "workspace:^",
-    "@tanstack/vue-query": "^5.22.2",
-    "@tanstack/vue-query-devtools": "^5.24.0",
+    "@tanstack/vue-query": "^5.24.1",
+    "@tanstack/vue-query-devtools": "^5.24.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "nanoid": "^5.0.6",
     "pinia": "^2.1.7",
     "tailwind-merge": "^2.2.1",
-    "vue": "^3.4.19",
+    "vue": "^3.4.20",
     "vue-i18n": "^9.9.1",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.186",
+    "@iconify/json": "^2.2.187",
     "@iconify/vue": "^4.1.1",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
