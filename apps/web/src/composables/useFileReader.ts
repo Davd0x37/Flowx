@@ -1,3 +1,6 @@
+/**
+ * Represents the available read types for the file reader.
+ */
 const READ_TYPE = {
   TEXT: 'TEXT',
   ARRAY_BUFFER: 'ARRAYBUFFER',
@@ -5,6 +8,13 @@ const READ_TYPE = {
   DATA_URL: 'DATA_URL',
 } as const;
 
+/**
+ * Reads a file using the FileReader API and returns the file data, error status, progress, and loading state
+ *
+ * @param file - The file to be read
+ * @param readType - The type of data to read from the file. Defaults to 'TEXT'
+ * @returns An object containing the file data, error status, progress, loading state, and error state
+ */
 export default (file: File, readType: keyof typeof READ_TYPE = 'TEXT') => {
   const reader = new FileReader();
 

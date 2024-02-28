@@ -1,6 +1,10 @@
+// @FIXME: fix type errors
+
 export const isBrowser = typeof window !== 'undefined';
+// @ts-ignore
 export const isNode = typeof process === 'object';
 
+// @ts-ignore
 export const isDevEnv = (isBrowser && import.meta.env.VITE_DEV_ENV) || (isNode && process.env.DEV_ENV);
 
 export const defaultWindow = isBrowser ? window : undefined;
