@@ -41,5 +41,5 @@ export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) 
   });
 
   // Forward multipart form data to graphql yoga
-  fastify.addContentTypeParser('multipart/form-data', {}, (req, payload, done) => done(null));
+  fastify.addContentTypeParser('multipart/form-data', {}, (_req, _payload, done) => done(null));
 };
