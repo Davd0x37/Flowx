@@ -1,0 +1,4 @@
+"""
+The root schema
+"""
+type Query
