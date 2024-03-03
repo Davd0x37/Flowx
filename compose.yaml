@@ -1,3 +1,6 @@
+include:
+  - services.compose.yaml
+
 services:
   build-server:
     build:
@@ -28,3 +31,8 @@ volumes:
   caddy_data:
   caddy_config:
   app_volume:
+
+
+networks:
+  backend:
+    driver: bridge

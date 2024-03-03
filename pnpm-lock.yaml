@@ -145,11 +145,11 @@ importers:
         specifier: workspace:^
         version: link:../../packages/shared
       '@tanstack/vue-query':
-        specifier: ^5.24.2
-        version: 5.24.2(vue@3.4.21)
+        specifier: ^5.24.6
+        version: 5.24.6(vue@3.4.21)
       '@tanstack/vue-query-devtools':
-        specifier: ^5.24.2
-        version: 5.24.2(@tanstack/vue-query@5.24.2)(vue@3.4.21)
+        specifier: ^5.24.6
+        version: 5.24.6(@tanstack/vue-query@5.24.6)(vue@3.4.21)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -224,8 +224,8 @@ importers:
         specifier: ^7.0.16
         version: 7.0.16(vite@5.1.4)(vue@3.4.21)
       vue-tsc:
-        specifier: ^2.0.2
-        version: 2.0.2(typescript@5.3.3)
+        specifier: ^2.0.3
+        version: 2.0.3(typescript@5.3.3)
 
   packages/shared:
     devDependencies:
@@ -2115,27 +2115,27 @@ packages:
       remove-accents: 0.4.2
     dev: false
 
-  /@tanstack/query-core@5.24.2:
-    resolution: {integrity: sha512-GD1z7Ehl5bBLBZkt+imENuGvfk/hf+I2FihsQvtC4rOTF1rW+FDYCO8Ds5vwnO5Bcshr73/mS3BhWPSwc1bogA==}
+  /@tanstack/query-core@5.24.6:
+    resolution: {integrity: sha512-xYhxiMUPh1JzamVK8VwwkBpIBXVYRyIBW9gjSN+/BB4kL1nS86gnRWeW8L+sacCj1RiyEsysJe3GSvtbIpHdWw==}
     dev: false
 
   /@tanstack/query-devtools@5.24.0:
     resolution: {integrity: sha512-pThim455t69zrZaQKa7IRkEIK8UBTS+gHVAdNfhO72Xh4rWpMc63ovRje5/n6iw63+d6QiJzVadsJVdPoodSeQ==}
     dev: false
 
-  /@tanstack/vue-query-devtools@5.24.2(@tanstack/vue-query@5.24.2)(vue@3.4.21):
-    resolution: {integrity: sha512-4/0IKtbgl5jKIUFDtaShEeYUjii6eJ+eK3W2Stydv6w6C9o4SjzrXtp3b9Rib8H/0ZLNQfmFFPSjTaNUJjZXQg==}
+  /@tanstack/vue-query-devtools@5.24.6(@tanstack/vue-query@5.24.6)(vue@3.4.21):
+    resolution: {integrity: sha512-Kp1hvn0DtX/A8f7zCaOPYPayPViLIOlpMrsq52qy2uivSREvn8Qn4tmAKNnjGvS93qgW0+9wPQyd9SbB6H62Qw==}
     peerDependencies:
-      '@tanstack/vue-query': ^5.24.2
+      '@tanstack/vue-query': ^5.24.6
       vue: ^3.3.0
     dependencies:
       '@tanstack/query-devtools': 5.24.0
-      '@tanstack/vue-query': 5.24.2(vue@3.4.21)
+      '@tanstack/vue-query': 5.24.6(vue@3.4.21)
       vue: 3.4.21(typescript@5.3.3)
     dev: false
 
-  /@tanstack/vue-query@5.24.2(vue@3.4.21):
-    resolution: {integrity: sha512-N8JYf78eqen49VHjUJ8saLK63r5cMPVRQXN4mbbzNxvgrhhAF46qXGiyc9StKsKXfc54/M53QL0xJYB8goUFtg==}
+  /@tanstack/vue-query@5.24.6(vue@3.4.21):
+    resolution: {integrity: sha512-leKowCBrQHsoc71hQFf/KwMqklNqclaAzPK6JxoTQ9YtisEhXjrBxYRKJPs559SxjEZD/AzNQBGpZOd992yoEg==}
     peerDependencies:
       '@vue/composition-api': ^1.1.2
       vue: ^2.6.0 || ^3.3.0
@@ -2144,7 +2144,7 @@ packages:
         optional: true
     dependencies:
       '@tanstack/match-sorter-utils': 8.11.8
-      '@tanstack/query-core': 5.24.2
+      '@tanstack/query-core': 5.24.6
       '@vue/devtools-api': 6.6.1
       vue: 3.4.21(typescript@5.3.3)
       vue-demi: 0.14.7(vue@3.4.21)
@@ -2543,8 +2543,8 @@ packages:
       rfdc: 1.3.1
     dev: true
 
-  /@vue/language-core@2.0.2(typescript@5.3.3):
-    resolution: {integrity: sha512-MT8pGTFouwDOS/ton1OqyW2MtTv02I8kEymvD05lW3NM8HJf63Xu9sZc0nh5SGZN35EFdnSsD+emhRKRzHLEug==}
+  /@vue/language-core@2.0.3(typescript@5.3.3):
+    resolution: {integrity: sha512-hnVF/Q3cD2v+EFD4pD1YdITGBcdM38P18SYqilVQDezKw5RobWny4BwIckWGS1fJmUstsO9mTX30ZOyzyR2Q+Q==}
     peerDependencies:
       typescript: '*'
     peerDependenciesMeta:
@@ -7261,14 +7261,14 @@ packages:
       he: 1.2.0
     dev: true
 
-  /vue-tsc@2.0.2(typescript@5.3.3):
-    resolution: {integrity: sha512-y/McoUhK62cJdI9m8xTCADOELPczi/EhLcjwq84xTqmsqEFugM7vOy5l7X/2ZNdMKopg74jVn2Nd4GdUxPMGWw==}
+  /vue-tsc@2.0.3(typescript@5.3.3):
+    resolution: {integrity: sha512-aMJqbgLiKDAwAglWqMoGf1Ez6Wwqhlk2MDxEjFGziiLW0A+tHOWE1+YQJZQ1Vm6zaENPA2KJAubFhaR988UvGg==}
     hasBin: true
     peerDependencies:
       typescript: '*'
     dependencies:
       '@volar/typescript': 2.1.0
-      '@vue/language-core': 2.0.2(typescript@5.3.3)
+      '@vue/language-core': 2.0.3(typescript@5.3.3)
       semver: 7.6.0
       typescript: 5.3.3
     dev: true
