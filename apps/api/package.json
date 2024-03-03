@@ -11,6 +11,8 @@
     "lint:fix": "pnpm lint --fix"
   },
   "devDependencies": {
+    "@fastify/swagger": "^8.14.0",
+    "@fastify/swagger-ui": "^3.0.0",
     "@types/better-sqlite3": "^7.6.9",
     "@types/node": "^20.11.24",
     "@types/zxcvbn": "^4.4.4",
