@@ -2,7 +2,6 @@
 import vueEslintParser from 'vue-eslint-parser';
 import { FlatCompat } from '@eslint/eslintrc';
 import eslint from '@eslint/js';
-import * as graphqlESLint from '@graphql-eslint/eslint-plugin';
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
 import eslintPluginVue from 'eslint-plugin-vue';
 import globals from 'globals';
@@ -142,37 +141,6 @@ export default [
       ...sharedRules,
     },
   })),
-
-  // GraphQL config
-  {
-    files: ['**/*.{graphql,gql}'],
-
-    plugins: {
-      '@graphql-eslint': graphqlESLint,
-    },
-
-    languageOptions: {
-      parser: graphqlESLint,
-    },
-
-    rules: {
-      'prettier/prettier': 'error',
-    },
-  },
-
-  // GraphQL server schema config
-  {
-    // Setup recommended config for schema files
-    files: ['apps/api/**/*.{graphql,gql}'],
-    ...graphqlESLint.flatConfigs['schema-recommended'],
-  },
-
-  // GraphQL client schema config
-  {
-    // Setup recommended config for schema files
-    files: ['apps/web/**/*.{graphql,gql}'],
-    ...graphqlESLint.flatConfigs['operations-recommended'],
-  },
 
   // Default Prettier config
   { ...eslintPluginPrettier },
