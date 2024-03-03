@@ -129,6 +129,9 @@ importers:
       '@types/node':
         specifier: ^20.11.24
         version: 20.11.24
+      '@types/zxcvbn':
+        specifier: ^4.4.4
+        version: 4.4.4
       nodemon:
         specifier: ^3.1.0
         version: 3.1.0
@@ -2209,6 +2212,10 @@ packages:
     resolution: {integrity: sha512-vmQSUcfalpIq0R9q7uTo2lXs6eGIpt9wtnLdMv9LVpIjCA/+ufZRozlVoVelIYixx1ugCBKDhn89vnsEGOCx9A==}
     dependencies:
       '@types/node': 20.11.24
+    dev: true
+
+  /@types/zxcvbn@4.4.4:
+    resolution: {integrity: sha512-Tuk4q7q0DnpzyJDI4aMeghGuFu2iS1QAdKpabn8JfbtfGmVDUgvZv1I7mEjP61Bvnp3ljKCC8BE6YYSTNxmvRQ==}
     dev: true
 
   /@typescript-eslint/eslint-plugin@7.1.0(@typescript-eslint/parser@7.1.0)(eslint@8.57.0)(typescript@5.3.3):
