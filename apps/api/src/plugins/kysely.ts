@@ -10,17 +10,21 @@ declare module 'fastify' {
   }
 }
 
-export default fastifyPlugin(
-  async (fastify: FastifyInstance) => {
-    fastify.decorate('db', db);
+export default (fastify$: FastifyInstance) => {
+  const kyselyPlugin = fastifyPlugin(
+    async (fastify: FastifyInstance) => {
+      fastify.decorate('db', db);
 
-    fastify.addHook('onClose', (fastifyHookInstance: FastifyInstance) => {
-      if (fastifyHookInstance.db === db) {
-        fastifyHookInstance.db.destroy();
-      }
-    });
-  },
-  {
-    name: 'fastify-kysely-db-plugin',
-  },
-);
+      fastify.addHook('onClose', (fastifyHookInstance: FastifyInstance) => {
+        if (fastifyHookInstance.db === db) {
+          fastifyHookInstance.db.destroy();
+        }
+      });
+    },
+    {
+      name: 'fastify-kysely-db-plugin',
+    },
+  );
+
+  fastify$.register(kyselyPlugin);
+};

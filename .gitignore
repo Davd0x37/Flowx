@@ -2,7 +2,9 @@
 db_files
 
 .env
-!example.env
+.env.*
+!.env.example
+!.env.*.example
 
 # Logs
 logs

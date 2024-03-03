@@ -15,3 +15,8 @@ This project wouldn't be possible without:
 - **Pinia**
 
 And other great packages used in this app.
+
+## TODO
+
+- [ ] Use vault to store passwords for services and API
+- [ ] Move docker/services files to separate config directory
