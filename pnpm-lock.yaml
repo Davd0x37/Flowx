@@ -99,8 +99,8 @@ importers:
         specifier: ^9.4.3
         version: 9.4.3
       fastify:
-        specifier: ^4.26.1
-        version: 4.26.1
+        specifier: ^4.26.2
+        version: 4.26.2
       fastify-plugin:
         specifier: ^4.5.1
         version: 4.5.1
@@ -145,11 +145,11 @@ importers:
         specifier: workspace:^
         version: link:../../packages/shared
       '@tanstack/vue-query':
-        specifier: ^5.24.6
-        version: 5.24.6(vue@3.4.21)
+        specifier: ^5.24.8
+        version: 5.24.8(vue@3.4.21)
       '@tanstack/vue-query-devtools':
-        specifier: ^5.24.6
-        version: 5.24.6(@tanstack/vue-query@5.24.6)(vue@3.4.21)
+        specifier: ^5.24.8
+        version: 5.24.8(@tanstack/vue-query@5.24.8)(vue@3.4.21)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -176,8 +176,8 @@ importers:
         version: 4.3.0(vue@3.4.21)
     devDependencies:
       '@iconify/json':
-        specifier: ^2.2.188
-        version: 2.2.188
+        specifier: ^2.2.189
+        version: 2.2.189
       '@iconify/vue':
         specifier: ^4.1.1
         version: 4.1.1(vue@3.4.21)
@@ -224,8 +224,8 @@ importers:
         specifier: ^7.0.16
         version: 7.0.16(vite@5.1.4)(vue@3.4.21)
       vue-tsc:
-        specifier: ^2.0.3
-        version: 2.0.3(typescript@5.3.3)
+        specifier: ^2.0.4
+        version: 2.0.4(typescript@5.3.3)
 
   packages/shared:
     devDependencies:
@@ -1722,8 +1722,8 @@ packages:
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
     dev: true
 
-  /@iconify/json@2.2.188:
-    resolution: {integrity: sha512-gsJwZ60Vb5IrtjYu+Al4qMaML9ZKUnop6Gi0537ZcA6nEhe3Nb58WH4c6b1+mXOHwOkFlLA8AFBXJUHY5nKMdA==}
+  /@iconify/json@2.2.189:
+    resolution: {integrity: sha512-q0DxpGQuQhtoNXELlHKbkxTSOjuzf/3Qaqq5uuJ/dM62XH1GUUxlXsgH/Moh/CEcs3evzWFp2mjIQifZmihQTA==}
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.2
@@ -2075,27 +2075,27 @@ packages:
       remove-accents: 0.4.2
     dev: false
 
-  /@tanstack/query-core@5.24.6:
-    resolution: {integrity: sha512-xYhxiMUPh1JzamVK8VwwkBpIBXVYRyIBW9gjSN+/BB4kL1nS86gnRWeW8L+sacCj1RiyEsysJe3GSvtbIpHdWw==}
+  /@tanstack/query-core@5.24.8:
+    resolution: {integrity: sha512-yH7KnfXMf10p1U5GffTQzFi2Miiw6WJZImGYGdV7eqa5ZbKO8qVx9lOA9SfhIaJXomrMp1Yz5w/CBhVM3yWeTA==}
     dev: false
 
   /@tanstack/query-devtools@5.24.0:
     resolution: {integrity: sha512-pThim455t69zrZaQKa7IRkEIK8UBTS+gHVAdNfhO72Xh4rWpMc63ovRje5/n6iw63+d6QiJzVadsJVdPoodSeQ==}
     dev: false
 
-  /@tanstack/vue-query-devtools@5.24.6(@tanstack/vue-query@5.24.6)(vue@3.4.21):
-    resolution: {integrity: sha512-Kp1hvn0DtX/A8f7zCaOPYPayPViLIOlpMrsq52qy2uivSREvn8Qn4tmAKNnjGvS93qgW0+9wPQyd9SbB6H62Qw==}
+  /@tanstack/vue-query-devtools@5.24.8(@tanstack/vue-query@5.24.8)(vue@3.4.21):
+    resolution: {integrity: sha512-86tkZJdIV/j2T90LwN7xYJrgnnE7l81TIeDd5FaaH4yvOGUAFRHSXW3E9dUxhguDNbiaC1vdRQ4qBukEO7D9/w==}
     peerDependencies:
-      '@tanstack/vue-query': ^5.24.6
+      '@tanstack/vue-query': ^5.24.8
       vue: ^3.3.0
     dependencies:
       '@tanstack/query-devtools': 5.24.0
-      '@tanstack/vue-query': 5.24.6(vue@3.4.21)
+      '@tanstack/vue-query': 5.24.8(vue@3.4.21)
       vue: 3.4.21(typescript@5.3.3)
     dev: false
 
-  /@tanstack/vue-query@5.24.6(vue@3.4.21):
-    resolution: {integrity: sha512-leKowCBrQHsoc71hQFf/KwMqklNqclaAzPK6JxoTQ9YtisEhXjrBxYRKJPs559SxjEZD/AzNQBGpZOd992yoEg==}
+  /@tanstack/vue-query@5.24.8(vue@3.4.21):
+    resolution: {integrity: sha512-JPPq57iS55J0ELnXgPaB387j9rZZ/zGyvUW3L4K9/Qx/jQVp0uo/E/sW7c0djCxBJ49beI+pNU2rPRFVvoxn9A==}
     peerDependencies:
       '@vue/composition-api': ^1.1.2
       vue: ^2.6.0 || ^3.3.0
@@ -2104,7 +2104,7 @@ packages:
         optional: true
     dependencies:
       '@tanstack/match-sorter-utils': 8.11.8
-      '@tanstack/query-core': 5.24.6
+      '@tanstack/query-core': 5.24.8
       '@vue/devtools-api': 6.6.1
       vue: 3.4.21(typescript@5.3.3)
       vue-demi: 0.14.7(vue@3.4.21)
@@ -2507,8 +2507,8 @@ packages:
       rfdc: 1.3.1
     dev: true
 
-  /@vue/language-core@2.0.3(typescript@5.3.3):
-    resolution: {integrity: sha512-hnVF/Q3cD2v+EFD4pD1YdITGBcdM38P18SYqilVQDezKw5RobWny4BwIckWGS1fJmUstsO9mTX30ZOyzyR2Q+Q==}
+  /@vue/language-core@2.0.4(typescript@5.3.3):
+    resolution: {integrity: sha512-IYlVEICXKRWYjRQ4JyPlXhydU/p0C7uY5LpqXyJzzJHWo44LWHZtTP3USfWNQif3VAK5QZpdZKQ5HYIeQL3BJQ==}
     peerDependencies:
       typescript: '*'
     peerDependenciesMeta:
@@ -3953,8 +3953,8 @@ packages:
   /fastify-plugin@4.5.1:
     resolution: {integrity: sha512-stRHYGeuqpEZTL1Ef0Ovr2ltazUT9g844X5z/zEBFLG8RYlpDiOCIG+ATvYEp+/zmc7sN29mcIMp8gvYplYPIQ==}
 
-  /fastify@4.26.1:
-    resolution: {integrity: sha512-tznA/G55dsxzM5XChBfcvVSloG2ejeeotfPPJSFaWmHyCDVGMpvf3nRNbsCb/JTBF9RmQFBfuujWt3Nphjesng==}
+  /fastify@4.26.2:
+    resolution: {integrity: sha512-90pjTuPGrfVKtdpLeLzND5nyC4woXZN5VadiNQCicj/iJU4viNHKhsAnb7jmv1vu2IzkLXyBiCzdWuzeXgQ5Ug==}
     dependencies:
       '@fastify/ajv-compiler': 3.5.0
       '@fastify/error': 3.4.1
@@ -7214,14 +7214,14 @@ packages:
       he: 1.2.0
     dev: true
 
-  /vue-tsc@2.0.3(typescript@5.3.3):
-    resolution: {integrity: sha512-aMJqbgLiKDAwAglWqMoGf1Ez6Wwqhlk2MDxEjFGziiLW0A+tHOWE1+YQJZQ1Vm6zaENPA2KJAubFhaR988UvGg==}
+  /vue-tsc@2.0.4(typescript@5.3.3):
+    resolution: {integrity: sha512-FJk+F1QhqROr6DK8raTuWk5ezNw1/kZ+7TYhc08k+cpvb1fmi7wguPZHX0svIhT4bAxCGDtF8534It8fiAkScg==}
     hasBin: true
     peerDependencies:
       typescript: '*'
     dependencies:
       '@volar/typescript': 2.1.0
-      '@vue/language-core': 2.0.3(typescript@5.3.3)
+      '@vue/language-core': 2.0.4(typescript@5.3.3)
       semver: 7.6.0
       typescript: 5.3.3
     dev: true
