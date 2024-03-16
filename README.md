@@ -20,3 +20,4 @@ And other great packages used in this app.
 
 - [ ] Use vault to store passwords for services and API
 - [ ] Move docker/services files to separate config directory
+- [ ] Migrate from MongoDB to ScyllaDB
