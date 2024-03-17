@@ -6,11 +6,9 @@
     "user-settings": "Account settings",
     "authenticate": "Authenticate"
   },
-
   "placeholder": {
     "email": "email{'@'}example.com"
   },
-
   "auth": {
     "authenticate": "Authenticate",
     "email": "Email",

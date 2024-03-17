@@ -6,11 +6,9 @@
     "user-settings": "Ustawienia konta",
     "authenticate": "Autoryzacja"
   },
-
   "placeholder": {
     "email": "email{'@'}example.com"
   },
-
   "auth": {
     "authenticate": "Autoryzacja",
     "email": "Email",
