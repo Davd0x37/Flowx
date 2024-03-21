@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "pnpm lint --fix",
-    "format": "prettier --write \"**/*.{cjs,js,ts,tsx,html,css,scss,json,yml,md,vue}\"",
+    "format": "prettier --write \"**/*.{cjs,js,ts,tsx,html,css,scss,json,yml,yaml,md,vue}\"",
     "api:run": "pnpm --filter api",
     "web:run": "pnpm --filter web",
     "shared:run": "pnpm --filter @flowx/shared",

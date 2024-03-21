@@ -1,4 +1,4 @@
 packages:
-  - "apps/*"
-  - "packages/*"
-  - "!packages/wasm-crypto"
+  - 'apps/*'
+  - 'packages/*'
+  - '!packages/wasm-crypto'

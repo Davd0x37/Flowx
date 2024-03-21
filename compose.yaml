@@ -32,7 +32,6 @@ volumes:
   caddy_config:
   app_volume:
 
-
 networks:
   backend:
     driver: bridge

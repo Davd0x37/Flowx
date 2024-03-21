@@ -32,24 +32,6 @@ services:
     env_file:
       - .env
 
-  # Mongo-express configuration
-  mongo-express:
-    image: mongo-express:latest
-    restart: always
-    depends_on:
-      - mongo
-    ports:
-      - 8081:8081
-    networks:
-      - backend
-    environment:
-      # @FIXME: change credentials
-      ME_CONFIG_MONGODB_URL: mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongo:27017
-      ME_CONFIG_MONGODB_AUTH_USERNAME: ${MONGO_WEB_USERNAME}
-      ME_CONFIG_MONGODB_AUTH_PASSWORD: ${MONGO_WEB_PASSWORD}
-    env_file:
-      - .env
-
 volumes:
   redis_space:
   mongo_space:
