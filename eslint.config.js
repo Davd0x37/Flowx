@@ -5,12 +5,15 @@ import eslint from '@eslint/js';
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
 import eslintPluginVue from 'eslint-plugin-vue';
 import globals from 'globals';
-import { readFileSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
+// import { readFileSync } from 'node:fs';
+import {
+  dirname,
+  /* , resolve */
+} from 'node:path';
 import { fileURLToPath } from 'node:url';
 import typescriptEslint from 'typescript-eslint';
 
-const WebAppEslintAutoImport = JSON.parse(readFileSync(resolve('./apps/web/eslintrc-auto-import.json'), 'utf-8'));
+// const WebAppEslintAutoImport = JSON.parse(readFileSync(resolve('./apps/web/eslintrc-auto-import.json'), 'utf-8'));
 
 /**
  * Add later when eslint-plugin-promise starts supporting flat file config
@@ -98,7 +101,7 @@ export default [
       globals: {
         ...globals.browser,
         // @ts-ignore
-        ...(typeof WebAppEslintAutoImport === 'object' ? WebAppEslintAutoImport?.globals : {}),
+        // ...(typeof WebAppEslintAutoImport === 'object' ? WebAppEslintAutoImport?.globals : {}),
       },
     },
   },
@@ -120,7 +123,7 @@ export default [
         // @ts-ignore
         ...(config?.languageOptions?.globals || {}),
         // @ts-ignore
-        ...(typeof WebAppEslintAutoImport === 'object' ? WebAppEslintAutoImport?.globals : {}),
+        // ...(typeof WebAppEslintAutoImport === 'object' ? WebAppEslintAutoImport?.globals : {}),
       },
       parser: vueEslintParser,
       parserOptions: {

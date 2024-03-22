@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed, inject, onMounted } from 'vue';
 import { tabsComposableSymbol } from 'app/composables/useTabs';
 
 const props = withDefaults(

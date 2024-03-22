@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import { ArrowLeft } from 'app/assets/icons';
 import VButton from 'ui/VButton.vue';
 

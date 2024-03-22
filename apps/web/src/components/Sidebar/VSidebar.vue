@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
 import { AVATAR_FALLBACK } from 'app/config/constants';
 import { routes } from 'app/router';
 import { getAcronyms } from 'app/utils/strings';

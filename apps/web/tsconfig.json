@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "jsx": "preserve",
+    "jsxImportSource": "vue",
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
 
     // Paths

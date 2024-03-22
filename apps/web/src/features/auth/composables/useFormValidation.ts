@@ -1,4 +1,4 @@
-import type { Ref } from 'vue';
+import { type Ref, reactive, ref, watch } from 'vue';
 
 /**
  * Wrapped generic type with additional fields

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from 'app/utils/classNames';
 

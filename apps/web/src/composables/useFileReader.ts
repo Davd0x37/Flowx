@@ -1,3 +1,5 @@
+import { ref } from 'vue';
+
 /**
  * Represents the available read types for the file reader.
  */

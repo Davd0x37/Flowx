@@ -1,4 +1,4 @@
-import type { InjectionKey, Ref } from 'vue';
+import { type InjectionKey, type Ref, ref } from 'vue';
 
 export type TabId = string;
 

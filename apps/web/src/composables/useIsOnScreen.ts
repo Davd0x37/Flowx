@@ -1,4 +1,4 @@
-import type { Ref } from 'vue';
+import { type Ref, ref, watchEffect } from 'vue';
 import { internalGuard } from '@flowx/shared';
 
 export default (elementRef: Ref<HTMLElement>, defaultState = false) => {
@@ -13,6 +13,8 @@ export default (elementRef: Ref<HTMLElement>, defaultState = false) => {
 
     const observer = new wnd.IntersectionObserver((entries) => {
       const [entry] = entries;
+      if (!entry) return;
+
       isOnScreen.value = entry.intersectionRatio > 0;
     });
 

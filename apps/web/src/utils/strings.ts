@@ -14,8 +14,9 @@ export function getAcronyms(input: string, uppercase: boolean = true): ResultWra
 
   const acronyms = splitted
     .map((str) => {
-      if (uppercase) return str[0].toLocaleUpperCase();
-      return str[0];
+      const val = str?.[0];
+      if (uppercase && val) return val?.toLocaleUpperCase();
+      return val;
     })
     .join('');
 
