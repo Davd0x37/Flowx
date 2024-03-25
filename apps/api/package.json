@@ -8,7 +8,8 @@
     "migrate:up": "tsx src/db/migrations.ts --up",
     "migrate:rollback": "tsx src/db/migrations.ts --rollback",
     "lint": "eslint src",
-    "lint:fix": "pnpm lint --fix"
+    "lint:fix": "pnpm lint --fix",
+    "type:check": "tsc --noEmit"
   },
   "devDependencies": {
     "@fastify/swagger": "^8.14.0",

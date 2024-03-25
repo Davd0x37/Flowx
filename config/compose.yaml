@@ -4,8 +4,8 @@ include:
 services:
   build-server:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ../
+      dockerfile: config/Dockerfile
     environment:
       NODE_ENV: production
     volumes:

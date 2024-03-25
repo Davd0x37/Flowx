@@ -5,6 +5,7 @@
     "lib": ["ES2022"],
 
     // Build options
+    "baseUrl": ".",
     "moduleResolution": "Bundler",
     "declaration": true,
     "useDefineForClassFields": true,

@@ -3,6 +3,7 @@
   "compilerOptions": {
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
+    "rootDir": ".",
 
     // Paths
     "baseUrl": ".",

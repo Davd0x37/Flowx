@@ -1,16 +1,9 @@
 // @ts-check
 import vueEslintParser from 'vue-eslint-parser';
-import { FlatCompat } from '@eslint/eslintrc';
 import eslint from '@eslint/js';
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
 import eslintPluginVue from 'eslint-plugin-vue';
 import globals from 'globals';
-// import { readFileSync } from 'node:fs';
-import {
-  dirname,
-  /* , resolve */
-} from 'node:path';
-import { fileURLToPath } from 'node:url';
 import typescriptEslint from 'typescript-eslint';
 
 // const WebAppEslintAutoImport = JSON.parse(readFileSync(resolve('./apps/web/eslintrc-auto-import.json'), 'utf-8'));
@@ -21,15 +14,6 @@ import typescriptEslint from 'typescript-eslint';
  *
  * import eslintPluginN from 'eslint-plugin-n';
  */
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-// @ts-ignore
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  resolvePluginsRelativeTo: __dirname,
-});
 
 const sharedRules = {
   'no-unused-vars': 'off',
@@ -49,10 +33,10 @@ export default [
   // Default eslint config
   {
     ...eslint.configs.recommended,
-    files: ['apps/*/**/*.ts', 'packages/*/**/*.ts'],
+    files: ['**/*.ts'],
   },
 
-  // Default Typescript configs - by default it's parser and rules
+  // Typescript configs - by default it's parser and rules
   ...typescriptEslint.configs.recommended.map((conf) => ({ ...conf, files: ['**/.*ts'] })),
 
   // Ignore node modules and other directories
@@ -68,6 +52,9 @@ export default [
       globals: {
         ...globals.node,
         ...globals.browser,
+        RequestInfo: true,
+        RequestInit: true,
+        BufferSource: true,
       },
     },
   },
@@ -100,50 +87,35 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser,
-        // @ts-ignore
         // ...(typeof WebAppEslintAutoImport === 'object' ? WebAppEslintAutoImport?.globals : {}),
       },
     },
   },
 
   // Vue config
-  // @FIXME: replace this when eslint-plugin-vue receive flat config file support
-  ...compat.extends('plugin:vue/vue3-strongly-recommended').map((config) => ({
-    ...config,
-
+  ...eslintPluginVue.configs['flat/strongly-recommended'],
+  {
     files: ['**/*.vue'],
 
     plugins: {
-      vue: eslintPluginVue,
+      // vue: eslintPluginVue,
       '@typescript-eslint': typescriptEslint.plugin,
     },
 
     languageOptions: {
-      globals: {
-        // @ts-ignore
-        ...(config?.languageOptions?.globals || {}),
-        // @ts-ignore
-        // ...(typeof WebAppEslintAutoImport === 'object' ? WebAppEslintAutoImport?.globals : {}),
-      },
       parser: vueEslintParser,
       parserOptions: {
         parser: typescriptEslint.parser,
-        project: ['./tsconfig.eslint.json', './apps/web/tsconfig.json'],
+        project: ['./tsconfig.eslint.json', './apps/*/tsconfig.json'],
         tsconfigRootDir: import.meta.dirname,
         extraFileExtensions: ['.vue'],
       },
-      // @ts-ignore
-      ecmaVersion: config?.languageOptions?.ecmaVersion || 'latest',
-      // @ts-ignore
-      sourceType: config?.languageOptions?.sourceType || 'module',
     },
 
     rules: {
-      // @ts-ignore
-      ...(config?.rules ? config?.rules : {}),
       ...sharedRules,
     },
-  })),
+  },
 
   // Default Prettier config
   { ...eslintPluginPrettier },
