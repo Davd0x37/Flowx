@@ -16,26 +16,26 @@ services:
     env_file:
       - ../.env
 
-  # Maybe for now mongo is not needed
-  # Mongo configuration
-  mongo:
-    image: mongo:7
-    restart: always
-    ports:
-      - '${MONGO_PORT}:27017'
-    volumes:
-      - mongo_space:/data/db
-    networks:
-      - backend
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
-    env_file:
-      - ../.env
+  # # Maybe for now mongo is not needed
+  # # Mongo configuration
+  # mongo:
+  #   image: mongo:7
+  #   restart: always
+  #   ports:
+  #     - '${MONGO_PORT}:27017'
+  #   volumes:
+  #     - mongo_space:/data/db
+  #   networks:
+  #     - backend
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+  #   env_file:
+  #     - ../.env
 
 volumes:
   redis_space:
-  mongo_space:
+  # mongo_space:
 
 networks:
   backend:
