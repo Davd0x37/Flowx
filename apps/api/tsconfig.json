@@ -4,6 +4,7 @@
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "rootDir": ".",
+    "incremental": false,
 
     // Paths
     "baseUrl": ".",

@@ -8,9 +8,8 @@
     "dev": "tsc --watch",
     "build": "tsc",
     "test": "vitest",
-    "lint": "eslint src",
-    "lint:fix": "pnpm lint --fix",
-    "type:check": "tsc --noEmit"
+    "lint": "tsc --noEmit && eslint src",
+    "lint:fix": "pnpm lint --fix"
   },
   "devDependencies": {
     "typescript": "^5.4.3",

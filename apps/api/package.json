@@ -7,9 +7,8 @@
     "dev": "NODE_ENV=development nodemon --env-file=.env.development --exec \"tsx\" ./src/index.ts",
     "migrate:up": "tsx src/db/migrations.ts --up",
     "migrate:rollback": "tsx src/db/migrations.ts --rollback",
-    "lint": "eslint src",
-    "lint:fix": "pnpm lint --fix",
-    "type:check": "tsc --noEmit"
+    "lint": "tsc --noEmit && eslint src",
+    "lint:fix": "pnpm lint --fix"
   },
   "devDependencies": {
     "@fastify/swagger": "^8.14.0",

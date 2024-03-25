@@ -7,9 +7,8 @@
     "dev": "VITE_DEV_ENV=true vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint src",
-    "lint:fix": "pnpm lint --fix",
-    "type:check": "tsc --noEmit"
+    "lint": "tsc --noEmit && eslint src",
+    "lint:fix": "pnpm lint --fix"
   },
   "dependencies": {
     "@flowx/shared": "workspace:^",

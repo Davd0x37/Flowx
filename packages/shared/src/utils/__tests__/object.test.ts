@@ -71,7 +71,7 @@ describe('Test object helpers', () => {
       const selector = 'nestedArr.values.[0].name';
       const val = Obj.get(TEST_OBJ, selector);
 
-      expect(val).toEqual(TEST_OBJ.nestedArr.values[0].name);
+      expect(val).toEqual(TEST_OBJ.nestedArr.values?.[0]?.name);
     });
   });
 });

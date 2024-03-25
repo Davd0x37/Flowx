@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "pnpm run -r lint",
     "lint:fix": "pnpm lint --fix",
     "format": "prettier --write \"**/*.{cjs,js,ts,tsx,html,css,scss,json,yml,yaml,md,vue}\"",
     "api:run": "pnpm --filter api",

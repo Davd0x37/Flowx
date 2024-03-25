@@ -278,7 +278,7 @@ export class OAuth2 {
 
   public async accessToken(
     options: Omit<OAuthAccessTokenRequestPKCE, 'grantType'>,
-  ): Promise<ResultWrapper<OAuthTokens>> {
+  ): Promise<ResultWrapper<OAuthTokens, string>> {
     return this.__request('tokenEndpoint', {
       ...options,
       grantType: 'authorization_code',
@@ -287,7 +287,7 @@ export class OAuth2 {
 
   public async refreshToken(
     options: Omit<OAuthRefreshTokensRequestPKCE, 'grantType'>,
-  ): Promise<ResultWrapper<OAuthTokens>> {
+  ): Promise<ResultWrapper<OAuthTokens, string>> {
     return this.__request('tokenEndpoint', {
       ...options,
       grantType: 'refresh_token',
@@ -298,7 +298,7 @@ export class OAuth2 {
     endpoint: OAuthEndpoints,
     // make union of possible options
     options: OAuthAccessTokenRequestPKCE | OAuthRefreshTokensRequestPKCE,
-  ): Promise<ResultWrapper<OAuthTokens>> {
+  ): Promise<ResultWrapper<OAuthTokens, string>> {
     const endpointUri = this.getEndpoint(endpoint);
     const basicAuth = this.getBasicAuthToken();
 
