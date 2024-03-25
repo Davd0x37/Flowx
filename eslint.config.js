@@ -28,7 +28,7 @@ const sharedRules = {
   '@typescript-eslint/method-signature-style': ['error', 'property'],
 };
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigFile} */
 export default [
   // Default eslint config
   {
