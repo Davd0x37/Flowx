@@ -26,7 +26,7 @@
     "@fastify/redis": "^6.1.1",
     "@fastify/type-provider-typebox": "^4.0.0",
     "@flowx/shared": "workspace:^",
-    "@sinclair/typebox": "^0.32.19",
+    "@sinclair/typebox": "^0.32.20",
     "better-sqlite3": "^9.4.3",
     "fastify": "^4.26.2",
     "fastify-plugin": "^4.5.1",

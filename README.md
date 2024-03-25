@@ -21,5 +21,6 @@ And other great packages used in this app.
 - [ ] Use vault to store passwords for services and API
 - [ ] Move docker/services files to separate config directory
 - [ ] Migrate from MongoDB to ScyllaDB
-- [ ] Remove autoimport in vite
+- [x] Remove autoimport in vite
 - [ ] Remove tailwind??
+- [ ] Move to [**Garnet**](https://github.com/microsoft/garnet)
