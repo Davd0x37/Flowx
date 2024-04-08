@@ -1,4 +1,4 @@
-import { APP_ERRORS, RUNTIME_ERRORS } from '../types';
+import { APP_ERRORS, RUNTIME_ERRORS } from '../types/appErrorCodes';
 import { isDevEnv } from './env';
 
 /**
@@ -42,6 +42,7 @@ export class BaseError<T extends string> extends Error {
 
   constructor({ name, message, cause }: ErrorParameters<T>) {
     super();
+
     this.name = name;
     this.message = message;
     this.cause = cause;

@@ -1,21 +1,24 @@
-import SQLite from 'better-sqlite3';
-import { Kysely, SqliteDialect } from 'kysely';
-import { resolve } from 'path';
-import { fileURLToPath } from 'url';
+import { Kysely, PostgresDialect } from 'kysely';
+import { fileURLToPath } from 'node:url';
+import { Pool } from 'pg';
 import { type Database } from 'app/types';
 
 export const __dbDirname = fileURLToPath(new URL('.', import.meta.url));
 
-// @TODO: move database file path to separate file
-export const databaseFile =
-  (process.env.DATABASE_SQLITE_FILE as string) || resolve(__dbDirname, '../../', 'db_files', 'mydb.sqlite');
+const { DATABASE_URI, DATABASE_NAME, DATABASE_USER } = process.env;
 
-export const sqliteDialect = new SqliteDialect({
-  database: new SQLite(databaseFile),
+const postgresDialect = new PostgresDialect({
+  pool: new Pool({
+    database: DATABASE_NAME,
+    host: DATABASE_URI,
+    user: DATABASE_USER,
+    port: 5434,
+    max: 10,
+  }),
 });
 
 export const db = new Kysely<Database>({
-  dialect: sqliteDialect,
+  dialect: postgresDialect,
 });
 
 export type DBType = typeof db;

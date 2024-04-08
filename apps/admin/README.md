@@ -1,3 +1,3 @@
 # Flowx admin dashboard
 
-## React implementation
+## Vue implementation

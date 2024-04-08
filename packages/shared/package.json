@@ -3,7 +3,11 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "main": "src/index.ts",
+  "exports": {
+    "./builders/*": "./src/builders/*.ts",
+    "./types/*": "./src/types/*.ts",
+    "./utils/*": "./src/utils/*.ts"
+  },
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",

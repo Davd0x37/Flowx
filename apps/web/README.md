@@ -1,5 +1,3 @@
-# Flowx admin dashboard
+# Flowx web app
 
-TODO:
-
-- Replace tailwind with [PandaCSS](https://panda-css.com/)
+## React implementation

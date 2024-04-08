@@ -1,4 +1,4 @@
-import { internalGuard } from '@flowx/shared';
+import { internalGuard } from '@flowx/shared/utils/guard';
 
 export interface RequestClient {
   fetch: (input: RequestInfo | URL, options?: RequestInit) => Promise<Response>;

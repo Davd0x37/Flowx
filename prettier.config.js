@@ -10,7 +10,6 @@ export default {
   importOrder: [
     '^dotenv(.*)$',
     '^react(.*)$',
-    '^vue(.*)$',
     '<THIRD_PARTY_MODULES>',
     '^@flowx/(.*)$',
     '^app/(.*)$',

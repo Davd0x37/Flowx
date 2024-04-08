@@ -1,4 +1,4 @@
-import { debugError } from '@flowx/shared';
+import { debugError } from '@flowx/shared/utils/errorUtils';
 import { db } from 'app/db';
 import { NewUser, UpdateUser, User, UserModel } from 'app/models/user.model';
 import { BaseRepository } from './base.repository';

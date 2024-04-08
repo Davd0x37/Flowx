@@ -1,5 +1,8 @@
-import { AppError, RequestBuilder, URLBuilder, base64UrlEncodeAB, debug, resolveUrl } from '@flowx/shared';
-import type { ResultWrapper } from '@flowx/shared';
+import { RequestBuilder, URLBuilder } from '@flowx/shared/builders/request.builder';
+import type { ResultWrapper } from '@flowx/shared/types/wrappers';
+import { base64UrlEncodeAB } from '@flowx/shared/utils/encoding';
+import { AppError, debug } from '@flowx/shared/utils/errorUtils';
+import { resolveUrl } from '@flowx/shared/utils/network';
 import type { RequestClient } from 'app/lib/fetch';
 import { generateRandomValue, hash } from '../crypto';
 import type {
@@ -100,12 +103,10 @@ export class OAuth2 {
     const { server } = this.settings;
 
     if (endpoint in this.settings) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       return resolveUrl(this.settings[endpoint]!, server);
     }
 
     if (endpoint in this.defaultEndpoints) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       return resolveUrl(this.defaultEndpoints[endpoint]!, server);
     }
 

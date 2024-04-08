@@ -1,0 +1,66 @@
+{
+  "views": {
+    "home": "Home",
+    "user": "Profile",
+    "user-details": "Account details",
+    "user-settings": "Account settings",
+    "authenticate": "Authenticate"
+  },
+  "placeholder": {
+    "email": "email{'@'}example.com"
+  },
+  "auth": {
+    "authenticate": "Authenticate",
+    "email": "Email",
+    "password": "Password",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "repeat_password": "Repeat password",
+    "recover_password": "Recover password",
+    "create_account": "Create account",
+    "remember_me": "Remember me",
+    "passwords_doesnt_match": "Passwords doesn't match",
+    "user_already_exists": "User already exists",
+    "sign_in_with_google": "Sign in with Google",
+    "sign_in_with_passkeys": "Sign in with Passkeys",
+    "dont_have_account_sign_up": "Don't have account? Sign up!",
+    "already_have_account_sign_in": "Already have account? Sign in!",
+    "your_email_address_used_to_login_into_app": "Your email address used to login into app",
+    "your_super_secret_password_that_will_allow_you_to_use_the_app": "Your super secret password that will allow you to use the app"
+  },
+
+  "Routes": {
+    "Home": "Home",
+    "Profile": "Profile",
+    "Profile Details": "Profile details",
+    "Settings": "Settings",
+    "Authenticate": "Authenticate",
+    "Services": "Services"
+  },
+
+  "Services": {
+    "title": "Services",
+    "settingsTitle": "Services settings"
+  },
+
+  "User": {
+    "Email": "Email",
+    "Password": "Password",
+    "Login": "Login",
+    "Logout": "Logout",
+    "Register": "Register",
+    "Repeat password": "Repeat password",
+    "Recover password": "Recover password",
+    "Create account": "Create account",
+    "Remember me": "Remember me",
+    "Passwords doesn't match": "Passwords doesn't match",
+    "User already exists": "User already exists",
+    "Sign in with Google": "Sign in with Google",
+    "Sign in with Passkeys": "Sign in with Passkeys",
+    "Don't have account? Sign up!": "Don't have account? Sign up!",
+    "Already have account? Sign in!": "Already have account? Sign in!",
+    "Your email address used to login into app": "Your email address used to login into app",
+    "Your super secret password that will allow you to use the app": "Your super secret password that will allow you to use the app"
+  }
+}

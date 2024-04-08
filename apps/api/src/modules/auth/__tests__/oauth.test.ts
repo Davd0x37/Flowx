@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { AppError } from '@flowx/shared';
+import { AppError } from '@flowx/shared/utils/errorUtils';
 import { Fetch } from 'app/lib/fetch';
 import { OAuth2 } from '../oauth';
 import { OAuthAuthorizeParameters, OAuthCodeChallengeStruct, OAuthSettings } from '../types';
@@ -83,7 +83,6 @@ describe('Test OAuth service', () => {
     expect.assertions(3);
 
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       await auth.generatePKCECodeChallenge(null as any);
     } catch (error) {
       expect(error).toBeInstanceOf(AppError);

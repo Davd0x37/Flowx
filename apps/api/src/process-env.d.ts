@@ -6,8 +6,8 @@ declare namespace NodeJS {
     // Database environment variables
     DATABASE_URI: string;
     DATABASE_PASSWORD: string;
+    DATABASE_USER: string;
     DATABASE_NAME: string;
-    DATABASE_SQLITE_FILE: string;
 
     // Redis environment variables
     REDIS_HOST: string;

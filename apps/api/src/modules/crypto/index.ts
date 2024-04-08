@@ -13,7 +13,9 @@
  * ```
  * 3. Encrypt
  */
-import { AppError, debugError, internalGuard, stringToArrayBuffer } from '@flowx/shared';
+import { stringToArrayBuffer } from '@flowx/shared/utils/encoding';
+import { AppError, debugError } from '@flowx/shared/utils/errorUtils';
+import { internalGuard } from '@flowx/shared/utils/guard';
 
 /**
  * Initialization vector length

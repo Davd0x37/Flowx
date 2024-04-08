@@ -1,12 +1,14 @@
 // @ts-check
-import vueEslintParser from 'vue-eslint-parser';
+import { FlatCompat } from '@eslint/eslintrc';
 import eslint from '@eslint/js';
-import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
-import eslintPluginVue from 'eslint-plugin-vue';
+import pluginPrettier from 'eslint-plugin-prettier/recommended';
+import pluginReact from 'eslint-plugin-react';
+// import reactHookes from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import typescriptEslint from 'typescript-eslint';
-
-// const WebAppEslintAutoImport = JSON.parse(readFileSync(resolve('./apps/web/eslintrc-auto-import.json'), 'utf-8'));
 
 /**
  * Add later when eslint-plugin-promise starts supporting flat file config
@@ -15,18 +17,14 @@ import typescriptEslint from 'typescript-eslint';
  * import eslintPluginN from 'eslint-plugin-n';
  */
 
-const sharedRules = {
-  'no-unused-vars': 'off',
-  '@typescript-eslint/no-unused-vars': [
-    'error',
-    {
-      argsIgnorePattern: '^_',
-      varsIgnorePattern: '^_',
-      caughtErrorsIgnorePattern: '^_',
-    },
-  ],
-  '@typescript-eslint/method-signature-style': ['error', 'property'],
-};
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// @ts-ignore
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  resolvePluginsRelativeTo: __dirname,
+});
 
 /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigFile} */
 export default [
@@ -46,7 +44,7 @@ export default [
 
   // Env configs
   {
-    files: ['**/*.{ts,vue}'],
+    files: ['**/*.{ts,tsx}'],
 
     languageOptions: {
       globals: {
@@ -61,7 +59,7 @@ export default [
 
   // Custom Typescript config
   {
-    files: ['apps/*/**/*.ts', 'packages/*/**/*.ts'],
+    files: ['**/*.{ts,tsx}'],
 
     plugins: {
       '@typescript-eslint': typescriptEslint.plugin,
@@ -70,53 +68,54 @@ export default [
     languageOptions: {
       parser: typescriptEslint.parser,
       parserOptions: {
-        project: ['./tsconfig.eslint.json', './apps/*/tsconfig.json', './packages/*/tsconfig.json'],
+        project: ['./tsconfig.eslint.json', './*/*/tsconfig.json'],
         tsconfigRootDir: import.meta.dirname,
       },
     },
 
     rules: {
-      ...sharedRules,
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
+      '@typescript-eslint/method-signature-style': ['error', 'property'],
     },
   },
 
-  // Env configs for Web app - used with unplugin-import
+  // React configs
   {
-    files: ['apps/web/**/*.ts'],
-
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        // ...(typeof WebAppEslintAutoImport === 'object' ? WebAppEslintAutoImport?.globals : {}),
-      },
-    },
-  },
-
-  // Vue config
-  ...eslintPluginVue.configs['flat/strongly-recommended'],
-  {
-    files: ['**/*.vue'],
-
+    files: ['**/*.tsx'],
     plugins: {
-      // vue: eslintPluginVue,
-      '@typescript-eslint': typescriptEslint.plugin,
+      react: pluginReact,
+      // @FIXME: enable when support for eslint 9 is added - https://github.com/facebook/react/pull/28773
+      // 'react-hooks': reactHookes,
+      // 'react-refresh': reactRefresh,
     },
-
     languageOptions: {
-      parser: vueEslintParser,
       parserOptions: {
-        parser: typescriptEslint.parser,
-        project: ['./tsconfig.eslint.json', './apps/*/tsconfig.json'],
-        tsconfigRootDir: import.meta.dirname,
-        extraFileExtensions: ['.vue'],
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
     },
-
     rules: {
-      ...sharedRules,
+      // 'react-refresh/only-export-components': 'warn',
+      // 'react/jsx-uses-react': 'error',
+      // 'react/jsx-uses-vars': 'error',
     },
   },
+
+  // @TODO: update to flat file config version when released - https://github.com/facebook/react/issues/28313#issuecomment-2041122978
+  // ...compat.extends('plugin:react-hooks/recommended').map((conf) => ({
+  //   ...conf,
+  //   files: ['apps/web/**/*.tsx'],
+  // })),
 
   // Default Prettier config
-  { ...eslintPluginPrettier },
+  { ...pluginPrettier },
 ];
