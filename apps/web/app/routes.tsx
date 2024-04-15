@@ -5,9 +5,9 @@ import { AuthenticateView } from 'app/pages/auth/route';
 import { Home } from 'app/pages/home';
 import { RootView } from 'app/pages/root';
 import { ServicesView } from 'app/pages/services/route';
-import { Details as UserDetails } from 'app/pages/users/details_t';
-import { UserView } from 'app/pages/users/route';
-import { Settings as UserSettings } from 'app/pages/users/settings_t';
+import { Details as UserDetails } from 'app/pages/user/details';
+import { UserView } from 'app/pages/user/route';
+import { Settings as UserSettings } from 'app/pages/user/settings';
 
 export const routes = createRoutesFromElements(
   <>
