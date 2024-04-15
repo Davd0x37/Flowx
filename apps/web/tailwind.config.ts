@@ -1,8 +1,8 @@
+import type { Config } from 'tailwindcss';
 import tailwindForms from '@tailwindcss/forms';
 import tailwindTypography from '@tailwindcss/typography';
 import tailwindAnimate from 'tailwindcss-animate';
 import defaultTheme from 'tailwindcss/defaultTheme';
-import type { Config } from 'tailwindcss';
 
 const { fontFamily } = defaultTheme;
 

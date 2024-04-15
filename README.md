@@ -22,7 +22,6 @@ And other great packages used in this app.
 - [ ] Remove tailwind??
 - [ ] Move to [**Garnet**](https://github.com/microsoft/garnet)
 
-
 ## Changelog
 
 ### 0.0.2

@@ -1,3 +1,5 @@
+import tailwind from 'tailwindcss';
+import tailwindConfig from './tailwind.config';
 import vue from '@vitejs/plugin-vue';
 import vueJSX from '@vitejs/plugin-vue-jsx';
 import autoprefixer from 'autoprefixer';
@@ -7,8 +9,6 @@ import postcssPresetEnv from 'postcss-preset-env';
 import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
 import VueDevTools from 'vite-plugin-vue-devtools';
-import tailwindConfig from './tailwind.config';
-import tailwind from 'tailwindcss';
 
 export default defineConfig({
   plugins: [

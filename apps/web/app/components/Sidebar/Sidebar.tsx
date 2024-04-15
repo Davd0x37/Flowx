@@ -1,3 +1,4 @@
+import SidebarLinks from './SidebarLinks';
 import { useTranslation } from 'react-i18next';
 import { cva } from 'class-variance-authority';
 import { getAcronyms } from '@flowx/shared/utils/strings';
@@ -7,7 +8,6 @@ import { Button } from 'app/components/ui/button';
 import { TUserStatus } from 'app/features/user/types/user';
 import { cn } from 'app/utils/classNames';
 import useUserStore from 'features/user/stores/user';
-import SidebarLinks from './SidebarLinks';
 
 type Props = {
   className: string;

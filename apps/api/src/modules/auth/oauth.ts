@@ -1,9 +1,3 @@
-import { RequestBuilder, URLBuilder } from '@flowx/shared/builders/request.builder';
-import type { ResultWrapper } from '@flowx/shared/types/wrappers';
-import { base64UrlEncodeAB } from '@flowx/shared/utils/encoding';
-import { AppError, debug } from '@flowx/shared/utils/errorUtils';
-import { resolveUrl } from '@flowx/shared/utils/network';
-import type { RequestClient } from 'app/lib/fetch';
 import { generateRandomValue, hash } from '../crypto';
 import type {
   CodeChallengeMethodType,
@@ -17,6 +11,12 @@ import type {
   OAuthTokens,
   OAuthValidationParameters,
 } from './types';
+import { RequestBuilder, URLBuilder } from '@flowx/shared/builders/request.builder';
+import type { ResultWrapper } from '@flowx/shared/types/wrappers';
+import { base64UrlEncodeAB } from '@flowx/shared/utils/encoding';
+import { AppError, debug } from '@flowx/shared/utils/errorUtils';
+import { resolveUrl } from '@flowx/shared/utils/network';
+import type { RequestClient } from 'app/lib/fetch';
 
 // https://github.com/panva/oauth4webapi
 

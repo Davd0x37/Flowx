@@ -1,12 +1,10 @@
 import { Outlet } from 'react-router-dom';
 import MainLayout from 'app/components/Layouts/MainLayout';
 
-const DefaultView = () => {
+export const RootView = () => {
   return (
     <MainLayout>
       <Outlet />
     </MainLayout>
   );
 };
-
-export default DefaultView;

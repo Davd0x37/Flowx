@@ -1,4 +1,6 @@
-import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
+import tailwind from 'tailwindcss';
+import tailwindConfig from './tailwind.config';
+// import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
 import react from '@vitejs/plugin-react-swc';
 import autoprefixer from 'autoprefixer';
 import { resolve } from 'node:path';
@@ -6,8 +8,6 @@ import postcssNested from 'postcss-nested';
 import postcssPresetEnv from 'postcss-preset-env';
 import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
-import tailwindConfig from './tailwind.config';
-import tailwind from 'tailwindcss';
 
 export default defineConfig({
   plugins: [
@@ -15,8 +15,10 @@ export default defineConfig({
     react(),
 
     // TanStack router plugin
+    // @TODO: use tanstack router when it's ready (v2 or v3)
     // TanStackRouterVite({
-    //   routesDirectory: 'app/pages',
+    //   routesDirectory: './app/routes',
+    //   generatedRouteTree: './app/routes.gen.ts',
     // }),
 
     // Iconify loader

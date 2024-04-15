@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'app/assets/icons';
 import { Button } from 'app/components/ui/button';
 
-const NotFound = () => {
+export const NotFound = () => {
   const navigate = useNavigate();
   const goBackBtn = () => navigate('/');
 
@@ -20,5 +20,3 @@ const NotFound = () => {
     </div>
   );
 };
-
-export default NotFound;

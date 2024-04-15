@@ -1,12 +1,10 @@
 import { Outlet } from 'react-router-dom';
 import AuthenticateLayout from 'app/components/Layouts/AuthenticateLayout';
 
-const AuthenticateView = () => {
+export const AuthenticateView = () => {
   return (
     <AuthenticateLayout>
       <Outlet />
     </AuthenticateLayout>
   );
 };
-
-export default AuthenticateView;

@@ -8,6 +8,8 @@ export default {
   useTabs: false,
   plugins: ['@trivago/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
   importOrder: [
+    '(c|sc)ss$',
+    '^[./].*(?<!\\.(c|sc)ss)$',
     '^dotenv(.*)$',
     '^react(.*)$',
     '<THIRD_PARTY_MODULES>',
@@ -15,8 +17,6 @@ export default {
     '^app/(.*)$',
     '^features/(.*)$',
     '^ui/(.*)$',
-    '^[./].*(?<!\\.(c|sc)ss)$',
-    '(c|sc)ss$',
   ],
   importOrderSeparation: false, //true,
   importOrderSortSpecifiers: true,

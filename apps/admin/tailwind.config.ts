@@ -1,9 +1,9 @@
+import type { Config } from 'tailwindcss';
 import tailwindForms from '@tailwindcss/forms';
 import tailwindTypography from '@tailwindcss/typography';
 import DaisyUI from 'daisyui';
 import colors from 'tailwindcss/colors';
 import defaultTheme from 'tailwindcss/defaultTheme';
-import type { Config } from 'tailwindcss';
 
 const { cyan, green, lime, orange, red, sky, slate, teal } = colors;
 const { fontFamily } = defaultTheme;

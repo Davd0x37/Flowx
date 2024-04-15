@@ -1,7 +1,7 @@
 import { Reload } from 'app/assets/icons';
 import { Button } from 'app/components/ui/button';
 
-const ErrorPage = () => {
+export const ErrorPage = () => {
   const refreshPage = () => window.location.reload();
 
   return (
@@ -18,5 +18,3 @@ const ErrorPage = () => {
     </div>
   );
 };
-
-export default ErrorPage;

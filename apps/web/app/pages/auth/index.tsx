@@ -5,7 +5,7 @@ import LoginForm from 'features/auth/components/LoginForm';
 import RegisterForm from 'features/auth/components/RegisterForm';
 import { TUserForm, TUserRegisterForm } from 'features/user/models/user.model';
 
-const Authenticate = () => {
+export const Authenticate = () => {
   const { t } = useTranslation(['user']);
 
   const [loginMode, setLoginMode] = useState(true);
@@ -37,5 +37,3 @@ const Authenticate = () => {
     </AuthenticateLayout>
   );
 };
-
-export default Authenticate;

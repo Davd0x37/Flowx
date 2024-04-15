@@ -1,12 +1,10 @@
 import { Outlet } from 'react-router-dom';
 
-const ServiceList = () => {
+export const ServicesView = () => {
   return (
     <div>
-      ServiceList
+      SERVICESLIST
       <Outlet />
     </div>
   );
 };
-
-export default ServiceList;
