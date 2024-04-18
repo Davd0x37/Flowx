@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-export const ServicesView = () => {
+const ServicesView = () => {
   return (
     <div>
       SERVICESLIST
@@ -8,3 +8,5 @@ export const ServicesView = () => {
     </div>
   );
 };
+
+export { ServicesView as Component };
