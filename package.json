@@ -24,7 +24,7 @@
   "devDependencies": {
     "@graphql-eslint/eslint-plugin": "^3.20.1",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "@types/eslint": "^8.56.9",
+    "@types/eslint": "^8.56.10",
     "@vitest/ui": "^1.5.0",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.1.0",

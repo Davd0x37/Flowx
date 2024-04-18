@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@flowx/shared": "workspace:^",
-    "@tanstack/react-router": "^1.28.3",
+    "@tanstack/react-router": "^1.28.7",
     "@tanstack/vue-query": "^5.29.0",
     "@tanstack/vue-query-devtools": "^5.29.0",
     "class-variance-authority": "^0.7.0",
@@ -21,15 +21,15 @@
     "pinia": "^2.1.7",
     "tailwind-merge": "^2.2.2",
     "vue": "^3.4.23",
-    "vue-i18n": "^9.12.1",
-    "vue-router": "^4.3.0"
+    "vue-i18n": "^9.13.0",
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.201",
+    "@iconify/json": "^2.2.202",
     "@iconify/vue": "^4.1.1",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.12",
-    "@tanstack/router-devtools": "^1.28.3",
+    "@tanstack/router-devtools": "^1.28.7",
     "@tanstack/router-vite-plugin": "^1.28.2",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
@@ -37,7 +37,7 @@
     "daisyui": "^4.10.2",
     "postcss": "^8.4.38",
     "postcss-nested": "^6.0.1",
-    "postcss-preset-env": "^9.5.5",
+    "postcss-preset-env": "^9.5.6",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5",
     "unplugin-icons": "^0.18.5",
