@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon --env-file=.env.development --exec \"tsx\" ./src/index.ts",
+    "dev": "NODE_ENV=development DEV_ENV=true nodemon --env-file=.env.development --exec \"tsx\" ./src/index.ts",
     "migrate:up": "tsx src/db/migrations.ts --up",
     "migrate:rollback": "tsx src/db/migrations.ts --rollback",
     "lint": "tsc --noEmit && eslint src",

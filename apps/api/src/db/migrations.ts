@@ -30,7 +30,9 @@ if (error) {
   console.error('failed to migrate');
   console.error(error);
 
-  throw new Error(`Migration failed: ${error}`);
+  throw new Error(`Migration failed`, {
+    cause: error,
+  });
 }
 
 await db.destroy();

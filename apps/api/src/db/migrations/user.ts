@@ -13,6 +13,6 @@ export async function up(db: Kysely<Database>): Promise<void> {
     .execute();
 }
 
-export async function down(db: Kysely<any>): Promise<void> {
+export async function down(db: Kysely<Database>): Promise<void> {
   await db.schema.dropTable('user').execute();
 }

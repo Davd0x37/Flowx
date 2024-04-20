@@ -13,7 +13,7 @@ describe('Test internal guards', () => {
     expect(supported).toBeTruthy();
   });
 
-  it('should return runtime global handler if functionality is supported', async () => {
+  it('should return runtime global handler if functionality is supported', () => {
     expect.assertions(3);
 
     try {
@@ -27,7 +27,7 @@ describe('Test internal guards', () => {
     }
   });
 
-  it('should throw error if functionality is not supported', async () => {
+  it('should throw error if functionality is not supported', () => {
     expect.assertions(1);
 
     try {

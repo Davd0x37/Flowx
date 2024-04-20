@@ -1,4 +1,3 @@
-import { defaultGlobal } from './env';
 import { RuntimeAppError } from './errorUtils';
 
 /**
@@ -28,10 +27,10 @@ function assert<T>(expr: T, error: RuntimeAppError): asserts expr is NonNullable
  * Returns global container (window, self, global etc.) if requested functionality is available
  *
  * @throws Throws error if global container is not available
- * @return NonNullable<typeof defaultGlobal>
+ * @return NonNullable<typeof globalThis>
  */
-export const defaultGlobalExist = (): NonNullable<typeof defaultGlobal> => {
-  const defaultGlobalRef = defaultGlobal;
+export const defaultGlobalExist = (): NonNullable<typeof globalThis> => {
+  const defaultGlobalRef = globalThis;
 
   assert(
     defaultGlobalRef,
@@ -52,7 +51,7 @@ export const defaultGlobalExist = (): NonNullable<typeof defaultGlobal> => {
  * @throws Throws error if functionality not available
  * @return Window | globalThis | self | global
  */
-export const internalGuard = (fun: string): NonNullable<typeof defaultGlobal> => {
+export const internalGuard = (fun: string): NonNullable<typeof globalThis> => {
   const defaultGlobalRef = defaultGlobalExist();
 
   assert(

@@ -28,3 +28,7 @@ And other great packages used in this app.
 
 - Use React in web app
 - Use Vue in admin dashboard
+
+### 0.0.3
+
+- Moved Vue to a separate repo

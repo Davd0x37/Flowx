@@ -1,7 +1,7 @@
 const isArr = (input: string) => input[0] === '[' && input[input.length - 1] === ']';
 
 export const Obj = {
-  get: (input: Record<PropertyKey, unknown>, selector: string): unknown | null => {
+  get: (input: Record<PropertyKey, unknown>, selector: string): unknown => {
     const parsed = selector.split('.');
     const [el, ...rest] = parsed;
     if (typeof el !== 'string') return null;

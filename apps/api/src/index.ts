@@ -1,5 +1,5 @@
 import Fastify from 'fastify';
-import Plugins from 'app/plugins';
+import { Plugins } from 'app/plugins';
 import Routes from 'app/routes';
 
 /**

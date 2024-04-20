@@ -1,5 +1,6 @@
 import { APP_ERRORS, RUNTIME_ERRORS } from '../types/appErrorCodes';
-import { isDevEnv } from './env';
+
+// import { isDevEnv } from './env';
 
 /**
  * TYPES
@@ -89,13 +90,13 @@ function printErrorInstance(error: unknown, params?: DebugErrorParams) {
 }
 
 export function debug(params: DebugParams) {
-  if (isDevEnv) {
-    printAdditionals(params);
-  }
+  // if (isDevEnv) {
+  printAdditionals(params);
+  // }
 }
 
 export function debugError(error: unknown, params?: DebugErrorParams) {
-  if (isDevEnv) {
-    printErrorInstance(error, params);
-  }
+  // if (isDevEnv) {
+  printErrorInstance(error, params);
+  // }
 }

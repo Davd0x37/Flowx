@@ -7,12 +7,10 @@ import pluginReact from 'eslint-plugin-react';
 import globals from 'globals';
 import typescriptEslint from 'typescript-eslint';
 
-/** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigFile} */
-export default [
+export default typescriptEslint.config(
   // Default eslint config
+  eslint.configs.recommended,
   {
-    ...eslint.configs.recommended,
-
     files: ['**/*.{ts,tsx}'],
 
     // Env configs
@@ -28,26 +26,23 @@ export default [
   },
 
   // Typescript configs - by default it's parser and rules
-  ...typescriptEslint.configs.recommended.map((conf) => ({ ...conf, files: ['**/.*ts'] })),
+  ...typescriptEslint.configs.recommendedTypeChecked,
 
-  // Ignore node modules and other directories
+  // Custom React, Typescript config
   {
-    ignores: ['!node_modules/', 'node_modules/*'],
-  },
-
-  // Custom Typescript config
-  {
-    files: ['**/*.{ts,tsx}'],
-
     plugins: {
-      '@typescript-eslint': typescriptEslint.plugin,
+      react: pluginReact,
+      // @FIXME: enable when support for eslint 9 is added - https://github.com/facebook/react/pull/28773
+      // 'react-hooks': reactHookes,
     },
 
     languageOptions: {
-      parser: typescriptEslint.parser,
       parserOptions: {
         project: ['./tsconfig.eslint.json', './*/*/tsconfig.json'],
         tsconfigRootDir: import.meta.dirname,
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
     },
 
@@ -62,25 +57,6 @@ export default [
         },
       ],
       '@typescript-eslint/method-signature-style': ['error', 'property'],
-    },
-  },
-
-  // React configs
-  {
-    files: ['**/*.tsx'],
-    plugins: {
-      react: pluginReact,
-      // @FIXME: enable when support for eslint 9 is added - https://github.com/facebook/react/pull/28773
-      // 'react-hooks': reactHookes,
-    },
-    languageOptions: {
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
-    rules: {
       // 'react/jsx-uses-react': 'error',
       // 'react/jsx-uses-vars': 'error',
     },
@@ -101,4 +77,4 @@ export default [
 
   // Default Prettier config
   pluginPrettier,
-];
+);
