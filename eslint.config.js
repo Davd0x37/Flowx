@@ -4,7 +4,6 @@ import eslint from '@eslint/js';
 import pluginPrettier from 'eslint-plugin-prettier/recommended';
 import pluginReact from 'eslint-plugin-react';
 // import reactHookes from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 import typescriptEslint from 'typescript-eslint';
 
@@ -73,7 +72,6 @@ export default [
       react: pluginReact,
       // @FIXME: enable when support for eslint 9 is added - https://github.com/facebook/react/pull/28773
       // 'react-hooks': reactHookes,
-      'react-refresh': reactRefresh,
     },
     languageOptions: {
       parserOptions: {
@@ -83,7 +81,6 @@ export default [
       },
     },
     rules: {
-      'react-refresh/only-export-components': 'warn',
       // 'react/jsx-uses-react': 'error',
       // 'react/jsx-uses-vars': 'error',
     },
