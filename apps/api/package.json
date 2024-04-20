@@ -25,14 +25,14 @@
     "@fastify/redis": "^6.1.1",
     "@fastify/type-provider-typebox": "^4.0.0",
     "@flowx/shared": "workspace:^",
-    "@sinclair/typebox": "^0.32.20",
+    "@sinclair/typebox": "^0.32.22",
     "better-sqlite3": "^9.5.0",
     "fastify": "^4.26.2",
     "fastify-plugin": "^4.5.1",
     "kysely": "^0.27.3",
     "mongodb": "^6.5.0",
     "pg": "^8.11.5",
-    "zod": "^3.22.4",
+    "zod": "^3.22.5",
     "zxcvbn": "^4.4.2"
   }
 }

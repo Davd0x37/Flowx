@@ -1,51 +1,22 @@
 // @ts-check
-import { FlatCompat } from '@eslint/eslintrc';
 import eslint from '@eslint/js';
+import eslintPluginN from 'eslint-plugin-n';
 import pluginPrettier from 'eslint-plugin-prettier/recommended';
 import pluginReact from 'eslint-plugin-react';
 // import reactHookes from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
-import { dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import typescriptEslint from 'typescript-eslint';
-
-/**
- * Add later when eslint-plugin-promise starts supporting flat file config
- * import eslintPluginPromise from "eslint-plugin-promise";
- *
- * import eslintPluginN from 'eslint-plugin-n';
- */
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-// @ts-ignore
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  resolvePluginsRelativeTo: __dirname,
-});
 
 /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigFile} */
 export default [
   // Default eslint config
   {
     ...eslint.configs.recommended,
-    files: ['**/*.ts'],
-  },
 
-  // Typescript configs - by default it's parser and rules
-  ...typescriptEslint.configs.recommended.map((conf) => ({ ...conf, files: ['**/.*ts'] })),
-
-  // Ignore node modules and other directories
-  {
-    ignores: ['!node_modules/', 'node_modules/*'],
-  },
-
-  // Env configs
-  {
     files: ['**/*.{ts,tsx}'],
 
+    // Env configs
     languageOptions: {
       globals: {
         ...globals.node,
@@ -55,6 +26,14 @@ export default [
         BufferSource: true,
       },
     },
+  },
+
+  // Typescript configs - by default it's parser and rules
+  ...typescriptEslint.configs.recommended.map((conf) => ({ ...conf, files: ['**/.*ts'] })),
+
+  // Ignore node modules and other directories
+  {
+    ignores: ['!node_modules/', 'node_modules/*'],
   },
 
   // Custom Typescript config
@@ -94,7 +73,7 @@ export default [
       react: pluginReact,
       // @FIXME: enable when support for eslint 9 is added - https://github.com/facebook/react/pull/28773
       // 'react-hooks': reactHookes,
-      // 'react-refresh': reactRefresh,
+      'react-refresh': reactRefresh,
     },
     languageOptions: {
       parserOptions: {
@@ -104,18 +83,25 @@ export default [
       },
     },
     rules: {
-      // 'react-refresh/only-export-components': 'warn',
+      'react-refresh/only-export-components': 'warn',
       // 'react/jsx-uses-react': 'error',
       // 'react/jsx-uses-vars': 'error',
     },
   },
 
-  // @TODO: update to flat file config version when released - https://github.com/facebook/react/issues/28313#issuecomment-2041122978
-  // ...compat.extends('plugin:react-hooks/recommended').map((conf) => ({
-  //   ...conf,
-  //   files: ['apps/web/**/*.tsx'],
-  // })),
+  // NodeJS configs
+  {
+    files: ['apps/api/**/*.ts'],
+    ...eslintPluginN.configs['flat/recommended-module'],
+  },
+  {
+    files: ['apps/api/**/*.ts'],
+
+    rules: {
+      'n/exports-style': ['error', 'module.exports'],
+    },
+  },
 
   // Default Prettier config
-  { ...pluginPrettier },
+  pluginPrettier,
 ];
