@@ -7,8 +7,6 @@ import { Button, buttonVariants } from 'app/components/ui/button';
 import { type SidebarItem, SidebarLinkList } from 'app/config/routes';
 import { cn } from 'app/utils/classNames';
 
-type Props = {};
-
 type SidebarLinkProps = SidebarItem & { withoutIcon?: boolean };
 
 export const SidebarLink = ({ path, name, withoutIcon, ...link }: SidebarLinkProps) => {
@@ -45,7 +43,7 @@ export const SidebarGroup = ({ children, name, ...link }: PropsWithChildren<Side
   );
 };
 
-const SidebarLinks = ({}: Props) => {
+const SidebarLinks = () => {
   return (
     <>
       {SidebarLinkList.map((link) =>

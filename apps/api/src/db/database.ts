@@ -1,7 +1,7 @@
 import { Kysely, PostgresDialect } from 'kysely';
 import { fileURLToPath } from 'node:url';
 import { Pool } from 'pg';
-import { type Database } from 'app/types';
+import { type Database } from 'app/types/database';
 
 export const __dbDirname = fileURLToPath(new URL('.', import.meta.url));
 

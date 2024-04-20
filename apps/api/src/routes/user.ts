@@ -2,7 +2,8 @@ import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 // import { Value } from '@sinclair/typebox/value';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import UserRepository from 'app/repositories/user.repository';
-import type { NewUserRouteSchemeType, UserIDType } from 'app/types';
+import type { NewUserRouteSchemeType } from 'app/types/routes';
+import type { UserIDType } from 'app/types/user';
 
 export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
   const fastifyTypeBox = fastify.withTypeProvider<TypeBoxTypeProvider>();

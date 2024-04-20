@@ -29,7 +29,8 @@ results?.forEach((it) => {
 if (error) {
   console.error('failed to migrate');
   console.error(error);
-  process.exit(1);
+
+  throw new Error(`Migration failed: ${error}`);
 }
 
 await db.destroy();

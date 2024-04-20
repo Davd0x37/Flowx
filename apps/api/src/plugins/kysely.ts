@@ -2,7 +2,7 @@ import { db } from '../db';
 import type { FastifyInstance } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
 import { Kysely } from 'kysely';
-import { type Database } from 'app/types';
+import { type Database } from 'app/types/database';
 
 declare module 'fastify' {
   interface FastifyInstance {
