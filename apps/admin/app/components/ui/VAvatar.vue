@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
 import { type VariantProps, cva } from 'class-variance-authority';
+import { computed, ref } from 'vue';
 import { UserStatus } from 'features/user/types/user';
 
 /**

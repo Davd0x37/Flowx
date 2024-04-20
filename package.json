@@ -1,13 +1,13 @@
 {
   "name": "flowx",
   "version": "0.0.2",
-  "packageManager": "pnpm@8.12.1",
+  "packageManager": "pnpm@9.0.4",
   "private": true,
   "type": "module",
   "scripts": {
     "lint": "pnpm run -r lint",
     "lint:fix": "pnpm lint --fix",
-    "format": "prettier --write \"**/*.{cjs,js,ts,tsx,html,css,scss,json,yml,yaml,md}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,html,css,scss,json,md,vue}\"",
     "api:run": "pnpm --filter api",
     "web:run": "pnpm --filter web",
     "shared:run": "pnpm --filter @flowx/shared",
@@ -49,7 +49,7 @@
   "lint-staged": {
     "**/*.{js,json,tsx}": [
       "eslint . --fix",
-      "prettier --config prettier.config.js --write \"**/*.{ts,tsx,html,scss,json,yml,md}\""
+      "prettier --config prettier.config.js --write \"**/*.{ts,tsx,html,css,scss,json,md,vue}\""
     ]
   },
   "husky": {

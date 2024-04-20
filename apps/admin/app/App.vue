@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { LAYOUTS, type Layouts } from './layouts';
 import { shallowRef } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { LAYOUTS, type Layouts } from './layouts';
 
 const route = useRoute();
 const router = useRouter();

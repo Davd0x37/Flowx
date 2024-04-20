@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { type VariantProps, cva } from 'class-variance-authority';
 import {
   type FunctionalComponent,
   type InputHTMLAttributes,
@@ -6,7 +7,6 @@ import {
   type SVGAttributes,
   computed,
 } from 'vue';
-import { type VariantProps, cva } from 'class-variance-authority';
 import { Warning } from 'app/assets/icons';
 import { cn } from 'app/utils/classNames';
 
