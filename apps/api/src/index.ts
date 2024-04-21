@@ -1,6 +1,6 @@
+import plugins from './plugins';
+import routes from './routes';
 import Fastify from 'fastify';
-import { Plugins } from 'app/plugins';
-import Routes from 'app/routes';
 
 /**
  * @TODO: add error handling for unavailable services
@@ -12,17 +12,15 @@ const fastify = Fastify({
 });
 
 // Register plugins (database, fetch, auth, etc.) and middlewares (security, logging, etc.)
-Plugins.forEach((plugin) => plugin(fastify));
+await plugins(fastify);
 
 // Register routes (auth, graphql)
-Routes.forEach((route) => {
-  fastify.register(route);
-});
+await routes(fastify);
 
 try {
   await fastify.listen({ port: 3000 });
 } catch (err) {
   fastify.log.error(err);
 
-  throw new Error(`Server error: ${err}`);
+  throw new Error(`Server error: FASTIFY_ERROR`);
 }

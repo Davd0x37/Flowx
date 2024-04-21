@@ -7,7 +7,7 @@ import { Fetch } from 'app/lib/fetch';
 vi.mock('app/lib/fetch', () => {
   return {
     Fetch: {
-      fetch: vi.fn(async () => {
+      fetch: vi.fn(() => {
         return {
           json: () => {
             return {
@@ -83,7 +83,7 @@ describe('Test OAuth service', () => {
     expect.assertions(3);
 
     try {
-      await auth.generatePKCECodeChallenge(null as any);
+      await auth.generatePKCECodeChallenge(null as never);
     } catch (error) {
       expect(error).toBeInstanceOf(AppError);
       expect(error).toHaveProperty('message');
@@ -93,7 +93,7 @@ describe('Test OAuth service', () => {
   });
 
   describe('generate authorization URL', () => {
-    it('with PKCE - default values', async () => {
+    it('with PKCE - default values', () => {
       expect.assertions(1);
 
       const { codeChallenge, codeChallengeMethod } = challengeGlobal;
@@ -107,7 +107,7 @@ describe('Test OAuth service', () => {
 
       expect(typeof url).toBe('string');
     });
-    it('without PKCE - default values', async () => {
+    it('without PKCE - default values', () => {
       expect.assertions(1);
 
       const url = auth.getAuthorizeURL(authOptions);

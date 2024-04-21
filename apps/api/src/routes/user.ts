@@ -5,14 +5,14 @@ import UserRepository from 'app/repositories/user.repository';
 import type { NewUserRouteSchemeType } from 'app/types/routes';
 import type { UserIDType } from 'app/types/user';
 
-export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
+export default (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
   const fastifyTypeBox = fastify.withTypeProvider<TypeBoxTypeProvider>();
   const userRepo = new UserRepository();
 
   fastifyTypeBox.get('/users', async (_request, response) => {
     const users = await userRepo.getAll();
 
-    response.send(users);
+    await response.send(users);
   });
 
   fastifyTypeBox.get<{ Params: UserIDType }>('/users/:userId', async (request, response) => {
@@ -20,7 +20,7 @@ export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) 
 
     const user = await userRepo.read(userId);
 
-    response.send(user);
+    await response.send(user);
   });
 
   fastifyTypeBox.post<{ Body: NewUserRouteSchemeType }>('/users', async (request, response) => {
@@ -29,9 +29,9 @@ export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) 
     const user = await userRepo.create({ login, password, avatar });
 
     if (user) {
-      response.code(200).send('User created');
+      await response.code(200).send('User created');
     } else {
-      response.code(403).send('Cannot create user!');
+      await response.code(403).send('Cannot create user!');
     }
   });
 
@@ -43,11 +43,11 @@ export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) 
 
       const createdUser = await userRepo.update(userId, { login, password, avatar });
       if (!createdUser) {
-        response.code(403).send('Cannot update user!');
+        await response.code(403).send('Cannot update user!');
         return;
       }
 
-      response.code(200).send('User updated');
+      await response.code(200).send('User updated');
     },
   );
 };

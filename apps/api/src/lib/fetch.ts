@@ -1,3 +1,4 @@
+import { debug } from '@flowx/shared/utils/errorUtils';
 import { internalGuard } from '@flowx/shared/utils/guard';
 
 export interface RequestClient {
@@ -11,7 +12,14 @@ export const Fetch: RequestClient = {
     try {
       return wnd.fetch(input, options);
     } catch (error) {
-      throw new Error(`Error occured during fetch: ${error}`);
+      if (error instanceof Error) {
+        debug({
+          name: 'FETCH_ERROR',
+          message: `Fetch error: ${error.message}`,
+        });
+      }
+
+      throw new Error(`Error occured during fetch`);
     }
   },
 };

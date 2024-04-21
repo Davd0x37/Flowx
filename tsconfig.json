@@ -9,7 +9,7 @@
     "moduleResolution": "Bundler",
     "declaration": true,
     "useDefineForClassFields": true,
-    "incremental": true,
+    "incremental": false,
     "noEmit": true,
     "isolatedModules": true,
     "allowJs": true,

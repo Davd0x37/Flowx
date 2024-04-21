@@ -12,7 +12,7 @@ export interface ErrorParameters<T> {
 }
 
 interface DebugParams {
-  name: string;
+  name: APP_ERRORS;
   message: string;
 }
 
@@ -54,7 +54,7 @@ export class RuntimeAppError extends BaseError<RUNTIME_ERRORS> {}
 
 export class AppError extends BaseError<APP_ERRORS> {}
 
-function printAdditionals(params: DebugParams) {
+function printAdditional(params: DebugParams) {
   console.group(`%c${params.name}`, consoleStyles.groupName);
 
   console.log(`%c[ERROR NAME]:\t ${params.name}`, consoleStyles.error.name);
@@ -91,7 +91,7 @@ function printErrorInstance(error: unknown, params?: DebugErrorParams) {
 
 export function debug(params: DebugParams) {
   // if (isDevEnv) {
-  printAdditionals(params);
+  printAdditional(params);
   // }
 }
 
