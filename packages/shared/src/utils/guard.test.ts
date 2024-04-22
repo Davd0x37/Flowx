@@ -1,5 +1,5 @@
-import { RuntimeAppError } from '../errorUtils';
-import { internalGuard, isSupported } from '../guard';
+import { RuntimeAppError } from './errorUtils.ts';
+import { internalGuard, isSupported } from './guard.ts';
 import { describe, expect, it } from 'vitest';
 
 const exampleObject = {

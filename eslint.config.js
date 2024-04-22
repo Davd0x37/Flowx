@@ -1,6 +1,6 @@
 // @ts-check
 import eslint from '@eslint/js';
-// import eslintPluginN from 'eslint-plugin-n';
+import eslintPluginN from 'eslint-plugin-n';
 import pluginPrettier from 'eslint-plugin-prettier/recommended';
 import pluginReact from 'eslint-plugin-react';
 // import reactHooks from 'eslint-plugin-react-hooks';
@@ -63,17 +63,17 @@ export default typescriptEslint.config(
   },
 
   // NodeJS configs - enable when support for typescript is added
-  // {
-  //   files: ['apps/api/**/*.ts'],
-  //   ...eslintPluginN.configs['flat/recommended-module'],
-  // },
-  // {
-  //   files: ['apps/api/**/*.ts'],
+  {
+    files: ['./apps/api/**/*.ts'],
+    ...eslintPluginN.configs['flat/recommended-module'],
+  },
+  {
+    files: ['./apps/api/**/*.ts'],
 
-  //   rules: {
-  //     'n/exports-style': ['error', 'module.exports'],
-  //   },
-  // },
+    rules: {
+      'n/exports-style': ['error', 'module.exports'],
+    },
+  },
 
   // Default Prettier config
   pluginPrettier,

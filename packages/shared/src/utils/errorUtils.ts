@@ -11,7 +11,7 @@ export interface ErrorParameters<T> {
   cause?: unknown;
 }
 
-interface DebugParams {
+export interface DebugParams {
   name: APP_ERRORS;
   message: string;
 }

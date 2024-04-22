@@ -1,4 +1,4 @@
-import { excludeFromArrayByValue } from '../array';
+import { excludeFromArrayByValue } from './array.ts';
 import { describe, expect, it } from 'vitest';
 
 const arrays = {

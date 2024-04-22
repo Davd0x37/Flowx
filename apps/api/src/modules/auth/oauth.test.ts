@@ -1,8 +1,8 @@
-import { OAuth2 } from '../oauth';
-import { OAuthAuthorizeParameters, OAuthCodeChallengeStruct, OAuthSettings } from '../types';
+import { OAuth2 } from './oauth.ts';
+import { OAuthAuthorizeParameters, OAuthCodeChallengeStruct, OAuthSettings } from './types.ts';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { AppError } from '@flowx/shared/utils/errorUtils';
-import { Fetch } from 'app/lib/fetch';
+import { Fetch } from 'app/lib/fetch.ts';
 
 vi.mock('app/lib/fetch', () => {
   return {

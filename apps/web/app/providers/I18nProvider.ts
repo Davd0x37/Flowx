@@ -3,7 +3,7 @@ import i18n from 'i18next';
 import { SupportedLocales } from 'app/config/constants';
 import locales from 'app/locales';
 
-i18n.use(initReactI18next).init({
+void i18n.use(initReactI18next).init({
   resources: locales,
   lng: 'pl',
   fallbackLng: 'en',

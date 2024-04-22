@@ -1,4 +1,4 @@
-import { isExpired } from '../time';
+import { isExpired } from './time.ts';
 import { describe, expect, it } from 'vitest';
 
 const expires = 3600; // 1 hour

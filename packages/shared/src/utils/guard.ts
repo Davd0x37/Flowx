@@ -3,8 +3,8 @@ import { RuntimeAppError } from './errorUtils';
 /**
  * Checks if global container provides required functionality
  *
- * @param fun Runtime-provided API name eg. IntersectionObserver
- * @param container global container name eg. window, self, globalThis, global
+ * @param fun Runtime-provided API name e.g. IntersectionObserver
+ * @param container global container name e.g. window, self, globalThis, global
  */
 export const isSupported = <T extends object>(fun: string, container: T): boolean => {
   return fun in container;
@@ -49,7 +49,7 @@ export const defaultGlobalExist = (): NonNullable<typeof globalThis> => {
  *
  * @param {string} fun Requested functionality
  * @throws Throws error if functionality not available
- * @return Window | globalThis | self | global
+ * @return globalThis
  */
 export const internalGuard = (fun: string): NonNullable<typeof globalThis> => {
   const defaultGlobalRef = defaultGlobalExist();

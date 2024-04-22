@@ -35,7 +35,7 @@ const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
   return (
     <>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-6">
+        <form onSubmit={void form.handleSubmit(onSubmit)} className="flex flex-col gap-6">
           <FormField
             control={form.control}
             name="email"

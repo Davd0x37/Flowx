@@ -41,7 +41,7 @@ export class OAuth2 {
     this.reqClient = reqClient;
 
     if (!settings?.authorizationEndpoint && !settings.discoveryEndpoint) {
-      this.discover();
+      void this.discover();
     }
   }
 
@@ -107,7 +107,7 @@ export class OAuth2 {
     }
 
     if (endpoint in this.defaultEndpoints) {
-      return resolveUrl(this.defaultEndpoints[endpoint]!, server);
+      return resolveUrl(this.defaultEndpoints[endpoint], server);
     }
 
     // Since we have defaultEndpoints to all possible values
@@ -247,7 +247,7 @@ export class OAuth2 {
     const endpoint = this.getEndpoint('discoveryEndpoint');
 
     try {
-      const response = await this.reqClient.fetch(endpoint, {
+      const response = await this.reqClient.fetch<unknown>(endpoint, {
         method: 'GET',
         headers: {
           Accept: 'application/json',
@@ -255,18 +255,8 @@ export class OAuth2 {
         mode: 'no-cors',
       });
 
-      if (!response.headers.get('Content-Type')?.startsWith('application/json')) {
-        debug({
-          name: 'DISCOVERY_CONTENT_TYPE_ERROR',
-          message: `Received response was not JSON response`,
-        });
-
-        return;
-      }
-
-      const responseJson = await response.json();
-
-      console.log(responseJson);
+      // @TODO: implement discovery data saver
+      console.log(response);
     } catch (error) {
       const message = error instanceof Error ? error.message : `OpenID discovery fetch failed`;
 
@@ -330,39 +320,21 @@ export class OAuth2 {
     const requestInstance = requestBuilder.getRequest();
 
     try {
-      const request = await this.reqClient.fetch(requestInstance);
-      const response = await request.json();
-
+      const response = await this.reqClient.fetch<OAuthRequestTokenResponse>(requestInstance);
       if (response?.error) {
-        let message = `OAuth error: ${response.error}`;
-
-        if (response?.error_description) {
-          message += ` | ${response.error_description}`;
-        }
-
-        debug({
-          name: 'TOKEN_REQUEST_ERROR',
-          message,
-        });
-
         return {
-          error: message,
+          error: response?.error,
         };
-      } else if (request.status === 401) {
-        const message = `OAuth received error. Check your clientId or clientSecret`;
+      }
 
-        debug({
-          name: 'TOKEN_REQUEST_CREDENTIALS_ERROR',
-          message,
-        });
-
+      if (!response?.data) {
         return {
-          error: message,
+          error: 'There is no data in fetch request client!',
         };
       }
 
       return {
-        data: this.getTokensFromResponse(response),
+        data: this.getTokensFromResponse(response.data),
       };
     } catch (error) {
       const message = error instanceof Error ? error.message : `Couldn't send request to service`;
