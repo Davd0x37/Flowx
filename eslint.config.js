@@ -3,7 +3,7 @@ import eslint from '@eslint/js';
 import eslintPluginN from 'eslint-plugin-n';
 import pluginPrettier from 'eslint-plugin-prettier/recommended';
 import pluginReact from 'eslint-plugin-react';
-// import reactHooks from 'eslint-plugin-react-hooks';
+import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import typescriptEslint from 'typescript-eslint';
 
@@ -33,7 +33,7 @@ export default typescriptEslint.config(
     plugins: {
       react: pluginReact,
       // @FIXME: enable when support for eslint 9 is added - https://github.com/facebook/react/pull/28773
-      // 'react-hooks': reactHooks,
+      'react-hooks': reactHooks,
     },
 
     languageOptions: {

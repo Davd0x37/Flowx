@@ -16,7 +16,7 @@
     "@types/node": "^20.12.7",
     "@types/zxcvbn": "^4.4.4",
     "nodemon": "^3.1.0",
-    "tsx": "^4.7.2",
+    "tsx": "^4.7.3",
     "typescript": "^5.4.5"
   },
   "dependencies": {
@@ -25,14 +25,15 @@
     "@fastify/redis": "^6.1.1",
     "@fastify/type-provider-typebox": "^4.0.0",
     "@flowx/shared": "workspace:^",
-    "@sinclair/typebox": "^0.32.22",
+    "@sinclair/typebox": "^0.32.24",
     "better-sqlite3": "^9.5.0",
     "fastify": "^4.26.2",
     "fastify-plugin": "^4.5.1",
     "kysely": "^0.27.3",
     "mongodb": "^6.5.0",
+    "mongoose": "^8.3.2",
     "pg": "^8.11.5",
-    "zod": "^3.23.0",
+    "zod": "^3.23.4",
     "zxcvbn": "^4.4.2"
   }
 }

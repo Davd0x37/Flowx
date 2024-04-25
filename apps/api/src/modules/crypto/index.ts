@@ -7,7 +7,7 @@
  * ```
  *    baseKey is a CryptoKey representing the input to the derivation algorithm.
  *    If algorithm is ECDH, then this will be the ECDH private key.
- *    Otherwise it will be the initial key material for the derivation function:
+ *    Otherwise, it will be the initial key material for the derivation function:
  *    for example, for PBKDF2 it might be a password, imported as
  *    a CryptoKey using SubtleCrypto.importKey().
  * ```
