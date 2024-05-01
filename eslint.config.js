@@ -7,6 +7,8 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import typescriptEslint from 'typescript-eslint';
 
+// @TODO: add eslint-plugin-testing-library
+
 export default typescriptEslint.config(
   // Default eslint config
   eslint.configs.recommended,
