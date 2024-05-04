@@ -1,30 +1,27 @@
-import redis from '@fastify/redis';
-import type { FastifyInstance } from 'fastify';
-import { debug } from '@flowx/shared/utils/errorUtils';
-import { AppFastifyPlugin } from 'app/types/fastify.ts';
-
-const { REDIS_HOST, REDIS_PORT, REDIS_PASSWORD } = process.env;
+import redis, { FastifyRedisPluginOptions } from '@fastify/redis';
+import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
+import fastifyPlugin from 'fastify-plugin';
 
 // Redis integration
-const plugin: AppFastifyPlugin = async (fastify: FastifyInstance) => {
-  try {
+export default fastifyPlugin(
+  async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
+    const {
+      register,
+      config: { REDIS_HOST, REDIS_PORT, REDIS_PASSWORD },
+    } = fastify;
+
     const redisOptions = {
       host: REDIS_HOST,
-      port: Number(REDIS_PORT),
+      port: REDIS_PORT,
       password: REDIS_PASSWORD,
-    };
+      closeClient: true,
+    } satisfies FastifyRedisPluginOptions;
 
-    await fastify.register(redis, redisOptions);
-  } catch (err) {
-    if (err instanceof Error) {
-      debug({
-        name: 'REDIS_ERROR',
-        message: `Something went wrong while registering redis plugin: ${err?.message}`,
-      });
-    }
-
-    throw new Error(`Server error: REDIS_ERROR`);
-  }
-};
-
-export default plugin;
+    await register(redis, redisOptions);
+  },
+  {
+    name: 'redis',
+    decorators: { fastify: ['config'] },
+    dependencies: ['dotenv', 'base'],
+  },
+);

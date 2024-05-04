@@ -1,11 +1,19 @@
-import { AppFastifyPlugin } from '../types/fastify.ts';
-import auth from './auth';
-import user from './user';
-import { FastifyInstance } from 'fastify';
+import Auth from './auth';
+import User from './user';
+import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
+import fastifyPlugin from 'fastify-plugin';
+import { API_PREFIX } from 'app/config';
 
-const routes: AppFastifyPlugin = async (fastify: FastifyInstance): Promise<void> => {
-  await fastify.register(auth);
-  await fastify.register(user);
-};
+export default fastifyPlugin(async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
+  const { register } = fastify;
 
-export default routes;
+  await Promise.all([
+    register(User, {
+      prefix: API_PREFIX,
+    }),
+
+    register(Auth, {
+      prefix: API_PREFIX,
+    }),
+  ]);
+});

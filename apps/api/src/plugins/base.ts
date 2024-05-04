@@ -1,28 +1,16 @@
-import { AppFastifyPlugin } from '../types/fastify.ts';
-import FastifyFormBody from '@fastify/formbody';
-import helmet from '@fastify/helmet';
-import type { FastifyInstance } from 'fastify';
-import { debug } from '@flowx/shared/utils/errorUtils';
+import Sensible from '@fastify/sensible';
+import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
+import fastifyPlugin from 'fastify-plugin';
 
-// @TODO: add fastify-cors, fastify-rate-limit
+export default fastifyPlugin(
+  async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
+    const { register } = fastify;
 
-const plugin: AppFastifyPlugin = async (fastify: FastifyInstance): Promise<void> => {
-  try {
-    // Register security/logging/other plugins
-    await fastify.register(helmet);
-
-    // Multipart form body handler
-    await fastify.register(FastifyFormBody);
-  } catch (err) {
-    if (err instanceof Error) {
-      debug({
-        name: 'FASTIFY_ERROR',
-        message: `Something went wrong while registering fastify middlewares: ${err?.message}`,
-      });
-    }
-
-    throw new Error(`Server error: FASTIFY_ERROR`);
-  }
-};
-
-export default plugin;
+    // Fastify utils
+    await register(Sensible);
+  },
+  {
+    name: 'base',
+    dependencies: ['dotenv'],
+  },
+);

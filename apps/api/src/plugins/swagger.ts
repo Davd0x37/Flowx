@@ -1,14 +1,16 @@
 import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUI from '@fastify/swagger-ui';
-import type { FastifyInstance } from 'fastify';
-import { debug } from '@flowx/shared/utils/errorUtils';
-import { AppFastifyPlugin } from 'app/types/fastify.ts';
+import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
+import fastifyPlugin from 'fastify-plugin';
+import { API_PREFIX } from 'app/config';
 
 // Swagger integration
-const plugin: AppFastifyPlugin = async (fastify: FastifyInstance) => {
-  try {
+export default fastifyPlugin(
+  async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
+    const { register } = fastify;
+
     // @TODO: maybe remove options from swagger and keep them only in swagger-ui?
-    await fastify.register(fastifySwagger, {
+    await register(fastifySwagger, {
       swagger: {
         info: {
           title: 'Flowx API',
@@ -22,8 +24,8 @@ const plugin: AppFastifyPlugin = async (fastify: FastifyInstance) => {
       },
     });
 
-    await fastify.register(fastifySwaggerUI, {
-      routePrefix: '/documentation',
+    await register(fastifySwaggerUI, {
+      routePrefix: `${API_PREFIX}/documentation`,
       uiConfig: {
         docExpansion: 'full',
         deepLinking: false,
@@ -43,16 +45,9 @@ const plugin: AppFastifyPlugin = async (fastify: FastifyInstance) => {
       },
       transformSpecificationClone: true,
     });
-  } catch (err) {
-    if (err instanceof Error) {
-      debug({
-        name: 'SWAGGER_ERROR',
-        message: `Something went wrong while registering swagger middleware: ${err?.message}`,
-      });
-    }
-
-    throw new Error(`Server error: SWAGGER_ERROR`);
-  }
-};
-
-export default plugin;
+  },
+  {
+    name: 'swagger',
+    dependencies: ['dotenv', 'base'],
+  },
+);

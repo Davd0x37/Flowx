@@ -1,24 +1,21 @@
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
-// import { Value } from '@sinclair/typebox/value';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
-import UserRepository from 'app/repositories/user.repository';
+import { User, type UserIDObject } from 'app/models/user';
 import type { NewUserRouteSchemeType } from 'app/types/routes';
-import type { UserIDType } from 'app/types/user';
 
 export default (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
   const fastifyTypeBox = fastify.withTypeProvider<TypeBoxTypeProvider>();
-  const userRepo = new UserRepository();
 
   fastifyTypeBox.get('/users', async (_request, response) => {
-    const users = await userRepo.getAll();
+    const users = await User.find({});
 
     await response.send(users);
   });
 
-  fastifyTypeBox.get<{ Params: UserIDType }>('/users/:userId', async (request, response) => {
+  fastifyTypeBox.get<{ Params: UserIDObject }>('/users/:userId', async (request, response) => {
     const { userId } = request.params;
 
-    const user = await userRepo.read(userId);
+    const user = await User.findById(userId);
 
     await response.send(user);
   });
@@ -26,28 +23,60 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
   fastifyTypeBox.post<{ Body: NewUserRouteSchemeType }>('/users', async (request, response) => {
     const { login, password, avatar } = request.body;
 
-    const user = await userRepo.create({ login, password, avatar });
+    // @TODO: check if create throws an error if user exists
+    try {
+      const exists = await User.exists({ login });
+      if (exists) {
+        await response.forbidden('Cannot create user!');
+        return;
+      }
 
-    if (user) {
-      await response.code(200).send('User created');
-    } else {
-      await response.code(403).send('Cannot create user!');
+      const user = await User.create({ login, password, avatar });
+
+      await response.code(200).send({
+        id: user.id,
+      });
+    } catch (error) {
+      await response.forbidden('Cannot create user!');
     }
   });
 
-  fastifyTypeBox.put<{ Body: NewUserRouteSchemeType; Params: UserIDType }>(
+  fastifyTypeBox.put<{ Body: NewUserRouteSchemeType; Params: UserIDObject }>(
     '/users/:userId',
     async (request, response) => {
       const { userId } = request.params;
       const { login, password, avatar } = request.body;
 
-      const createdUser = await userRepo.update(userId, { login, password, avatar });
-      if (!createdUser) {
-        await response.code(403).send('Cannot update user!');
-        return;
-      }
+      try {
+        const user = await User.findById(userId);
+        if (!user) {
+          await response.forbidden('Cannot update user!');
+          return;
+        }
 
-      await response.code(200).send('User updated');
+        // @TODO: refactor this
+        user.login = login;
+        user.password = password;
+        user.avatar = avatar;
+
+        await user.save();
+
+        await response.code(200).send('User updated');
+      } catch (error) {
+        await response.forbidden('Cannot update user!');
+      }
     },
   );
+
+  fastifyTypeBox.delete<{ Params: UserIDObject }>('/users/:userId', async (request, response) => {
+    const { userId } = request.params;
+
+    const user = await User.findByIdAndDelete(userId);
+    if (!user) {
+      await response.forbidden('Cannot delete user!');
+      return;
+    }
+
+    await response.code(200).send('User deleted!');
+  });
 };

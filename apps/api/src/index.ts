@@ -1,24 +1,36 @@
-import plugins from './plugins';
-import routes from './routes';
+import { isDev } from './config';
+import AutoLoad from '@fastify/autoload';
 import Fastify from 'fastify';
-
-/**
- * @TODO: add error handling for unavailable services
- */
+import { resolve } from 'node:path';
 
 // Fastify instance
 const fastify = Fastify({
-  logger: true,
+  logger: isDev
+    ? {
+        transport: {
+          target: 'pino-pretty',
+          options: {
+            translateTime: 'HH:MM:ss Z',
+            ignore: 'pid,hostname',
+          },
+        },
+      }
+    : true,
 });
 
-// Register plugins (database, fetch, auth, etc.) and middlewares (security, logging, etc.)
-await plugins(fastify);
-
-// Register routes (auth, graphql)
-await routes(fastify);
-
 try {
-  await fastify.listen({ port: 3000 });
+  // Autoload plugins
+  await fastify.register(AutoLoad, {
+    dir: resolve(import.meta.dirname, 'plugins'),
+  });
+
+  // Autoload routes
+  await fastify.register(AutoLoad, {
+    dir: resolve(import.meta.dirname, 'routes'),
+    dirNameRoutePrefix: false,
+  });
+
+  await fastify.listen({ port: fastify.config.PORT });
 } catch (err) {
   fastify.log.error(err);
 
