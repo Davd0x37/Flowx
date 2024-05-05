@@ -23,7 +23,11 @@
 // export type AuthenticationActionType = keyof typeof IAuthenticationAction;
 export type ResponseType = 'code';
 export type GrantType = 'authorization_code' | 'refresh_token';
-export type AuthenticationActionType = 'request_data' | 'request_tokens' | 'refresh_tokens' | 'authenticate_service';
+export type AuthenticationActionType =
+  | 'request_data'
+  | 'request_tokens'
+  | 'refresh_tokens'
+  | 'authenticate_service';
 export type CodeChallengeMethodType = 'S256' | 'plain';
 export type OAuthEndpoints = 'tokenEndpoint' | 'authorizationEndpoint' | 'discoveryEndpoint';
 
@@ -124,7 +128,10 @@ export interface OAuthParametersRequest {
  * UNIONS
  */
 export type OAuthValidationParameters = Pick<OAuthParametersRequest, 'state' | 'nonce'>;
-export type OAuthCodeChallengeStruct = Pick<OAuthParametersRequest, 'codeChallengeMethod' | 'codeChallenge'>;
+export type OAuthCodeChallengeStruct = Pick<
+  OAuthParametersRequest,
+  'codeChallengeMethod' | 'codeChallenge'
+>;
 
 export type OAuthAuthorizeParameters = OAuthValidationParameters &
   OAuthCodeChallengeStruct &

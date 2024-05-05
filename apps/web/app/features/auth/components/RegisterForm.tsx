@@ -60,7 +60,9 @@ const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
                 <FormControl>
                   <Input {...field} />
                 </FormControl>
-                <FormDescription>{t('Your super secret password that will allow you to use the app')}</FormDescription>
+                <FormDescription>
+                  {t('Your super secret password that will allow you to use the app')}
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -76,7 +78,9 @@ const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
                   <Input {...field} />
                 </FormControl>
                 <FormDescription>
-                  {t('Please insert your password one more time - we have to check if you entered first correctly')}
+                  {t(
+                    'Please insert your password one more time - we have to check if you entered first correctly',
+                  )}
                 </FormDescription>
                 <FormMessage />
               </FormItem>

@@ -8,11 +8,17 @@ export interface CryptoClient {
 }
 
 export const Crypto: CryptoClient = {
-  encrypt: function (_input: string | ArrayBuffer, _key: string): ArrayBuffer | Promise<ArrayBuffer> {
+  encrypt: function (
+    _input: string | ArrayBuffer,
+    _key: string,
+  ): ArrayBuffer | Promise<ArrayBuffer> {
     throw new Error('Function not implemented.');
     // return input as ArrayBuffer;
   },
-  decrypt: function (_input: string | ArrayBuffer, _key: string): ArrayBuffer | Promise<ArrayBuffer> {
+  decrypt: function (
+    _input: string | ArrayBuffer,
+    _key: string,
+  ): ArrayBuffer | Promise<ArrayBuffer> {
     throw new Error('Function not implemented.');
     // return input as ArrayBuffer;
   },

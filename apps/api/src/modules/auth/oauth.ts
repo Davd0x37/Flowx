@@ -89,7 +89,9 @@ export class OAuth2 {
       };
     } catch (error) {
       const message =
-        error instanceof Error ? error?.message : `Couldn't generate code challenge, please check error message`;
+        error instanceof Error
+          ? error?.message
+          : `Couldn't generate code challenge, please check error message`;
 
       throw new AppError({
         name: 'CODE_CHALLENGE_FAILED',

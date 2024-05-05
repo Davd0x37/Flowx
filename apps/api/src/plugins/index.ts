@@ -1,8 +1,7 @@
+import Auth from './auth';
 import Base from './base';
 import Dotenv from './dotenv';
-// import Kysely from './kysely';
 import Mongo from './mongo';
-// import Auth from './auth';
 import Redis from './redis';
 import Requests from './requests';
 import Swagger from './swagger';
@@ -18,9 +17,8 @@ export default fastifyPlugin(
 
     await Promise.all([
       register(Mongo),
-      // register(Auth),
       register(Redis),
-      // register(Kysely),
+      register(Auth),
       register(Requests),
       register(Swagger),
     ]);

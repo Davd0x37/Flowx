@@ -33,7 +33,10 @@ function handleStatusError(status: number): StatusError {
 // @TODO: add additional types for Fetch in debug method
 
 export const Fetch: RequestClient = {
-  async fetch<T>(input: RequestInfo | URL, options?: RequestInit): Promise<ResultWrapper<T, string>> {
+  async fetch<T>(
+    input: RequestInfo | URL,
+    options?: RequestInit,
+  ): Promise<ResultWrapper<T, string>> {
     const wnd = internalGuard('fetch');
 
     try {
@@ -68,7 +71,11 @@ export const Fetch: RequestClient = {
         };
       }
 
-      if (typeof responseBody === 'object' && 'error' in responseBody && typeof responseBody.error === 'string') {
+      if (
+        typeof responseBody === 'object' &&
+        'error' in responseBody &&
+        typeof responseBody.error === 'string'
+      ) {
         const error = responseBody.error;
         const errorDescription =
           'error_description' in responseBody && typeof responseBody?.error_description === 'string'

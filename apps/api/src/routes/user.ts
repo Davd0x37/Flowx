@@ -1,9 +1,12 @@
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
+import { Static, Type } from '@sinclair/typebox';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
-import { User, type UserIDObject } from 'app/models/user';
-import type { NewUserRouteSchemeType } from 'app/types/routes';
+import { User, type UserIDObject, UserType } from 'app/features/user/user.model';
 
-export default (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
+const NewModifiedUser = Type.Pick(UserType, ['login', 'password', 'avatar']);
+type NewModifiedUser = Static<typeof NewModifiedUser>;
+
+export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
   const fastifyTypeBox = fastify.withTypeProvider<TypeBoxTypeProvider>();
 
   fastifyTypeBox.get('/users', async (_request, response) => {
@@ -20,7 +23,7 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
     await response.send(user);
   });
 
-  fastifyTypeBox.post<{ Body: NewUserRouteSchemeType }>('/users', async (request, response) => {
+  fastifyTypeBox.post<{ Body: NewModifiedUser }>('/users', async (request, response) => {
     const { login, password, avatar } = request.body;
 
     // @TODO: check if create throws an error if user exists
@@ -41,7 +44,7 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
     }
   });
 
-  fastifyTypeBox.put<{ Body: NewUserRouteSchemeType; Params: UserIDObject }>(
+  fastifyTypeBox.put<{ Body: NewModifiedUser; Params: UserIDObject }>(
     '/users/:userId',
     async (request, response) => {
       const { userId } = request.params;

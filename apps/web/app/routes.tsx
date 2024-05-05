@@ -25,7 +25,11 @@ export const routes = createRoutesFromElements(
       </Route>
 
       {/* Services route */}
-      <Route path="services" id="Services default view" lazy={() => import('app/pages/services/route')}></Route>
+      <Route
+        path="services"
+        id="Services default view"
+        lazy={() => import('app/pages/services/route')}
+      ></Route>
     </Route>
   </>,
 );

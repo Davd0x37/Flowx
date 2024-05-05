@@ -1,58 +1,78 @@
-// import { MongodbAdapter } from '@lucia-auth/adapter-mongodb';
-// import { Lucia } from 'lucia';
-// import { Collection, MongoClient } from 'mongodb';
+import { MongodbAdapter } from '@lucia-auth/adapter-mongodb';
+import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
+import fastifyPlugin from 'fastify-plugin';
+import { Lucia, type Session, type User } from 'lucia';
+import { Collection } from 'mongodb';
+import mongoose from 'mongoose';
+import { isDev } from 'app/config';
+import { ISession } from 'app/features/user/session.model';
+import { UserID, UserType } from 'app/features/user/user.model';
 
-// const client = new MongoClient();
-// await client.connect();
+// @FIXME: fix typings, remove as unknown
+const adapter = new MongodbAdapter(
+  mongoose.connection.collection('sessions') as unknown as Collection<ISession>,
+  // @ts-expect-error fix this too
+  mongoose.connection.collection('users'),
+);
 
-// const db = client.db();
-// const User = db.collection('users') as Collection<UserDoc>;
-// const Session = db.collection('sessions') as Collection<SessionDoc>;
+export const lucia = new Lucia(adapter, {
+  sessionCookie: {
+    attributes: {
+      secure: !isDev,
+    },
+  },
+  getUserAttributes: (attributes) => {
+    return {
+      login: attributes.login,
+    };
+  },
+});
 
-// const adapter = new MongodbAdapter(Session, User);
+declare module 'lucia' {
+  interface Register {
+    Lucia: typeof lucia;
+    UserId: UserID;
+    DatabaseUserAttributes: UserType;
+  }
+}
 
-// interface UserDoc {
-//   _id: string;
-// }
+export default fastifyPlugin(
+  async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
+    // Original author - https://github.com/lucia-auth/lucia/issues/1406#issuecomment-1942424121
+    fastify.addHook('preHandler', async (req, res) => {
+      const sessionId = lucia.readSessionCookie(req.headers.cookie ?? '');
 
-// interface SessionDoc {
-//   _id: string;
-//   expires_at: Date;
-//   user_id: string;
-// }
+      if (!sessionId) {
+        req.user = null;
+        req.session = null;
+        return;
+      }
 
-// export const lucia = new Lucia(adapter, {
-//   sessionCookie: {
-//     attributes: {
-//       // set to `true` when using HTTPS
-//       secure: process.env.NODE_ENV === 'production',
-//     },
-//   },
-// });
+      const { session, user } = await lucia.validateSession(sessionId);
+      if (session && session.fresh) {
+        const cookie = lucia.createSessionCookie(session.id);
+        res.setCookie(cookie.name, cookie.value, cookie.attributes);
+      }
 
-// // IMPORTANT!
-// declare module 'lucia' {
-//   interface Register {
-//     Lucia: typeof lucia;
-//   }
-// }
+      if (!session) {
+        const cookie = lucia.createBlankSessionCookie();
+        res.setCookie(cookie.name, cookie.value, cookie.attributes);
+      }
 
-// import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
-// import fastifyPlugin from 'fastify-plugin';
-// import { db } from 'app/db';
+      req.user = user;
+      req.session = session;
+      return;
+    });
+  },
+  {
+    name: 'auth',
+    dependencies: ['dotenv', 'base', 'mongo'],
+  },
+);
 
-// export default fastifyPlugin(
-//   async ({ decorate, addHook }: FastifyInstance, _options: FastifyPluginOptions) => {
-//     decorate('db', db);
-
-//     addHook('onClose', async (fastifyHookInstance: FastifyInstance) => {
-//       if (fastifyHookInstance.db === db) {
-//         await fastifyHookInstance.db.destroy();
-//       }
-//     });
-//   },
-//   {
-//     name: 'mongo',
-//     dependencies: ['dotenv', 'base', 'mongo'],
-//   },
-// );
+declare module 'fastify' {
+  interface FastifyRequest {
+    user: User | null;
+    session: Session | null;
+  }
+}

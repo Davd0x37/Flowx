@@ -63,7 +63,11 @@ const Sidebar = ({ className, openSidebar = false }: Props) => {
           <p className="text-sm">{name}</p>
         </div>
 
-        <Button variant="outline" className="w-full justify-start space-x-2 font-semibold" onClick={logoutUser}>
+        <Button
+          variant="outline"
+          className="w-full justify-start space-x-2 font-semibold"
+          onClick={logoutUser}
+        >
           <Logout fontSize="1.25rem" />
           <p>{t('Logout', { ns: 'User' })}</p>
         </Button>

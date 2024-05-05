@@ -31,7 +31,9 @@ export class URLBuilder {
   }
 
   public removePath(path: string | string[]) {
-    this.pathNames = this.pathNames.filter((item) => (Array.isArray(path) ? !path.includes(item) : item !== path));
+    this.pathNames = this.pathNames.filter((item) =>
+      Array.isArray(path) ? !path.includes(item) : item !== path,
+    );
 
     return this;
   }

@@ -5,6 +5,8 @@ import UnderPressure from '@fastify/under-pressure';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
 
+// import { verifyRequestOrigin } from 'lucia';
+
 export default fastifyPlugin(
   async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
     const { register } = fastify;
@@ -27,6 +29,21 @@ export default fastifyPlugin(
       maxRssBytes: 1000000000,
       maxEventLoopUtilization: 0.98,
     });
+
+    // For Lucia auth
+    // Original author - https://github.com/lucia-auth/lucia/issues/1406#issuecomment-1942424121
+    // fastify.addHook('preHandler', (req, res, done) => {
+    //   if (req.method === 'GET') {
+    //     return done();
+    //   }
+
+    //   const originHeader = req.headers.origin ?? null;
+    //   const hostHeader = req.headers.host ?? null;
+    //   if (!originHeader || !hostHeader || !verifyRequestOrigin(originHeader, [hostHeader])) {
+    //     console.error('Invalid origin', { originHeader, hostHeader });
+    //     return res.status(403);
+    //   }
+    // });
   },
   {
     name: 'requests',

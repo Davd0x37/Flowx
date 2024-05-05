@@ -2,7 +2,12 @@ import { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { nanoid } from 'nanoid';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'app/components/ui/accordion';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from 'app/components/ui/accordion';
 import { Button, buttonVariants } from 'app/components/ui/button';
 import { type SidebarItem, SidebarLinkList } from 'app/config/routes';
 import { cn } from 'app/utils/classNames';
@@ -49,7 +54,9 @@ const SidebarLinks = () => {
       {SidebarLinkList.map((link) =>
         link.isGroup ? (
           <SidebarGroup {...link} key={nanoid()}>
-            {link.childrenList?.map((child) => <SidebarLink withoutIcon {...child} key={nanoid()} />)}
+            {link.childrenList?.map((child) => (
+              <SidebarLink withoutIcon {...child} key={nanoid()} />
+            ))}
           </SidebarGroup>
         ) : (
           <SidebarLink {...link} key={nanoid()} />

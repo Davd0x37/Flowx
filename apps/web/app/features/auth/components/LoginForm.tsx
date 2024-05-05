@@ -68,7 +68,9 @@ const LoginForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
                 <FormControl>
                   <Input {...field} />
                 </FormControl>
-                <FormDescription>{t('Your super secret password that will allow you to use the app')}</FormDescription>
+                <FormDescription>
+                  {t('Your super secret password that will allow you to use the app')}
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}

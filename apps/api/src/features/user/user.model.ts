@@ -1,26 +1,33 @@
+import { Static, Type } from '@sinclair/typebox';
 import { Schema, model } from 'mongoose';
 
 export type UserID = Schema.Types.ObjectId;
 export type UserIDObject = { userId: UserID };
 
-export interface IUser {
+export type UserType = Static<typeof UserType>;
+export const UserType = Type.Object({
   // User-defined name, mainly used to login in to the app
-  login: string;
+  login: Type.String(),
 
   // Secret passphrase known only by the user - stored as hash
-  password: string;
+  password: Type.String(),
 
   // custom image of the user
-  avatar?: string;
+  avatar: Type.Optional(Type.String()),
 
   // If user is online - @TODO: maybe move this into separate table?
-  isOnline: boolean;
+  isOnline: Type.Boolean(),
 
   // Date of last activity
-  lastActive: Date;
+  lastActive: Type.Date(),
+});
+
+// Used in LuciaAuth
+export interface IUserAuth {
+  _id: UserID;
 }
 
-export const UserSchema = new Schema<IUser>(
+export const UserSchema = new Schema<UserType>(
   {
     login: { type: String, required: true },
     password: { type: String, required: true },
@@ -31,4 +38,4 @@ export const UserSchema = new Schema<IUser>(
   { timestamps: true },
 );
 
-export const User = model<IUser>('User', UserSchema);
+export const User = model<UserType>('User', UserSchema);
