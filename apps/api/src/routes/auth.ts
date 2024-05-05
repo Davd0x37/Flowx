@@ -2,7 +2,7 @@ import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import { Static, Type } from '@sinclair/typebox';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import { Argon2id } from 'oslo/password';
-import { User, UserType } from 'app/features/user/user.model';
+import { User, UserType } from 'app/models/user';
 import { lucia } from 'app/plugins/auth';
 
 const UserCredentials = Type.Pick(UserType, ['login', 'password']);

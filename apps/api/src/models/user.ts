@@ -1,5 +1,5 @@
 import { Static, Type } from '@sinclair/typebox';
-import { Schema, model } from 'mongoose';
+import mongoose, { Model, Schema, model } from 'mongoose';
 
 export type UserID = Schema.Types.ObjectId;
 export type UserIDObject = { userId: UserID };
@@ -38,4 +38,4 @@ export const UserSchema = new Schema<UserType>(
   { timestamps: true },
 );
 
-export const User = model<UserType>('User', UserSchema);
+export const User: Model<UserType> = mongoose.models.User || model<UserType>('User', UserSchema);

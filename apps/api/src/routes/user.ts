@@ -1,7 +1,7 @@
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import { Static, Type } from '@sinclair/typebox';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
-import { User, type UserIDObject, UserType } from 'app/features/user/user.model';
+import { User, type UserIDObject, UserType } from 'app/models/user';
 
 const NewModifiedUser = Type.Pick(UserType, ['login', 'password', 'avatar']);
 type NewModifiedUser = Static<typeof NewModifiedUser>;

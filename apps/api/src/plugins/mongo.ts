@@ -1,6 +1,10 @@
+import { TypeRegistry } from '@sinclair/typebox';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
-import { connect } from 'mongoose';
+import { SchemaTypes, connect } from 'mongoose';
+
+// Register ObjectID type
+TypeRegistry.Set('MongoId', (_, value) => value instanceof SchemaTypes.ObjectId);
 
 export default fastifyPlugin(
   async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {

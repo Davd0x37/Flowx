@@ -5,12 +5,12 @@ import { Lucia, type Session, type User } from 'lucia';
 import { Collection } from 'mongodb';
 import mongoose from 'mongoose';
 import { isDev } from 'app/config';
-import { ISession } from 'app/features/user/session.model';
-import { UserID, UserType } from 'app/features/user/user.model';
+import { SessionType } from 'app/models/session';
+import { UserID, UserType } from 'app/models/user';
 
 // @FIXME: fix typings, remove as unknown
 const adapter = new MongodbAdapter(
-  mongoose.connection.collection('sessions') as unknown as Collection<ISession>,
+  mongoose.connection.collection('sessions') as unknown as Collection<SessionType>,
   // @ts-expect-error fix this too
   mongoose.connection.collection('users'),
 );
@@ -27,14 +27,6 @@ export const lucia = new Lucia(adapter, {
     };
   },
 });
-
-declare module 'lucia' {
-  interface Register {
-    Lucia: typeof lucia;
-    UserId: UserID;
-    DatabaseUserAttributes: UserType;
-  }
-}
 
 export default fastifyPlugin(
   async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
@@ -69,6 +61,14 @@ export default fastifyPlugin(
     dependencies: ['dotenv', 'base', 'mongo'],
   },
 );
+
+declare module 'lucia' {
+  interface Register {
+    Lucia: typeof lucia;
+    UserId: UserID;
+    DatabaseUserAttributes: UserType;
+  }
+}
 
 declare module 'fastify' {
   interface FastifyRequest {
