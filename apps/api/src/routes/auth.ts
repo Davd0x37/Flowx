@@ -15,8 +15,8 @@ type NewModifiedUser = Static<typeof NewModifiedUser>;
 export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
   const fastifyTypeBox = fastify.withTypeProvider<TypeBoxTypeProvider>();
 
-  fastifyTypeBox.get<{ Querystring: UserCredentials }>('/auth/login', async (request, response) => {
-    const { login, password } = request.query;
+  fastifyTypeBox.post<{ Body: UserCredentials }>('/auth/login', async (request, response) => {
+    const { login, password } = request.body;
 
     // @TODO: trim and serialize?
     if (!login || login.length < 4 || login.length > 64) {
