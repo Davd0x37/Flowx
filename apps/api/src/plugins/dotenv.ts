@@ -2,7 +2,7 @@ import Env from '@fastify/env';
 import { Static, Type } from '@sinclair/typebox';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
-import { envFilePath } from 'app/config';
+import { envFilePath } from 'app/common/config';
 
 const envSchema = Type.Object({
   // MongoDB url with credentials

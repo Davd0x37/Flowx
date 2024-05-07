@@ -2,7 +2,7 @@ import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUI from '@fastify/swagger-ui';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
-import { API_PREFIX } from 'app/config';
+import { API_PREFIX } from 'app/common/config';
 
 // Swagger integration
 export default fastifyPlugin(
@@ -48,6 +48,6 @@ export default fastifyPlugin(
   },
   {
     name: 'swagger',
-    dependencies: ['dotenv', 'base'],
+    dependencies: ['dotenv', 'base', 'mongo'],
   },
 );

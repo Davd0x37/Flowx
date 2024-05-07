@@ -7,13 +7,23 @@ export type UserIDObject = { userId: UserID };
 export type UserType = Static<typeof UserType>;
 export const UserType = Type.Object({
   // User-defined name, mainly used to login in to the app
-  login: Type.String(),
+  login: Type.String({
+    minLength: 6,
+    maxLength: 64,
+  }),
 
   // Secret passphrase known only by the user - stored as hash
-  password: Type.String(),
+  password: Type.String({
+    minLength: 6,
+    maxLength: 128,
+  }),
 
   // custom image of the user
-  avatar: Type.Optional(Type.String()),
+  avatar: Type.Optional(
+    Type.String({
+      format: 'uri',
+    }),
+  ),
 
   // If user is online - @TODO: maybe move this into separate table?
   isOnline: Type.Boolean(),

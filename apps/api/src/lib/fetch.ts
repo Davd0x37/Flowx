@@ -1,11 +1,13 @@
 import { ResultWrapper } from '@flowx/shared/types/wrappers';
-import { DebugParams, debug } from '@flowx/shared/utils/errorUtils';
+import { DebugParams } from '@flowx/shared/utils/errorUtils';
 import { internalGuard } from '@flowx/shared/utils/guard';
+import { logger } from 'app/common/logger';
 
 export interface RequestClient {
   fetch: <T>(input: RequestInfo | URL, options?: RequestInit) => Promise<ResultWrapper<T, string>>;
 }
 
+// @TODO: remove DebugParams
 // Wrapper around DebugParams from error utils
 type StatusError = {
   name: DebugParams['name'];
@@ -47,7 +49,7 @@ export const Fetch: RequestClient = {
         const { name: errorName, message: errorMessage } = handleStatusError(status);
         const message = `Request error: ${statusText} | ${errorMessage}`;
 
-        debug({
+        logger.debug({
           name: errorName,
           message,
         });
@@ -61,7 +63,7 @@ export const Fetch: RequestClient = {
       const responseBody = (await response.json()) as NonNullable<T>;
 
       if (!response.headers.get('Content-Type')?.startsWith('application/json')) {
-        debug({
+        logger.debug({
           name: 'FETCH_ERROR',
           message: `Received response was not JSON response`,
         });
@@ -84,7 +86,7 @@ export const Fetch: RequestClient = {
 
         const message = `Request error: ${error} | ${errorDescription}`;
 
-        debug({
+        logger.debug({
           name: 'FETCH_ERROR',
           message,
         });
@@ -102,7 +104,7 @@ export const Fetch: RequestClient = {
 
       if (error instanceof Error) {
         message = `Fetch error: ${error.message}`;
-        debug({
+        logger.debug({
           name: 'FETCH_ERROR',
           message,
         });

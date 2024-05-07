@@ -2,7 +2,7 @@ import Auth from './auth';
 import User from './user';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
-import { API_PREFIX } from 'app/config';
+import { API_PREFIX } from 'app/common/config';
 
 export default fastifyPlugin(async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
   const { register } = fastify;

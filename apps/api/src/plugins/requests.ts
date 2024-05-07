@@ -4,8 +4,8 @@ import Helmet from '@fastify/helmet';
 import UnderPressure from '@fastify/under-pressure';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
-
-// import { verifyRequestOrigin } from 'lucia';
+import { verifyRequestOrigin } from 'lucia';
+import { isDev } from 'app/common/config';
 
 export default fastifyPlugin(
   async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
@@ -31,19 +31,26 @@ export default fastifyPlugin(
     });
 
     // For Lucia auth
-    // Original author - https://github.com/lucia-auth/lucia/issues/1406#issuecomment-1942424121
-    // fastify.addHook('preHandler', (req, res, done) => {
-    //   if (req.method === 'GET') {
-    //     return done();
-    //   }
+    // https://lucia-auth.com/guides/validate-session-cookies/
+    fastify.addHook('preHandler', (request, reply, done) => {
+      if (request.method === 'GET') return done();
+      // Disable in dev environment
+      if (isDev) return done();
 
-    //   const originHeader = req.headers.origin ?? null;
-    //   const hostHeader = req.headers.host ?? null;
-    //   if (!originHeader || !hostHeader || !verifyRequestOrigin(originHeader, [hostHeader])) {
-    //     console.error('Invalid origin', { originHeader, hostHeader });
-    //     return res.status(403);
-    //   }
-    // });
+      const {
+        // Only required in non-GET requests (POST, PUT, DELETE, PATCH, etc)
+        origin: originHeader,
+        // NOTE: You may need to use `X-Forwarded-Host` instead
+        // From fastify documentation:
+        // hostname - the host of the incoming request (derived from X-Forwarded-Host header when the trustProxy option is enabled)
+        // check hostname when load balancer will be implemented
+        host: hostHeader,
+      } = request.headers;
+
+      if (!originHeader || !hostHeader || !verifyRequestOrigin(originHeader, [hostHeader])) {
+        return reply.forbidden('Invalid origin');
+      }
+    });
   },
   {
     name: 'requests',

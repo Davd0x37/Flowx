@@ -45,7 +45,7 @@
     "react-router-dom": "6.23.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.23.6",
+    "zod": "^3.23.7",
     "zustand": "^4.5.0"
   },
   "devDependencies": {
@@ -55,7 +55,7 @@
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.13",
     "@tanstack/router-vite-plugin": "^1.31.18",
-    "@testing-library/react": "^15.0.6",
+    "@testing-library/react": "^15.0.7",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.5.0",

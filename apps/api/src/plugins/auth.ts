@@ -4,7 +4,7 @@ import fastifyPlugin from 'fastify-plugin';
 import { Lucia, type Session, type User } from 'lucia';
 import { Collection } from 'mongodb';
 import mongoose from 'mongoose';
-import { isDev } from 'app/config';
+import { isDev } from 'app/common/config';
 import { SessionType } from 'app/models/session';
 import { UserID, UserType } from 'app/models/user';
 

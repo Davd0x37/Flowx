@@ -3,6 +3,7 @@ import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
 import { SchemaTypes, connect } from 'mongoose';
 
+// @TODO: maybe move type registration to an outside module? like common directory or lib?
 // Register ObjectID type
 TypeRegistry.Set('MongoId', (_, value) => value instanceof SchemaTypes.ObjectId);
 

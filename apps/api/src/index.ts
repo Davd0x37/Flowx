@@ -1,21 +1,12 @@
-import { isDev } from './config';
+import { isDev } from './common/config';
+import { logger } from './common/logger';
 import AutoLoad from '@fastify/autoload';
 import Fastify from 'fastify';
 import { resolve } from 'node:path';
 
 // Fastify instance
 const fastify = Fastify({
-  logger: isDev
-    ? {
-        transport: {
-          target: 'pino-pretty',
-          options: {
-            translateTime: 'HH:MM:ss Z',
-            ignore: 'pid,hostname',
-          },
-        },
-      }
-    : true,
+  logger: isDev ? logger : true,
 });
 
 try {

@@ -4,6 +4,7 @@ import Dotenv from './dotenv';
 import Mongo from './mongo';
 import Redis from './redis';
 import Requests from './requests';
+import SchemaValidator from './schemaValidator';
 import Swagger from './swagger';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
@@ -14,6 +15,7 @@ export default fastifyPlugin(
 
     await register(Dotenv);
     await register(Base);
+    await register(SchemaValidator);
 
     await Promise.all([
       register(Mongo),
