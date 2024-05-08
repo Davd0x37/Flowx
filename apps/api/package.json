@@ -11,9 +11,9 @@
   "devDependencies": {
     "@fastify/swagger": "^8.14.0",
     "@fastify/swagger-ui": "^3.0.0",
-    "@types/node": "^20.12.10",
+    "@types/node": "^20.12.11",
     "@types/zxcvbn": "^4.4.4",
-    "msw": "^2.2.14",
+    "msw": "^2.3.0",
     "pino-pretty": "^11.0.0",
     "tsx": "^4.9.3",
     "typescript": "^5.4.5"

@@ -45,7 +45,7 @@
     "react-router-dom": "6.23.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.23.7",
+    "zod": "^3.23.8",
     "zustand": "^4.5.0"
   },
   "devDependencies": {
@@ -60,7 +60,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.19",
-    "msw": "^2.2.14",
+    "msw": "^2.3.0",
     "postcss": "^8.4.38",
     "postcss-nested": "^6.0.1",
     "postcss-preset-env": "^9.5.11",
