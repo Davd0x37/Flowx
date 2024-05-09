@@ -19,8 +19,6 @@ And other great packages used in this app.
 - [x] Move docker/services files to separate config directory
 - [ ] Migrate from MongoDB to ScyllaDB
 - [x] Remove autoimport in vite
-- [ ] Remove tailwind??
-- [ ] Move to [**Garnet**](https://github.com/microsoft/garnet)
 
 ## Changelog
 

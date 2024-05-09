@@ -1,6 +1,3 @@
-*.sqlite
-db_files
-
 .env
 .env.*
 !.env.example
