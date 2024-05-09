@@ -42,8 +42,8 @@ importers:
         specifier: ^4.6.2
         version: 4.6.2(eslint@9.2.0)
       globals:
-        specifier: ^15.1.0
-        version: 15.1.0
+        specifier: ^15.2.0
+        version: 15.2.0
       husky:
         specifier: ^9.0.11
         version: 9.0.11
@@ -278,8 +278,8 @@ importers:
         version: 4.5.2(@types/react@18.3.1)(react@18.3.1)
     devDependencies:
       '@iconify/json':
-        specifier: ^2.2.207
-        version: 2.2.207
+        specifier: ^2.2.208
+        version: 2.2.208
       '@svgr/core':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.4.5)
@@ -1078,8 +1078,8 @@ packages:
     resolution: {integrity: sha512-Ttl/jHpxfS3st5sxwICYfk4pOH0WrLI1SpW283GgQL7sCWU7EHIOhX4b4fkIxr3tkfzwg8+FNojtzsIEE7Ecgg==}
     engines: {node: '>=18.18'}
 
-  '@iconify/json@2.2.207':
-    resolution: {integrity: sha512-3ZsZcJHHCDoSbRKcpvdTk4e5ZnTLD902BjeNysj8NZIB5V9WaTh6L91eHyQgEaCt4j1shmAXrIr6LoImL6+GpA==}
+  '@iconify/json@2.2.208':
+    resolution: {integrity: sha512-xGJnQ/bYWWFrnPs/qNCSq9CYHXOBINpV3ctuy0zUucKejdNKnpAwVIzuyDJPt0McvQ6XfdU0rxkzH3rHVF43Vg==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -3189,8 +3189,8 @@ packages:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
 
-  globals@15.1.0:
-    resolution: {integrity: sha512-926gJqg+4mkxwYKiFvoomM4J0kWESfk3qfTvRL2/oc/tK/eTDBbrfcKnSa2KtfdxB5onoL7D3A3qIHQFpd4+UA==}
+  globals@15.2.0:
+    resolution: {integrity: sha512-FQ5YwCHZM3nCmtb5FzEWwdUc9K5d3V/w9mzcz8iGD1gC/aOTHc6PouYu0kkKipNJqHAT7m51sqzQjEjIP+cK0A==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -5881,7 +5881,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.2.4': {}
 
-  '@iconify/json@2.2.207':
+  '@iconify/json@2.2.208':
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.2
@@ -7912,7 +7912,7 @@ snapshots:
       eslint: 9.2.0
       eslint-plugin-es-x: 7.6.0(eslint@9.2.0)
       get-tsconfig: 4.7.4
-      globals: 15.1.0
+      globals: 15.2.0
       ignore: 5.3.1
       minimatch: 9.0.4
       semver: 7.6.1
@@ -8239,7 +8239,7 @@ snapshots:
 
   globals@14.0.0: {}
 
-  globals@15.1.0: {}
+  globals@15.2.0: {}
 
   globalthis@1.0.4:
     dependencies:
