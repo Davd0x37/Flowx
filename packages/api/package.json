@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "tsx watch --env-file=.env.development ./app/index.ts",
+    "dev": "NODE_ENV=development tsx watch --env-file=.env.development ./app/index.ts",
     "lint": "tsc --noEmit && eslint app",
     "lint:fix": "pnpm lint --fix"
   },
