@@ -8,8 +8,8 @@
     // Paths
     "baseUrl": ".",
     "paths": {
-      "app/*": ["./src/*"]
+      "app/*": ["./app/*"]
     }
   },
-  "include": ["src"]
+  "include": ["app"]
 }

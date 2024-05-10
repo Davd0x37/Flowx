@@ -1,8 +1,8 @@
 import { isDev } from './common/config';
 import { logger } from './common/logger';
-import AutoLoad from '@fastify/autoload';
+import Plugins from './plugins';
+import Routes from './routes';
 import Fastify from 'fastify';
-import { resolve } from 'node:path';
 
 // Fastify instance
 const fastify = Fastify({
@@ -11,15 +11,10 @@ const fastify = Fastify({
 
 try {
   // Autoload plugins
-  await fastify.register(AutoLoad, {
-    dir: resolve(import.meta.dirname, 'plugins'),
-  });
+  await fastify.register(Plugins);
 
   // Autoload routes
-  await fastify.register(AutoLoad, {
-    dir: resolve(import.meta.dirname, 'routes'),
-    dirNameRoutePrefix: false,
-  });
+  await fastify.register(Routes);
 
   await fastify.listen({ port: fastify.config.PORT });
 } catch (err) {

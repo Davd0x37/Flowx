@@ -13,6 +13,7 @@
     "shared:run": "pnpm --filter @flowx/shared",
     "api:dev": "pnpm api:run dev",
     "api:dev:ts-node": "pnpm api:run dev:ts-node",
+    "api:build": "pnpm api:run build",
     "web:dev": "pnpm web:run dev",
     "web:build": "pnpm web:run build",
     "shared:build": "pnpm shared:run build",

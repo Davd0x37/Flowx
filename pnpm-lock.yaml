@@ -71,9 +71,6 @@ importers:
 
   packages/api:
     dependencies:
-      '@fastify/autoload':
-        specifier: ^5.8.2
-        version: 5.8.2
       '@fastify/cookie':
         specifier: ^9.3.1
         version: 9.3.1
@@ -892,9 +889,6 @@ packages:
 
   '@fastify/ajv-compiler@3.5.0':
     resolution: {integrity: sha512-ebbEtlI7dxXF5ziNdr05mOY8NnDiPB1XvAlLHctRt/Rc+C3LCOVW5imUVX+mhvUhnNzmPBHewUkOFgGlCxgdAA==}
-
-  '@fastify/autoload@5.8.2':
-    resolution: {integrity: sha512-AX555mbAvtYPWZhOJG73y8zV39wH+wEnOcgg13xfGoHJ46rdsfx0Rs8Yfi5exE4bBqdzcM72iIZdhTbLbEqScA==}
 
   '@fastify/cookie@9.3.1':
     resolution: {integrity: sha512-h1NAEhB266+ZbZ0e9qUE6NnNR07i7DnNXWG9VbbZ8uC6O/hxHpl+Zoe5sw1yfdZ2U6XhToUGDnzQtWJdCaPwfg==}
@@ -5455,8 +5449,6 @@ snapshots:
       ajv: 8.13.0
       ajv-formats: 2.1.1(ajv@8.13.0)
       fast-uri: 2.3.0
-
-  '@fastify/autoload@5.8.2': {}
 
   '@fastify/cookie@9.3.1':
     dependencies:
