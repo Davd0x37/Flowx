@@ -16,7 +16,7 @@ RUN pnpm prune --prod
 FROM base AS release
 
 WORKDIR /app
-COPY --from=build /app_build/apps/web/dist .
+COPY --from=build /app_build/packages/web/dist .
 
 # Run the application as a non-root user
 USER node

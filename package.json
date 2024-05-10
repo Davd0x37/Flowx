@@ -19,6 +19,8 @@
     "shared:dev": "pnpm shared:run dev",
     "test": "vitest",
     "test:ui": "vitest --ui",
+    "docker:up": "pnpm exec docker-compose --env-file .env -f config/compose.yaml up",
+    "services:up": "pnpm exec docker-compose --env-file .env -f config/services.compose.yaml up",
     "configure-husky": "pnpx husky install && husky add .husky/pre-commit \"pnpx lint-staged\""
   },
   "devDependencies": {
