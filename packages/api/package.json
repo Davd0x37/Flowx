@@ -15,7 +15,7 @@
     "@types/zxcvbn": "^4.4.4",
     "msw": "^2.3.0",
     "pino-pretty": "^11.0.0",
-    "tsx": "^4.9.3",
+    "tsx": "^4.9.4",
     "typescript": "^5.4.5"
   },
   "dependencies": {
