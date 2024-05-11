@@ -21,7 +21,7 @@
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "@sinclair/typebox": "^0.32.29",
+    "@sinclair/typebox": "^0.32.30",
     "mongoose": "^8.3.4"
   }
 }
