@@ -131,6 +131,9 @@ importers:
       pino:
         specifier: ^9.0.0
         version: 9.0.0
+      vite-node:
+        specifier: ^1.6.0
+        version: 1.6.0(@types/node@20.12.11)
       zxcvbn:
         specifier: ^4.4.2
         version: 4.4.2
@@ -154,8 +157,8 @@ importers:
         specifier: ^11.0.0
         version: 11.0.0
       tsx:
-        specifier: ^4.9.4
-        version: 4.9.4
+        specifier: ^4.10.0
+        version: 4.10.0
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
@@ -292,6 +295,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.3)
+      vite-node:
+        specifier: ^1.6.0
+        version: 1.6.0(@types/node@20.12.11)
       zustand:
         specifier: ^4.5.0
         version: 4.5.2(@types/react@18.3.2)(react@18.3.1)
@@ -4607,8 +4613,8 @@ packages:
   tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
-  tsx@4.9.4:
-    resolution: {integrity: sha512-TlSJTVn2taGGDgdV3jAqCj7WQ/CafCB5p4SbG7W2Bl/0AJWH1ShJlBbc0y2lOFTjQEVAAULSTlmehw/Mwv3S/Q==}
+  tsx@4.10.0:
+    resolution: {integrity: sha512-Ct/j4Yv49EFlr1z5CT++ld+BUhjLRLtimE4hIDaW9zEVIp3xJOQdTDAan+KEXeme7GcYIGzFD421Zcqf9dHomw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -9423,7 +9429,7 @@ snapshots:
 
   tslib@2.6.2: {}
 
-  tsx@4.9.4:
+  tsx@4.10.0:
     dependencies:
       esbuild: 0.20.2
       get-tsconfig: 4.7.5
