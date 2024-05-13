@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import tailwind from 'tailwindcss';
 import tailwindConfig from './tailwind.config';
 // import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
@@ -24,6 +25,15 @@ export default defineConfig({
     // Iconify loader
     Icons({ compiler: 'jsx', jsx: 'react' }),
   ],
+
+  test: {
+    environment: 'jsdom',
+    coverage: {
+      provider: 'v8',
+    },
+    globals: true,
+    setupFiles: './app/tests/setupTests.ts',
+  },
 
   css: {
     postcss: {

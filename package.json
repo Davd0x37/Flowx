@@ -1,7 +1,7 @@
 {
   "name": "flowx",
   "version": "0.0.3",
-  "packageManager": "pnpm@9.1.0",
+  "packageManager": "pnpm@9.1.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -20,13 +20,18 @@
     "shared:dev": "pnpm shared:run dev",
     "test": "vitest",
     "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
     "docker:up": "pnpm exec docker-compose --env-file .env -f config/compose.yaml up",
     "services:up": "pnpm exec docker-compose --env-file .env -f config/services.compose.yaml up",
     "configure-husky": "pnpx husky install && husky add .husky/pre-commit \"pnpx lint-staged\""
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^15.0.7",
+    "@testing-library/user-event": "^14.5.2",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/eslint": "^8.56.10",
+    "@vitest/coverage-v8": "^1.6.0",
     "@vitest/ui": "^1.6.0",
     "eslint": "^9.2.0",
     "eslint-config-prettier": "^9.1.0",
@@ -38,6 +43,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "globals": "^15.2.0",
     "husky": "^9.0.11",
+    "jsdom": "^24.0.0",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
