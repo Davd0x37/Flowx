@@ -1,12 +1,12 @@
-import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
-import { Button } from 'app/components/ui/button';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from 'app/components/ui/dropdown-menu';
-import { useTheme } from 'app/providers/ThemeProvider';
+} from '@/components/ui/dropdown-menu';
+import { useTheme } from '@/providers/ThemeProvider';
+import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 
 export function ModeToggle() {
   const { setTheme } = useTheme();

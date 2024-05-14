@@ -7,10 +7,10 @@ import {
   FormProvider,
   useFormContext,
 } from 'react-hook-form';
+import { Label } from '@/components/ui/label';
+import { cn } from '@/utils/classNames';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import { Slot } from '@radix-ui/react-slot';
-import { Label } from 'app/components/ui/label';
-import { cn } from 'app/utils/classNames';
 
 const Form = FormProvider;
 

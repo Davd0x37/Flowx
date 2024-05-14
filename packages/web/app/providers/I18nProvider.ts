@@ -1,7 +1,7 @@
 import { I18nextProvider, initReactI18next } from 'react-i18next';
+import { SupportedLocales } from '@/config/constants';
+import locales from '@/locales';
 import i18n from 'i18next';
-import { SupportedLocales } from 'app/config/constants';
-import locales from 'app/locales';
 
 i18n.use(initReactI18next).init({
   resources: locales,

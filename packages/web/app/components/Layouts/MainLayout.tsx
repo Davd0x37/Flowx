@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import Sidebar from 'app/components/Sidebar/Sidebar';
+import Sidebar from '@/components/Sidebar/Sidebar';
 
 const MainLayout = ({ children }: PropsWithChildren) => {
   return (

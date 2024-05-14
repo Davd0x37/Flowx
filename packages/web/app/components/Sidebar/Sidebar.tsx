@@ -1,13 +1,13 @@
 import SidebarLinks from './SidebarLinks';
 import { useTranslation } from 'react-i18next';
+import { Logout } from '@/assets/icons';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import useUserStore from '@/features/user/stores/user';
+import { TUserStatus } from '@/features/user/types/user';
+import { cn } from '@/utils/classNames';
 import { cva } from 'class-variance-authority';
 import { getAcronyms } from '@flowx/shared/utils/strings';
-import { Logout } from 'app/assets/icons';
-import { Avatar, AvatarFallback, AvatarImage } from 'app/components/ui/avatar';
-import { Button } from 'app/components/ui/button';
-import { TUserStatus } from 'app/features/user/types/user';
-import { cn } from 'app/utils/classNames';
-import useUserStore from 'features/user/stores/user';
 
 type Props = {
   className: string;

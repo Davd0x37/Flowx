@@ -8,9 +8,9 @@
     // Paths
     "baseUrl": ".",
     "paths": {
-      "app/*": ["app/*"],
-      "features/*": ["app/features/*"],
-      "ui/*": ["app/components/ui/*"]
+      "@/*": ["app/*"],
+      "@features/*": ["app/features/*"],
+      "@ui/*": ["app/components/ui/*"]
     },
 
     // Unplugin-icons typings for react

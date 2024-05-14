@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import AuthenticateLayout from '@/components/Layouts/AuthenticateLayout';
+import LoginForm from '@/features/auth/components/LoginForm';
+import RegisterForm from '@/features/auth/components/RegisterForm';
 import { UserLoginForm, UserRegisterForm } from '@flowx/shared/models/user';
-import AuthenticateLayout from 'app/components/Layouts/AuthenticateLayout';
-import LoginForm from 'features/auth/components/LoginForm';
-import RegisterForm from 'features/auth/components/RegisterForm';
 
 export const Authenticate = () => {
   const { t } = useTranslation(['user']);

@@ -1,16 +1,16 @@
 import { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { nanoid } from 'nanoid';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from 'app/components/ui/accordion';
-import { Button, buttonVariants } from 'app/components/ui/button';
-import { type SidebarItem, SidebarLinkList } from 'app/config/routes';
-import { cn } from 'app/utils/classNames';
+} from '@/components/ui/accordion';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { type SidebarItem, SidebarLinkList } from '@/config/routes';
+import { cn } from '@/utils/classNames';
+import { nanoid } from 'nanoid';
 
 type SidebarLinkProps = SidebarItem & { withoutIcon?: boolean };
 

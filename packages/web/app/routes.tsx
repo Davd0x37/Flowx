@@ -1,9 +1,9 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import { NotFound } from 'app/components/errors/NotFound';
-import { Authenticate } from 'app/pages/auth/index';
-import { AuthenticateView } from 'app/pages/auth/route';
-import { Home } from 'app/pages/home';
-import { RootView } from 'app/pages/root';
+import { NotFound } from '@/components/errors/NotFound';
+import { Authenticate } from '@/pages/auth/index';
+import { AuthenticateView } from '@/pages/auth/route';
+import { Home } from '@/pages/home';
+import { RootView } from '@/pages/root';
 
 export const routes = createRoutesFromElements(
   <>
@@ -19,16 +19,16 @@ export const routes = createRoutesFromElements(
       <Route index id="Dashboard default view" element={<Home />} />
 
       {/* User feature routes */}
-      <Route path="user" id="User default view" lazy={() => import('app/pages/user/route')}>
-        <Route index id="Details" lazy={() => import('app/pages/user/details')} />
-        <Route path="settings" id="Settings" lazy={() => import('app/pages/user/settings')} />
+      <Route path="user" id="User default view" lazy={() => import('@/pages/user/route')}>
+        <Route index id="Details" lazy={() => import('@/pages/user/details')} />
+        <Route path="settings" id="Settings" lazy={() => import('@/pages/user/settings')} />
       </Route>
 
       {/* Services route */}
       <Route
         path="services"
         id="Services default view"
-        lazy={() => import('app/pages/services/route')}
+        lazy={() => import('@/pages/services/route')}
       ></Route>
     </Route>
   </>,

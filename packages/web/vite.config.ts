@@ -56,13 +56,13 @@ export default defineConfig({
   resolve: {
     alias: {
       // Main directory alias
-      app: resolve(__dirname, './app'),
+      '@': resolve(__dirname, './app'),
 
       // Features alias
-      features: resolve(__dirname, './app/features'),
+      '@features': resolve(__dirname, './app/features'),
 
       // UI alias
-      ui: resolve(__dirname, './app/components/ui'),
+      '@ui': resolve(__dirname, './app/components/ui'),
     },
   },
 });

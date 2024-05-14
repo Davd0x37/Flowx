@@ -1,5 +1,5 @@
 import { type ReactNode, createContext, useContext, useEffect, useState } from 'react';
-import { StorageThemeKey } from 'app/config/constants';
+import { StorageThemeKey } from '@/config/constants';
 
 type Theme = 'dark' | 'light' | 'system';
 

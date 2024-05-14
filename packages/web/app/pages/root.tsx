@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import MainLayout from 'app/components/Layouts/MainLayout';
+import MainLayout from '@/components/Layouts/MainLayout';
 
 export const RootView = () => {
   return (

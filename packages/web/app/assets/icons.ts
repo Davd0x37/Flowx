@@ -1,5 +1,6 @@
 import PassKey from '~icons/octicon/passkey-fill-24';
 import Warning from '~icons/tabler/alert-circle';
+import AlertTriangle from '~icons/tabler/alert-triangle';
 import ArrowLeft from '~icons/tabler/arrow-left';
 import ArrowRight from '~icons/tabler/arrow-right';
 import Box from '~icons/tabler/box';
@@ -30,4 +31,5 @@ export {
   PassKey,
   Logout,
   Login,
+  AlertTriangle,
 };

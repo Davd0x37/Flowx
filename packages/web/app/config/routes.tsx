@@ -1,5 +1,5 @@
 import { type FC, type SVGProps } from 'react';
-import { Auth, Box, Home, User } from 'app/assets/icons';
+import { Auth, Box, Home, User } from '@/assets/icons';
 
 export type SidebarItem = {
   name: string;

@@ -1,10 +1,8 @@
 import { PropsWithoutRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { typeboxResolver } from '@hookform/resolvers/typebox';
-import { UserLoginForm } from '@flowx/shared/models/user';
-import { PassKey } from 'app/assets/icons';
-import { Button } from 'app/components/ui/button';
+import { PassKey } from '@/assets/icons';
+import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -13,9 +11,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from 'app/components/ui/form';
-import { Input } from 'app/components/ui/input';
-import { Separator } from 'app/components/ui/separator';
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Separator } from '@/components/ui/separator';
+import { typeboxResolver } from '@hookform/resolvers/typebox';
+import { UserLoginForm } from '@flowx/shared/models/user';
 
 type Props = {
   onSubmit: (data: UserLoginForm) => void;

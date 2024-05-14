@@ -1,15 +1,15 @@
-import 'app/assets/base.css';
+import '@/assets/base.css';
 import { router } from './routes';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { RouterProvider } from 'react-router-dom';
+import { ErrorPage } from '@/components/errors/ErrorPage/ErrorPage';
+import { Toaster } from '@/components/ui/toaster';
+import { StorageThemeKey } from '@/config/constants';
+import { I18nextProvider, i18n } from '@/providers/I18nProvider';
+import { ThemeProvider } from '@/providers/ThemeProvider';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { ErrorPage } from 'app/components/errors/ErrorPage/ErrorPage';
-import { Toaster } from 'app/components/ui/toaster';
-import { StorageThemeKey } from 'app/config/constants';
-import { I18nextProvider, i18n } from 'app/providers/I18nProvider';
-import { ThemeProvider } from 'app/providers/ThemeProvider';
 
 const queryClientInstance = new QueryClient();
 

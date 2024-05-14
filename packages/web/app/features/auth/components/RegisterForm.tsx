@@ -1,9 +1,7 @@
 import { PropsWithoutRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { typeboxResolver } from '@hookform/resolvers/typebox';
-import { UserRegisterForm } from '@flowx/shared/models/user';
-import { Button } from 'app/components/ui/button';
+import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -12,8 +10,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from 'app/components/ui/form';
-import { Input } from 'app/components/ui/input';
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { typeboxResolver } from '@hookform/resolvers/typebox';
+import { UserRegisterForm } from '@flowx/shared/models/user';
 
 type Props = {
   onSubmit: (data: UserRegisterForm) => void;
