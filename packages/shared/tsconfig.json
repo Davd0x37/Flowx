@@ -5,7 +5,9 @@
     "incremental": false,
 
     // Paths
-    "baseUrl": "."
+    "baseUrl": ".",
+
+    "types": ["vitest/globals"]
   },
   "include": ["src"]
 }

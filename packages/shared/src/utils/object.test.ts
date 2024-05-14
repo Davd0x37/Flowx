@@ -1,5 +1,4 @@
 import { Obj } from './object.ts';
-import { describe, expect, it } from 'vitest';
 
 const TEST_OBJ = {
   name: 'test',

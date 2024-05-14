@@ -4,7 +4,6 @@ import {
   base64UrlEncodeAB,
   stringToArrayBuffer,
 } from './encoding.ts';
-import { describe, expect, it } from 'vitest';
 
 const exampleText = 'text_to_encode';
 

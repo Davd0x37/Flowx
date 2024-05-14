@@ -1,5 +1,4 @@
 import { wait } from './async.ts';
-import { describe, expect, it } from 'vitest';
 
 const TIME = 1000;
 
@@ -11,9 +10,11 @@ describe('Test async helpers', () => {
 
       const res = 150;
       expect(res).toBe(150);
+
       await wait(TIME);
+
       expect(res).toBe(150);
     },
-    { timeout: TIME + 1000 },
+    TIME + 1000,
   );
 });

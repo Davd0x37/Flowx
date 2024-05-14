@@ -7,17 +7,23 @@
     "build": "vite build",
     "dev": "NODE_ENV=development tsx watch --env-file=.env.development ./app/index.ts",
     "lint": "tsc --noEmit && eslint app",
-    "lint:fix": "pnpm lint --fix"
+    "lint:fix": "pnpm lint --fix",
+    "test": "",
+    "test:watch": "vitest watch",
+    "test:coverage": "vitest --coverage"
   },
   "devDependencies": {
     "@fastify/swagger": "^8.14.0",
     "@fastify/swagger-ui": "^3.0.0",
-    "@types/node": "^20.12.11",
+    "@types/node": "^20.12.12",
     "@types/zxcvbn": "^4.4.4",
+    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/ui": "^1.6.0",
     "msw": "^2.3.0",
     "pino-pretty": "^11.0.0",
     "tsx": "^4.10.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
   },
   "dependencies": {
     "@fastify/cookie": "^9.3.1",

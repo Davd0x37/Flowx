@@ -1,5 +1,4 @@
 import { resolveUrl } from './network.ts';
-import { describe, expect, it } from 'vitest';
 
 const TEST_URL = 'https://localhost.local';
 const TEST_URL_PATHNAME = 'testing';

@@ -1,5 +1,4 @@
 import { isExpired } from './time.ts';
-import { describe, expect, it } from 'vitest';
 
 const expires = 3600; // 1 hour
 
@@ -13,11 +12,13 @@ describe('Test time helper', () => {
   describe('expired date', () => {
     it('should return true if date is expired', () => {
       const expired = isExpired(now_5_min, expires);
+
       expect(expired).toBeFalsy();
     });
 
     it('should return false if date is not expired', () => {
       const expired = isExpired(now_1_hour, expires);
+
       expect(expired).toBeTruthy();
     });
   });
