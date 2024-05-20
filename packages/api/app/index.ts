@@ -16,7 +16,10 @@ try {
   // Autoload routes
   await fastify.register(Routes);
 
-  await fastify.listen({ port: fastify.config.PORT });
+  await fastify.listen({
+    host: fastify.config.API_HOST,
+    port: fastify.config.API_PORT,
+  });
 } catch (err) {
   fastify.log.error(err);
 

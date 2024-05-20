@@ -13,7 +13,7 @@ RUN pnpm web:build
 RUN pnpm prune --prod
 
 # Create new build step and mark it as the release stage
-FROM base AS release
+FROM build AS release
 
 WORKDIR /app
 COPY --from=build /app_build/packages/web/dist .

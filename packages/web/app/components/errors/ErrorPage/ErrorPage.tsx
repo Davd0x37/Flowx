@@ -9,7 +9,7 @@ interface ErrorPageProps extends FallbackProps {
 
 export const ErrorPage = ({
   error,
-  resetErrorBoundary,
+  resetErrorBoundary = () => null,
   refreshPageFn = () => window.location.reload(),
 }: ErrorPageProps) => {
   return (
@@ -25,7 +25,13 @@ export const ErrorPage = ({
           <AlertDescription>{error?.message}</AlertDescription>
         </Alert>
 
-        <Button className="text-lg" onClick={() => refreshPageFn()}>
+        <Button
+          className="text-lg"
+          onClick={() => {
+            resetErrorBoundary();
+            refreshPageFn();
+          }}
+        >
           Refresh <Reload className="ml-2" fontSize="1.6rem" />
         </Button>
       </div>

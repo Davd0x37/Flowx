@@ -40,7 +40,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
-    "i18next": "^23.11.4",
+    "i18next": "^23.11.5",
     "nanoid": "^5.0.7",
     "oslo": "^1.2.0",
     "react": "^18.3.1",
@@ -54,7 +54,7 @@
     "zustand": "^4.5.0"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.211",
+    "@iconify/json": "^2.2.212",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "@tailwindcss/forms": "^0.5.7",

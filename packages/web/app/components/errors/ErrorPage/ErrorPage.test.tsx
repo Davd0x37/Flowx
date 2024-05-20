@@ -6,7 +6,15 @@ const refreshPageFn = vi.fn();
 
 describe('ErrorPage', () => {
   it('renders the ErrorPage component', async () => {
-    render(<ErrorPage refreshPageFn={refreshPageFn} />);
+    render(
+      <ErrorPage
+        refreshPageFn={refreshPageFn}
+        resetErrorBoundary={() => null}
+        error={{
+          message: 'test error message',
+        }}
+      />,
+    );
 
     const centeredText = screen.getByRole('heading');
     const refreshButton = screen.getByRole('button');

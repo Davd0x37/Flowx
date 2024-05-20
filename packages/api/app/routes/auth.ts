@@ -43,7 +43,8 @@ export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) 
 
       return response.code(200).send({ status: 'Successfully logged in' });
     } catch (error) {
-      return response.badRequest('Cannot create an account!');
+      console.error(error);
+      return response.badRequest('Cannot login!');
     }
   });
 

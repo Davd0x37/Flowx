@@ -2,6 +2,7 @@ import { TypeRegistry } from '@sinclair/typebox';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
 import { SchemaTypes, connect } from 'mongoose';
+import { MONGO_URI } from 'app/common/url';
 
 // @TODO: maybe move type registration to an outside module? like common directory or lib?
 // Register ObjectID type
@@ -9,12 +10,9 @@ TypeRegistry.Set('MongoId', (_, value) => value instanceof SchemaTypes.ObjectId)
 
 export default fastifyPlugin(
   async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
-    const {
-      config: { DATABASE_URI },
-    } = fastify;
-
     try {
-      const mongo = await connect(DATABASE_URI);
+      console.log('MONGO_URI', MONGO_URI);
+      const mongo = await connect(MONGO_URI);
 
       fastify.addHook('onClose', async () => {
         await mongo.connection.close();
