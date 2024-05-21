@@ -18,12 +18,10 @@ services:
       API_PORT: $API_PORT
       API_HOST: $API_HOST
     ports:
-      - 3000
-    # networks:
-    #   - backend
-    network_mode: host
-    # extra_hosts:
-    #   - "host.docker.internal:host-gateway"
+      - 3000:3000
+    networks:
+      - backend
+      - api
     env_file:
       - .env
 
@@ -40,6 +38,8 @@ services:
     restart: unless-stopped
     depends_on:
       - build-web
+    networks:
+      - api
     ports:
       - '80:80'
       - '443:443'
@@ -57,6 +57,5 @@ volumes:
 
 
 networks:
-  backend:
+  api:
     driver: bridge
-  # host:

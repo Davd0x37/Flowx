@@ -23,5 +23,4 @@ WORKDIR /api/packages/api
 # Run the application as a non-root user
 USER node
 
-EXPOSE 3000
 CMD ["node", "./dist/index.js"]

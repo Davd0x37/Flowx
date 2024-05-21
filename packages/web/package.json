@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@flowx/shared": "workspace:^",
-    "@hookform/resolvers": "^3.4.0",
+    "@hookform/resolvers": "^3.4.2",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-avatar": "^1.0.4",
@@ -46,7 +46,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-error-boundary": "^4.0.12",
-    "react-hook-form": "^7.51.4",
+    "react-hook-form": "^7.51.5",
     "react-i18next": "^14.1.1",
     "react-router-dom": "6.23.1",
     "tailwind-merge": "^2.3.0",
