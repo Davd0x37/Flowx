@@ -11,7 +11,6 @@ TypeRegistry.Set('MongoId', (_, value) => value instanceof SchemaTypes.ObjectId)
 export default fastifyPlugin(
   async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
     try {
-      console.log('MONGO_URI', MONGO_URI);
       const mongo = await connect(MONGO_URI);
 
       fastify.addHook('onClose', async () => {
