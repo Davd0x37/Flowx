@@ -12,10 +12,10 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "test": "vitest run",
-    "test:watch": "vitest watch",
-    "lint": "tsc --noEmit && eslint src",
-    "lint:fix": "pnpm lint --fix"
+    "test": "nx vite:test",
+    "test:watch": "nx vite:test watch",
+    "lint": "nx eslint:lint",
+    "lint:fix": "nx eslint:lint --fix"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^1.6.0",

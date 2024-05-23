@@ -40,7 +40,7 @@ export default typescriptEslint.config(
 
     languageOptions: {
       parserOptions: {
-        project: ['./packages/*/tsconfig.json'],
+        project: ['./packages/*/tsconfig*.json'],
         tsconfigRootDir: import.meta.dirname,
         ecmaFeatures: {
           jsx: true,

@@ -4,13 +4,13 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "vite build",
     "dev": "NODE_ENV=development tsx watch --env-file=../../.env.development ./app/index.ts",
-    "lint": "tsc --noEmit && eslint app",
-    "lint:fix": "pnpm lint --fix",
-    "test": "",
-    "test:watch": "vitest watch",
-    "test:coverage": "vitest --coverage"
+    "build": "nx vite:build",
+    "lint": "nx eslint:lint",
+    "lint:fix": "nx eslint:lint --fix",
+    "test": "nx vite:test",
+    "test:watch": "nx vite:test watch",
+    "test:coverage": "nx vite:test run --coverage"
   },
   "devDependencies": {
     "@fastify/swagger": "^8.14.0",

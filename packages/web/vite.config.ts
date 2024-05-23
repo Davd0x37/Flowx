@@ -1,6 +1,7 @@
 /// <reference types="vitest" />
 import tailwind from 'tailwindcss';
 import tailwindConfig from './tailwind.config';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 // import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
 import react from '@vitejs/plugin-react-swc';
 import autoprefixer from 'autoprefixer';
@@ -11,6 +12,15 @@ import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  root: import.meta.dirname,
+  build: {
+    outDir: '../../dist/packages/web',
+    reportCompressedSize: true,
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+  },
+
   plugins: [
     // React plugin
     react(),
@@ -24,6 +34,8 @@ export default defineConfig({
 
     // Iconify loader
     Icons({ compiler: 'jsx', jsx: 'react' }),
+
+    nxViteTsPaths(),
   ],
 
   test: {

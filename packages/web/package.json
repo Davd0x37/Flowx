@@ -4,13 +4,13 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "VITE_DEV_ENV=true vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "lint": "tsc --noEmit && eslint app",
-    "lint:fix": "pnpm lint --fix",
-    "test": "vitest run",
-    "test:watch": "vitest watch"
+    "dev": "nx vite:serve",
+    "build": "nx vite:build",
+    "preview": "nx vite:preview",
+    "lint": "nx eslint:lint",
+    "lint:fix": "nx eslint:lint --fix",
+    "test": "nx vite:test run",
+    "test:watch": "nx vite:test watch"
   },
   "dependencies": {
     "@flowx/shared": "workspace:^",
