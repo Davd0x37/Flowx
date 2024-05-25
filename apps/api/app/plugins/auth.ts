@@ -29,7 +29,6 @@ export const lucia = new Lucia(adapter, {
 
 export default fastifyPlugin(
   (fastify: FastifyInstance, _options: FastifyPluginOptions, done) => {
-    // Original author - https://github.com/lucia-auth/lucia/issues/1406#issuecomment-1942424121
     fastify.addHook('preHandler', async (req, res) => {
       const sessionId = lucia.readSessionCookie(req.headers.cookie ?? '');
 
@@ -42,12 +41,12 @@ export default fastifyPlugin(
       const { session, user } = await lucia.validateSession(sessionId);
       if (session && session.fresh) {
         const cookie = lucia.createSessionCookie(session.id);
-        await res.setCookie(cookie.name, cookie.value, cookie.attributes);
+        res.setCookie(cookie.name, cookie.value, cookie.attributes);
       }
 
       if (!session) {
         const cookie = lucia.createBlankSessionCookie();
-        await res.setCookie(cookie.name, cookie.value, cookie.attributes);
+        res.setCookie(cookie.name, cookie.value, cookie.attributes);
       }
 
       req.user = user;

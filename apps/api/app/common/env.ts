@@ -7,11 +7,12 @@ export const EnvSchema = Type.Object({
   NODE_ENV: Type.Optional(Type.String({ default: 'production', readOnly: true })),
 
   // MongoDB url with credentials
-  MONGO_USER: Type.String({ readOnly: true, minLength: 6 }),
+  MONGO_USER: Type.String({ readOnly: true, minLength: 5 }),
   MONGO_PASSWORD: Type.String({ readOnly: true, minLength: 12 }),
   MONGO_DATABASE_NAME: Type.String({ readOnly: true, minLength: 4 }),
   MONGO_HOST: Type.String({ readOnly: true, minLength: 4 }),
   MONGO_PORT: Type.Number({ default: 27017, readOnly: true, minLength: 1 }),
+  MONGO_URI_RAW: Type.Optional(Type.String({ readOnly: true, minLength: 32 })),
 
   // Redis connection details
   REDIS_HOST: Type.Optional(Type.String({ readOnly: true })),

@@ -14,7 +14,7 @@ const NewModifiedUser = Type.Pick(UserType, ['login', 'password', 'avatar']);
 type NewModifiedUser = Static<typeof NewModifiedUser>;
 
 // @TODO: refactor validation, use more generic error messages
-export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: () => void) => {
+export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
   const fastifyTypeBox = fastify.withTypeProvider<TypeBoxTypeProvider>();
 
   fastifyTypeBox.post<{ Body: UserCredentials }>('/auth/login', async (request, response) => {
@@ -40,7 +40,7 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
       const session = await lucia.createSession(user.id as Schema.Types.ObjectId, {});
       const sessionCookie = lucia.createSessionCookie(session.id);
 
-      await response.setCookie(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
+      response.setCookie(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
 
       return response.code(200).send({ status: 'Successfully logged in' });
     } catch (error) {
@@ -80,13 +80,11 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
       const session = await lucia.createSession(newUser.id as Schema.Types.ObjectId, {});
       const sessionCookie = lucia.createSessionCookie(session.id);
 
-      await response.setCookie(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
+      response.setCookie(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
 
       return response.code(200).send('User created');
     } catch (error) {
       return response.badRequest('Cannot create an account!');
     }
   });
-
-  done();
 };

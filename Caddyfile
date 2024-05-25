@@ -1,5 +1,0 @@
-localhost {
-  encode zstd gzip
-  root * /app
-  file_server
-}

@@ -10,8 +10,11 @@ TypeRegistry.Set('MongoId', (_, value) => value instanceof SchemaTypes.ObjectId)
 
 export default fastifyPlugin(
   async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
+    const {
+      config: { MONGO_URI_RAW },
+    } = fastify;
     try {
-      const mongo = await connect(MONGO_URI);
+      const mongo = await connect(MONGO_URI_RAW || MONGO_URI);
 
       fastify.addHook('onClose', async () => {
         await mongo.connection.close();
