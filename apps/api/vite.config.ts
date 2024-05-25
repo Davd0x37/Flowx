@@ -17,7 +17,6 @@ export default defineConfig({
       formats: ['es'],
     },
     ssr: true,
-    // outDir: '../../dist/packages/api',
     reportCompressedSize: true,
     commonjsOptions: {
       transformMixedEsModules: true,

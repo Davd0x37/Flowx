@@ -1,4 +1,5 @@
 import Auth from './auth';
+import Healthcheck from './healthcheck';
 import User from './user';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
@@ -8,6 +9,10 @@ export default fastifyPlugin(async (fastify: FastifyInstance, _options: FastifyP
   const { register } = fastify;
 
   await Promise.all([
+    register(Healthcheck, {
+      prefix: API_PREFIX,
+    }),
+
     register(User, {
       prefix: API_PREFIX,
     }),
