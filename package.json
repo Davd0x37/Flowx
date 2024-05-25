@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nx run-many -t build",
+    "build:all": "nx run-many -t build",
     "test": "nx run-many -t test --parallel",
     "lint": "nx run-many -t lint --parallel",
     "format": "prettier --write \"**/*.{ts,tsx,html,css,scss,json,md}\"",
