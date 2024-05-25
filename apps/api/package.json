@@ -4,8 +4,9 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "NODE_ENV=development tsx watch --env-file=../../.env.development ./app/index.ts",
+    "dev": "tsx watch ./app/index.ts",
     "build": "nx vite:build",
+    "start": "node dist/index.js",
     "lint": "nx eslint:lint",
     "test": "nx vite:test"
   },
