@@ -40,7 +40,7 @@ export default typescriptEslint.config(
 
     languageOptions: {
       parserOptions: {
-        project: ['./packages/*/tsconfig*.json'],
+        project: ['./{packages,apps}/*/tsconfig*.json'],
         tsconfigRootDir: import.meta.dirname,
         ecmaFeatures: {
           jsx: true,
@@ -68,11 +68,11 @@ export default typescriptEslint.config(
 
   // NodeJS configs - enable when support for typescript is added
   {
-    files: ['./packages/api/**/*.ts'],
+    files: ['./apps/api/**/*.ts'],
     ...eslintPluginN.configs['flat/recommended-module'],
   },
   {
-    files: ['./packages/api/**/*.ts'],
+    files: ['./apps/api/**/*.ts'],
 
     rules: {
       'n/exports-style': ['error', 'module.exports'],

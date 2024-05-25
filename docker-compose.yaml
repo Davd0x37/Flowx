@@ -1,12 +1,7 @@
-# @TODO: move api and web builds into a single dockerfile
-
-include:
-  - services.compose.yaml
-
 services:
   build-api:
     build:
-      dockerfile: ./API.Dockerfile
+      dockerfile: ./apps/api/Dockerfile
     container_name: flowx_api
     environment:
       NODE_ENV: development
@@ -18,7 +13,7 @@ services:
       API_PORT: $API_PORT
       API_HOST: $API_HOST
     ports:
-      - 3000:3000
+      - '${API_PORT}:${API_PORT}'
     networks:
       - backend
       - api
@@ -27,7 +22,7 @@ services:
 
   build-web:
     build:
-      dockerfile: ./WEB.Dockerfile
+      dockerfile: ./apps/web/Dockerfile
     container_name: flowx_web
     volumes:
       - app_volume:/app
@@ -38,6 +33,9 @@ services:
     restart: unless-stopped
     depends_on:
       - build-web
+    environment:
+      API_PORT: $API_PORT
+      API_HOST: $API_HOST
     networks:
       - api
     ports:

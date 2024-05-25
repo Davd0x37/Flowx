@@ -1,0 +1,36 @@
+import { logger } from './logger';
+import { Static, Type } from '@sinclair/typebox';
+import { Value } from '@sinclair/typebox/value';
+
+export type EnvSchema = Static<typeof EnvSchema>;
+export const EnvSchema = Type.Object({
+  NODE_ENV: Type.Optional(Type.String({ default: 'production', readOnly: true })),
+
+  // MongoDB url with credentials
+  MONGO_USER: Type.String({ readOnly: true, minLength: 6 }),
+  MONGO_PASSWORD: Type.String({ readOnly: true, minLength: 12 }),
+  MONGO_DATABASE_NAME: Type.String({ readOnly: true, minLength: 4 }),
+  MONGO_HOST: Type.String({ readOnly: true, minLength: 4 }),
+  MONGO_PORT: Type.Number({ default: 27017, readOnly: true, minLength: 1 }),
+
+  // Redis connection details
+  REDIS_HOST: Type.Optional(Type.String({ readOnly: true })),
+  REDIS_PORT: Type.Optional(Type.Number({ default: 6379, readOnly: true })),
+
+  // App config
+  API_PORT: Type.Optional(Type.Number({ default: 3000, readOnly: true })),
+  API_HOST: Type.Optional(Type.String({ default: '0.0.0.0', readOnly: true })),
+});
+
+export const env = (() => {
+  const schemaConverted = Value.Convert(EnvSchema, process.env);
+  const check = Value.Check(EnvSchema, schemaConverted);
+  if (check) return schemaConverted;
+
+  const error = Value.Errors(EnvSchema, schemaConverted).First();
+  logger.error(`Env: Schema conversion error!`);
+
+  if (error) {
+    throw new Error(`Env: ${error.message} ${error.path}`);
+  }
+})() as NonNullable<EnvSchema>;

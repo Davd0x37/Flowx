@@ -8,10 +8,12 @@
 **/.toolstarget
 **/.vs
 **/.vscode
+**/.idea
 **/.next
 **/.cache
 **/*.*proj.user
 **/*.dbmdl
+**/*.nx
 **/*.jfm
 **/charts
 **/docker-compose*
