@@ -5,7 +5,7 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
   const fastifyTypeBox = fastify.withTypeProvider<TypeBoxTypeProvider>();
 
   fastifyTypeBox.get('/healthcheck', async (_request, response) => {
-    return response.status(200);
+    return response.code(200).send();
   });
 
   done();
