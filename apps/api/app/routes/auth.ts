@@ -14,7 +14,7 @@ const NewModifiedUser = Type.Pick(UserType, ['login', 'password', 'avatar']);
 type NewModifiedUser = Static<typeof NewModifiedUser>;
 
 // @TODO: refactor validation, use more generic error messages
-export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
+export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: () => void) => {
   const fastifyTypeBox = fastify.withTypeProvider<TypeBoxTypeProvider>();
 
   fastifyTypeBox.post<{ Body: UserCredentials }>('/auth/login', async (request, response) => {
@@ -87,4 +87,6 @@ export default async (fastify: FastifyInstance, _options: FastifyPluginOptions) 
       return response.badRequest('Cannot create an account!');
     }
   });
+
+  done();
 };
