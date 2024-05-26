@@ -22,7 +22,7 @@ export default typescriptEslint.config(
         ...globals.browser,
         RequestInfo: true,
         RequestInit: true,
-        BufferSource: true,
+        BufferSource: true
       },
     },
   },
