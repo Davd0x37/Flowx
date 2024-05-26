@@ -1,16 +1,17 @@
-import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
+import { TypeBoxTypeProvider, TypeBoxValidatorCompiler } from '@fastify/type-provider-typebox';
 import { Static, Type } from '@sinclair/typebox';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import type { Schema } from 'mongoose';
-import { type UserIDObject, UserType } from '@flowx/shared/models/user';
+import { UserIDObject, UserType } from '@flowx/shared/models/user';
 import { User } from 'app/models/user';
 
 const NewModifiedUser = Type.Pick(UserType, ['login', 'password', 'avatar']);
 type NewModifiedUser = Static<typeof NewModifiedUser>;
 
 export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: () => void) => {
-  const fastifyTypeBox = fastify.withTypeProvider<TypeBoxTypeProvider>();
-  const { schemaValidator } = fastifyTypeBox;
+  const fastifyTypeBox = fastify
+    .setValidatorCompiler(TypeBoxValidatorCompiler)
+    .withTypeProvider<TypeBoxTypeProvider>();
 
   fastifyTypeBox.get('/users', async (_request, reply) => {
     const users = await User.find({});
@@ -18,40 +19,58 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
     await reply.send(users);
   });
 
-  fastifyTypeBox.get<{ Params: UserIDObject }>('/users/:userId', async (request, reply) => {
-    const { userId } = request.params;
-
-    const user = await User.findById(userId);
-
-    await reply.send(user);
-  });
-
-  fastifyTypeBox.post('/users', { schema: { body: NewModifiedUser } }, async (req, reply) => {
-    const { login, password, avatar } = req.body;
-
-    // @TODO: add as plugin - preHandler maybe?
-    schemaValidator.compile(NewModifiedUser)(req.body);
-
-    // @TODO: check if create throws an error if user exists
-    try {
-      const exists = await User.exists({ login });
-      if (exists) {
-        await reply.forbidden('Cannot create user!');
-        return;
-      }
-
-      const user = await User.create({ login, password, avatar });
-
-      await reply.code(200).send({
-        id: user.id as Schema.Types.ObjectId,
-      });
-    } catch (error) {
-      await reply.forbidden('Cannot create user!');
-    }
-  });
-
-  fastifyTypeBox.put<{ Body: NewModifiedUser; Params: UserIDObject }>(
+  fastifyTypeBox.get(
     '/users/:userId',
+    {
+      schema: {
+        params: UserIDObject,
+      },
+    },
+    async (request, reply) => {
+      const { userId } = request.params;
+
+      const user = await User.findById(userId);
+
+      await reply.send(user);
+    },
+  );
+
+  fastifyTypeBox.post(
+    '/users',
+    {
+      schema: {
+        body: NewModifiedUser,
+      },
+    },
+    async (req, reply) => {
+      const { login, password, avatar } = req.body;
+
+      try {
+        const exists = await User.exists({ login });
+        if (exists) {
+          await reply.forbidden('Cannot create user!');
+          return;
+        }
+
+        const user = await User.create({ login, password, avatar });
+
+        await reply.code(200).send({
+          id: user.id as Schema.Types.ObjectId,
+        });
+      } catch (error) {
+        await reply.forbidden('Cannot create user!');
+      }
+    },
+  );
+
+  fastifyTypeBox.put(
+    '/users/:userId',
+    {
+      schema: {
+        body: NewModifiedUser,
+        params: UserIDObject,
+      },
+    },
     async (request, reply) => {
       const { userId } = request.params;
       const { login, password, avatar } = request.body;
@@ -63,7 +82,6 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
           return;
         }
 
-        // @TODO: refactor this
         user.login = login;
         user.password = password;
         user.avatar = avatar;
@@ -77,17 +95,25 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
     },
   );
 
-  fastifyTypeBox.delete<{ Params: UserIDObject }>('/users/:userId', async (request, reply) => {
-    const { userId } = request.params;
+  fastifyTypeBox.delete(
+    '/users/:userId',
+    {
+      schema: {
+        params: UserIDObject,
+      },
+    },
+    async (request, reply) => {
+      const { userId } = request.params;
 
-    const user = await User.findByIdAndDelete(userId);
-    if (!user) {
-      await reply.forbidden('Cannot delete user!');
-      return;
-    }
+      const user = await User.findByIdAndDelete(userId);
+      if (!user) {
+        await reply.forbidden('Cannot delete user!');
+        return;
+      }
 
-    await reply.code(200).send('User deleted!');
-  });
+      await reply.code(200).send('User deleted!');
+    },
+  );
 
   done();
 };

@@ -1,8 +1,12 @@
+import { MongoId } from '../types/mongoose';
 import { Static, Type } from '@sinclair/typebox';
 import type { Schema } from 'mongoose';
 
 export type UserID = Schema.Types.ObjectId;
 export type UserIDObject = { userId: UserID };
+export const UserIDObject = Type.Object({
+  userId: MongoId,
+});
 
 export type UserType = Static<typeof UserType>;
 export const UserType = Type.Object({
@@ -25,7 +29,6 @@ export const UserType = Type.Object({
     }),
   ),
 
-  // If user is online - @TODO: maybe move this into separate table?
   isOnline: Type.Boolean(),
 
   // Date of last activity

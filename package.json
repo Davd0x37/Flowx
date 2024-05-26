@@ -10,6 +10,7 @@
     "test": "nx run-many -t test --parallel",
     "lint": "nx run-many -t lint --parallel",
     "format": "prettier --write \"{apps,packages}/**/*.{ts,tsx,html,css,scss,json,md}\"",
+    "pre-commit": "lint-staged",
     "prepare": "husky"
   },
   "devDependencies": {
