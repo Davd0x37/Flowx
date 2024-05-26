@@ -10,7 +10,6 @@
     "test": "nx run-many -t test --parallel",
     "lint": "nx run-many -t lint --parallel",
     "format": "prettier --write \"{apps,packages}/**/*.{ts,tsx,html,css,scss,json,md}\"",
-    "configure-husky": "pnpx husky install && husky add .husky/pre-commit \"pnpx lint-staged\"",
     "prepare": "husky"
   },
   "devDependencies": {
