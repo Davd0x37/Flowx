@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch ./app/index.ts",
-    "build": "esbuild app/index.ts --bundle --platform=node --outfile=dist/index.js --format=esm --packages=external",
+    "build": "nx build @flowx/api",
     "start": "node dist/index.js",
     "lint": "nx eslint:lint",
     "test": "nx vite:test"

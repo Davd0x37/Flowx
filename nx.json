@@ -5,7 +5,6 @@
     "default": ["{projectRoot}/**/*"],
     "production": [
       "default",
-      "!{projectRoot}/tsconfig.*",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/tsconfig.spec.json"
     ]
@@ -23,6 +22,11 @@
     },
     "test": {
       "cache": true
+    },
+    "@nx/esbuild:esbuild": {
+      // "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "plugins": [

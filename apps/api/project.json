@@ -1,0 +1,21 @@
+{
+  "name": "@flowx/api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/api/app",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "{projectRoot}/dist",
+        "main": "{projectRoot}/app/index.ts",
+        "tsConfig": "{projectRoot}/tsconfig.json",
+        "generatePackageJson": false,
+        "declaration": false,
+        "format": ["esm"]
+      }
+    }
+  }
+}
