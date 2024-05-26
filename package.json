@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build:api": "nx build @flowx/api",
+    "build:web": "nx build @flowx/web",
     "build:all": "nx run-many -t build",
     "test": "nx run-many -t test --parallel",
     "lint": "nx run-many -t lint --parallel",
