@@ -1,4 +1,6 @@
 // @ts-check
+import { fixupConfigRules } from '@eslint/compat';
+import { FlatCompat } from '@eslint/eslintrc';
 import eslint from '@eslint/js';
 import eslintPluginN from 'eslint-plugin-n';
 import pluginPrettier from 'eslint-plugin-prettier/recommended';
@@ -6,6 +8,8 @@ import pluginReact from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import typescriptEslint from 'typescript-eslint';
+
+const compat = new FlatCompat();
 
 // @TODO: add eslint-plugin-testing-library
 
@@ -22,13 +26,16 @@ export default typescriptEslint.config(
         ...globals.browser,
         RequestInfo: true,
         RequestInit: true,
-        BufferSource: true
+        BufferSource: true,
       },
     },
   },
 
   // Typescript configs - by default it is parser and rules
   ...typescriptEslint.configs.recommendedTypeChecked,
+
+  // @ts-expect-error fix when eslint v9 will be supported
+  ...fixupConfigRules(compat.config({ extends: ['plugin:promise/recommended'] })),
 
   // Custom React, Typescript config
   {
