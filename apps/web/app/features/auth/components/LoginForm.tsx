@@ -15,18 +15,18 @@ import {
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { typeboxResolver } from '@hookform/resolvers/typebox';
-import { UserLoginForm } from '@flowx/shared/models/user';
+import { UserCredentials } from '@flowx/shared/models/user';
 
 type Props = {
-  onSubmit: (data: UserLoginForm) => void;
+  onSubmit: (data: UserCredentials) => void;
   toggleMode: () => void;
 };
 
 const LoginForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
   const { t } = useTranslation('User');
 
-  const form = useForm<UserLoginForm>({
-    resolver: typeboxResolver(UserLoginForm),
+  const form = useForm<UserCredentials>({
+    resolver: typeboxResolver(UserCredentials),
     defaultValues: {
       login: '',
       password: '',

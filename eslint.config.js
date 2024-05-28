@@ -14,6 +14,11 @@ const compat = new FlatCompat();
 // @TODO: add eslint-plugin-testing-library
 
 export default typescriptEslint.config(
+  // Ignore shadcn/ui components
+  {
+    ignores: ['**/components/ui/**/*'],
+  },
+
   // Default eslint config
   eslint.configs.recommended,
   {

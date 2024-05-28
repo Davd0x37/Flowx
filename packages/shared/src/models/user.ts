@@ -43,8 +43,8 @@ export interface IUserAuth {
 /**
  * Used in web auth form
  */
-export type UserLoginForm = Static<typeof UserLoginForm>;
-export const UserLoginForm = Type.Pick(UserType, ['login', 'password']);
+export type UserCredentials = Static<typeof UserCredentials>;
+export const UserCredentials = Type.Pick(UserType, ['login', 'password']);
 
 // Register confirm password
 export type UserRegisterConfirmPassword = Static<typeof UserRegisterConfirmPassword>;
@@ -54,4 +54,4 @@ export const UserRegisterConfirmPassword = Type.Object({
 
 // Register form with confirm password
 export type UserRegisterForm = Static<typeof UserRegisterForm>;
-export const UserRegisterForm = Type.Composite([UserLoginForm, UserRegisterConfirmPassword]);
+export const UserRegisterForm = Type.Composite([UserCredentials, UserRegisterConfirmPassword]);

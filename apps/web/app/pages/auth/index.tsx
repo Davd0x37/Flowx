@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import AuthenticateLayout from '@/components/Layouts/AuthenticateLayout';
 import LoginForm from '@/features/auth/components/LoginForm';
 import RegisterForm from '@/features/auth/components/RegisterForm';
-import { UserLoginForm, UserRegisterForm } from '@flowx/shared/models/user';
+import { UserCredentials, UserRegisterForm } from '@flowx/shared/models/user';
 
 export const Authenticate = () => {
   const { t } = useTranslation(['user']);
@@ -11,7 +11,7 @@ export const Authenticate = () => {
   const [loginMode, setLoginMode] = useState(true);
   const modeTitle = useMemo(() => (loginMode ? t('Login') : t('Register')), [loginMode]);
 
-  const handleLogin = (ev: UserLoginForm) => {
+  const handleLogin = (ev: UserCredentials) => {
     console.log(ev);
   };
 
