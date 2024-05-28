@@ -9,7 +9,9 @@
     "preview": "nx vite:preview",
     "lint": "nx eslint:lint",
     "lint:fix": "nx eslint:lint --fix",
-    "test": "nx vite:test"
+    "test": "nx vite:test",
+    "ui:add": "pnpx shadcn-ui@latest add",
+    "ui:diff": "pnpx shadcn-ui@latest diff"
   },
   "dependencies": {
     "@flowx/shared": "workspace:^",
