@@ -1,4 +1,4 @@
-import { APP_ERRORS, RUNTIME_ERRORS } from '../types/appErrorCodes';
+import { APP_ERRORS, RUNTIME_ERRORS } from '../../types/appErrorCodes';
 
 // import { isDevEnv } from './env';
 

@@ -1,18 +1,43 @@
 import { useMemo, useState } from 'react';
+import { UseFormReturn } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import AuthenticateLayout from '@/components/Layouts/AuthenticateLayout';
 import LoginForm from '@/features/auth/components/LoginForm';
 import RegisterForm from '@/features/auth/components/RegisterForm';
-import { UserCredentials, UserRegisterForm } from '@flowx/shared/models/user';
+import useAuthMutation from '@/features/auth/hooks/useAuthMutation';
+import { UserCredentials, UserRegisterForm } from '@/features/auth/models/userForm';
+import { ApiResponseWrapper } from '@flowx/shared/types/response';
 
 export const Authenticate = () => {
-  const { t } = useTranslation(['user']);
+  const { mutate } = useAuthMutation();
+  const { t } = useTranslation(['User']);
 
   const [loginMode, setLoginMode] = useState(true);
   const modeTitle = useMemo(() => (loginMode ? t('Login') : t('Register')), [loginMode]);
 
-  const handleLogin = (ev: UserCredentials) => {
-    console.log(ev);
+  const handleLogin = (
+    ev: UserCredentials,
+    form: UseFormReturn<UserCredentials, unknown, undefined>,
+  ) => {
+    mutate(ev, {
+      onSuccess: (data, vars, ctx) => {
+        console.log(data, vars, ctx);
+      },
+
+      onError(error, variables) {
+        const error$ = error as unknown as ApiResponseWrapper['error'];
+        const field = error$?.data?.field;
+        const message = error$?.message;
+
+        if (
+          typeof message === 'string' &&
+          typeof field === 'string' &&
+          Object.hasOwn(variables, field)
+        ) {
+          form.setError(field as keyof UserCredentials, { message });
+        }
+      },
+    });
   };
 
   const handleRegister = (ev: UserRegisterForm) => {

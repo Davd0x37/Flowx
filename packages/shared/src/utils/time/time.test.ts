@@ -1,4 +1,4 @@
-import { isExpired } from './time.ts';
+import { isExpired } from './index.ts';
 
 const expires = 3600; // 1 hour
 

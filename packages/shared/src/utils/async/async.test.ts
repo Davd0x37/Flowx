@@ -1,4 +1,4 @@
-import { wait } from './async.ts';
+import { wait } from './index.ts';
 
 const TIME = 1000;
 

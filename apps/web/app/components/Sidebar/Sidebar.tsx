@@ -7,7 +7,7 @@ import useUserStore from '@/features/user/stores/user';
 import { TUserStatus } from '@/features/user/types/user';
 import { cn } from '@/utils/classNames';
 import { cva } from 'class-variance-authority';
-import { getAcronyms } from '@flowx/shared/utils/strings';
+import { getAcronyms } from '@flowx/shared/utils/string';
 
 type Props = {
   className: string;

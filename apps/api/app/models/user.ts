@@ -3,7 +3,7 @@ import { UserType } from '@flowx/shared/models/user';
 
 export const UserSchema = new Schema<UserType>(
   {
-    login: { type: String, required: true },
+    email: { type: String, required: true },
     password: { type: String, required: true },
     avatar: String,
     isOnline: { type: Boolean, default: false, required: false },

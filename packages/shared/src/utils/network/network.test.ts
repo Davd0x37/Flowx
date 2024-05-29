@@ -1,4 +1,4 @@
-import { resolveUrl } from './network.ts';
+import { resolveUrl } from './index.ts';
 
 const TEST_URL = 'https://localhost.local';
 const TEST_URL_PATHNAME = 'testing';

@@ -1,4 +1,4 @@
-import { excludeFromArrayByValue } from './array.ts';
+import { excludeFromArrayByValue } from './index.ts';
 
 const arrays = {
   strings: ['one', 'two', 'three'],

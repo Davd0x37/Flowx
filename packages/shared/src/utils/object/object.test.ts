@@ -1,4 +1,4 @@
-import { Obj } from './object.ts';
+import { Obj } from './index.ts';
 
 const TEST_OBJ = {
   name: 'test',

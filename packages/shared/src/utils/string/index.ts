@@ -1,4 +1,4 @@
-import { ResultWrapper } from '../types/wrappers';
+import { ResultWrapper } from '../../types/wrappers';
 
 /**
  * Generate acronyms based on input.

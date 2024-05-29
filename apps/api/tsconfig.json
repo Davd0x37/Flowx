@@ -11,5 +11,5 @@
       "app/*": ["./app/*"]
     }
   },
-  "include": ["app"]
+  "include": ["app", "../../packages/shared/src/types/response.ts"]
 }

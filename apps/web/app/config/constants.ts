@@ -8,3 +8,5 @@ export const StorageThemeKey = 'FlowxStorageThemeKey';
 
 // Value used in avatar/sidebar component when acronym can't be generated
 export const AVATAR_FALLBACK = 'AV';
+
+export const API_PREFIX = 'http://localhost:3000/api';

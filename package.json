@@ -15,9 +15,9 @@
   },
   "devDependencies": {
     "@eslint/compat": "^1.0.1",
-    "@nx/eslint": "19.1.0",
-    "@nx/vite": "19.1.0",
-    "@nx/web": "19.1.0",
+    "@nx/eslint": "19.1.1",
+    "@nx/vite": "19.1.1",
+    "@nx/web": "19.1.1",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/eslint": "^8.56.10",
     "eslint": "^9.3.0",

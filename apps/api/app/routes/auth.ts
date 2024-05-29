@@ -4,13 +4,14 @@ import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import type { Schema } from 'mongoose';
 import { Argon2id } from 'oslo/password';
 import { UserType } from '@flowx/shared/models/user';
+import { ApiResponseWrapper } from '@flowx/shared/types/index';
 import { User } from 'app/models/user';
 import { lucia } from 'app/plugins/auth';
 
-const UserCredentials = Type.Pick(UserType, ['login', 'password']);
+const UserCredentials = Type.Pick(UserType, ['email', 'password']);
 type UserCredentials = Static<typeof UserCredentials>;
 
-const NewUserType = Type.Pick(UserType, ['login', 'password', 'avatar']);
+const NewUserType = Type.Pick(UserType, ['email', 'password', 'avatar']);
 type NewUserType = Static<typeof NewUserType>;
 
 export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: () => void) => {
@@ -22,28 +23,57 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
     '/auth/login',
     {
       schema: {
+        consumes: ['application/x-www-form-urlencoded'],
         body: UserCredentials,
+        response: {
+          '4xx': ApiResponseWrapper,
+          '2xx': ApiResponseWrapper,
+        },
       },
     },
     async (request, response) => {
-      const { login, password } = request.body;
+      const { email, password } = request.body;
 
       try {
-        const user = await User.findOne({ login });
-        if (!user) return response.badRequest('Cannot find user');
+        const user = await User.findOne({ email });
+        if (!user)
+          return response.code(404).send({
+            status: 'Error',
+            error: {
+              code: 404,
+              message: 'User does not exist!',
+            },
+          });
 
         const validatePassword = await new Argon2id().verify(user.password, password);
-        if (!validatePassword) return response.badRequest('Incorrect password');
+        if (!validatePassword)
+          return response.code(400).send({
+            status: 'Error',
+            error: {
+              code: 400,
+              message: 'Invalid password',
+              data: {
+                field: 'password',
+              },
+            },
+          });
 
         const session = await lucia.createSession(user.id as Schema.Types.ObjectId, {});
         const sessionCookie = lucia.createSessionCookie(session.id);
 
         response.setCookie(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
 
-        return response.code(200).send({ status: 'Successfully logged in' });
+        return response.code(200).send({ status: 'Success', message: 'Successfully logged in' });
       } catch (error) {
-        console.error(error);
-        return response.badRequest('Cannot login!');
+        return response.code(400).send({
+          status: 'Error',
+          error: {
+            code: 400,
+            message: 'Cannot login',
+            // @FIXME: check if it doesn't leak any user details
+            data: { error },
+          },
+        });
       }
     },
   );
@@ -53,20 +83,31 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
     {
       schema: {
         body: NewUserType,
+        response: {
+          '4xx': ApiResponseWrapper,
+          '2xx': ApiResponseWrapper,
+        },
       },
     },
     async (request, response) => {
-      const { login, password, avatar } = request.body;
+      const { email, password, avatar } = request.body;
 
       // Hash before checking if user exists to minimize timing attacks
       const hashedPassword = await new Argon2id().hash(password);
 
       try {
-        const exists = await User.exists({ login });
-        if (exists) return response.badRequest('User already exists');
+        const exists = await User.exists({ email: email });
+        if (exists)
+          return response.code(400).send({
+            status: 'Error',
+            error: {
+              code: 400,
+              message: 'User already exists',
+            },
+          });
 
         const newUser = await User.create({
-          login,
+          email,
           password: hashedPassword,
           isOnline: false,
           avatar,
@@ -78,9 +119,19 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
 
         response.setCookie(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
 
-        return response.code(200).send('User created');
+        return response.code(200).send({
+          status: 'Success',
+          message: 'User created',
+        });
       } catch (error) {
-        return response.badRequest('Cannot create an account!');
+        return response.code(400).send({
+          status: 'Error',
+          error: {
+            code: 400,
+            message: 'Cannot create an account!',
+            data: { error },
+          },
+        });
       }
     },
   );

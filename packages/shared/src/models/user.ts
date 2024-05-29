@@ -1,17 +1,12 @@
-import { MongoId } from '../types/mongoose';
 import { Static, Type } from '@sinclair/typebox';
 import type { Schema } from 'mongoose';
 
 export type UserID = Schema.Types.ObjectId;
-export type UserIDObject = { userId: UserID };
-export const UserIDObject = Type.Object({
-  userId: MongoId,
-});
 
 export type UserType = Static<typeof UserType>;
 export const UserType = Type.Object({
-  // User-defined name, mainly used to login in to the app
-  login: Type.String({
+  // User-defined name, mainly used to email in to the app
+  email: Type.String({
     minLength: 6,
     maxLength: 64,
   }),
@@ -39,19 +34,3 @@ export const UserType = Type.Object({
 export interface IUserAuth {
   _id: UserID;
 }
-
-/**
- * Used in web auth form
- */
-export type UserCredentials = Static<typeof UserCredentials>;
-export const UserCredentials = Type.Pick(UserType, ['login', 'password']);
-
-// Register confirm password
-export type UserRegisterConfirmPassword = Static<typeof UserRegisterConfirmPassword>;
-export const UserRegisterConfirmPassword = Type.Object({
-  confirmPassword: Type.Index(UserType, ['password']),
-});
-
-// Register form with confirm password
-export type UserRegisterForm = Static<typeof UserRegisterForm>;
-export const UserRegisterForm = Type.Composite([UserCredentials, UserRegisterConfirmPassword]);

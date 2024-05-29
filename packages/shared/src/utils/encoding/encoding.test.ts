@@ -3,7 +3,7 @@ import {
   base64UrlEncode,
   base64UrlEncodeAB,
   stringToArrayBuffer,
-} from './encoding.ts';
+} from './index.ts';
 
 const exampleText = 'text_to_encode';
 

@@ -1,5 +1,5 @@
 import { RuntimeAppError } from './errorUtils.ts';
-import { internalGuard, isSupported } from './guard.ts';
+import { internalGuard, isSupported } from './index.ts';
 
 const exampleObject = {
   key: 'value',

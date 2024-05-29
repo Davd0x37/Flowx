@@ -1,11 +1,11 @@
 import { TypeBoxTypeProvider, TypeBoxValidatorCompiler } from '@fastify/type-provider-typebox';
 import { Static, Type } from '@sinclair/typebox';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
-import type { Schema } from 'mongoose';
-import { UserIDObject, UserType } from '@flowx/shared/models/user';
+import { UserType } from '@flowx/shared/models/user';
 import { User } from 'app/models/user';
+import { UserIDObject } from 'app/types/user';
 
-const NewModifiedUser = Type.Pick(UserType, ['login', 'password', 'avatar']);
+const NewModifiedUser = Type.Pick(UserType, ['email', 'password', 'avatar']);
 type NewModifiedUser = Static<typeof NewModifiedUser>;
 
 export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: () => void) => {
@@ -35,34 +35,6 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
     },
   );
 
-  fastifyTypeBox.post(
-    '/users',
-    {
-      schema: {
-        body: NewModifiedUser,
-      },
-    },
-    async (req, reply) => {
-      const { login, password, avatar } = req.body;
-
-      try {
-        const exists = await User.exists({ login });
-        if (exists) {
-          await reply.forbidden('Cannot create user!');
-          return;
-        }
-
-        const user = await User.create({ login, password, avatar });
-
-        await reply.code(200).send({
-          id: user.id as Schema.Types.ObjectId,
-        });
-      } catch (error) {
-        await reply.forbidden('Cannot create user!');
-      }
-    },
-  );
-
   fastifyTypeBox.put(
     '/users/:userId',
     {
@@ -73,7 +45,7 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
     },
     async (request, reply) => {
       const { userId } = request.params;
-      const { login, password, avatar } = request.body;
+      const { email, password, avatar } = request.body;
 
       try {
         const user = await User.findById(userId);
@@ -82,7 +54,7 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
           return;
         }
 
-        user.login = login;
+        user.email = email;
         user.password = password;
         user.avatar = avatar;
 

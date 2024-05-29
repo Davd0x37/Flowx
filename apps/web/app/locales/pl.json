@@ -1,33 +1,6 @@
 {
-  "views": {
-    "home": "Strona główna",
-    "user": "Profil",
-    "user-details": "Dane konta",
-    "user-settings": "Ustawienia konta",
-    "authenticate": "Autoryzacja"
-  },
   "placeholder": {
-    "email": "email{'@'}example.com"
-  },
-  "auth": {
-    "authenticate": "Autoryzacja",
-    "email": "Email",
-    "password": "Hasło",
-    "login": "Logowanie",
-    "logout": "Wyloguj",
-    "register": "Rejestracja",
-    "repeat_password": "Powtórz hasło",
-    "recover_password": "Odzyskaj hasło",
-    "create_account": "Załóż konto",
-    "remember_me": "Zapamiętaj mnie",
-    "passwords_doesnt_match": "Hasła nie pasują do siebie!",
-    "user_already_exists": "Użytkownik już istnieje",
-    "sign_in_with_google": "Zaloguj się kontem Google",
-    "sign_in_with_passkeys": "Zaloguj się używając Passkeys",
-    "dont_have_account_sign_up": "Nie masz konta? Załóż je!",
-    "already_have_account_sign_in": "Masz już konto? Zaloguj się!",
-    "your_email_address_used_to_login_into_app": "Twój adres email używany do logowania w aplikacji",
-    "your_super_secret_password_that_will_allow_you_to_use_the_app": "Twoje super tajne hasło, które pozwoli Ci korzystać z aplikacji"
+    "email": "email@example.com"
   },
 
   "Routes": {
@@ -60,7 +33,7 @@
     "Sign in with Passkeys": "Zaloguj się używając Passkeys",
     "Don't have account? Sign up!": "Nie masz konta? Załóż je!",
     "Already have account? Sign in!": "Masz już konto? Zaloguj się!",
-    "Your email address used to login into app": "Twój adres email używany do logowania w aplikacji",
+    "Your email address used to email into app": "Twój adres email używany do logowania w aplikacji",
     "Your super secret password that will allow you to use the app": "Twoje super tajne hasło, które pozwoli Ci korzystać z aplikacji"
   }
 }

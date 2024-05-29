@@ -1,6 +1,8 @@
-import Cors from '@fastify/cors';
+import Cors, { type FastifyCorsOptions } from '@fastify/cors';
 import FormBody from '@fastify/formbody';
 import Helmet from '@fastify/helmet';
+import Multipart from '@fastify/multipart';
+import ResponseValidation from '@fastify/response-validation';
 import UnderPressure from '@fastify/under-pressure';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
@@ -11,16 +13,25 @@ export default fastifyPlugin(
   async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
     const { register } = fastify;
 
-    // Multipart form body handler
+    // Response validator - enable only in dev environment
+    if (isDev) {
+      await register(ResponseValidation);
+    }
+
+    // Form body handler
     await register(FormBody);
+
+    // Multipart handler
+    await register(Multipart);
 
     // Register Helmet - change HTTP response headers
     await register(Helmet);
 
     // Configure CORS
-    await register(Cors, {
-      origin: false,
-    });
+    const corsSettings: FastifyCorsOptions = isDev
+      ? { origin: ['*'], methods: ['*'] }
+      : { origin: false };
+    await register(Cors, corsSettings);
 
     // Process load handler
     await register(UnderPressure, {

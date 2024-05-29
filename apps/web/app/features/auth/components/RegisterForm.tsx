@@ -1,3 +1,4 @@
+import { UserRegisterForm } from '../models/userForm';
 import { PropsWithoutRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -13,7 +14,6 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { typeboxResolver } from '@hookform/resolvers/typebox';
-import { UserRegisterForm } from '@flowx/shared/models/user';
 
 type Props = {
   onSubmit: (data: UserRegisterForm) => void;
@@ -26,7 +26,7 @@ const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
   const form = useForm<UserRegisterForm>({
     resolver: typeboxResolver(UserRegisterForm),
     defaultValues: {
-      login: '',
+      email: '',
       password: '',
       confirmPassword: '',
     },
@@ -43,14 +43,14 @@ const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
         >
           <FormField
             control={form.control}
-            name="login"
+            name="email"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>{t('Email')}</FormLabel>
                 <FormControl>
                   <Input placeholder="Email..." {...field} />
                 </FormControl>
-                <FormDescription>{t('Your email address used to login into app')}</FormDescription>
+                <FormDescription>{t('Your email address used to email into app')}</FormDescription>
                 <FormMessage />
               </FormItem>
             )}

@@ -1,5 +1,6 @@
+import { UserCredentials } from '../models/userForm';
 import { PropsWithoutRef } from 'react';
-import { useForm } from 'react-hook-form';
+import { UseFormReturn, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { PassKey } from '@/assets/icons';
 import { Button } from '@/components/ui/button';
@@ -15,10 +16,12 @@ import {
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { typeboxResolver } from '@hookform/resolvers/typebox';
-import { UserCredentials } from '@flowx/shared/models/user';
 
 type Props = {
-  onSubmit: (data: UserCredentials) => void;
+  onSubmit: (
+    data: UserCredentials,
+    form: UseFormReturn<UserCredentials, unknown, undefined>,
+  ) => void;
   toggleMode: () => void;
 };
 
@@ -28,10 +31,14 @@ const LoginForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
   const form = useForm<UserCredentials>({
     resolver: typeboxResolver(UserCredentials),
     defaultValues: {
-      login: '',
+      email: '',
       password: '',
     },
   });
+
+  const onSubmit$ = (ev: UserCredentials) => {
+    onSubmit(ev, form);
+  };
 
   return (
     <>
@@ -43,22 +50,17 @@ const LoginForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
       <Separator className="mb-6 mt-8 " />
 
       <Form {...form}>
-        <form
-          onSubmit={(event) => {
-            void form.handleSubmit(onSubmit)(event);
-          }}
-          className="flex flex-col gap-6"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit$)} className="flex flex-col gap-6">
           <FormField
             control={form.control}
-            name="login"
+            name="email"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>{t('Email')}</FormLabel>
                 <FormControl>
                   <Input placeholder="Email..." {...field} />
                 </FormControl>
-                <FormDescription>{t('Your email address used to login into app')}</FormDescription>
+                <FormDescription>{t('Your email address used to email into app')}</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -71,7 +73,7 @@ const LoginForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
               <FormItem>
                 <FormLabel>{t('Password')}</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input {...field} type="password" />
                 </FormControl>
                 <FormDescription>
                   {t('Your super secret password that will allow you to use the app')}

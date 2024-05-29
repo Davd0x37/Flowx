@@ -16,6 +16,6 @@
     // Unplugin-icons typings for react
     "types": ["unplugin-icons/types/react", "vitest/globals"]
   },
-  "include": ["app"],
+  "include": ["app", "../../packages/shared/src/utils/network/fetch.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

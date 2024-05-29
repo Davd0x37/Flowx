@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "proxy": "http://0.0.0.0:3000",
   "scripts": {
     "dev": "nx vite:serve",
     "build": "nx vite:build",

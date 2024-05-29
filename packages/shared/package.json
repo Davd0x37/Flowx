@@ -7,7 +7,16 @@
     "./builders/*": "./src/builders/*.ts",
     "./models/*": "./src/models/*.ts",
     "./types/*": "./src/types/*.ts",
-    "./utils/*": "./src/utils/*.ts"
+    "./utils/array": "./src/utils/array/index.ts",
+    "./utils/async": "./src/utils/async/index.ts",
+    "./utils/data": "./src/utils/data/index.ts",
+    "./utils/encoding": "./src/utils/encoding/index.ts",
+    "./utils/guard": "./src/utils/guard/index.ts",
+    "./utils/network": "./src/utils/network/index.ts",
+    "./utils/network/*": "./src/utils/network/*.ts",
+    "./utils/object": "./src/utils/object/index.ts",
+    "./utils/string": "./src/utils/string/index.ts",
+    "./utils/time": "./src/utils/time/index.ts"
   },
   "scripts": {
     "test": "nx vite:test",
