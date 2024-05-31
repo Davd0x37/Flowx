@@ -19,7 +19,7 @@ export const SidebarLink = ({ path, name, withoutIcon, ...link }: SidebarLinkPro
 
   return (
     <Link to={path} className="block">
-      <Button variant="ghost" className="w-full justify-start space-x-2  font-semibold">
+      <Button variant="ghost" className="w-full justify-start space-x-2 font-semibold">
         {!withoutIcon && link.icon ? <link.icon fontSize="1.25rem" /> : ''}
         <p>{t(name)}</p>
       </Button>
@@ -36,7 +36,7 @@ export const SidebarGroup = ({ children, name, ...link }: PropsWithChildren<Side
         <AccordionTrigger
           className={cn(
             buttonVariants({ variant: 'ghost' }),
-            'w-full justify-between gap-2  font-semibold hover:no-underline',
+            'w-full justify-between gap-2 font-semibold hover:no-underline',
           )}
         >
           {link.icon ? <link.icon fontSize="1.25rem" /> : ''}

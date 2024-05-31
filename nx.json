@@ -33,7 +33,7 @@
       "cache": true
     },
     "@nx/esbuild:esbuild": {
-      // "cache": true,
+      "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     }

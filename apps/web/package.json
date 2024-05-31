@@ -61,7 +61,7 @@
     "zustand": "^4.5.0"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.214",
+    "@iconify/json": "^2.2.215",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "@tailwindcss/forms": "^0.5.7",

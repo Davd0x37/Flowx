@@ -14,7 +14,7 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@eslint/compat": "^1.0.1",
+    "@eslint/compat": "^1.0.3",
     "@nx/eslint": "19.1.1",
     "@nx/vite": "19.1.1",
     "@nx/web": "19.1.1",
@@ -33,7 +33,7 @@
     "lint-staged": "^15.2.5",
     "nx": "^19.1.0",
     "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.14",
+    "prettier-plugin-tailwindcss": "^0.6.0",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.11.0"
   },

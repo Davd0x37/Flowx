@@ -47,7 +47,7 @@ const LoginForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
         <span className="hidden md:ml-2 md:block">{t('Sign in with Passkeys')}</span>
       </Button>
 
-      <Separator className="mb-6 mt-8 " />
+      <Separator className="mb-6 mt-8" />
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit$)} className="flex flex-col gap-6">
