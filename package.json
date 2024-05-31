@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@eslint/compat": "^1.0.3",
+    "@nx/esbuild": "^19.1.1",
     "@nx/eslint": "19.1.1",
     "@nx/vite": "19.1.1",
     "@nx/web": "19.1.1",
@@ -31,7 +32,7 @@
     "globals": "^15.3.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.5",
-    "nx": "^19.1.0",
+    "nx": "^19.1.1",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.6.0",
     "typescript": "^5.4.5",
@@ -42,8 +43,5 @@
       "prettier --config prettier.config.js --write \"./{apps,packages}/**/*.{ts,tsx,html,css,scss,json,md}\"",
       "nx run-many -t lint"
     ]
-  },
-  "engines": {
-    "node": ">= 20"
   }
 }

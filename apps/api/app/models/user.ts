@@ -12,4 +12,4 @@ export const UserSchema = new Schema<UserType>(
   { timestamps: true },
 );
 
-export const User: Model<UserType> = mongoose.models.User || model<UserType>('User', UserSchema);
+export const User: Model<UserType> = mongoose.models.User ?? model<UserType>('User', UserSchema);

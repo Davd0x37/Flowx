@@ -23,4 +23,4 @@ export const SessionSchema = new Schema<SessionType>(
 );
 
 export const Session: Model<SessionType> =
-  mongoose.models.Session || model('Session', SessionSchema);
+  mongoose.models.Session ?? model('Session', SessionSchema);

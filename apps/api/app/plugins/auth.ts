@@ -2,15 +2,13 @@ import { MongodbAdapter } from '@lucia-auth/adapter-mongodb';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
 import { Lucia, type Session, type User } from 'lucia';
-import { Collection } from 'mongodb';
 import mongoose from 'mongoose';
-import { SessionType } from '@flowx/shared/models/session';
 import { UserID, UserType } from '@flowx/shared/models/user';
 import { isDev } from 'app/common/config';
 
-// @FIXME: fix typings, remove as unknown
 const adapter = new MongodbAdapter(
-  mongoose.connection.collection('sessions') as unknown as Collection<SessionType>,
+  // @ts-expect-error @FIXME: fix typings
+  mongoose.connection.collection('sessions'),
   mongoose.connection.collection('users'),
 );
 
