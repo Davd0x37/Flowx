@@ -25,11 +25,24 @@ export default fastifyPlugin(
     await register(Multipart);
 
     // Register Helmet - change HTTP response headers
-    await register(Helmet);
+    const helmetSettings = isDev
+      ? {
+          contentSecurityPolicy: {
+            directives: {
+              defaultSrc: [`'self'`],
+              imgSrc: [`data:`, `https:`],
+              objectSrc: [`'none'`],
+              scriptSrc: [`'self'`, `'unsafe-inline'`],
+              styleSrc: [`fonts.googleapis.com`, `'self'`, `'unsafe-inline'`],
+            },
+          },
+        }
+      : {};
+    await register(Helmet, helmetSettings);
 
-    // Configure CORS
+    // Configure CORS - @FIXME: use dynamic origin
     const corsSettings: FastifyCorsOptions = isDev
-      ? { origin: ['*'], methods: ['*'] }
+      ? { origin: ['http://localhost:3030'], methods: ['*'], credentials: true }
       : { origin: false };
     await register(Cors, corsSettings);
 

@@ -1,6 +1,6 @@
 import { UserRegisterForm } from '../models/userForm';
 import { PropsWithoutRef } from 'react';
-import { useForm } from 'react-hook-form';
+import { UseFormReturn, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import {
@@ -16,10 +16,13 @@ import { Input } from '@/components/ui/input';
 import { typeboxResolver } from '@hookform/resolvers/typebox';
 
 type Props = {
-  onSubmit: (data: UserRegisterForm) => void;
+  onSubmit: (
+    form: UseFormReturn<UserRegisterForm, unknown, undefined>,
+  ) => (data: UserRegisterForm) => void;
   toggleMode: () => void;
 };
 
+// @FIXME: validate password and confirm password
 const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
   const { t } = useTranslation('User');
 
@@ -37,7 +40,7 @@ const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
       <Form {...form}>
         <form
           onSubmit={(event) => {
-            void form.handleSubmit(onSubmit)(event);
+            void form.handleSubmit(onSubmit(form))(event);
           }}
           className="flex flex-col gap-6"
         >
@@ -63,7 +66,7 @@ const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
               <FormItem>
                 <FormLabel>{t('Password')}</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input {...field} type="password" />
                 </FormControl>
                 <FormDescription>
                   {t('Your super secret password that will allow you to use the app')}
@@ -80,7 +83,7 @@ const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
               <FormItem>
                 <FormLabel>{t('Repeat password')}</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input {...field} type="password" />
                 </FormControl>
                 <FormDescription>
                   {t(

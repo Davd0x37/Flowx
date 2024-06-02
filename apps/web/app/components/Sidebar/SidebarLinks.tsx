@@ -37,6 +37,8 @@ export const SidebarGroup = ({ children, name, ...link }: PropsWithChildren<Side
           className={cn(
             buttonVariants({ variant: 'ghost' }),
             'w-full justify-between gap-2 font-semibold hover:no-underline',
+            // Fix first svg icon rotation
+            '[&[data-state=open]>svg:first-child]:rotate-0 [&[data-state=open]>svg]:rotate-180',
           )}
         >
           {link.icon ? <link.icon fontSize="1.25rem" /> : ''}

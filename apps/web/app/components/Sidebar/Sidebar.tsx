@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Logout } from '@/assets/icons';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
+import { useAuthLogoutMutation } from '@/features/auth/hooks/useAuthMutation';
 import useUserStore from '@/features/user/stores/user';
 import { TUserStatus } from '@/features/user/types/user';
 import { cn } from '@/utils/classNames';
@@ -32,13 +33,17 @@ const statusClass = cva<{ status: { [key in TUserStatus]: string } }>(
 );
 
 const Sidebar = ({ className, openSidebar = false }: Props) => {
+  const authLogoutMutation = useAuthLogoutMutation();
   const { t } = useTranslation();
   const userStore = useUserStore();
   const { name, avatar, status } = userStore;
   const { data: nameAcronym } = getAcronyms(name);
 
   const logoutUser = () => {
-    console.log('logged out');
+    authLogoutMutation.mutate(undefined, {
+      onError: (error) => console.log(error),
+      onSuccess: (data) => console.log('success', data),
+    });
   };
 
   return (

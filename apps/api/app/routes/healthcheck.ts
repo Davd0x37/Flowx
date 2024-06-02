@@ -1,12 +1,24 @@
-import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
+import { ApiResponseWrapper } from '@flowx/shared/types/index';
+import { createFastifyTypeProvider } from 'app/common/fastifyTypeProvider';
 
-export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: () => void) => {
-  const fastifyTypeBox = fastify.withTypeProvider<TypeBoxTypeProvider>();
+export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginOptions) => {
+  const fastify = createFastifyTypeProvider(fastifyInstance);
 
-  fastifyTypeBox.get('/healthcheck', async (_request, response) => {
-    return response.code(200).send();
-  });
-
-  done();
+  fastify.get(
+    '/healthcheck',
+    {
+      schema: {
+        response: {
+          '2xx': ApiResponseWrapper,
+        },
+      },
+    },
+    async (_request, reply) => {
+      return reply.code(200).send({
+        status: 'Success',
+        message: 'Server is running',
+      });
+    },
+  );
 };

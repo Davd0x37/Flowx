@@ -1,4 +1,4 @@
-import mongoose, { Model, Schema, SchemaTypes, model } from 'mongoose';
+import mongoose, { Model, Schema, model } from 'mongoose';
 import { SessionType } from '@flowx/shared/models/session';
 
 export const SessionSchema = new Schema<SessionType>(
@@ -8,8 +8,7 @@ export const SessionSchema = new Schema<SessionType>(
       required: true,
     },
     user_id: {
-      type: SchemaTypes.ObjectId,
-      ref: 'User',
+      type: String,
       required: true,
     },
     expires_at: {

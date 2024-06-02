@@ -1,10 +1,13 @@
 import { Static, Type } from '@sinclair/typebox';
-import type { Schema } from 'mongoose';
 
-export type UserID = Schema.Types.ObjectId;
+// export type UserID = Schema.Types.ObjectId;
+export type UserID = string;
 
 export type UserType = Static<typeof UserType>;
 export const UserType = Type.Object({
+  // Non-unique user identifier - must be a string because lucia auth doesn't support ObjectId
+  _id: Type.String({ readOnly: true }),
+
   // User-defined name, mainly used to email in to the app
   email: Type.String({
     minLength: 6,

@@ -1,26 +1,18 @@
-import { TypeBoxTypeProvider, TypeBoxValidatorCompiler } from '@fastify/type-provider-typebox';
 import { Static, Type } from '@sinclair/typebox';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import { UserType } from '@flowx/shared/models/user';
+import { createFastifyTypeProvider } from 'app/common/fastifyTypeProvider';
 import { User } from 'app/models/user';
 import { UserIDObject } from 'app/types/user';
 
 const NewModifiedUser = Type.Pick(UserType, ['email', 'password', 'avatar']);
 type NewModifiedUser = Static<typeof NewModifiedUser>;
 
-export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: () => void) => {
-  const fastifyTypeBox = fastify
-    .setValidatorCompiler(TypeBoxValidatorCompiler)
-    .withTypeProvider<TypeBoxTypeProvider>();
+export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginOptions) => {
+  const fastify = createFastifyTypeProvider(fastifyInstance);
 
-  fastifyTypeBox.get('/users', async (_request, reply) => {
-    const users = await User.find({});
-
-    await reply.send(users);
-  });
-
-  fastifyTypeBox.get(
-    '/users/:userId',
+  fastify.get(
+    '/:userId',
     {
       schema: {
         params: UserIDObject,
@@ -35,8 +27,8 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
     },
   );
 
-  fastifyTypeBox.put(
-    '/users/:userId',
+  fastify.put(
+    '/:userId',
     {
       schema: {
         body: NewModifiedUser,
@@ -67,8 +59,8 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
     },
   );
 
-  fastifyTypeBox.delete(
-    '/users/:userId',
+  fastify.delete(
+    '/:userId',
     {
       schema: {
         params: UserIDObject,
@@ -86,6 +78,4 @@ export default (fastify: FastifyInstance, _options: FastifyPluginOptions, done: 
       await reply.code(200).send('User deleted!');
     },
   );
-
-  done();
 };

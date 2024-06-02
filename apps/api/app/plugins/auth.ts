@@ -1,51 +1,18 @@
-import { MongodbAdapter } from '@lucia-auth/adapter-mongodb';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
-import { Lucia, type Session, type User } from 'lucia';
-import mongoose from 'mongoose';
+import { type Session, type User } from 'lucia';
 import { UserID, UserType } from '@flowx/shared/models/user';
-import { isDev } from 'app/common/config';
-
-const adapter = new MongodbAdapter(
-  // @ts-expect-error @FIXME: fix typings
-  mongoose.connection.collection('sessions'),
-  mongoose.connection.collection('users'),
-);
-
-export const lucia = new Lucia(adapter, {
-  sessionCookie: {
-    attributes: {
-      secure: !isDev,
-    },
-  },
-  getUserAttributes: (attributes) => {
-    return {
-      email: attributes.email,
-    };
-  },
-});
+import { lucia, validateAuth } from 'app/common/auth';
 
 export default fastifyPlugin(
   (fastify: FastifyInstance, _options: FastifyPluginOptions, done) => {
-    fastify.addHook('preHandler', async (req, res) => {
-      const sessionId = lucia.readSessionCookie(req.headers.cookie ?? '');
-
-      if (!sessionId) {
-        req.user = null;
-        req.session = null;
-        return;
-      }
-
-      const { session, user } = await lucia.validateSession(sessionId);
-      if (session && session.fresh) {
-        const cookie = lucia.createSessionCookie(session.id);
-        res.setCookie(cookie.name, cookie.value, cookie.attributes);
-      }
-
-      if (!session) {
-        const cookie = lucia.createBlankSessionCookie();
-        res.setCookie(cookie.name, cookie.value, cookie.attributes);
-      }
+    fastify.addHook('preHandler', async (req, reply) => {
+      const { user, session } = await validateAuth(
+        req.headers.cookie,
+        (name, value, attributes) => {
+          reply.setCookie(name, value, attributes);
+        },
+      );
 
       req.user = user;
       req.session = session;
@@ -60,11 +27,13 @@ export default fastifyPlugin(
   },
 );
 
+type LoggedUser = Pick<UserType, 'email'>;
+
 declare module 'lucia' {
   interface Register {
     Lucia: typeof lucia;
     UserId: UserID;
-    DatabaseUserAttributes: Pick<UserType, 'email'>;
+    DatabaseUserAttributes: LoggedUser;
   }
 }
 

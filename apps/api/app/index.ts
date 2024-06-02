@@ -1,8 +1,10 @@
-import { isDev } from './common/config';
+import { API_PREFIX, isDev } from './common/config';
 import { logger } from './common/logger';
 import Plugins from './plugins';
-import Routes from './routes';
+// import Routes from './routes';
+import autoLoad from '@fastify/autoload';
 import Fastify from 'fastify';
+import { join } from 'node:path';
 
 // Fastify instance
 const fastify = Fastify({
@@ -13,8 +15,11 @@ try {
   // Autoload plugins
   await fastify.register(Plugins);
 
-  // Autoload routes
-  await fastify.register(Routes);
+  await fastify.register(autoLoad, {
+    dir: join(import.meta.dirname, 'routes'),
+    ignorePattern: /^.*(?:disable).ts$/,
+    options: { prefix: API_PREFIX },
+  });
 
   await fastify.listen({
     host: fastify.config.API_HOST,

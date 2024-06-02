@@ -19,9 +19,8 @@ import { typeboxResolver } from '@hookform/resolvers/typebox';
 
 type Props = {
   onSubmit: (
-    data: UserCredentials,
     form: UseFormReturn<UserCredentials, unknown, undefined>,
-  ) => void;
+  ) => (data: UserCredentials) => void;
   toggleMode: () => void;
 };
 
@@ -36,10 +35,6 @@ const LoginForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
     },
   });
 
-  const onSubmit$ = (ev: UserCredentials) => {
-    onSubmit(ev, form);
-  };
-
   return (
     <>
       <Button>
@@ -50,7 +45,12 @@ const LoginForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
       <Separator className="mb-6 mt-8" />
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit$)} className="flex flex-col gap-6">
+        <form
+          onSubmit={(event) => {
+            void form.handleSubmit(onSubmit(form))(event);
+          }}
+          className="flex flex-col gap-6"
+        >
           <FormField
             control={form.control}
             name="email"

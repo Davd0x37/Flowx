@@ -73,6 +73,7 @@ export default typescriptEslint.config(
       '@typescript-eslint/method-signature-style': ['error', 'property'],
       '@typescript-eslint/no-floating-promises': 'warn',
       '@typescript-eslint/no-misused-promises': 'warn',
+      '@typescript-eslint/require-await': 'warn',
       // 'react-hooks/rules-of-hooks': 'error',
       // 'react-hooks/exhaustive-deps': 'warn',
       // 'react/jsx-uses-react': 'error',

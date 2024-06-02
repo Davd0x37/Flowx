@@ -2,12 +2,17 @@ import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUI from '@fastify/swagger-ui';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
-import { API_PREFIX } from 'app/common/config';
+import { API_PREFIX, isDev } from 'app/common/config';
 
 // Swagger integration
 export default fastifyPlugin(
   async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
-    const { register } = fastify;
+    const {
+      register,
+      config: { API_HOST, API_PORT },
+    } = fastify;
+
+    const host = isDev ? `localhost:${API_PORT}` : API_HOST;
 
     // @TODO: maybe remove options from swagger and keep them only in swagger-ui?
     await register(fastifySwagger, {
@@ -17,8 +22,8 @@ export default fastifyPlugin(
           description: 'Flowx API documentation',
           version: '0.0.1',
         },
-        host: 'localhost',
-        schemes: ['https'],
+        host,
+        schemes: ['http', 'https'],
         consumes: ['application/json', 'multipart/form-data'],
         produces: ['application/json'],
       },
