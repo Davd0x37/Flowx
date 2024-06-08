@@ -3,6 +3,7 @@
   "version": "0.0.3",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@9.2.0",
   "scripts": {
     "build:api": "nx build @flowx/api",
     "build:web": "nx build @flowx/web",
