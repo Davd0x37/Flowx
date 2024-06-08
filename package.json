@@ -44,5 +44,8 @@
       "prettier --config prettier.config.js --write \"./{apps,packages}/**/*.{ts,tsx,html,css,scss,json,md}\"",
       "nx run-many -t lint"
     ]
+  },
+  "engines": {
+    "node": ">=22.2.0"
   }
 }
