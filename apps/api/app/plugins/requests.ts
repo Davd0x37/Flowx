@@ -41,9 +41,11 @@ export default fastifyPlugin(
     await register(Helmet, helmetSettings);
 
     // Configure CORS - @FIXME: use dynamic origin
-    const corsSettings: FastifyCorsOptions = isDev
-      ? { origin: ['http://localhost:3030'], methods: ['*'], credentials: true }
-      : { origin: false };
+    const corsSettings: FastifyCorsOptions = {
+      origin: true,
+      methods: ['*'],
+      credentials: true,
+    };
     await register(Cors, corsSettings);
 
     // Process load handler
