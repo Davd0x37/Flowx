@@ -1,6 +1,6 @@
 {
-  "name": "@flowx/api",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "@flowx/api",
   "sourceRoot": "apps/api/app",
   "projectType": "application",
   "tags": [],
@@ -12,9 +12,7 @@
         "outputPath": "{projectRoot}/dist",
         "main": "{projectRoot}/app/index.ts",
         "tsConfig": "{projectRoot}/tsconfig.json",
-        "generatePackageJson": false,
-        "declaration": false,
-        "format": ["esm"]
+        "declaration": false
       }
     }
   }
