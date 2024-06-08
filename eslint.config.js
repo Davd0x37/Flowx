@@ -14,9 +14,9 @@ const compat = new FlatCompat();
 // @TODO: add eslint-plugin-testing-library
 
 export default typescriptEslint.config(
-  // Ignore shadcn/ui components
+  // Ignore shadcn/ui components, build and dist folders
   {
-    ignores: ['**/components/ui/**/*'],
+    ignores: ['**/components/ui/**/*', '**/{build,dist}/**/*'],
   },
 
   // Default eslint config
@@ -39,7 +39,6 @@ export default typescriptEslint.config(
   // Typescript configs - by default it is parser and rules
   ...typescriptEslint.configs.recommendedTypeChecked,
 
-  // @ts-expect-error fix when eslint v9 will be supported
   ...fixupConfigRules(compat.config({ extends: ['plugin:promise/recommended'] })),
 
   // Custom React, Typescript config
