@@ -12,15 +12,15 @@
   },
   "devDependencies": {
     "@fastify/swagger": "^8.14.0",
-    "@fastify/swagger-ui": "^3.0.0",
+    "@fastify/swagger-ui": "^3.1.0",
     "@types/node": "^20.14.2",
     "@types/zxcvbn": "^4.4.4",
     "@vitest/coverage-v8": "^1.6.0",
     "@vitest/ui": "^1.6.0",
-    "esbuild": "^0.21.4",
+    "esbuild": "^0.21.5",
     "msw": "^2.3.1",
-    "pino-pretty": "^11.1.0",
-    "tsx": "^4.13.3",
+    "pino-pretty": "^11.2.0",
+    "tsx": "^4.15.2",
     "typescript": "^5.4.5",
     "vite": "^5.2.13",
     "vitest": "^1.6.0"
@@ -47,7 +47,7 @@
     "mongodb": "^6.7.0",
     "mongoose": "^8.4.1",
     "oslo": "^1.2.0",
-    "pino": "^9.1.0",
+    "pino": "^9.2.0",
     "vite-node": "^1.6.0",
     "zxcvbn": "^4.4.2"
   },
