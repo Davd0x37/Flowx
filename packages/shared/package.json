@@ -26,11 +26,11 @@
     "@vitest/coverage-v8": "^1.6.0",
     "@vitest/ui": "^1.6.0",
     "typescript": "^5.4.5",
-    "vite": "^5.2.13",
+    "vite": "^5.3.0",
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "@sinclair/typebox": "^0.32.31",
+    "@sinclair/typebox": "^0.32.32",
     "mongoose": "^8.4.1"
   }
 }
