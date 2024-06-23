@@ -1,9 +1,11 @@
-import { PropsWithChildren } from 'react';
+import { Outlet } from 'react-router-dom';
 
-const ErrorLayout = ({ children }: PropsWithChildren) => {
+const ErrorLayout = () => {
   return (
     <div className="flex h-screen w-screen flex-row gap-6 font-sans text-base antialiased transition-colors">
-      <div className="flex-1">{children}</div>
+      <div className="flex-1">
+        <Outlet />
+      </div>
     </div>
   );
 };

@@ -31,9 +31,9 @@
     "User already exists": "User already exists",
     "Sign in with Google": "Sign in with Google",
     "Sign in with Passkeys": "Sign in with Passkeys",
-    "Don't have account? Sign up!": "Don't have account? Sign up!",
+    "You do not have an account? Sign up!": "You do not have an account? Sign up!",
     "Already have account? Sign in!": "Already have account? Sign in!",
-    "Your email address used to email into app": "Your email address used to email into app",
+    "Your email address used to authenticate": "Your email address used to authenticate",
     "Your super secret password that will allow you to use the app": "Your super secret password that will allow you to use the app"
   }
 }

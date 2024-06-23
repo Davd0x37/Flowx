@@ -1,9 +1,9 @@
-import { PropsWithChildren } from 'react';
+import { Outlet } from 'react-router-dom';
 
-const AuthenticateLayout = ({ children }: PropsWithChildren) => {
+const AuthenticateLayout = () => {
   return (
     <div className="flex h-screen w-screen font-sans text-base antialiased transition-colors">
-      {children}
+      <Outlet />
     </div>
   );
 };

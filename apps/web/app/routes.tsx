@@ -1,9 +1,10 @@
+import ProtectedRoute from './components/auth/ProtectedRoute';
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import { NotFound } from '@/components/errors/NotFound';
-import { Authenticate } from '@/pages/auth/index';
-import { AuthenticateView } from '@/pages/auth/route';
+import AuthenticateLayout from '@/layouts/AuthenticateLayout';
+import MainLayout from '@/layouts/MainLayout';
+import { Authenticate } from '@/pages/auth/route';
 import { Home } from '@/pages/home';
-import { RootView } from '@/pages/root';
 
 export const routes = createRoutesFromElements(
   <>
@@ -11,11 +12,19 @@ export const routes = createRoutesFromElements(
     <Route path="*" element={<NotFound />}></Route>
 
     {/* Auth feature routes */}
-    <Route path="/auth" id="Authenticate" element={<AuthenticateView />}>
-      <Route index id="Authenticate default view" element={<Authenticate />} />
+    <Route id="Authenticate layout" element={<AuthenticateLayout />}>
+      <Route index path="/auth" id="Authenticate" element={<Authenticate />} />
     </Route>
 
-    <Route path="/" id="Dashboard layout view" element={<RootView />}>
+    <Route
+      path="/"
+      id="Main layout"
+      element={
+        <ProtectedRoute>
+          <MainLayout />
+        </ProtectedRoute>
+      }
+    >
       <Route index id="Dashboard default view" element={<Home />} />
 
       {/* User feature routes */}

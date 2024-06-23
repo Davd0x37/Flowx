@@ -32,16 +32,20 @@ const setItem = (key: IKey, val: string, storageType: StorageType) => {
   return storage.setItem(key, val);
 };
 
-// @FIXME: test this and fix types
-export default <T = unknown>(key: IKey, value: T, storageType: StorageType = 'localStorage') => {
+export default <T>(key: IKey, defaultValue: T, storageType: StorageType = 'localStorage') => {
   const [storedValue, setStoredValue] = useState<T>(() => {
     const item = getItem(key, storageType);
 
-    return item ? (JSON.parse(item) as T) : value;
+    if (!item) {
+      setItem(key, JSON.stringify(defaultValue), storageType);
+      return defaultValue;
+    }
+
+    return JSON.parse(item) as T;
   });
 
-  const setValue = (val: (arg: T) => T) => {
-    const valueToStore = typeof val === 'function' ? val(storedValue) : val;
+  const setValue = (val: T | ((arg: T) => T)) => {
+    const valueToStore = typeof val === 'function' ? (val as (arg: T) => T)(storedValue) : val;
 
     setStoredValue(valueToStore);
 

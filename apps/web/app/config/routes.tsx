@@ -6,6 +6,8 @@ export type SidebarItem = {
   icon?: FC<SVGProps<SVGSVGElement>>;
   path: string;
   isGroup?: boolean;
+  dev?: boolean;
+  disableIfAuthenticated?: boolean;
   childrenList?: Omit<SidebarItem, 'childrenList' | 'isGroup'>[];
 };
 
@@ -19,6 +21,8 @@ export const SidebarLinkList: SidebarItem[] = [
     name: 'Authenticate',
     icon: Auth,
     path: '/auth',
+    dev: true,
+    disableIfAuthenticated: false,
   },
   {
     name: 'Profile',

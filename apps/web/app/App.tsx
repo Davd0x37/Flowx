@@ -6,6 +6,7 @@ import { RouterProvider } from 'react-router-dom';
 import { ErrorPage } from '@/components/errors/ErrorPage/ErrorPage';
 import { Toaster } from '@/components/ui/toaster';
 import { StorageThemeKey } from '@/config/constants';
+import { AuthProvider } from '@/providers/AuthProvider';
 import { I18nextProvider, i18n } from '@/providers/I18nProvider';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -22,16 +23,18 @@ const App = () => {
         <I18nextProvider i18n={i18n}>
           {/* Theme changing provider */}
           <ThemeProvider defaultTheme="dark" storageKey={StorageThemeKey}>
+            {/* Notifications component - we can leave it here as it will be used in all layouts */}
+            <Toaster />
+
             {/* React query provider */}
             <QueryClientProvider client={queryClientInstance}>
-              {/* Notifications component - we can leave it here as it will be used in all layouts */}
-              <Toaster />
+              <AuthProvider>
+                {/* Main router outlet for app */}
+                <RouterProvider router={router} />
 
-              {/* Main router outlet for app */}
-              <RouterProvider router={router} />
-
-              {/* Dev tools for react query */}
-              <ReactQueryDevtools initialIsOpen={false} />
+                {/* Dev tools for react query */}
+                <ReactQueryDevtools initialIsOpen={false} />
+              </AuthProvider>
             </QueryClientProvider>
           </ThemeProvider>
         </I18nextProvider>

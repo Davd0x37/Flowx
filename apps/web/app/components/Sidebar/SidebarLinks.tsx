@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useId } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import {
@@ -9,8 +9,8 @@ import {
 } from '@/components/ui/accordion';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { type SidebarItem, SidebarLinkList } from '@/config/routes';
+import { useAuth } from '@/providers/AuthProvider';
 import { cn } from '@/utils/classNames';
-import { nanoid } from 'nanoid';
 
 type SidebarLinkProps = SidebarItem & { withoutIcon?: boolean };
 
@@ -51,17 +51,20 @@ export const SidebarGroup = ({ children, name, ...link }: PropsWithChildren<Side
 };
 
 const SidebarLinks = () => {
+  const { isAuthenticated } = useAuth();
+
   return (
     <>
       {SidebarLinkList.map((link) =>
         link.isGroup ? (
-          <SidebarGroup {...link} key={nanoid()}>
-            {link.childrenList?.map((child) => (
-              <SidebarLink withoutIcon {...child} key={nanoid()} />
-            ))}
+          <SidebarGroup {...link} key={useId()}>
+            {link.childrenList?.map((child) => {
+              if (child.disableIfAuthenticated && isAuthenticated) return null;
+              return <SidebarLink withoutIcon {...child} key={useId()} />;
+            })}
           </SidebarGroup>
-        ) : (
-          <SidebarLink {...link} key={nanoid()} />
+        ) : link.disableIfAuthenticated && isAuthenticated ? null : (
+          <SidebarLink {...link} key={useId()} />
         ),
       )}
     </>

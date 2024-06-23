@@ -1,4 +1,4 @@
-import { UserRegisterForm } from '../models/userForm';
+import { UserRegisterForm } from '../../models/userForm';
 import { PropsWithoutRef } from 'react';
 import { UseFormReturn, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -53,7 +53,7 @@ const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
                 <FormControl>
                   <Input placeholder="Email..." {...field} />
                 </FormControl>
-                <FormDescription>{t('Your email address used to email into app')}</FormDescription>
+                <FormDescription>{t('Your email address used to authenticate')}</FormDescription>
                 <FormMessage />
               </FormItem>
             )}

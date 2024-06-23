@@ -36,6 +36,9 @@ export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginO
             error: {
               code: 404,
               message: 'User does not exist!',
+              data: {
+                field: 'email',
+              },
             },
           });
         }

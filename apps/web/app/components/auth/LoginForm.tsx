@@ -1,8 +1,7 @@
-import { UserCredentials } from '../models/userForm';
+import { UserCredentials } from '../../models/userForm';
 import { PropsWithoutRef } from 'react';
 import { UseFormReturn, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { PassKey } from '@/assets/icons';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -14,7 +13,6 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Separator } from '@/components/ui/separator';
 import { typeboxResolver } from '@hookform/resolvers/typebox';
 
 type Props = {
@@ -37,13 +35,6 @@ const LoginForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
 
   return (
     <>
-      <Button>
-        <PassKey height={20} />
-        <span className="hidden md:ml-2 md:block">{t('Sign in with Passkeys')}</span>
-      </Button>
-
-      <Separator className="mb-6 mt-8" />
-
       <Form {...form}>
         <form
           onSubmit={(event) => {
@@ -60,7 +51,7 @@ const LoginForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
                 <FormControl>
                   <Input placeholder="Email..." {...field} />
                 </FormControl>
-                <FormDescription>{t('Your email address used to email into app')}</FormDescription>
+                <FormDescription>{t('Your email address used to authenticate')}</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -87,7 +78,7 @@ const LoginForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
 
           <div className="block text-right">
             <Button type="button" variant="link" onClick={toggleMode}>
-              {t("Don't have account? Sign up!")}
+              {t('You do not have an account? Sign up!')}
             </Button>
           </div>
         </form>

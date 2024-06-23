@@ -24,8 +24,6 @@ export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginO
         },
       );
 
-      console.log(session);
-
       if (!session) {
         return reply.code(404).send({
           status: 'Error',

@@ -1,4 +1,4 @@
-import { TUserStatus, UserStore } from '../types/user';
+import { TUserStatus, UserStore } from '@/types/user';
 import { create } from 'zustand';
 
 const useUserStore = create<UserStore>((set) => ({
