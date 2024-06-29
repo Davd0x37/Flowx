@@ -18,13 +18,13 @@
   },
   "devDependencies": {
     "@eslint/compat": "^1.1.0",
-    "@nx/esbuild": "^19.3.1",
-    "@nx/eslint": "19.3.1",
-    "@nx/vite": "19.3.1",
-    "@nx/web": "19.3.1",
+    "@nx/esbuild": "^19.3.2",
+    "@nx/eslint": "19.3.2",
+    "@nx/vite": "19.3.2",
+    "@nx/web": "19.3.2",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/eslint": "^8.56.10",
-    "eslint": "^9.5.0",
+    "eslint": "^9.6.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^17.9.0",
@@ -35,11 +35,11 @@
     "globals": "^15.6.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
-    "nx": "^19.3.1",
+    "nx": "^19.3.2",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "typescript": "^5.5.2",
-    "typescript-eslint": "^7.13.1"
+    "typescript-eslint": "^7.14.1"
   },
   "lint-staged": {
     "./{apps,packages}/**/*.{js,ts,tsx}": [
