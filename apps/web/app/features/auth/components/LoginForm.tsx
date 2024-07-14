@@ -1,4 +1,4 @@
-import { UserCredentials } from '../../models/userForm';
+import { LoginFormSchema, LoginFormSchemaType } from '../models/userForm';
 import { PropsWithoutRef } from 'react';
 import { UseFormReturn, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -17,16 +17,15 @@ import { typeboxResolver } from '@hookform/resolvers/typebox';
 
 type Props = {
   onSubmit: (
-    form: UseFormReturn<UserCredentials, unknown, undefined>,
-  ) => (data: UserCredentials) => void;
-  toggleMode: () => void;
+    form: UseFormReturn<LoginFormSchemaType, unknown, undefined>,
+  ) => (data: LoginFormSchemaType) => void;
 };
 
-const LoginForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
+const LoginForm = ({ onSubmit }: PropsWithoutRef<Props>) => {
   const { t } = useTranslation('User');
 
-  const form = useForm<UserCredentials>({
-    resolver: typeboxResolver(UserCredentials),
+  const form = useForm<LoginFormSchemaType>({
+    resolver: typeboxResolver(LoginFormSchema),
     defaultValues: {
       email: '',
       password: '',
@@ -75,12 +74,6 @@ const LoginForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
           />
 
           <Button type="submit">{t('Login')}</Button>
-
-          <div className="block text-right">
-            <Button type="button" variant="link" onClick={toggleMode}>
-              {t('You do not have an account? Sign up!')}
-            </Button>
-          </div>
         </form>
       </Form>
     </>

@@ -1,9 +1,10 @@
-import PassKey from '~icons/octicon/passkey-fill-24';
 import Warning from '~icons/tabler/alert-circle';
 import AlertTriangle from '~icons/tabler/alert-triangle';
 import ArrowLeft from '~icons/tabler/arrow-left';
 import ArrowRight from '~icons/tabler/arrow-right';
 import Box from '~icons/tabler/box';
+import BrandGithub from '~icons/tabler/brand-github';
+import BrandGoogle from '~icons/tabler/brand-google-filled';
 import ChevronDown from '~icons/tabler/chevron-down';
 import ChevronUp from '~icons/tabler/chevron-up';
 import Code from '~icons/tabler/code-dots';
@@ -28,8 +29,9 @@ export {
   ArrowLeft,
   ArrowRight,
   Reload,
-  PassKey,
   Logout,
   Login,
   AlertTriangle,
+  BrandGoogle,
+  BrandGithub,
 };

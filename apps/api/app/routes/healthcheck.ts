@@ -1,5 +1,5 @@
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
-import { ApiResponseWrapper } from '@flowx/shared/types/index';
+import { HealthCheckRouteResponse } from '@flowx/api_types/routes/healthcheck';
 import { createFastifyTypeProvider } from 'app/common/fastifyTypeProvider';
 
 export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginOptions) => {
@@ -10,13 +10,12 @@ export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginO
     {
       schema: {
         response: {
-          '2xx': ApiResponseWrapper,
+          '2xx': HealthCheckRouteResponse,
         },
       },
     },
     async (_request, reply) => {
       return reply.code(200).send({
-        status: 'Success',
         message: 'Server is running',
       });
     },

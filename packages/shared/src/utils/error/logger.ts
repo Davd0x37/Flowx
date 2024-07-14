@@ -1,58 +1,9 @@
-import { APP_ERRORS, RUNTIME_ERRORS } from '../../types/appErrorCodes';
-
-// import { isDevEnv } from './env';
-
-/**
- * TYPES
- */
-export interface ErrorParameters<T> {
-  name: T;
-  message: string;
-  cause?: unknown;
-}
-
-export interface DebugParams {
-  name: APP_ERRORS;
-  message: string;
-}
+import { consoleStyles } from './constants';
+import { BaseError, DebugParams } from './errorUtils';
 
 interface DebugErrorParams {
   showTrace?: boolean;
 }
-
-/**
- * CONSTANTS
- */
-const consoleStyles = {
-  groupName: `font-size: 1.3em; background: #040507; color: #f44336; padding: 3px 10px;`,
-  error: {
-    name: `background: #040507; color: #f44336; padding: 3px 10px;`,
-    message: `background: #365a68; color: #d8e9d3; padding: 3px 10px;`,
-    stack: `background: #5ca6c4; color: #040507; padding: 3px 10px;`,
-    cause: `background: #b78834; color: #040507; padding: 3px 10px;`,
-  },
-} as const;
-
-/**
- * Implementation
- */
-export class BaseError<T extends string> extends Error {
-  public name: T;
-  public message: string;
-  public cause?: unknown;
-
-  constructor({ name, message, cause }: ErrorParameters<T>) {
-    super();
-
-    this.name = name;
-    this.message = message;
-    this.cause = cause;
-  }
-}
-
-export class RuntimeAppError extends BaseError<RUNTIME_ERRORS> {}
-
-export class AppError extends BaseError<APP_ERRORS> {}
 
 function printAdditional(params: DebugParams) {
   console.group(`%c${params.name}`, consoleStyles.groupName);
@@ -90,13 +41,9 @@ function printErrorInstance(error: unknown, params?: DebugErrorParams) {
 }
 
 export function debug(params: DebugParams) {
-  // if (isDevEnv) {
   printAdditional(params);
-  // }
 }
 
 export function debugError(error: unknown, params?: DebugErrorParams) {
-  // if (isDevEnv) {
   printErrorInstance(error, params);
-  // }
 }

@@ -1,29 +1,19 @@
+import { useAuthCheckSession, useAuthLogoutMutation } from '../hooks/useAuthMutation';
 import { PropsWithChildren, createContext, useContext, useEffect, useMemo, useState } from 'react';
-import {
-  useAuthCheckSession,
-  useAuthLoginMutation,
-  useAuthLogoutMutation,
-} from '@/hooks/useAuthMutation';
+import useUserStore from '@/features/user/stores/user';
 import useStorage from '@/hooks/useStorage';
-import { UserCredentials } from '@/models/userForm';
-import { ApiResponseWrapper } from '@flowx/shared/types/response';
+import { UserType } from '@flowx/api_types/models/user';
 
 type AuthProviderProps = {
   localStateKey?: string;
 };
 
-type loginCallbackArgs = {
-  credentials: UserCredentials;
-  onSuccess: (data: Record<string, unknown>) => void;
-  onError: (error: Error, variables: Record<string, unknown>) => void;
-};
-
 type AuthProviderState = {
   user: Record<string, unknown>;
   isAuthenticated: boolean;
-  login: (args: loginCallbackArgs) => void;
+  login: (data: Record<string, unknown>) => void;
   logout: () => void;
-  checkSession: () => void;
+  checkSession: (onSuccess?: () => void, onError?: (errorData: Error) => void) => void;
 };
 
 const initialState: AuthProviderState = {
@@ -40,35 +30,31 @@ export function AuthProvider({
   localStateKey = 'lastLoggedDate',
   children,
 }: PropsWithChildren<AuthProviderProps>) {
-  const authLogin = useAuthLoginMutation();
   const authLogout = useAuthLogoutMutation();
   const authCheck = useAuthCheckSession();
 
-  const { storedValue: user, setValue: setUser } = useStorage<Record<string, unknown>>(
-    localStateKey,
-    {},
-  );
+  const { changeName, changeStatus } = useUserStore();
+
+  // @FIXME: replace Partial<UserType> with more generic type
+  const { storedValue: user, setValue: setUser } = useStorage<Partial<UserType>>(localStateKey, {});
   const [isAuthenticated, setIsAuthenticated] = useState(!!user.email);
 
-  const login = ({ credentials, onSuccess, onError }: loginCallbackArgs) => {
-    authLogin.mutate(credentials, {
-      onSuccess: (data) => {
-        const { status } = data as ApiResponseWrapper;
+  const updateUserData = (data: Partial<UserType>) => {
+    const userName = `${data.firstName || ''} ${data.lastName || ''}`;
 
-        if (status === 'Success') {
-          // Store user email or other details in local/global storage
-          setUser({ email: credentials.email });
+    changeName(userName);
+    changeStatus('active');
+  };
 
-          // Toggle authenticated flag, it will trigger rerender and show all protected routes
-          setIsAuthenticated(true);
+  // @TODO: move login mutation here or keep it in login page?
+  const login = (credentials: Partial<UserType>) => {
+    // Store user email or other details in local/global storage
+    setUser(credentials);
 
-          // Pass received data to callback function
-          onSuccess(data as Record<string, unknown>);
-        }
-      },
+    updateUserData(credentials);
 
-      onError,
-    });
+    // Toggle authenticated flag, it will trigger rerender and show all protected routes
+    setIsAuthenticated(true);
   };
 
   const logout = () => {
@@ -82,19 +68,25 @@ export function AuthProvider({
       },
 
       onError(error, variables) {
-        console.error('error logging out', error, variables);
+        console.log('error logging out', error, variables);
       },
     });
   };
 
-  const checkSession = () => {
+  const checkSession = (onSuccess?: () => void, onError?: (errorData: Error) => void) => {
     authCheck.mutate(undefined, {
       onSuccess: () => {
-        // @TODO: check if user session is still active, if not redirect to auth page
+        onSuccess?.();
+
+        // Update user data if session is valid
+        updateUserData(user);
       },
 
-      onError(error, variables) {
-        console.error('error checking session', error, variables);
+      onError(errorData) {
+        onError?.(errorData);
+
+        // Clear user data from storage
+        setUser({});
 
         // Redirect user to auth page
         setIsAuthenticated(false);

@@ -1,15 +1,12 @@
 // @ts-check
-import { fixupConfigRules } from '@eslint/compat';
-import { FlatCompat } from '@eslint/eslintrc';
 import eslint from '@eslint/js';
 import eslintPluginN from 'eslint-plugin-n';
 import pluginPrettier from 'eslint-plugin-prettier/recommended';
+import eslintPluginPromise from 'eslint-plugin-promise';
 import pluginReact from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import typescriptEslint from 'typescript-eslint';
-
-const compat = new FlatCompat();
 
 // @TODO: add eslint-plugin-testing-library
 
@@ -39,7 +36,8 @@ export default typescriptEslint.config(
   // Typescript configs - by default it is parser and rules
   ...typescriptEslint.configs.recommendedTypeChecked,
 
-  ...fixupConfigRules(compat.config({ extends: ['plugin:promise/recommended'] })),
+  // Promises config
+  eslintPluginPromise.configs['flat/recommended'],
 
   // Custom React, Typescript config
   {

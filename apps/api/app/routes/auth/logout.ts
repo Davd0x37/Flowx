@@ -1,18 +1,24 @@
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
-import { ApiResponseWrapper } from '@flowx/shared/types/index';
+import {
+  LogoutErrorResponseSchema,
+  LogoutSuccessResponseSchema,
+} from '@flowx/api_types/routes/auth';
 import { lucia, validateAuth } from 'app/common/auth';
 import { createFastifyTypeProvider } from 'app/common/fastifyTypeProvider';
 
 export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginOptions) => {
   const fastify = createFastifyTypeProvider(fastifyInstance);
 
+  /**
+   * Logout user, invalidate session and remove session cookie
+   */
   fastify.post(
     '/logout',
     {
       schema: {
         response: {
-          '4xx': ApiResponseWrapper,
-          '2xx': ApiResponseWrapper,
+          '2xx': LogoutSuccessResponseSchema,
+          '4xx': LogoutErrorResponseSchema,
         },
       },
     },
@@ -26,9 +32,7 @@ export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginO
 
       if (!session) {
         return reply.code(404).send({
-          status: 'Error',
           error: {
-            code: 404,
             message: 'Session does not exist!',
           },
         });
@@ -43,7 +47,6 @@ export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginO
       );
 
       return reply.code(200).send({
-        status: 'Success',
         message: 'Logged out',
       });
     },

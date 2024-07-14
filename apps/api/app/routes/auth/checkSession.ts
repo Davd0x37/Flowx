@@ -1,5 +1,8 @@
-import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
-import { ApiResponseWrapper } from '@flowx/shared/types/index';
+import type { FastifyInstance, FastifyPluginOptions, FastifyReply } from 'fastify';
+import {
+  CheckSessionErrorResponseSchema,
+  CheckSessionSuccessResponseSchema,
+} from '@flowx/api_types/routes/auth';
 import { lucia } from 'app/common/auth';
 import { createFastifyTypeProvider } from 'app/common/fastifyTypeProvider';
 
@@ -9,14 +12,25 @@ import { createFastifyTypeProvider } from 'app/common/fastifyTypeProvider';
 export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginOptions) => {
   const fastify = createFastifyTypeProvider(fastifyInstance);
 
+  const replyUserLoggedOut = (reply: FastifyReply) => {
+    return reply.code(401).send({
+      error: {
+        message: 'User is logged out!',
+      },
+    });
+  };
+
+  /**
+   * Check if user session is valid, if not, return 401
+   */
   fastify.get(
     '/check-session',
     {
       schema: {
         consumes: ['application/x-www-form-urlencoded'],
         response: {
-          '4xx': ApiResponseWrapper,
-          '2xx': ApiResponseWrapper,
+          '2xx': CheckSessionSuccessResponseSchema,
+          '4xx': CheckSessionErrorResponseSchema,
         },
       },
       preHandler: async () => {
@@ -28,47 +42,23 @@ export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginO
         const sessionId = lucia.readSessionCookie(request.headers.cookie ?? '');
 
         if (!sessionId) {
-          return reply.code(400).send({
-            status: 'Error',
-            error: {
-              code: 400,
-              message: 'User is logged out!',
-            },
-          });
+          return replyUserLoggedOut(reply);
         }
 
         const { session } = await lucia.validateSession(sessionId);
         if (session && session.fresh) {
-          return reply.code(400).send({
-            status: 'Error',
-            error: {
-              code: 400,
-              message: 'User is logged out!',
-            },
-          });
+          return replyUserLoggedOut(reply);
         }
 
         if (!session) {
-          return reply.code(400).send({
-            status: 'Error',
-            error: {
-              code: 400,
-              message: 'User is logged out!',
-            },
-          });
+          return replyUserLoggedOut(reply);
         }
 
-        return reply.code(200).send({ status: 'Success', message: 'User is logged!' });
+        return reply.code(200).send({ message: 'User is logged!' });
       } catch (error) {
         fastify.log.error(error);
 
-        return reply.code(400).send({
-          status: 'Error',
-          error: {
-            code: 400,
-            message: 'User is logged out!',
-          },
-        });
+        return replyUserLoggedOut(reply);
       }
     },
   );

@@ -12,21 +12,3 @@ This project wouldn't be possible without:
 - [**Rethink Sans Font**](https://fonts.google.com/specimen/Rethink+Sans/about?query=rethink+sans)
 
 And other great packages used in this app.
-
-## TODO
-
-- [ ] Use vault to store passwords for services and API
-- [x] Move docker/services files to separate config directory
-- [ ] Migrate from MongoDB to ScyllaDB
-- [x] Remove autoimport in vite
-
-## Changelog
-
-### 0.0.2
-
-- Use React in web app
-- Use Vue in admin dashboard
-
-### 0.0.3
-
-- Moved Vue to a separate repo

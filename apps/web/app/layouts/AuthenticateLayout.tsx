@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 const AuthenticateLayout = () => {
   return (
-    <div className="flex h-screen w-screen font-sans text-base antialiased transition-colors">
+    <div className="m-auto flex h-screen max-w-lg flex-col justify-center font-sans text-base antialiased transition-colors">
       <Outlet />
     </div>
   );

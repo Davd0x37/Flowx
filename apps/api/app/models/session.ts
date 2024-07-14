@@ -1,5 +1,5 @@
 import mongoose, { Model, Schema, model } from 'mongoose';
-import { SessionType } from '@flowx/shared/models/session';
+import { SessionType } from '@flowx/api_types/models/session';
 
 export const SessionSchema = new Schema<SessionType>(
   {

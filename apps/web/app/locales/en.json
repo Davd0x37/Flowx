@@ -18,6 +18,8 @@
   },
 
   "User": {
+    "First name": "First name",
+    "Last name": "Last name",
     "Email": "Email",
     "Password": "Password",
     "Login": "Login",
@@ -30,10 +32,12 @@
     "Passwords doesn't match": "Passwords doesn't match",
     "User already exists": "User already exists",
     "Sign in with Google": "Sign in with Google",
-    "Sign in with Passkeys": "Sign in with Passkeys",
+    "Sign in with GitHub": "Sign in with GitHub",
     "You do not have an account? Sign up!": "You do not have an account? Sign up!",
     "Already have account? Sign in!": "Already have account? Sign in!",
     "Your email address used to authenticate": "Your email address used to authenticate",
-    "Your super secret password that will allow you to use the app": "Your super secret password that will allow you to use the app"
+    "Your super secret password that will allow you to use the app": "Your super secret password that will allow you to use the app",
+    "Welcome back, {{name}}!": "Welcome back, {{name}}!",
+    "Your account has been created successfully {{name}}": "Your account has been created successfully {{name}}"
   }
 }

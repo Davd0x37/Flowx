@@ -20,7 +20,7 @@ export const SidebarLinkList: SidebarItem[] = [
   {
     name: 'Authenticate',
     icon: Auth,
-    path: '/auth',
+    path: '/auth/login',
     dev: true,
     disableIfAuthenticated: false,
   },

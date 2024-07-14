@@ -8,6 +8,18 @@ export const UserType = Type.Object({
   // Non-unique user identifier - must be a string because lucia auth doesn't support ObjectId
   _id: Type.String({ readOnly: true }),
 
+  // User name
+  firstName: Type.String({
+    minLength: 3,
+    maxLength: 128,
+  }),
+
+  // User last name
+  lastName: Type.String({
+    minLength: 3,
+    maxLength: 128,
+  }),
+
   // User-defined name, mainly used to email in to the app
   email: Type.String({
     minLength: 6,
@@ -30,7 +42,7 @@ export const UserType = Type.Object({
   isOnline: Type.Boolean(),
 
   // Date of last activity
-  lastActive: Type.Date(),
+  lastActive: Type.String(), // Type.Date(),
 });
 
 // Used in LuciaAuth

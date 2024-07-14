@@ -1,4 +1,4 @@
-import { RuntimeAppError } from './errorUtils.ts';
+import { AppError } from '../error/errorUtils';
 import { internalGuard, isSupported } from './index.ts';
 
 const exampleObject = {
@@ -22,7 +22,7 @@ describe('Test internal guards', () => {
       expect(wnd).not.toBeUndefined();
       expect(wnd).toHaveProperty('console');
     } catch (error) {
-      expect(error).toBeInstanceOf(RuntimeAppError);
+      expect(error).toBeInstanceOf(AppError);
     }
   });
 
@@ -35,7 +35,7 @@ describe('Test internal guards', () => {
       expect(wnd).not.toBeNull();
       expect(wnd).not.toBeUndefined();
     } catch (error) {
-      expect(error).toBeInstanceOf(RuntimeAppError);
+      expect(error).toBeInstanceOf(AppError);
     }
   });
 });

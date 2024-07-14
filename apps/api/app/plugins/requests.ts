@@ -4,6 +4,7 @@ import Helmet from '@fastify/helmet';
 import Multipart from '@fastify/multipart';
 import ResponseValidation from '@fastify/response-validation';
 import UnderPressure from '@fastify/under-pressure';
+import ajvFormats from 'ajv-formats';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
 import { verifyRequestOrigin } from 'lucia';
@@ -14,8 +15,13 @@ export default fastifyPlugin(
     const { register } = fastify;
 
     // Response validator - enable only in dev environment
+    // @FIXME: check if it's possible to enable in production
     if (isDev) {
-      await register(ResponseValidation);
+      await register(ResponseValidation, {
+        ajv: {
+          plugins: [ajvFormats],
+        },
+      });
     }
 
     // Form body handler

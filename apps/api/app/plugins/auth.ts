@@ -1,7 +1,7 @@
+import { UserID, UserType } from '../../../../packages/api_types/src/models/user';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
 import { type Session, type User } from 'lucia';
-import { UserID, UserType } from '@flowx/shared/models/user';
 import { lucia, validateAuth } from 'app/common/auth';
 
 export default fastifyPlugin(

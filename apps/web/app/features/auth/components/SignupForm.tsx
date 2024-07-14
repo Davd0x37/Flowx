@@ -1,4 +1,4 @@
-import { UserRegisterForm } from '../../models/userForm';
+import { SignupFormSchema, SignupFormSchemaType } from '../models/userForm';
 import { PropsWithoutRef } from 'react';
 import { UseFormReturn, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -17,21 +17,20 @@ import { typeboxResolver } from '@hookform/resolvers/typebox';
 
 type Props = {
   onSubmit: (
-    form: UseFormReturn<UserRegisterForm, unknown, undefined>,
-  ) => (data: UserRegisterForm) => void;
-  toggleMode: () => void;
+    form: UseFormReturn<SignupFormSchemaType, unknown, undefined>,
+  ) => (data: SignupFormSchemaType) => void;
 };
 
-// @FIXME: validate password and confirm password
-const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
+const RegisterForm = ({ onSubmit }: PropsWithoutRef<Props>) => {
   const { t } = useTranslation('User');
 
-  const form = useForm<UserRegisterForm>({
-    resolver: typeboxResolver(UserRegisterForm),
+  const form = useForm<SignupFormSchemaType>({
+    resolver: typeboxResolver(SignupFormSchema),
     defaultValues: {
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
-      confirmPassword: '',
     },
   });
 
@@ -44,6 +43,36 @@ const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
           }}
           className="flex flex-col gap-6"
         >
+          <div className="grid grid-cols-2 gap-4">
+            <FormField
+              control={form.control}
+              name="firstName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t('First name')}</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="lastName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t('Last name')}</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
           <FormField
             control={form.control}
             name="email"
@@ -76,32 +105,7 @@ const RegisterForm = ({ onSubmit, toggleMode }: PropsWithoutRef<Props>) => {
             )}
           />
 
-          <FormField
-            control={form.control}
-            name="confirmPassword"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{t('Repeat password')}</FormLabel>
-                <FormControl>
-                  <Input {...field} type="password" />
-                </FormControl>
-                <FormDescription>
-                  {t(
-                    'Please insert your password one more time - we have to check if you entered first correctly',
-                  )}
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
           <Button type="submit">{t('Create account')}</Button>
-
-          <div className="block text-right">
-            <Button type="button" variant="link" onClick={toggleMode}>
-              {t('Already have account? Sign in!')}
-            </Button>
-          </div>
         </form>
       </Form>
     </>

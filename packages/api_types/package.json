@@ -1,0 +1,21 @@
+{
+  "name": "@flowx/api_types",
+  "private": true,
+  "version": "0.0.4",
+  "type": "module",
+  "exports": {
+    "./generics": "./src/generics.ts",
+    "./models/*": "./src/models/*.ts",
+    "./routes/*": "./src/routes/*.ts"
+  },
+  "scripts": {
+    "lint": "nx eslint:lint"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.32.34",
+    "mongoose": "^8.5.1"
+  }
+}
