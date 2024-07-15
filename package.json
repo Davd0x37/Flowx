@@ -3,7 +3,7 @@
   "version": "0.0.4",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@9.2.0",
+  "packageManager": "pnpm@9.5.0",
   "scripts": {
     "build:api": "nx build @flowx/api",
     "build:web": "nx build @flowx/web",
@@ -12,6 +12,7 @@
     "dev:web": "nx run @flowx/web:dev",
     "test": "nx run-many -t test --parallel",
     "lint": "nx run-many -t lint --parallel",
+    "type-check": "nx run-many -t type-check --parallel",
     "format": "prettier --write \"{apps,packages}/**/*.{ts,tsx,html,css,scss,json,md}\"",
     "pre-commit": "lint-staged",
     "prepare": "husky"
@@ -39,12 +40,13 @@
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "typescript": "^5.5.3",
-    "typescript-eslint": "^7.16.0"
+    "typescript-eslint": "^7.16.1"
   },
   "lint-staged": {
     "./{apps,packages}/**/*.{js,ts,tsx}": [
       "prettier --config prettier.config.js --write \"./{apps,packages}/**/*.{ts,tsx,html,css,scss,json,md}\"",
-      "nx run-many -t lint"
+      "nx run-many -t lint",
+      "nx run-many -t type-check"
     ]
   },
   "engines": {

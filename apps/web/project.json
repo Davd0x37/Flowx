@@ -1,20 +1,10 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "@flowx/api",
-  "sourceRoot": "apps/api/app",
+  "name": "@flowx/web",
+  "sourceRoot": "apps/web/app",
   "projectType": "application",
   "tags": [],
   "targets": {
-    "build": {
-      "executor": "@nx/esbuild:esbuild",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "{projectRoot}/dist",
-        "main": "{projectRoot}/app/index.ts",
-        "tsConfig": "{projectRoot}/tsconfig.json",
-        "declaration": false
-      }
-    },
     "type-check": {
       "executor": "nx:run-commands",
       "options": {

@@ -42,7 +42,7 @@ export const UserType = Type.Object({
   isOnline: Type.Boolean(),
 
   // Date of last activity
-  lastActive: Type.String(), // Type.Date(),
+  lastActive: Type.Date(),
 });
 
 // Used in LuciaAuth
