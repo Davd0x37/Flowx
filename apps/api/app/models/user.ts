@@ -10,7 +10,7 @@ export const UserSchema = new Schema<UserType>(
     password: { type: String, required: true },
     avatar: String,
     isOnline: { type: Boolean, default: false, required: false },
-    lastActive: { type: Date, default: new Date(), required: false },
+    lastActive: { type: String, default: new Date().toISOString(), required: false },
   },
   { _id: false, timestamps: true },
 );

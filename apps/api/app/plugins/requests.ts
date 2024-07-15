@@ -15,7 +15,6 @@ export default fastifyPlugin(
     const { register } = fastify;
 
     // Response validator - enable only in dev environment
-    // @FIXME: check if it's possible to enable in production
     if (isDev) {
       await register(ResponseValidation, {
         ajv: {
