@@ -4,7 +4,8 @@ import eslintPluginN from 'eslint-plugin-n';
 import pluginPrettier from 'eslint-plugin-prettier/recommended';
 import eslintPluginPromise from 'eslint-plugin-promise';
 import pluginReact from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
+// import reactHooks from 'eslint-plugin-react-hooks';
+import eslintPluginReactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 import typescriptEslint from 'typescript-eslint';
 
@@ -44,11 +45,14 @@ export default typescriptEslint.config(
     plugins: {
       react: pluginReact,
       // @FIXME: enable when support for eslint 9 is added - https://github.com/facebook/react/pull/28773
-      'react-hooks': reactHooks,
+      // 'react-hooks': reactHooks,
+      'react-refresh': eslintPluginReactRefresh,
     },
 
     languageOptions: {
       parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
         project: ['./{packages,apps}/*/tsconfig*.json'],
         tsconfigRootDir: import.meta.dirname,
         ecmaFeatures: {
@@ -71,6 +75,11 @@ export default typescriptEslint.config(
       '@typescript-eslint/no-floating-promises': 'warn',
       '@typescript-eslint/no-misused-promises': 'warn',
       '@typescript-eslint/require-await': 'warn',
+
+      // React refresh
+      'react-refresh/only-export-components': 'error',
+
+      // React hooks
       // 'react-hooks/rules-of-hooks': 'error',
       // 'react-hooks/exhaustive-deps': 'warn',
       // 'react/jsx-uses-react': 'error',

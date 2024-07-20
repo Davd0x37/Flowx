@@ -1,13 +1,12 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "incremental": false,
+  "files": [],
 
-    // Paths
-    "baseUrl": ".",
-
-    "types": ["vitest/globals"]
-  },
-  "include": ["src"]
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

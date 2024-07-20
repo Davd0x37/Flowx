@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Logout } from '@/assets/icons';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { useAuth } from '@/features/auth/providers/AuthProvider';
+import { useAuth } from '@/features/auth/hooks/useAuth';
 import useUserStore from '@/features/user/stores/user';
 import { TUserStatus } from '@/features/user/stores/user';
 import { cn } from '@/utils/classNames';

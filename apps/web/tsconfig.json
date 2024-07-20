@@ -1,21 +1,22 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "incremental": false,
-
     // Paths
     "baseUrl": ".",
     "paths": {
       "@/*": ["app/*"],
       "@features/*": ["app/features/*"],
       "@ui/*": ["app/components/ui/*"]
-    },
-
-    // Unplugin-icons typings for react
-    "types": ["unplugin-icons/types/react", "vitest/globals"]
+    }
   },
-  "include": ["app"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+
+  "files": [],
+
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

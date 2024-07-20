@@ -17,6 +17,7 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
+    "moduleDetection": "force",
 
     // Linting
     "forceConsistentCasingInFileNames": true,

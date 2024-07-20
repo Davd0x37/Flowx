@@ -4,9 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import SignupForm from '@/features/auth/components/SignupForm';
+import { useAuth } from '@/features/auth/hooks/useAuth';
 import { useAuthSignupMutation } from '@/features/auth/hooks/useAuthMutation';
 import { SignupFormSchemaType } from '@/features/auth/models/userForm';
-import { useAuth } from '@/features/auth/providers/AuthProvider';
 import { formErrorValidate } from '@/features/auth/utils/formValidation';
 import { SignupErrorResponse } from '@flowx/api_types/routes/auth';
 

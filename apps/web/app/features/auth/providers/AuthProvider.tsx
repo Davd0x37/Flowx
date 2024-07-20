@@ -1,5 +1,5 @@
 import { useAuthCheckSession, useAuthLogoutMutation } from '../hooks/useAuthMutation';
-import { PropsWithChildren, createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { PropsWithChildren, createContext, useEffect, useMemo, useState } from 'react';
 import useUserStore from '@/features/user/stores/user';
 import useStorage from '@/hooks/useStorage';
 import { UserType } from '@flowx/api_types/models/user';
@@ -24,7 +24,7 @@ const initialState: AuthProviderState = {
   checkSession: () => null,
 };
 
-const AuthContext = createContext<AuthProviderState>(initialState);
+export const AuthContext = createContext<AuthProviderState>(initialState);
 
 export function AuthProvider({
   localStateKey = 'lastLoggedDate',
@@ -112,11 +112,3 @@ export function AuthProvider({
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
-
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-
-  if (context === undefined) throw new Error('useAuth must be used within a AuthProvider');
-
-  return context;
-};

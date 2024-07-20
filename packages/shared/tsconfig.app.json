@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "incremental": false,
+    "tsBuildInfoFile": "../../node_modules/.tmp/tsconfig.packages.shared.tsbuildinfo",
+
+    // Paths
+    "baseUrl": ".",
+
+    "types": ["vitest/globals"]
+  },
+  "include": ["src"]
+}

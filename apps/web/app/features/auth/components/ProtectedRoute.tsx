@@ -1,4 +1,4 @@
-import { useAuth } from '../providers/AuthProvider';
+import { useAuth } from '../hooks/useAuth';
 import { PropsWithChildren } from 'react';
 import { Navigate } from 'react-router-dom';
 

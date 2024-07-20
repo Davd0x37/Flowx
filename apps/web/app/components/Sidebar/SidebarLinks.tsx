@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/accordion';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { type SidebarItem, SidebarLinkList } from '@/config/routes';
-import { useAuth } from '@/features/auth/providers/AuthProvider';
+import { useAuth } from '@/features/auth/hooks/useAuth';
 import { cn } from '@/utils/classNames';
 
 type SidebarLinkProps = SidebarItem & { withoutIcon?: boolean };
