@@ -22,7 +22,7 @@ type Props = {
 };
 
 const RegisterForm = ({ onSubmit }: PropsWithoutRef<Props>) => {
-  const { t } = useTranslation('User');
+  const { t } = useTranslation('auth');
 
   const form = useForm<SignupFormSchemaType>({
     resolver: typeboxResolver(SignupFormSchema),
@@ -49,9 +49,9 @@ const RegisterForm = ({ onSubmit }: PropsWithoutRef<Props>) => {
               name="firstName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t('First name')}</FormLabel>
+                  <FormLabel>{t('fields.names.first_name')}</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input autoFocus {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -63,7 +63,7 @@ const RegisterForm = ({ onSubmit }: PropsWithoutRef<Props>) => {
               name="lastName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t('Last name')}</FormLabel>
+                  <FormLabel>{t('fields.names.last_name')}</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -78,11 +78,11 @@ const RegisterForm = ({ onSubmit }: PropsWithoutRef<Props>) => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t('Email')}</FormLabel>
+                <FormLabel>{t('fields.names.email')}</FormLabel>
                 <FormControl>
                   <Input placeholder="Email..." {...field} />
                 </FormControl>
-                <FormDescription>{t('Your email address used to authenticate')}</FormDescription>
+                <FormDescription>{t('fields.descriptions.email_address')}</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -93,19 +93,17 @@ const RegisterForm = ({ onSubmit }: PropsWithoutRef<Props>) => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t('Password')}</FormLabel>
+                <FormLabel>{t('fields.names.password')}</FormLabel>
                 <FormControl>
                   <Input {...field} type="password" />
                 </FormControl>
-                <FormDescription>
-                  {t('Your super secret password that will allow you to use the app')}
-                </FormDescription>
+                <FormDescription>{t('fields.descriptions.secret_password')}</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
 
-          <Button type="submit">{t('Create account')}</Button>
+          <Button type="submit">{t('actions.create_account')}</Button>
         </form>
       </Form>
     </>

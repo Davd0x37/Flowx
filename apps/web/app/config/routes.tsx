@@ -13,35 +13,35 @@ export type SidebarItem = {
 
 export const SidebarLinkList: SidebarItem[] = [
   {
-    name: 'Home',
+    name: 'dashboard:page.title.homepage',
     icon: Home,
     path: '/',
   },
   {
-    name: 'Authenticate',
+    name: 'auth:page.title.authenticate',
     icon: Auth,
     path: '/auth/login',
     dev: true,
     disableIfAuthenticated: false,
   },
   {
-    name: 'Profile',
+    name: 'user:page.title.profile',
     icon: User,
     path: '/user',
     isGroup: true,
     childrenList: [
       {
-        name: 'Profile Details',
+        name: 'user:page.title.profile_details',
         path: '/user',
       },
       {
-        name: 'Settings',
+        name: 'user:page.title.settings',
         path: '/user/settings',
       },
     ],
   },
   {
-    name: 'Services',
+    name: 'services:page.title.homepage',
     icon: Box,
     path: '/services',
   },

@@ -35,7 +35,6 @@ export function AuthProvider({
 
   const { changeName, changeStatus } = useUserStore();
 
-  // @FIXME: replace Partial<UserType> with more generic type
   const { storedValue: user, setValue: setUser } = useStorage<Partial<UserType>>(localStateKey, {});
   const [isAuthenticated, setIsAuthenticated] = useState(!!user.email);
 

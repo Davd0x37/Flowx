@@ -1,0 +1,52 @@
+{
+  "page": {
+    "title": {
+      "authenticate": "Authenticate",
+      "login": "Login",
+      "signup": "Signup"
+    }
+  },
+
+  "placeholder": {
+    "email": "email@example.com"
+  },
+
+  "fields": {
+    "names": {
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "password": "Password"
+    },
+
+    "descriptions": {
+      "email_address": "Your email address used to authenticate",
+      "secret_password": "Your super secret password that will allow you to use the app"
+    }
+  },
+
+  "actions": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "remember_me": "Remember me",
+    "recover_password": "Recover password",
+    "create_account": "Create account",
+    "sign_in_with_google": "Sign in with Google",
+    "sign_in_with_github": "Sign in with GitHub",
+    "signup": "You do not have an account? Sign up!",
+    "signin": "Already have account? Sign in!"
+  },
+
+  "messages": {
+    "errors": {
+      "password_doesnt_match": "Passwords doesn't match",
+      "user_already_exists": "User already exists"
+    },
+
+    "success": {
+      "welcome_back": "Welcome back, {{name}}!",
+      "account_created": "Your account has been created successfully {{name}}"
+    }
+  }
+}

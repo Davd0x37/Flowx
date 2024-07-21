@@ -67,7 +67,7 @@ const Sidebar = ({ className, openSidebar = false }: Props) => {
           onClick={auth.logout}
         >
           <Logout fontSize="1.25rem" />
-          <p>{t('Logout', { ns: 'User' })}</p>
+          <p>{t('auth:actions.logout')}</p>
         </Button>
       </div>
     </div>

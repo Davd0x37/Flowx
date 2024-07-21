@@ -15,7 +15,7 @@ import { cn } from '@/utils/classNames';
 type SidebarLinkProps = SidebarItem & { withoutIcon?: boolean };
 
 export const SidebarLink = ({ path, name, withoutIcon, ...link }: SidebarLinkProps) => {
-  const { t } = useTranslation('Routes');
+  const { t } = useTranslation();
 
   return (
     <Link to={path} className="block">
@@ -28,7 +28,7 @@ export const SidebarLink = ({ path, name, withoutIcon, ...link }: SidebarLinkPro
 };
 
 export const SidebarGroup = ({ children, name, ...link }: PropsWithChildren<SidebarItem>) => {
-  const { t } = useTranslation('Routes');
+  const { t } = useTranslation();
 
   return (
     <Accordion type="single" collapsible className="space-y-8">

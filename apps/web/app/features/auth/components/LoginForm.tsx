@@ -22,7 +22,7 @@ type Props = {
 };
 
 const LoginForm = ({ onSubmit }: PropsWithoutRef<Props>) => {
-  const { t } = useTranslation('User');
+  const { t } = useTranslation('auth');
 
   const form = useForm<LoginFormSchemaType>({
     resolver: typeboxResolver(LoginFormSchema),
@@ -46,11 +46,11 @@ const LoginForm = ({ onSubmit }: PropsWithoutRef<Props>) => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t('Email')}</FormLabel>
+                <FormLabel>{t('fields.names.email')}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Email..." {...field} />
+                  <Input placeholder="Email..." autoFocus {...field} />
                 </FormControl>
-                <FormDescription>{t('Your email address used to authenticate')}</FormDescription>
+                <FormDescription>{t('fields.descriptions.email_address')}</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -61,19 +61,17 @@ const LoginForm = ({ onSubmit }: PropsWithoutRef<Props>) => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t('Password')}</FormLabel>
+                <FormLabel>{t('fields.names.password')}</FormLabel>
                 <FormControl>
                   <Input {...field} type="password" />
                 </FormControl>
-                <FormDescription>
-                  {t('Your super secret password that will allow you to use the app')}
-                </FormDescription>
+                <FormDescription>{t('fields.descriptions.secret_password')}</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
 
-          <Button type="submit">{t('Login')}</Button>
+          <Button type="submit">{t('actions.login')}</Button>
         </form>
       </Form>
     </>

@@ -1,0 +1,13 @@
+{
+  "page": {
+    "title": {
+      "profile": "Profile",
+      "profile_details": "Profile details",
+      "settings": "Settings",
+      "general": "General",
+      "security": "Security",
+      "notifications": "Notifications",
+      "advanced": "Advanced"
+    }
+  }
+}

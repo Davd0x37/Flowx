@@ -1,5 +1,6 @@
-import { type ReactNode, createContext, useEffect, useState } from 'react';
+import { type ReactNode, createContext, useEffect } from 'react';
 import { StorageThemeKey } from '@/config/constants';
+import useStorage from '@/hooks/useStorage';
 
 type Theme = 'dark' | 'light' | 'system';
 
@@ -27,9 +28,7 @@ export function ThemeProvider({
   storageKey = StorageThemeKey,
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
-  );
+  const { storedValue: theme, setValue: setTheme } = useStorage<Theme>(storageKey, defaultTheme);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -50,10 +49,7 @@ export function ThemeProvider({
 
   const value = {
     theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
-      setTheme(theme);
-    },
+    setTheme,
   };
 
   return (

@@ -6,7 +6,7 @@ import { RouterProvider } from 'react-router-dom';
 import { ErrorPage } from '@/components/errors/ErrorPage/ErrorPage';
 import { Toaster } from '@/components/ui/toaster';
 import { StorageThemeKey } from '@/config/constants';
-import { AuthProvider } from '@/features/auth/providers/AuthProvider';
+import { AuthProvider } from '@/features/auth';
 import { I18nextProvider, i18n } from '@/providers/I18nProvider';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';

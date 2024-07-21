@@ -1,0 +1,13 @@
+{
+  "page": {
+    "title": {
+      "profile": "Profil",
+      "profile_details": "Dane konta",
+      "settings": "Ustawienia",
+      "general": "Ogólne",
+      "security": "Bezpieczeństwo",
+      "notifications": "Powiadomienia",
+      "advanced": "Zaawansowane"
+    }
+  }
+}

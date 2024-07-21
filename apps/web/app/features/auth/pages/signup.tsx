@@ -3,25 +3,24 @@ import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
-import LoginForm from '@/features/auth/components/LoginForm';
+import SignupForm from '@/features/auth/components/SignupForm';
 import { useAuth } from '@/features/auth/hooks/useAuth';
-import { useAuthLoginMutation } from '@/features/auth/hooks/useAuthMutation';
-import { LoginFormSchemaType } from '@/features/auth/models/userForm';
+import { useAuthSignupMutation } from '@/features/auth/hooks/useAuthMutation';
+import { SignupFormSchemaType } from '@/features/auth/models/userForm';
 import { formErrorValidate } from '@/features/auth/utils/formValidation';
-import { LoginErrorResponse } from '@flowx/api_types/routes/auth';
+import { SignupErrorResponse } from '@flowx/api_types/routes/auth';
 
-export const LoginView = () => {
+const RegisterView = () => {
   const auth = useAuth();
   const navigate = useNavigate();
-  const authLogin = useAuthLoginMutation();
+  const authSignup = useAuthSignupMutation();
   const { toast } = useToast();
-  const { t } = useTranslation(['User']);
+  const { t } = useTranslation('auth');
 
-  // @TODO: reuse onSuccess and onError logic in signup or keep it separate?
   const handleSubmit =
-    (form: UseFormReturn<LoginFormSchemaType, unknown, undefined>) =>
-    (credentials: LoginFormSchemaType) => {
-      authLogin.mutate(credentials, {
+    (form: UseFormReturn<SignupFormSchemaType, unknown, undefined>) =>
+    (credentials: SignupFormSchemaType) => {
+      authSignup.mutate(credentials, {
         onSuccess: ({ data: { email, firstName, lastName } }) => {
           const name = `${firstName} ${lastName}`;
 
@@ -30,14 +29,14 @@ export const LoginView = () => {
 
           // Display welcome message
           toast({
-            title: t('Welcome back, {{name}}!', { name }),
+            title: t('messages.success.account_created', { name }),
           });
 
           navigate('/');
         },
 
         onError(error, variables) {
-          const { field, message } = formErrorValidate<LoginErrorResponse, LoginFormSchemaType>(
+          const { field, message } = formErrorValidate<SignupErrorResponse, SignupFormSchemaType>(
             error,
             variables,
           );
@@ -50,16 +49,18 @@ export const LoginView = () => {
 
   return (
     <>
-      <h1 className="mb-12 text-center text-4xl font-bold">{t('Login')}</h1>
-      <LoginForm onSubmit={handleSubmit} />
+      <h1 className="mb-12 text-center text-4xl font-bold">{t('actions.register')}</h1>
+      <SignupForm onSubmit={handleSubmit} />
 
       <div className="mt-6 block text-right">
         <Button asChild variant="link">
-          <Link to="/auth/signup" className="px-4 py-2 text-sm">
-            {t('You do not have an account? Sign up!')}
+          <Link to="/auth/login" className="px-4 py-2 text-sm">
+            {t('actions.signin')}
           </Link>
         </Button>
       </div>
     </>
   );
 };
+
+export { RegisterView as Component };
