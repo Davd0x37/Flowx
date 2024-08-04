@@ -1,13 +1,10 @@
 import { HTMLAttributes, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FeatureRouteProps } from '@/types/route';
+import { FeatureRoute } from '@/types/route';
 import { cn } from '@/utils/classNames';
 import { buttonVariants } from '@ui/button';
 
-type SidebarLinkProps = {
-  name: string;
-  path: string;
-  icon: NonNullable<FeatureRouteProps['meta']>['sidebarIcon'];
+type SidebarLinkProps = FeatureRoute & {
   iconSize?: string;
   hideName?: boolean;
 };
