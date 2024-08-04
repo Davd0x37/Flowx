@@ -1,19 +1,22 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import { NotFound } from '@/components/errors/NotFound';
+import { MainLayout } from '@/components/layouts/mainLayout';
+import { NotFound } from '@/components/pages/NotFound';
 import { AuthRoute, ProtectedRoute } from '@/features/auth';
+import { AutomationsRoute } from '@/features/automations';
 import { DashboardRoute } from '@/features/dashboard';
+import { IntegrationsRoute } from '@/features/integrations';
 import { ServicesRoute } from '@/features/services';
 import { UserRoute } from '@/features/user';
-import MainLayout from '@/layouts/MainLayout';
 
 export const routes = createRoutesFromElements(
   <>
-    {/* Not found page route */}
-    <Route path="*" element={<NotFound />}></Route>
+    {/* Not found page */}
+    <Route path="*" element={<NotFound />} />
 
     {/* Auth feature routes */}
     {AuthRoute}
 
+    {/* Protected routes - dashboard, user etc. */}
     <Route
       path="/"
       id="Main layout"
@@ -23,7 +26,7 @@ export const routes = createRoutesFromElements(
         </ProtectedRoute>
       }
     >
-      {/* Main page view - index path */}
+      {/* Main page view */}
       {DashboardRoute}
 
       {/* User feature routes */}
@@ -31,8 +34,14 @@ export const routes = createRoutesFromElements(
 
       {/* Services route */}
       {ServicesRoute}
+
+      {/* Automations route */}
+      {AutomationsRoute}
+
+      {/* Integrations route */}
+      {IntegrationsRoute}
     </Route>
   </>,
 );
 
-export const router = createBrowserRouter(routes);
+export const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter(routes);

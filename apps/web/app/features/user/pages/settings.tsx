@@ -2,6 +2,7 @@ import { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, Outlet } from 'react-router-dom';
 import { cn } from '@/utils/classNames';
+import { Separator } from '@ui/separator';
 
 type NavigationLinkProps = PropsWithChildren<{
   to: string;
@@ -28,6 +29,8 @@ const Settings = () => {
       <div>
         <h1 className="text-3xl font-semibold">{t('page.title.settings')}</h1>
       </div>
+
+      <Separator />
 
       <div className="space-y-8">
         <nav className="flex w-full flex-row gap-8 border-b border-b-gray-700 text-sm font-semibold">

@@ -3,7 +3,7 @@ import { useState } from 'react';
 /**
  * Represents the available read types for the file reader.
  */
-const READ_TYPE = {
+export const READ_TYPE = {
   TEXT: 'TEXT',
   ARRAY_BUFFER: 'ARRAYBUFFER',
   BINARY_STRING: 'BINARY_STRING',

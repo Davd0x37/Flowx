@@ -1,13 +1,13 @@
 import { UseFormReturn } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
 import LoginForm from '@/features/auth/components/LoginForm';
 import { useAuth } from '@/features/auth/hooks/useAuth';
 import { useAuthLoginMutation } from '@/features/auth/hooks/useAuthMutation';
 import { LoginFormSchemaType } from '@/features/auth/models/userForm';
 import { formErrorValidate } from '@/features/auth/utils/formValidation';
+import { Button } from '@ui/button';
+import { useToast } from '@ui/use-toast';
 import { LoginErrorResponse } from '@flowx/api_types/routes/auth';
 
 export const LoginView = () => {

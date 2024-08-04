@@ -3,7 +3,7 @@ import { internalGuard } from '@flowx/shared/utils/guard';
 
 export type IKey = string;
 
-const CStorageType = {
+export const CStorageType = {
   LOCAL: 'localStorage',
   SESSION: 'sessionStorage',
 } as const;

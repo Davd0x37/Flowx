@@ -9,5 +9,19 @@
       "notifications": "Powiadomienia",
       "advanced": "Zaawansowane"
     }
+  },
+
+  "dropdown": {
+    "profile": "Profil",
+    "profile_details": "Dane konta",
+    "settings": "Ustawienia",
+    "logout": "Wyloguj",
+    "change_status": {
+      "title": "Zmień status",
+      "active": "Aktywny",
+      "idle": "Zaraz wracam",
+      "do_not_disturb": "Nie przeszkadzać",
+      "offline": "Offline"
+    }
   }
 }

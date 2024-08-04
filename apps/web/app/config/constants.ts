@@ -1,3 +1,6 @@
+// Dev env provided by Vite
+export const isDev = import.meta.env.MODE === 'development';
+
 export const SupportedLocales = ['pl', 'en'] as const;
 
 // Used in theme provider within main app

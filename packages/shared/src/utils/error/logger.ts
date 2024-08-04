@@ -28,11 +28,11 @@ function printErrorInstance(error: unknown, params?: DebugErrorParams) {
     console.log(`%c[ERROR NAME]:\t ${error.name}`, consoleStyles.error.name);
     console.log(`%c[ERROR MESSAGE]:\t ${error.message}`, consoleStyles.error.message);
 
-    if (error?.stack) {
+    if (error.stack) {
       console.log('%c[ERROR STACK]:\t', consoleStyles.error.stack, error.stack);
     }
 
-    if (error?.cause) {
+    if (error.cause) {
       console.log('%c[ERROR CAUSE]:\t', consoleStyles.error.cause, error.cause);
     }
 

@@ -10,7 +10,7 @@ const ProtectedRoute = ({ children, redirect }: PropsWithChildren<ProtectedRoute
   const auth = useAuth();
 
   if (!auth.isAuthenticated) {
-    return <Navigate to={redirect} />;
+    return <Navigate to={redirect} replace />;
   }
 
   return <>{children}</>;

@@ -24,9 +24,15 @@ const useUserStore = create<UserStore>((set) => ({
   avatar: '',
   status: UserStatus.offline,
 
-  changeName: (name: UserStore['name']) => set(() => ({ name })),
-  changeAvatar: (avatar: UserStore['avatar']) => set(() => ({ avatar })),
-  changeStatus: (status: TUserStatus) => set(() => ({ status })),
+  changeName: (name: UserStore['name']) => {
+    set(() => ({ name }));
+  },
+  changeAvatar: (avatar: UserStore['avatar']) => {
+    set(() => ({ avatar }));
+  },
+  changeStatus: (status: TUserStatus) => {
+    set(() => ({ status }));
+  },
 }));
 
 export default useUserStore;

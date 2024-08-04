@@ -2,7 +2,8 @@ import { LoginFormSchema, LoginFormSchemaType } from '../models/userForm';
 import { PropsWithoutRef } from 'react';
 import { UseFormReturn, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@/components/ui/button';
+import { typeboxResolver } from '@hookform/resolvers/typebox';
+import { Button } from '@ui/button';
 import {
   Form,
   FormControl,
@@ -11,9 +12,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { typeboxResolver } from '@hookform/resolvers/typebox';
+} from '@ui/form';
+import { Input } from '@ui/input';
 
 type Props = {
   onSubmit: (

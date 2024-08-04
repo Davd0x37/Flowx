@@ -1,13 +1,13 @@
 import { UseFormReturn } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
 import SignupForm from '@/features/auth/components/SignupForm';
 import { useAuth } from '@/features/auth/hooks/useAuth';
 import { useAuthSignupMutation } from '@/features/auth/hooks/useAuthMutation';
 import { SignupFormSchemaType } from '@/features/auth/models/userForm';
 import { formErrorValidate } from '@/features/auth/utils/formValidation';
+import { Button } from '@ui/button';
+import { useToast } from '@ui/use-toast';
 import { SignupErrorResponse } from '@flowx/api_types/routes/auth';
 
 const RegisterView = () => {

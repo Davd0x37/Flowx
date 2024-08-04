@@ -1,37 +1,22 @@
-import Warning from '~icons/tabler/alert-circle';
-import AlertTriangle from '~icons/tabler/alert-triangle';
-import ArrowLeft from '~icons/tabler/arrow-left';
-import ArrowRight from '~icons/tabler/arrow-right';
-import Box from '~icons/tabler/box';
-import BrandGithub from '~icons/tabler/brand-github';
-import BrandGoogle from '~icons/tabler/brand-google-filled';
-import ChevronDown from '~icons/tabler/chevron-down';
-import ChevronUp from '~icons/tabler/chevron-up';
-import Code from '~icons/tabler/code-dots';
-import Home from '~icons/tabler/home';
-import Login from '~icons/tabler/login';
-import Logout from '~icons/tabler/logout';
-import Reload from '~icons/tabler/reload';
-import Settings from '~icons/tabler/settings';
-import User from '~icons/tabler/user';
-import Auth from '~icons/tabler/user-scan';
-
-export {
-  Warning,
-  Home,
-  Auth,
-  Settings,
-  User,
-  Code,
-  Box,
-  ChevronUp,
-  ChevronDown,
-  ArrowLeft,
-  ArrowRight,
-  Reload,
-  Logout,
-  Login,
-  AlertTriangle,
-  BrandGoogle,
-  BrandGithub,
-};
+export { default as Warning } from '~icons/tabler/alert-circle';
+export { default as AlertTriangle } from '~icons/tabler/alert-triangle';
+export { default as ArrowLeft } from '~icons/tabler/arrow-left';
+export { default as ArrowBadgeLeft } from '~icons/tabler/arrow-badge-left';
+export { default as ArrowRight } from '~icons/tabler/arrow-right';
+export { default as Box } from '~icons/tabler/box';
+export { default as BrandGithub } from '~icons/tabler/brand-github';
+export { default as BrandGoogle } from '~icons/tabler/brand-google-filled';
+export { default as ChevronDown } from '~icons/tabler/chevron-down';
+export { default as ChevronUp } from '~icons/tabler/chevron-up';
+export { default as Code } from '~icons/tabler/code-dots';
+export { default as DotsVertical } from '~icons/tabler/dots-vertical';
+export { default as Home } from '~icons/tabler/home';
+export { default as Login } from '~icons/tabler/login';
+export { default as Logout } from '~icons/tabler/logout';
+export { default as Integration } from '~icons/tabler/plug-connected';
+export { default as Reload } from '~icons/tabler/reload';
+export { default as Schema } from '~icons/tabler/schema';
+export { default as Settings } from '~icons/tabler/settings';
+export { default as User } from '~icons/tabler/user';
+export { default as UserDetails } from '~icons/tabler/list-details';
+export { default as Auth } from '~icons/tabler/user-scan';

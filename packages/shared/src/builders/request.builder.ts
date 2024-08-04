@@ -39,13 +39,17 @@ export class URLBuilder {
   }
 
   public addParameters(queries: Record<string, string>) {
-    Object.entries(queries).forEach(([name, value]) => this.url.searchParams.set(name, value));
+    Object.entries(queries).forEach(([name, value]) => {
+      this.url.searchParams.set(name, value);
+    });
 
     return this;
   }
 
   public removeParameter(...queries: string[]) {
-    queries.forEach((name) => this.url.searchParams.delete(name));
+    queries.forEach((name) => {
+      this.url.searchParams.delete(name);
+    });
 
     return this;
   }
@@ -65,13 +69,17 @@ export class RequestBuilder {
   }
 
   public addHeaders(headers: Record<string, string>) {
-    Object.entries(headers).forEach(([name, value]) => this.request.headers.set(name, value));
+    Object.entries(headers).forEach(([name, value]) => {
+      this.request.headers.set(name, value);
+    });
 
     return this;
   }
 
   public removeHeaders(...headers: string[]) {
-    headers.forEach((header) => this.request.headers.delete(header));
+    headers.forEach((header) => {
+      this.request.headers.delete(header);
+    });
     return this;
   }
 }

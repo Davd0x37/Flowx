@@ -53,7 +53,7 @@ export default typescriptEslint.config(
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
-        project: ['./{packages,apps}/*/tsconfig*.json'],
+        projectService: true,
         tsconfigRootDir: import.meta.dirname,
         ecmaFeatures: {
           jsx: true,

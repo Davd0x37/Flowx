@@ -9,5 +9,19 @@
       "notifications": "Notifications",
       "advanced": "Advanced"
     }
+  },
+
+  "dropdown": {
+    "profile": "Profile",
+    "profile_details": "Profile details",
+    "settings": "Settings",
+    "logout": "Logout",
+    "change_status": {
+      "title": "Change status",
+      "active": "Active",
+      "idle": "Idle",
+      "do_not_disturb": "Do not disturb",
+      "offline": "Offline"
+    }
   }
 }

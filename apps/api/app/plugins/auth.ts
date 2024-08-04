@@ -2,7 +2,7 @@ import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
 import { type Session, type User } from 'lucia';
 import { UserID, UserType } from '@flowx/api_types/models/user';
-import { lucia, validateAuth } from 'app/common/auth';
+import { lucia as _lucia, validateAuth } from 'app/common/auth';
 
 export default fastifyPlugin(
   (fastify: FastifyInstance, _options: FastifyPluginOptions, done) => {
@@ -31,7 +31,7 @@ type LoggedUser = Pick<UserType, 'email'>;
 
 declare module 'lucia' {
   interface Register {
-    Lucia: typeof lucia;
+    Lucia: typeof _lucia;
     UserId: UserID;
     DatabaseUserAttributes: LoggedUser;
   }

@@ -12,10 +12,10 @@
     "lint": "nx eslint:lint"
   },
   "devDependencies": {
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   },
   "dependencies": {
-    "@sinclair/typebox": "^0.32.34",
-    "mongoose": "^8.5.1"
+    "@sinclair/typebox": "^0.32.35",
+    "mongoose": "^8.5.2"
   }
 }
