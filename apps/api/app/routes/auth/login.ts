@@ -1,14 +1,14 @@
-import { Static, Type } from '@sinclair/typebox';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import { Argon2id } from 'oslo/password';
-import { UserType } from '@flowx/api_types/models/user';
-import { LoginErrorResponseSchema, LoginSuccessResponseSchema } from '@flowx/api_types/routes/auth';
+import {
+  LoginBodyRequestSchema,
+  LoginErrorResponseSchema,
+  LoginSuccessResponseSchema,
+  loginServerEndpoint,
+} from '@flowx/api_types/routes/auth';
 import { lucia } from 'app/common/auth';
 import { createFastifyTypeProvider } from 'app/common/fastifyTypeProvider';
 import { User } from 'app/models/user';
-
-const UserCredentials = Type.Pick(UserType, ['email', 'password']);
-type UserCredentials = Static<typeof UserCredentials>;
 
 export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginOptions) => {
   const fastify = createFastifyTypeProvider(fastifyInstance);
@@ -17,11 +17,11 @@ export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginO
    * Login user, create session and set session cookie
    */
   fastify.post(
-    '/login',
+    loginServerEndpoint,
     {
       schema: {
         consumes: ['application/x-www-form-urlencoded'],
-        body: UserCredentials,
+        body: LoginBodyRequestSchema,
         response: {
           '2xx': LoginSuccessResponseSchema,
           '4xx': LoginErrorResponseSchema,

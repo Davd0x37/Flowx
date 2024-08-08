@@ -1,11 +1,11 @@
-import { Button } from '../ui/button';
 import { HTMLAttributes, PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Logout } from '@/assets/icons';
-import { Avatar, StatusIndicator } from '@/components/atoms/avatar';
+import { Avatar, StatusIndicator } from '@/components/avatar';
 import { useAuth } from '@/features/auth/hooks/useAuth';
 import useUserStore from '@/features/user/stores/user';
 import { cn } from '@/utils/classNames';
+import { Button } from '@ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,

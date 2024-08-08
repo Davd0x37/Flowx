@@ -2,6 +2,7 @@ import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import {
   GetUsersErrorResponseSchema,
   GetUsersSuccessResponseSchema,
+  usersServerEndpoint,
 } from '@flowx/api_types/routes/users';
 import { createFastifyTypeProvider } from 'app/common/fastifyTypeProvider';
 import { User } from 'app/models/user';
@@ -10,10 +11,10 @@ export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginO
   const fastify = createFastifyTypeProvider(fastifyInstance);
 
   /**
-   * Get all users
+   * Get all users - only for moderators and admins
    */
   fastify.get(
-    '/',
+    usersServerEndpoint,
     {
       schema: {
         response: {

@@ -20,9 +20,9 @@
     "esbuild": "^0.23.0",
     "msw": "^2.3.5",
     "pino-pretty": "^11.2.2",
-    "tsx": "^4.16.5",
+    "tsx": "^4.17.0",
     "typescript": "^5.5.4",
-    "vite": "^5.3.5",
+    "vite": "^5.4.0",
     "vitest": "^2.0.5"
   },
   "dependencies": {
@@ -39,7 +39,7 @@
     "@flowx/api_types": "workspace:^",
     "@flowx/shared": "workspace:^",
     "@lucia-auth/adapter-mongodb": "^1.0.3",
-    "@sinclair/typebox": "^0.32.35",
+    "@sinclair/typebox": "^0.33.0",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
     "fastify": "^4.28.1",

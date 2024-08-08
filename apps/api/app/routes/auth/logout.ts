@@ -2,6 +2,7 @@ import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import {
   LogoutErrorResponseSchema,
   LogoutSuccessResponseSchema,
+  logoutServerEndpoint,
 } from '@flowx/api_types/routes/auth';
 import { lucia, validateAuth } from 'app/common/auth';
 import { createFastifyTypeProvider } from 'app/common/fastifyTypeProvider';
@@ -13,7 +14,7 @@ export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginO
    * Logout user, invalidate session and remove session cookie
    */
   fastify.post(
-    '/logout',
+    logoutServerEndpoint,
     {
       schema: {
         response: {

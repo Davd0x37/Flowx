@@ -34,7 +34,7 @@ const SidebarLink = forwardRef<
       ref={ref}
       className={cn(
         buttonVariants({ variant: 'ghost' }),
-        'hover:bg-primary flex justify-start space-x-2 rounded-md p-4 transition-colors',
+        'hover:bg-primary/70 flex justify-start space-x-2 rounded-md px-4 py-5 transition-colors',
         className,
       )}
     >

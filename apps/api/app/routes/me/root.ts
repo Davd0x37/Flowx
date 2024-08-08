@@ -1,45 +1,37 @@
-import { Static, Type } from '@sinclair/typebox';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
-import { UserType } from '@flowx/api_types/models/user';
 import {
-  DeleteUserByIdErrorResponseSchema,
-  DeleteUserByIdParamsRequestSchema,
-  DeleteUserByIdSuccessResponseSchema,
-  GetUserByIdErrorResponseSchema,
-  GetUserByIdParamsRequestSchema,
-  GetUserByIdSuccessResponseSchema,
-  UpdateUserByIdErrorResponseSchema,
-  UpdateUserByIdParamsRequestSchema,
-  UpdateUserByIdSuccessResponseSchema,
-  deleteUserByIdServerEndpoint,
-  getUserByIdServerEndpoint,
-  updateUserByIdServerEndpoint,
-} from '@flowx/api_types/routes/users';
+  DeleteAccountErrorResponseSchema,
+  DeleteAccountSuccessResponseSchema,
+  GetAccountDataErrorResponse,
+  GetAccountDataSuccessResponse,
+  UpdateAccountBodyRequestSchema,
+  UpdateAccountErrorResponseSchema,
+  UpdateAccountSuccessResponseSchema,
+  deleteAccountServerEndpoint,
+  getAccountDataServerEndpoint,
+  updateAccountServerEndpoint,
+} from '@flowx/api_types/routes/me';
 import { createFastifyTypeProvider } from 'app/common/fastifyTypeProvider';
 import { User } from 'app/models/user';
-
-const NewModifiedUser = Type.Pick(UserType, ['email', 'password', 'avatar']);
-type NewModifiedUser = Static<typeof NewModifiedUser>;
 
 export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginOptions) => {
   const fastify = createFastifyTypeProvider(fastifyInstance);
 
   /**
-   * Get user by ID
+   * Get current user data
    */
   fastify.get(
-    getUserByIdServerEndpoint,
+    getAccountDataServerEndpoint,
     {
       schema: {
-        params: GetUserByIdParamsRequestSchema,
         response: {
-          '2xx': GetUserByIdSuccessResponseSchema,
-          '4xx': GetUserByIdErrorResponseSchema,
+          '2xx': GetAccountDataSuccessResponse,
+          '4xx': GetAccountDataErrorResponse,
         },
       },
     },
     async (request, reply) => {
-      const { userId } = request.params;
+      const userId = request.session?.userId;
 
       const user = await User.findById(userId);
       if (!user) {
@@ -55,22 +47,21 @@ export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginO
   );
 
   /**
-   * Update user by ID
+   * Update current user
    */
   fastify.put(
-    updateUserByIdServerEndpoint,
+    updateAccountServerEndpoint,
     {
       schema: {
-        body: NewModifiedUser,
-        params: UpdateUserByIdParamsRequestSchema,
+        body: UpdateAccountBodyRequestSchema,
         response: {
-          '2xx': UpdateUserByIdSuccessResponseSchema,
-          '4xx': UpdateUserByIdErrorResponseSchema,
+          '2xx': UpdateAccountSuccessResponseSchema,
+          '4xx': UpdateAccountErrorResponseSchema,
         },
       },
     },
     async (request, reply) => {
-      const { userId } = request.params;
+      const userId = request.session?.userId;
       const { email, password, avatar } = request.body;
 
       try {
@@ -104,21 +95,21 @@ export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginO
   );
 
   /**
-   * Delete user by ID
+   * Delete current user
    */
   fastify.delete(
-    deleteUserByIdServerEndpoint,
+    deleteAccountServerEndpoint,
     {
       schema: {
-        params: DeleteUserByIdParamsRequestSchema,
         response: {
-          '2xx': DeleteUserByIdSuccessResponseSchema,
-          '4xx': DeleteUserByIdErrorResponseSchema,
+          '2xx': DeleteAccountSuccessResponseSchema,
+          '4xx': DeleteAccountErrorResponseSchema,
         },
       },
     },
     async (request, reply) => {
-      const { userId } = request.params;
+      // @TODO: Return string if session is available or reply with unauthorized with prehandler
+      const userId = request.session?.userId;
 
       const user = await User.findByIdAndDelete(userId);
       if (!user) {

@@ -1,6 +1,6 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import { MainLayout } from '@/components/layouts/mainLayout';
-import { NotFound } from '@/components/pages/NotFound';
+import { NotFound } from '@/components/errors';
+import { MainLayout } from '@/components/layouts';
 import { AuthRoute, ProtectedRoute } from '@/features/auth';
 import { AutomationsRoute } from '@/features/automations';
 import { DashboardRoute } from '@/features/dashboard';

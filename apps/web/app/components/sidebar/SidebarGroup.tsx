@@ -16,7 +16,7 @@ const SidebarGroup = forwardRef<HTMLButtonElement, SidebarGroupProps>(
             ref={ref}
             className={cn(
               buttonVariants({ variant: 'ghost' }),
-              'w-full justify-start gap-2 font-semibold hover:no-underline',
+              'hover:bg-primary/70 w-full justify-start gap-2 px-4 py-5 font-semibold hover:no-underline',
               // Move svg icon to the right
               '[&>svg:last-child]:ml-auto',
               className,

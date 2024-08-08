@@ -1,7 +1,7 @@
-import { Profile } from './Profile';
-import { SearchBar } from './SearchBar';
-import { SidebarLinkGroup } from './SidebarLinkGroup';
+import { SidebarLinkGroup } from './index';
 import { type HTMLAttributes } from 'react';
+import { Profile } from '@/components/profile';
+import { SearchBar } from '@/components/search';
 import { FEATURE_ROUTES } from '@/config/routes';
 import { cn } from '@/utils/classNames';
 
@@ -13,7 +13,7 @@ const Sidebar = ({ className }: Props) => {
   return (
     <div
       className={cn(
-        'bg-background/40 border-border flex h-full w-full max-w-[375px] flex-col gap-4 rounded-lg border',
+        'bg-background/40 border-border flex h-full w-full max-w-[325px] flex-col gap-4 rounded-lg border',
         className,
       )}
     >

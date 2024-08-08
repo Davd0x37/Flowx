@@ -1,10 +1,10 @@
 import '@/assets/base.css';
-import { MainViewport } from './components/layouts/mainViewport';
+import { MainViewport } from './components/layouts/MainViewport';
 import { router } from './routes';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { RouterProvider } from 'react-router-dom';
-import { ErrorPage } from '@/components/pages/ErrorPage/ErrorPage';
+import { ErrorPage } from '@/components/errors/ErrorPage/ErrorPage';
 import { StorageThemeKey } from '@/config/constants';
 import { AuthProvider } from '@/features/auth';
 import { I18nextProvider, i18n } from '@/providers/I18nProvider';

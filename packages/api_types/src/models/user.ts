@@ -1,11 +1,23 @@
 import { Static, Type } from '@sinclair/typebox';
 
-// export type UserID = Schema.Types.ObjectId;
 export type UserID = string;
+
+export type UserIDObject = { userId: UserID };
+export const UserIDObject = Type.Object({
+  userId: Type.String(),
+});
+
+export type UserStatus = Static<typeof UserStatus>;
+export const UserStatus = Type.Enum({
+  active: 'active',
+  idle: 'idle',
+  doNotDisturb: 'doNotDisturb',
+  offline: 'offline',
+});
 
 export type UserType = Static<typeof UserType>;
 export const UserType = Type.Object({
-  // Non-unique user identifier - must be a string because lucia auth doesn't support ObjectId
+  // Non-unique user identifier - must be a string because lucia doesn't support ObjectId - for now
   _id: Type.String({ readOnly: true }),
 
   // User name
@@ -39,7 +51,7 @@ export const UserType = Type.Object({
     }),
   ),
 
-  isOnline: Type.Boolean(),
+  status: UserStatus,
 
   // Date of last activity
   lastActive: Type.String({ format: 'date-time' }),

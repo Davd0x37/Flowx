@@ -2,6 +2,7 @@ import type { FastifyInstance, FastifyPluginOptions, FastifyReply } from 'fastif
 import {
   CheckSessionErrorResponseSchema,
   CheckSessionSuccessResponseSchema,
+  checkSessionServerEndpoint,
 } from '@flowx/api_types/routes/auth';
 import { lucia } from 'app/common/auth';
 import { createFastifyTypeProvider } from 'app/common/fastifyTypeProvider';
@@ -24,7 +25,7 @@ export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginO
    * Check if user session is valid, if not, return 401
    */
   fastify.get(
-    '/check-session',
+    checkSessionServerEndpoint,
     {
       schema: {
         consumes: ['application/x-www-form-urlencoded'],

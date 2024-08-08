@@ -1,18 +1,15 @@
-import { Static, Type } from '@sinclair/typebox';
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import { generateId } from 'lucia';
 import { Argon2id } from 'oslo/password';
-import { UserType } from '@flowx/api_types/models/user';
 import {
+  SignupBodyRequestSchema,
   SignupErrorResponseSchema,
   SignupSuccessResponseSchema,
+  signupServerEndpoint,
 } from '@flowx/api_types/routes/auth';
 import { lucia } from 'app/common/auth';
 import { createFastifyTypeProvider } from 'app/common/fastifyTypeProvider';
 import { User } from 'app/models/user';
-
-const NewUserType = Type.Pick(UserType, ['firstName', 'lastName', 'email', 'password', 'avatar']);
-type NewUserType = Static<typeof NewUserType>;
 
 export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginOptions) => {
   const fastify = createFastifyTypeProvider(fastifyInstance);
@@ -21,10 +18,10 @@ export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginO
    * Create a new user account
    */
   fastify.post(
-    '/signup',
+    signupServerEndpoint,
     {
       schema: {
-        body: NewUserType,
+        body: SignupBodyRequestSchema,
         response: {
           '2xx': SignupSuccessResponseSchema,
           '4xx': SignupErrorResponseSchema,

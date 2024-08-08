@@ -6,7 +6,7 @@
   "exports": {
     "./generics": "./src/generics.ts",
     "./models/*": "./src/models/*.ts",
-    "./routes/*": "./src/routes/*.ts"
+    "./routes/*": "./src/routes/*/index.ts"
   },
   "scripts": {
     "lint": "nx eslint:lint"
@@ -15,7 +15,7 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "@sinclair/typebox": "^0.32.35",
+    "@sinclair/typebox": "^0.33.0",
     "mongoose": "^8.5.2"
   }
 }

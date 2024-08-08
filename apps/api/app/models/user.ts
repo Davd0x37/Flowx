@@ -9,7 +9,7 @@ export const UserSchema = new Schema<UserType>(
     email: { type: String, required: true },
     password: { type: String, required: true },
     avatar: String,
-    isOnline: { type: Boolean, default: false, required: false },
+    status: { type: String, default: 'active', required: false },
     lastActive: { type: String, default: new Date().toISOString(), required: false },
   },
   { _id: false, timestamps: true },

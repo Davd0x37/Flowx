@@ -1,12 +1,15 @@
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
-import { HealthCheckRouteResponse } from '@flowx/api_types/routes/healthcheck';
+import {
+  HealthCheckRouteResponse,
+  healthcheckServerEndpoint,
+} from '@flowx/api_types/routes/healthcheck';
 import { createFastifyTypeProvider } from 'app/common/fastifyTypeProvider';
 
 export default async (fastifyInstance: FastifyInstance, _options: FastifyPluginOptions) => {
   const fastify = createFastifyTypeProvider(fastifyInstance);
 
   fastify.get(
-    '/healthcheck',
+    healthcheckServerEndpoint,
     {
       schema: {
         response: {

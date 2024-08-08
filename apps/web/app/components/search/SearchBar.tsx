@@ -1,4 +1,6 @@
 import { type HTMLAttributes, forwardRef, useEffect, useState } from 'react';
+import { cn } from '@/utils/classNames';
+import { Button } from '@ui/button';
 import {
   CommandDialog,
   CommandEmpty,
@@ -8,9 +10,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from '@/components/ui/command';
-import { cn } from '@/utils/classNames';
-import { Button } from '@ui/button';
+} from '@ui/command';
 
 type Props = HTMLAttributes<HTMLDivElement> & {};
 

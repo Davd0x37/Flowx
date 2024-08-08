@@ -1,6 +1,6 @@
+import { SidebarGroup, SidebarLink, SidebarLinkContent } from './index';
 import { HTMLAttributes, forwardRef, useId } from 'react';
 import { useTranslation } from 'react-i18next';
-import { SidebarGroup, SidebarLink, SidebarLinkContent } from '@/components/atoms/link';
 import { isDev } from '@/config/constants';
 import { FeatureRoute } from '@/types/route';
 import { cn } from '@/utils/classNames';
@@ -39,7 +39,7 @@ const GetRouteComponent = ({
 
 const SidebarLinkGroup = forwardRef<HTMLDivElement, SidebarProps>(({ routes, className }, ref) => {
   return (
-    <div ref={ref} className={cn('flex flex-col gap-4', className)}>
+    <div ref={ref} className={cn('flex flex-col', className)}>
       {routes.map((route) => GetRouteComponent(route))}
     </div>
   );
