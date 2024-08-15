@@ -15,7 +15,7 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "@sinclair/typebox": "^0.33.0",
-    "mongoose": "^8.5.2"
+    "@sinclair/typebox": "^0.33.7",
+    "mongoose": "^8.5.3"
   }
 }
