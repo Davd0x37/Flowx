@@ -12,7 +12,7 @@ import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  root: import.meta.dirname,
+  root: __dirname,
   build: {
     outDir: './dist',
     reportCompressedSize: true,
