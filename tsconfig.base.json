@@ -18,6 +18,7 @@
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
     "moduleDetection": "force",
+    "composite": true,
 
     // Linting
     "forceConsistentCasingInFileNames": true,
