@@ -1,22 +1,26 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    // Paths
+    "jsx": "react-jsx",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["app/*"],
       "@features/*": ["app/features/*"],
-      "@ui/*": ["app/components/ui/*"]
-    }
+      "@ui/*": ["app/components/ui/*"],
+      "@flowx/api_types/*": ["../../packages/api_types/src/*"],
+      "@flowx/shared/*": ["../../packages/shared/src/*"]
+    },
+    "types": ["vite/client", "vitest"]
   },
-
   "files": [],
-
+  "include": [],
   "references": [
     {
       "path": "./tsconfig.app.json"
     },
     {
-      "path": "./tsconfig.node.json"
+      "path": "./tsconfig.spec.json"
     }
   ]
 }

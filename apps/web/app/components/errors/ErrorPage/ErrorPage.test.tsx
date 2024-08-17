@@ -1,4 +1,5 @@
 import { ErrorPage } from './ErrorPage';
+import '@testing-library/jest-dom/vitest';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 

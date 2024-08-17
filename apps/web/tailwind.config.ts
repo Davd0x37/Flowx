@@ -1,6 +1,8 @@
 import type { Config } from 'tailwindcss';
+import { createGlobPatternsForDependencies } from '@nx/react/tailwind';
 import tailwindForms from '@tailwindcss/forms';
 import tailwindTypography from '@tailwindcss/typography';
+import { join } from 'node:path';
 import tailwindAnimate from 'tailwindcss-animate';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
@@ -8,7 +10,10 @@ const { fontFamily } = defaultTheme;
 
 export default {
   darkMode: ['class'],
-  content: ['./app/**/*.{ts,tsx}'],
+  content: [
+    join(__dirname, './app/**/*.{ts,tsx}'),
+    ...createGlobPatternsForDependencies(__dirname),
+  ],
   theme: {
     container: {
       center: true,

@@ -24,7 +24,7 @@ export const EnvSchema = Type.Object({
 });
 
 export const env = (() => {
-  const schemaConverted = Value.Convert(EnvSchema, process.env);
+  const schemaConverted = Value.Cast(EnvSchema, process.env);
   const check = Value.Check(EnvSchema, schemaConverted);
   if (check) return schemaConverted;
 

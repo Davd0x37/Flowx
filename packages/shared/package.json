@@ -1,36 +1,63 @@
 {
   "name": "@flowx/shared",
   "private": true,
-  "version": "0.0.4",
   "type": "module",
   "exports": {
-    "./builders/*": "./src/builders/*.ts",
-    "./types/*": "./src/types/*.ts",
-    "./utils/array": "./src/utils/array/index.ts",
-    "./utils/async": "./src/utils/async/index.ts",
-    "./utils/data": "./src/utils/data/index.ts",
-    "./utils/encoding": "./src/utils/encoding/index.ts",
-    "./utils/error": "./src/utils/error/index.ts",
-    "./utils/guard": "./src/utils/guard/index.ts",
-    "./utils/network": "./src/utils/network/index.ts",
-    "./utils/network/*": "./src/utils/network/*.ts",
-    "./utils/object": "./src/utils/object/index.ts",
-    "./utils/string": "./src/utils/string/index.ts",
-    "./utils/time": "./src/utils/time/index.ts"
-  },
-  "scripts": {
-    "test": "nx vite:test",
-    "lint": "nx eslint:lint"
-  },
-  "devDependencies": {
-    "@vitest/coverage-v8": "^2.0.5",
-    "@vitest/ui": "^2.0.5",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.1",
-    "vitest": "^2.0.5"
-  },
-  "dependencies": {
-    "@sinclair/typebox": "^0.33.7",
-    "mongoose": "^8.5.3"
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    },
+    "./builders/*": {
+      "import": "./src/builders/*.ts",
+      "types": "./src/builders/*.ts"
+    },
+    "./types/*": {
+      "import": "./src/types/*.ts",
+      "types": "./src/types/*.ts"
+    },
+    "./utils/array": {
+      "import": "./src/utils/array/index.ts",
+      "types": "./src/utils/array/index.ts"
+    },
+    "./utils/async": {
+      "import": "./src/utils/async/index.ts",
+      "types": "./src/utils/async/index.ts"
+    },
+    "./utils/data": {
+      "import": "./src/utils/data/index.ts",
+      "types": "./src/utils/data/index.ts"
+    },
+    "./utils/encoding": {
+      "import": "./src/utils/encoding/index.ts",
+      "types": "./src/utils/encoding/index.ts"
+    },
+    "./utils/error": {
+      "import": "./src/utils/error/index.ts",
+      "types": "./src/utils/error/index.ts"
+    },
+    "./utils/guard": {
+      "import": "./src/utils/guard/index.ts",
+      "types": "./src/utils/guard/index.ts"
+    },
+    "./utils/network": {
+      "import": "./src/utils/network/index.ts",
+      "types": "./src/utils/network/index.ts"
+    },
+    "./utils/network/*": {
+      "import": "./src/utils/network/*.ts",
+      "types": "./src/utils/network/*.ts"
+    },
+    "./utils/object": {
+      "import": "./src/utils/object/index.ts",
+      "types": "./src/utils/object/index.ts"
+    },
+    "./utils/string": {
+      "import": "./src/utils/string/index.ts",
+      "types": "./src/utils/string/index.ts"
+    },
+    "./utils/time": {
+      "import": "./src/utils/time/index.ts",
+      "types": "./src/utils/time/index.ts"
+    }
   }
 }

@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 import tailwind from 'tailwindcss';
 import tailwindConfig from './tailwind.config';
-// import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 // import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
 import react from '@vitejs/plugin-react-swc';
 import autoprefixer from 'autoprefixer';
@@ -13,23 +13,16 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: __dirname,
-  build: {
-    outDir: './dist',
-    reportCompressedSize: true,
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    },
-  },
 
-  cacheDir: '../../node_modules/.vite/packages/web',
+  cacheDir: '../../node_modules/.vite/apps/web',
 
   server: {
-    port: 3030,
+    port: 4200,
     host: 'localhost',
   },
 
   preview: {
-    port: 3333,
+    port: 4300,
     host: 'localhost',
   },
 
@@ -47,15 +40,28 @@ export default defineConfig({
     // Iconify loader
     Icons({ compiler: 'jsx', jsx: 'react' }),
 
-    // nxViteTsPaths(),
+    nxViteTsPaths(),
   ],
 
+  build: {
+    outDir: '../../dist/apps/web',
+    emptyOutDir: true,
+    reportCompressedSize: true,
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+  },
+
   test: {
+    watch: false,
+    globals: true,
     environment: 'jsdom',
+    include: ['app/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    reporters: ['default'],
     coverage: {
+      reportsDirectory: '../../coverage/apps/web',
       provider: 'v8',
     },
-    globals: true,
     setupFiles: './app/tests/setupTests.ts',
   },
 

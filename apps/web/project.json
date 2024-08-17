@@ -9,9 +9,27 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "{projectRoot}",
-        "commands": ["tsc -p tsconfig.json --noEmit"],
+        "commands": ["tsc -p tsconfig.app.json --noEmit"],
         "forwardAllArgs": false,
         "description": "Type check with tsc"
+      }
+    },
+    "ui-add": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "commands": ["pnpx shadcn-ui@latest add"],
+        "forwardAllArgs": false,
+        "description": "Add a new UI component"
+      }
+    },
+    "ui-diff": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "commands": ["pnpx shadcn-ui@latest diff"],
+        "forwardAllArgs": false,
+        "description": "Diff a UI component"
       }
     }
   }

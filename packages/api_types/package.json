@@ -1,21 +1,23 @@
 {
   "name": "@flowx/api_types",
   "private": true,
-  "version": "0.0.4",
   "type": "module",
   "exports": {
-    "./generics": "./src/generics.ts",
-    "./models/*": "./src/models/*.ts",
-    "./routes/*": "./src/routes/*/index.ts"
-  },
-  "scripts": {
-    "lint": "nx eslint:lint"
-  },
-  "devDependencies": {
-    "typescript": "^5.5.4"
-  },
-  "dependencies": {
-    "@sinclair/typebox": "^0.33.7",
-    "mongoose": "^8.5.3"
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    },
+    "./generics": {
+      "import": "./src/generics.ts",
+      "types": "./src/generics.ts"
+    },
+    "./models/*": {
+      "import": "./src/models/*.ts",
+      "types": "./src/models/*.ts"
+    },
+    "./routes/*": {
+      "import": "./src/routes/*/index.ts",
+      "types": "./src/routes/*/index.ts"
+    }
   }
 }

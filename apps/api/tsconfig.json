@@ -1,14 +1,14 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    // Paths
-    "baseUrl": ".",
     "paths": {
-      "app/*": ["./app/*"]
+      "app/*": ["./app/*"],
+      "@flowx/api_types/*": ["../../packages/api_types/src/*"],
+      "@flowx/shared/*": ["../../packages/shared/src/*"]
     }
   },
-
   "files": [],
-
+  "include": [],
   "references": [
     {
       "path": "./tsconfig.app.json"
