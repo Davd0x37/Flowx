@@ -10,7 +10,6 @@
     ],
     "sharedGlobals": []
   },
-
   "plugins": [
     {
       "plugin": "@nx/eslint/plugin",
@@ -30,7 +29,6 @@
       }
     }
   ],
-
   "generators": {
     "@nx/react": {
       "application": {
@@ -49,7 +47,6 @@
       }
     }
   },
-
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx/tasks-runners/default",
@@ -59,7 +56,6 @@
       }
     }
   },
-
   "targetDefaults": {
     "@nx/vite:build": {
       "cache": true,
@@ -71,12 +67,6 @@
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     },
-    // "build": {
-    //   "dependsOn": ["^build"],
-    //   "inputs": ["production", "^production"],
-    //   "outputs": ["{projectRoot}/apps/api/dist"],
-    //   "cache": true
-    // },
     "lint": {
       "inputs": ["default", "{workspaceRoot}/eslint.config.js"],
       "cache": true

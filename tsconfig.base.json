@@ -5,7 +5,7 @@
     "module": "ES2022",
     "lib": ["ES2022"],
     "baseUrl": ".",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "declaration": true,
     "useDefineForClassFields": true,
     "noEmit": true,
@@ -14,7 +14,7 @@
     "esModuleInterop": false,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": false,
     "moduleDetection": "auto",
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
@@ -25,12 +25,6 @@
     "skipLibCheck": true,
     "noUncheckedIndexedAccess": true,
     "maxNodeModuleJsDepth": 5,
-    "paths": {
-      "@flowx/api_types": ["packages/api_types/src/index.ts"],
-      "@flowx/api_types/*": ["packages/api_types/src/*"],
-      "@flowx/shared": ["packages/shared/src/index.ts"],
-      "@flowx/shared/*": ["packages/shared/src/*"]
-    }
   },
   "exclude": ["node_modules"]
 }

@@ -6,9 +6,7 @@
     "paths": {
       "@/*": ["app/*"],
       "@features/*": ["app/features/*"],
-      "@ui/*": ["app/components/ui/*"],
-      "@flowx/api_types/*": ["../../packages/api_types/src/*"],
-      "@flowx/shared/*": ["../../packages/shared/src/*"]
+      "@ui/*": ["app/components/ui/*"]
     },
     "types": [
       "node",

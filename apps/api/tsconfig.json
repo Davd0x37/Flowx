@@ -2,9 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "paths": {
-      "app/*": ["./app/*"],
-      "@flowx/api_types/*": ["../../packages/api_types/src/*"],
-      "@flowx/shared/*": ["../../packages/shared/src/*"]
+      "app/*": ["./app/*"]
     }
   },
   "files": [],
