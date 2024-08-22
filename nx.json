@@ -10,6 +10,9 @@
     ],
     "sharedGlobals": []
   },
+  "cli": {
+    "packageManager": "pnpm"
+  },
   "plugins": [
     {
       "plugin": "@nx/eslint/plugin",
