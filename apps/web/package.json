@@ -5,9 +5,6 @@
   "type": "module",
   "proxy": "http://0.0.0.0:3000",
   "scripts": {
-    "build": "nx vite:build",
-    "dev": "nx vite:serve",
-    "test": "nx vite:test",
     "ui:add": "pnpx shadcn-ui@latest add",
     "ui:diff": "pnpx shadcn-ui@latest diff"
   },
