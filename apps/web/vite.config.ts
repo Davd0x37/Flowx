@@ -1,6 +1,7 @@
 /// <reference types="vitest" />
 import tailwind from 'tailwindcss';
 import tailwindConfig from './tailwind.config';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 // import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
 import react from '@vitejs/plugin-react-swc';
 import autoprefixer from 'autoprefixer';
@@ -9,11 +10,9 @@ import postcssNested from 'postcss-nested';
 import postcssPresetEnv from 'postcss-preset-env';
 import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
-// import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-  root: __dirname,
+  root: import.meta.dirname,
 
   cacheDir: '../../node_modules/.vite/apps/web',
 
@@ -41,7 +40,7 @@ export default defineConfig({
     // Iconify loader
     Icons({ compiler: 'jsx', jsx: 'react' }),
 
-    tsconfigPaths(),
+    nxViteTsPaths(),
   ],
 
   build: {
@@ -87,13 +86,13 @@ export default defineConfig({
   resolve: {
     alias: {
       // Main directory alias
-      '@': resolve(__dirname, './app'),
+      '@': resolve(import.meta.dirname, './app'),
 
       // Features alias
-      '@features': resolve(__dirname, './app/features'),
+      '@features': resolve(import.meta.dirname, './app/features'),
 
       // UI alias
-      '@ui': resolve(__dirname, './app/components/ui'),
+      '@ui': resolve(import.meta.dirname, './app/components/ui'),
     },
   },
 });

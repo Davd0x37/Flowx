@@ -3,15 +3,19 @@
   "defaultBase": "main",
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "sharedGlobals": ["{workspaceRoot}/nx.json"],
     "production": [
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/tsconfig.spec.json"
-    ],
-    "sharedGlobals": []
+    ]
   },
   "cli": {
     "packageManager": "pnpm"
+  },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "packages"
   },
   "plugins": [
     {
@@ -24,11 +28,11 @@
     {
       "plugin": "@nx/vite/plugin",
       "options": {
-        "buildTargetName": "build",
-        "testTargetName": "test",
-        "serveTargetName": "serve",
-        "previewTargetName": "preview",
-        "serveStaticTargetName": "serve-static"
+        "buildTargetName": "vite:build",
+        "testTargetName": "vite:test",
+        "serveTargetName": "vite:serve",
+        "previewTargetName": "vite:preview",
+        "serveStaticTargetName": "vite:serve-static"
       }
     }
   ],

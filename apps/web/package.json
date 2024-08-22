@@ -5,6 +5,9 @@
   "type": "module",
   "proxy": "http://0.0.0.0:3000",
   "scripts": {
+    "build": "nx vite:build",
+    "dev": "nx vite:serve",
+    "test": "nx vite:test",
     "ui:add": "pnpx shadcn-ui@latest add",
     "ui:diff": "pnpx shadcn-ui@latest diff"
   },
@@ -53,7 +56,6 @@
     "react-router-dom": "6.26.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "vite-tsconfig-paths": "^5.0.1",
     "zustand": "^4.5.5"
   },
   "devDependencies": {
