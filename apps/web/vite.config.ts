@@ -1,7 +1,6 @@
 /// <reference types="vitest" />
 import tailwind from 'tailwindcss';
 import tailwindConfig from './tailwind.config';
-// import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 // import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
 import react from '@vitejs/plugin-react-swc';
 import autoprefixer from 'autoprefixer';
@@ -10,6 +9,8 @@ import postcssNested from 'postcss-nested';
 import postcssPresetEnv from 'postcss-preset-env';
 import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
+// import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
   root: __dirname,
@@ -40,7 +41,7 @@ export default defineConfig({
     // Iconify loader
     Icons({ compiler: 'jsx', jsx: 'react' }),
 
-    // nxViteTsPaths({}),
+    tsconfigPaths(),
   ],
 
   build: {
