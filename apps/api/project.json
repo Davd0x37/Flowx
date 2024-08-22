@@ -8,11 +8,31 @@
     "build": {
       "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/api",
+        "platform": "node",
+        "outputPath": "{projectRoot}/dist",
+        "format": ["esm"],
         "main": "{projectRoot}/app/index.ts",
         "tsConfig": "{projectRoot}/tsconfig.app.json",
-        "declaration": false
+        "declaration": false,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
       }
     },
     "type-check": {
@@ -33,15 +53,25 @@
         "description": "Dev mode with tsx"
       }
     },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build -f Dockerfile . -t api"
+    },
     "serve": {
-      "executor": "nx:run-commands",
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
       "dependsOn": ["build"],
       "options": {
-        "cwd": "{projectRoot}",
-        "commands": ["node ../../dist/apps/api/index.js"],
-        "forwardAllArgs": false,
-        "envFile": "{projectRoot}/.watch.env",
-        "description": "Serve with node"
+        "buildTarget": "@flowx/api:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "@flowx/api:build:development"
+        },
+        "production": {
+          "buildTarget": "@flowx/api:build:production"
+        }
       }
     }
   }
