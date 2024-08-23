@@ -39,7 +39,7 @@
     "fastify-plugin": "^4.5.1",
     "lucia": "^3.2.0",
     "mongodb": "^6.8.0",
-    "mongoose": "^8.5.3",
+    "mongoose": "^8.5.4",
     "oslo": "^1.2.1",
     "pino": "^9.3.2",
     "vite-node": "^2.0.5",
