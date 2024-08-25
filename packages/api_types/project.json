@@ -9,7 +9,7 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/api_types",
+        "outputPath": "{projectRoot}/dist",
         "main": "packages/api_types/src/index.ts",
         "tsConfig": "packages/api_types/tsconfig.lib.json"
       }

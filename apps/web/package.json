@@ -48,7 +48,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-error-boundary": "^4.0.12",
-    "react-hook-form": "^7.52.2",
+    "react-hook-form": "^7.53.0",
     "react-i18next": "^15.0.1",
     "react-router-dom": "6.26.1",
     "tailwind-merge": "^2.5.2",
@@ -56,7 +56,7 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.240",
+    "@iconify/json": "^2.2.241",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "@tailwindcss/forms": "^0.5.7",
