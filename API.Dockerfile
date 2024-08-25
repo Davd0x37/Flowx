@@ -11,7 +11,7 @@ RUN addgroup --system app && adduser --system -G app app
 COPY . .
 RUN chown -R app:app .
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-RUN pnpm build:app
+RUN pnpm build:api
 RUN pnpm prune --prod
 
 # Create new build step and mark it as the release stage
