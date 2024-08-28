@@ -1,0 +1,54 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "wasm-crypto",
+  "sourceRoot": "packages/wasm-crypto/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@monodon/rust:wasm-pack",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "{projectRoot}/dist",
+        "release": false,
+        "target": "bundler"
+      },
+      "configurations": {
+        "production": {
+          "release": true
+        }
+      }
+    },
+    "test": {
+      "executor": "@monodon/rust:test",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "{projectRoot}/dist"
+      },
+      "configurations": {
+        "production": {
+          "release": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@monodon/rust:lint",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "{projectRoot}/dist"
+      }
+    },
+    "run": {
+      "executor": "@monodon/rust:run",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "{projectRoot}/dist"
+      },
+      "configurations": {
+        "production": {
+          "release": true
+        }
+      }
+    }
+  }
+}
