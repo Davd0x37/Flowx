@@ -70,6 +70,6 @@
   },
   "dependencies": {
     "@sinclair/typebox": "^0.33.0",
-    "mongoose": "^8.5.4"
+    "mongoose": "^8.5.5"
   }
 }
