@@ -48,7 +48,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "{projectRoot}",
-        "commands": ["tsx watch --tsconfig tsconfig.app.json ./app/index.ts"],
+        "commands": ["tsx watch --tsconfig tsconfig.app.json --env-file .serve.env ./app/index.ts"],
         "forwardAllArgs": false,
         "description": "Dev mode with tsx"
       }

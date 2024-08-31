@@ -4,7 +4,6 @@ import mongoose from 'mongoose';
 import { isDev } from 'app/common/config';
 
 const adapter = new MongodbAdapter(
-  // @ts-expect-error @FIXME: fix typings
   mongoose.connection.collection('sessions'),
   mongoose.connection.collection('users'),
 );
