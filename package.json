@@ -15,7 +15,7 @@
     "lint": "nx run-many -t lint --parallel",
     "type-check": "nx run-many -t type-check --parallel",
     "format": "prettier --write \"{apps,packages}/**/*.{ts,tsx,html,css,scss,json,md}\"",
-    "docker:up": "pnpm exec docker-compose --env-file .env up",
+    "docker:web:up": "pnpm exec docker-compose -f web.docker-compose.yaml --env-file .start.env up",
     "pre-commit": "lint-staged",
     "prepare": "husky"
   },

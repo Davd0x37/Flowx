@@ -18,4 +18,4 @@ RUN pnpm prune --prod
 FROM build AS release
 
 WORKDIR /app
-COPY --from=build /app_build/dist/apps/web .
+COPY --from=build /app_build/apps/web/dist .

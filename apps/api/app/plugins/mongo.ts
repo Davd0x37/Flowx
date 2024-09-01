@@ -13,6 +13,7 @@ export default fastifyPlugin(
     const {
       config: { MONGO_URI_RAW },
     } = fastify;
+
     try {
       const mongo = await connect(MONGO_URI_RAW || MONGO_URI);
 
