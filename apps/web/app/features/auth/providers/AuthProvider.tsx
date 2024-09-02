@@ -42,7 +42,10 @@ export function AuthProvider({
     const userName = `${data.firstName || ''} ${data.lastName || ''}`;
 
     changeName(userName);
-    changeStatus('active');
+
+    if (data.status) {
+      changeStatus(data.status);
+    }
   };
 
   // @TODO: move login mutation here or keep it in login page?

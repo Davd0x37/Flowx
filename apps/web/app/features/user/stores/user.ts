@@ -1,38 +1,38 @@
 import { create } from 'zustand';
-
-export const UserStatus = {
-  active: 'active',
-  idle: 'idle',
-  doNotDisturb: 'doNotDisturb',
-  offline: 'offline',
-} as const;
-
-export type TUserStatus = keyof typeof UserStatus;
+import { persist } from 'zustand/middleware';
+import { UserStatus } from '@flowx/api_types/models/user';
 
 export type UserStore = {
   name: string;
   avatar: string;
-  status: TUserStatus;
+  status: UserStatus;
 
   changeName: (name: UserStore['name']) => void;
   changeAvatar: (avatar: UserStore['avatar']) => void;
-  changeStatus: (status: TUserStatus) => void;
+  changeStatus: (status: UserStatus) => void;
 };
 
-const useUserStore = create<UserStore>((set) => ({
-  name: '',
-  avatar: '',
-  status: UserStatus.offline,
+const useUserStore = create(
+  persist<UserStore>(
+    (set) => ({
+      name: '',
+      avatar: '',
+      status: 'offline',
 
-  changeName: (name: UserStore['name']) => {
-    set(() => ({ name }));
-  },
-  changeAvatar: (avatar: UserStore['avatar']) => {
-    set(() => ({ avatar }));
-  },
-  changeStatus: (status: TUserStatus) => {
-    set(() => ({ status }));
-  },
-}));
+      changeName: (name: UserStore['name']) => {
+        set(() => ({ name }));
+      },
+      changeAvatar: (avatar: UserStore['avatar']) => {
+        set(() => ({ avatar }));
+      },
+      changeStatus: (status: UserStatus) => {
+        set(() => ({ status }));
+      },
+    }),
+    {
+      name: 'user-storage',
+    },
+  ),
+);
 
 export default useUserStore;

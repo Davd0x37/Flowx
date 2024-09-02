@@ -48,7 +48,7 @@ export default fastifyPlugin(
     // Configure CORS - @FIXME: use dynamic origin
     const corsSettings: FastifyCorsOptions = {
       origin: true,
-      methods: ['*'],
+      methods: ['PUT', 'GET', 'POST', 'DELETE'],
       credentials: true,
     };
     await register(Cors, corsSettings);

@@ -1,10 +1,10 @@
 import { HTMLAttributes, forwardRef } from 'react';
-import { TUserStatus } from '@/features/user/stores/user';
 import { cn } from '@/utils/classNames';
 import { cva } from 'class-variance-authority';
+import { UserStatus } from '@flowx/api_types/models/user';
 
 type IndicatorProps = {
-  status: { [key in TUserStatus]: string };
+  status: { [key in UserStatus]: string };
 };
 
 const indicatorClass = cva<IndicatorProps>(
@@ -25,7 +25,7 @@ const indicatorClass = cva<IndicatorProps>(
 );
 
 type Props = HTMLAttributes<HTMLDivElement> & {
-  status: TUserStatus;
+  status: UserStatus;
   withoutPosition?: boolean;
 };
 

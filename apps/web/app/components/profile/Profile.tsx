@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Logout } from '@/assets/icons';
 import { Avatar, StatusIndicator } from '@/components/avatar';
 import { useAuth } from '@/features/auth/hooks/useAuth';
-import useUserStore from '@/features/user/stores/user';
+import { useUserStatusMutation, useUserStore } from '@/features/user';
 import { cn } from '@/utils/classNames';
 import { Button } from '@ui/button';
 import {
@@ -24,18 +24,30 @@ const Profile = ({ className }: PropsWithChildren<ProfileProps>) => {
   const { name, avatar, status, changeStatus } = useUserStore();
   const { data: nameAcronym = '' } = getAcronyms(name);
 
+  const userStatusMutation = useUserStatusMutation(({ status }) => {
+    changeStatus(status);
+  });
+
   const statusActions = {
     active: () => {
-      changeStatus('active');
+      userStatusMutation.mutate({
+        status: 'active',
+      });
     },
     idle: () => {
-      changeStatus('idle');
+      userStatusMutation.mutate({
+        status: 'idle',
+      });
     },
     doNotDisturb: () => {
-      changeStatus('doNotDisturb');
+      userStatusMutation.mutate({
+        status: 'doNotDisturb',
+      });
     },
     offline: () => {
-      changeStatus('offline');
+      userStatusMutation.mutate({
+        status: 'offline',
+      });
     },
   };
 
