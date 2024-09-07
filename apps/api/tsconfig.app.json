@@ -4,7 +4,8 @@
     "baseUrl": ".",
     "outDir": "../../dist/apps/api",
     "paths": {
-      "app/*": ["./app/*"]
+      "app/*": ["app/*"],
+      "~/*": ["app/*"],
     }
   },
   "exclude": [

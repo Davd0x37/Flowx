@@ -1,9 +1,9 @@
 import { SidebarGroup, SidebarLink, SidebarLinkContent } from './index';
 import { HTMLAttributes, forwardRef, useId } from 'react';
 import { useTranslation } from 'react-i18next';
-import { isDev } from '@/config/constants';
-import { FeatureRoute } from '@/types/route';
-import { cn } from '@/utils/classNames';
+import { isDev } from '~/config/constants';
+import { FeatureRoute } from '~/types/route';
+import { cn } from '~/utils/classNames';
 
 type SidebarProps = HTMLAttributes<HTMLDivElement> & {
   routes: FeatureRoute[];

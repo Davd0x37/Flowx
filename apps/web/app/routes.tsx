@@ -1,12 +1,12 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import { NotFound } from '@/components/errors';
-import { MainLayout } from '@/components/layouts';
-import { AuthRoute, ProtectedRoute } from '@/features/auth';
-import { AutomationsRoute } from '@/features/automations';
-import { DashboardRoute } from '@/features/dashboard';
-import { IntegrationsRoute } from '@/features/integrations';
-import { ServicesRoute } from '@/features/services';
-import { UserRoute } from '@/features/user';
+import { NotFound } from '~/components/errors';
+import { MainLayout } from '~/components/layouts';
+import { AuthRoute, ProtectedRoute } from '~/features/auth';
+import { AutomationsRoute } from '~/features/automations';
+import { DashboardRoute } from '~/features/dashboard';
+import { IntegrationsRoute } from '~/features/integrations';
+import { ServicesRoute } from '~/features/services';
+import { UserRoute } from '~/features/user';
 
 export const routes = createRoutesFromElements(
   <>

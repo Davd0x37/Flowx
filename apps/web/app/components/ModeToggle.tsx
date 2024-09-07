@@ -1,12 +1,12 @@
-import { useTheme } from '@/hooks/useTheme';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
-import { Button } from '@ui/button';
+import { useTheme } from '~/hooks/useTheme';
+import { Button } from '~ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@ui/dropdown-menu';
+} from '~ui/dropdown-menu';
 
 export function ModeToggle() {
   const { setTheme } = useTheme();

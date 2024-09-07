@@ -1,4 +1,4 @@
-import type { FeatureRouteProps } from '@/types/route';
+import type { FeatureRouteProps } from '~/types/route';
 
 /**
  * Retrieves the routes that have the "showInSidebar" property set to true

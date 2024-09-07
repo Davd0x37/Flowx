@@ -1,6 +1,6 @@
 import { LoginFormSchemaType, SignupFormSchemaType } from '../models/userForm';
-import { getApiEndpoint } from '@/config/api';
 import { useMutation } from '@tanstack/react-query';
+import { getApiEndpoint } from '~/config/api';
 import {
   CheckSessionErrorResponse,
   CheckSessionSuccessResponse,

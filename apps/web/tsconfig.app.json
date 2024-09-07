@@ -4,9 +4,9 @@
     "outDir": "../../dist/apps/web",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["app/*"],
-      "@features/*": ["app/features/*"],
-      "@ui/*": ["app/components/ui/*"]
+      "~/*": ["app/*"],
+      "~features/*": ["app/features/*"],
+      "~ui/*": ["app/components/ui/*"]
     },
     "types": [
       "node",

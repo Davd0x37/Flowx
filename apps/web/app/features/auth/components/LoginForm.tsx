@@ -3,7 +3,7 @@ import { PropsWithoutRef } from 'react';
 import { UseFormReturn, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { typeboxResolver } from '@hookform/resolvers/typebox';
-import { Button } from '@ui/button';
+import { Button } from '~ui/button';
 import {
   Form,
   FormControl,
@@ -12,8 +12,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@ui/form';
-import { Input } from '@ui/input';
+} from '~ui/form';
+import { Input } from '~ui/input';
 
 type Props = {
   onSubmit: (

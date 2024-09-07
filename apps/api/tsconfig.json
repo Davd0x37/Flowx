@@ -2,7 +2,8 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "paths": {
-      "app/*": ["./app/*"]
+      "app/*": ["app/*"],
+      "~/*": ["app/*"],
     }
   },
   "files": [],

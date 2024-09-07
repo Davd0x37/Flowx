@@ -1,5 +1,5 @@
-import { Auth, Box, Home, Integration, Schema, Settings, User, UserDetails } from '@/assets/icons';
-import { FeatureRoute } from '@/types/route';
+import { Auth, Box, Home, Integration, Schema, Settings, User, UserDetails } from '~/assets/icons';
+import { FeatureRoute } from '~/types/route';
 
 export const FEATURE_ROUTES: FeatureRoute[] = [
   {

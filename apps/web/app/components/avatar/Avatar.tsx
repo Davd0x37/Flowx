@@ -1,7 +1,7 @@
 import { HTMLAttributes, PropsWithChildren, forwardRef } from 'react';
-import type { UserStore } from '@/features/user/stores/user';
-import { cn } from '@/utils/classNames';
-import { AvatarFallback, AvatarImage, Avatar as AvatarUI } from '@ui/avatar';
+import type { UserStore } from '~/features/user/stores/user';
+import { cn } from '~/utils/classNames';
+import { AvatarFallback, AvatarImage, Avatar as AvatarUI } from '~ui/avatar';
 
 type AvatarProps = HTMLAttributes<HTMLDivElement> & {
   nameAcronym: string;

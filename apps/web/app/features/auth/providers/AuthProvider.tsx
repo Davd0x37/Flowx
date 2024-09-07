@@ -1,7 +1,7 @@
 import { useAuthCheckSession, useAuthLogoutMutation } from '../hooks/useAuthMutation';
 import { PropsWithChildren, createContext, useEffect, useMemo, useState } from 'react';
-import useUserStore from '@/features/user/stores/user';
-import useStorage from '@/hooks/useStorage';
+import useUserStore from '~/features/user/stores/user';
+import useStorage from '~/hooks/useStorage';
 import { UserType } from '@flowx/api_types/models/user';
 
 type AuthProviderProps = {

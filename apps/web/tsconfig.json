@@ -5,9 +5,9 @@
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["app/*"],
-      "@features/*": ["app/features/*"],
-      "@ui/*": ["app/components/ui/*"]
+      "~/*": ["app/*"],
+      "~features/*": ["app/features/*"],
+      "~ui/*": ["app/components/ui/*"]
     },
     "types": ["vite/client", "vitest"]
   },

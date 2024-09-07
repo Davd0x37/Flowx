@@ -1,7 +1,7 @@
 import { type HTMLAttributes, type ReactNode, forwardRef } from 'react';
-import { cn } from '@/utils/classNames';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@ui/accordion';
-import { buttonVariants } from '@ui/button';
+import { cn } from '~/utils/classNames';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '~ui/accordion';
+import { buttonVariants } from '~ui/button';
 
 type SidebarGroupProps = HTMLAttributes<HTMLButtonElement> & {
   GroupTrigger: ReactNode;

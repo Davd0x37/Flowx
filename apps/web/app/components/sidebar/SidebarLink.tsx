@@ -1,8 +1,8 @@
 import { HTMLAttributes, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FeatureRoute } from '@/types/route';
-import { cn } from '@/utils/classNames';
-import { buttonVariants } from '@ui/button';
+import { FeatureRoute } from '~/types/route';
+import { cn } from '~/utils/classNames';
+import { buttonVariants } from '~ui/button';
 
 type SidebarLinkProps = FeatureRoute & {
   iconSize?: string;

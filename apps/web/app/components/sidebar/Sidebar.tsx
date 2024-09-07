@@ -1,9 +1,9 @@
 import { SidebarLinkGroup } from './index';
 import { type HTMLAttributes } from 'react';
-import { Profile } from '@/components/profile';
-import { SearchBar } from '@/components/search';
-import { FEATURE_ROUTES } from '@/config/routes';
-import { cn } from '@/utils/classNames';
+import { Profile } from '~/components/profile';
+import { SearchBar } from '~/components/search';
+import { FEATURE_ROUTES } from '~/config/routes';
+import { cn } from '~/utils/classNames';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   openSidebar?: boolean;

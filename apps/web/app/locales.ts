@@ -1,9 +1,9 @@
-import { AuthLocales } from '@/features/auth';
-import { AutomationsLocales } from '@/features/automations';
-import { DashboardLocales } from '@/features/dashboard';
-import { IntegrationsLocales } from '@/features/integrations';
-import { ServicesLocales } from '@/features/services';
-import { UserLocales } from '@/features/user';
+import { AuthLocales } from '~/features/auth';
+import { AutomationsLocales } from '~/features/automations';
+import { DashboardLocales } from '~/features/dashboard';
+import { IntegrationsLocales } from '~/features/integrations';
+import { ServicesLocales } from '~/features/services';
+import { UserLocales } from '~/features/user';
 
 export default {
   en: {

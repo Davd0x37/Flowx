@@ -1,6 +1,6 @@
 import { HTMLAttributes, forwardRef } from 'react';
-import { cn } from '@/utils/classNames';
 import { cva } from 'class-variance-authority';
+import { cn } from '~/utils/classNames';
 import { UserStatus } from '@flowx/api_types/models/user';
 
 type IndicatorProps = {

@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, Outlet } from 'react-router-dom';
-import { cn } from '@/utils/classNames';
-import { Separator } from '@ui/separator';
+import { cn } from '~/utils/classNames';
+import { Separator } from '~ui/separator';
 
 type NavigationLinkProps = PropsWithChildren<{
   to: string;

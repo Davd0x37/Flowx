@@ -1,11 +1,11 @@
 import { HTMLAttributes, PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Logout } from '@/assets/icons';
-import { Avatar, StatusIndicator } from '@/components/avatar';
-import { useAuth } from '@/features/auth/hooks/useAuth';
-import { useUserStatusMutation, useUserStore } from '@/features/user';
-import { cn } from '@/utils/classNames';
-import { Button } from '@ui/button';
+import { Logout } from '~/assets/icons';
+import { Avatar, StatusIndicator } from '~/components/avatar';
+import { useAuth } from '~/features/auth/hooks/useAuth';
+import { useUserStatusMutation, useUserStore } from '~/features/user';
+import { cn } from '~/utils/classNames';
+import { Button } from '~ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,7 +13,7 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
-} from '@ui/dropdown-menu';
+} from '~ui/dropdown-menu';
 import { getAcronyms } from '@flowx/shared/utils/string';
 
 type ProfileProps = HTMLAttributes<HTMLDivElement>;

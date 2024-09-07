@@ -1,7 +1,7 @@
 import type { FallbackProps } from 'react-error-boundary';
-import { AlertTriangle, Reload } from '@/assets/icons';
-import { Alert, AlertDescription, AlertTitle } from '@ui/alert';
-import { Button } from '@ui/button';
+import { AlertTriangle, Reload } from '~/assets/icons';
+import { Alert, AlertDescription, AlertTitle } from '~ui/alert';
+import { Button } from '~ui/button';
 
 interface ErrorPageProps extends FallbackProps {
   error: {
