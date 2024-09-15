@@ -6,10 +6,10 @@
  * @returns {boolean} A boolean value indicating whether the previous date is expired (true) or not (false)
  */
 export const isExpired = (previousDate: Date, expiresIn: number): boolean => {
-  const now: Date = new Date();
-  const prev: Date = previousDate;
+  const now: Date = new Date()
+  const prev: Date = previousDate
 
-  prev.setSeconds(prev.getSeconds() + expiresIn);
+  prev.setSeconds(prev.getSeconds() + expiresIn)
 
-  return prev.getTime() - now.getTime() <= 0;
-};
+  return prev.getTime() - now.getTime() <= 0
+}

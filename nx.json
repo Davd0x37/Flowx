@@ -19,17 +19,6 @@
   },
   "plugins": [
     {
-      "plugin": "@monodon/rust",
-      "options": {}
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint",
-        "extensions": ["ts", "tsx", "html", "vue"]
-      }
-    },
-    {
       "plugin": "@nx/vite/plugin",
       "options": {
         "buildTargetName": "build",
@@ -84,7 +73,7 @@
       "inputs": ["production", "^production"]
     },
     "lint": {
-      "inputs": ["default", "{workspaceRoot}/eslint.config.js"],
+      "inputs": ["default"],
       "cache": true
     },
     "test": {

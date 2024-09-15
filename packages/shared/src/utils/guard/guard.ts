@@ -1,4 +1,4 @@
-import { AppError } from '../error/errorUtils';
+import { AppError } from '../error/errorUtils'
 
 /**
  * Checks if global container provides required functionality
@@ -7,8 +7,8 @@ import { AppError } from '../error/errorUtils';
  * @param container global container name e.g. window, self, globalThis, global
  */
 export const isSupported = <T extends object>(fun: string, container: T): boolean => {
-  return fun in container;
-};
+  return fun in container
+}
 
 /**
  *
@@ -20,7 +20,7 @@ export const isSupported = <T extends object>(fun: string, container: T): boolea
  * @return {NonNullable<T>} {asserts} Returns unwrapped value
  */
 function assert<T>(expr: T, error: AppError): asserts expr is NonNullable<T> {
-  if (!expr) throw error;
+  if (!expr) throw error
 }
 
 /**
@@ -30,7 +30,7 @@ function assert<T>(expr: T, error: AppError): asserts expr is NonNullable<T> {
  * @return NonNullable<typeof globalThis>
  */
 export const defaultGlobalExist = (): NonNullable<typeof globalThis> => {
-  const defaultGlobalRef = globalThis;
+  const defaultGlobalRef = globalThis
 
   assert(
     defaultGlobalRef,
@@ -39,10 +39,10 @@ export const defaultGlobalExist = (): NonNullable<typeof globalThis> => {
       name: 'GLOBAL_HANDLER_NOT_AVAILABLE',
       message: 'Requested "Global / Window" handler is not available in current runtime!',
     }),
-  );
+  )
 
-  return defaultGlobalRef;
-};
+  return defaultGlobalRef
+}
 
 /**
  * Returns global container (window, self, global etc.) if requested functionality is available
@@ -52,7 +52,7 @@ export const defaultGlobalExist = (): NonNullable<typeof globalThis> => {
  * @return globalThis
  */
 export const internalGuard = (fun: string): NonNullable<typeof globalThis> => {
-  const defaultGlobalRef = defaultGlobalExist();
+  const defaultGlobalRef = defaultGlobalExist()
 
   assert(
     isSupported(fun, defaultGlobalRef),
@@ -61,7 +61,7 @@ export const internalGuard = (fun: string): NonNullable<typeof globalThis> => {
       name: 'RUNTIME_FUNCTION_NOT_AVAILABLE',
       message: `Requested "${fun}" is not available in current runtime!`,
     }),
-  );
+  )
 
-  return defaultGlobalRef;
-};
+  return defaultGlobalRef
+}

@@ -1,6 +1,6 @@
-import { Static, Type } from '@sinclair/typebox';
+import { type Static, Type } from '@sinclair/typebox'
 
-export type SessionType = Static<typeof SessionType>;
+export type SessionType = Static<typeof SessionType>
 export const SessionType = Type.Object({
   // Record id - must be type string
   _id: Type.String(),
@@ -10,4 +10,4 @@ export const SessionType = Type.Object({
 
   // Expiration date
   expires_at: Type.Date(),
-});
+})

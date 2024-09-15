@@ -1,51 +1,51 @@
-import { APP_ERRORS } from './appErrorCodes';
+import type { APP_ERRORS } from './appErrorCodes'
 
 /**
  * TYPES
  */
 export interface ErrorParameters<T, ErrorType> {
-  name: T;
-  message: string;
-  data?: ErrorType;
-  statusCode?: number;
+  name: T
+  message: string
+  data?: ErrorType
+  statusCode?: number
 }
 
 export interface DebugParams {
-  name: APP_ERRORS;
-  message: string;
+  name: APP_ERRORS
+  message: string
 }
 
 /**
  * Implementation
  */
 export class BaseError<T extends string, ErrorType = unknown> extends Error {
-  public name: T;
-  public message: string;
-  public data?: ErrorType;
-  public statusCode?: number;
+  public name: T
+  public message: string
+  public data?: ErrorType
+  public statusCode?: number
 
   constructor({ name, message, data, statusCode }: ErrorParameters<T, ErrorType>) {
-    super(message);
+    super(message)
 
     /**
      * Error type
      */
-    this.name = name;
+    this.name = name
 
     /**
      * String message for error
      */
-    this.message = message;
+    this.message = message
 
     /**
      * Payload data containing error details
      */
-    this.data = data;
+    this.data = data
 
     /**
      * Optional status code for request
      */
-    this.statusCode = statusCode;
+    this.statusCode = statusCode
   }
 }
 

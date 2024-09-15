@@ -1,7 +1,7 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "@flowx/web",
-  "sourceRoot": "apps/web/app",
+  "sourceRoot": "apps/web/src",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -14,20 +14,29 @@
         "description": "Type check with tsc"
       }
     },
+
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "biome check {projectRoot}"
+      }
+    },
+
     "ui-add": {
       "executor": "nx:run-commands",
       "options": {
         "cwd": "{projectRoot}",
-        "commands": ["pnpx shadcn-ui@latest add"],
+        "commands": ["pnpx shadcn@latest add"],
         "forwardAllArgs": false,
         "description": "Add a new UI component"
       }
     },
+
     "ui-diff": {
       "executor": "nx:run-commands",
       "options": {
         "cwd": "{projectRoot}",
-        "commands": ["pnpx shadcn-ui@latest diff"],
+        "commands": ["pnpx shadcn@latest diff"],
         "forwardAllArgs": false,
         "description": "Diff a UI component"
       }

@@ -1,10 +1,11 @@
 // @TODO: handle nested data
 export const createFormData = (data: Record<string, string | Blob>): FormData => {
-  const formData = new FormData();
+  const formData = new FormData()
 
-  Object.entries(data).forEach(([key, val]) => {
-    formData.set(key, val);
-  });
+  for (const query of Object.entries(data)) {
+    const [key, val] = query
+    formData.set(key, val)
+  }
 
-  return formData;
-};
+  return formData
+}

@@ -1,22 +1,22 @@
-import { GenericApiError } from '../../generics';
-import { UserType } from '../../models/user';
-import { Static, Type } from '@sinclair/typebox';
+import { type Static, Type } from '@sinclair/typebox'
+import { GenericApiError } from '../../generics'
+import { UserType } from '../../models/user'
 
 /**
  * Get current user
  */
-export const getAccountDataServerEndpoint = '/me';
-export const getAccountDataClientEndpoint = () => `/me`;
+export const getAccountDataServerEndpoint = '/me'
+export const getAccountDataClientEndpoint = () => '/me'
 
 // Success response types
-export type GetAccountDataSuccessResponse = Static<typeof GetAccountDataSuccessResponse>;
+export type GetAccountDataSuccessResponse = Static<typeof GetAccountDataSuccessResponse>
 export const GetAccountDataSuccessResponse = Type.Object({
   /**
    * User data
    */
   data: UserType,
-});
+})
 
 // Error response type
-export type GetAccountDataErrorResponse = Static<typeof GetAccountDataErrorResponse>;
-export const GetAccountDataErrorResponse = GenericApiError(Type.Optional(Type.Never()));
+export type GetAccountDataErrorResponse = Static<typeof GetAccountDataErrorResponse>
+export const GetAccountDataErrorResponse = GenericApiError(Type.Optional(Type.Never()))

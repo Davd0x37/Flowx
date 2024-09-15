@@ -1,10 +1,10 @@
-import { AppError } from '../error/errorUtils';
+import { AppError } from '../error/errorUtils'
 
 export interface RequestClient {
   fetch: <ResultType, _ErrorType>(
     input: RequestInfo | URL,
     options?: RequestInit,
-  ) => Promise<ResultType>;
+  ) => Promise<ResultType>
 }
 
 export const Fetch: RequestClient = {
@@ -12,19 +12,19 @@ export const Fetch: RequestClient = {
     input: RequestInfo | URL,
     options?: RequestInit,
   ): Promise<ResultType> {
-    const response = await fetch(input, options);
+    const response = await fetch(input, options)
 
-    const responseBody = (await response.json()) as NonNullable<ResultType | ErrorType>;
+    const responseBody = (await response.json()) as NonNullable<ResultType | ErrorType>
 
     if (!response.ok) {
-      const { status } = response;
+      const { status } = response
 
       throw new AppError<ErrorType>({
         name: 'REQUEST_FETCH_ERROR',
         message: 'Error occurred during fetch',
         data: responseBody as NonNullable<ErrorType>,
         statusCode: status,
-      });
+      })
     }
 
     if (!response.headers.get('Content-Type')?.startsWith('application/json')) {
@@ -32,9 +32,9 @@ export const Fetch: RequestClient = {
         name: 'JSON_PARSE_ERROR',
         message: 'Received response was not a JSON response',
         data: responseBody as NonNullable<ErrorType>,
-      });
+      })
     }
 
-    return responseBody as NonNullable<ResultType>;
+    return responseBody as NonNullable<ResultType>
   },
-};
+}

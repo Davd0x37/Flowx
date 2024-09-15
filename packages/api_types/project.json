@@ -23,6 +23,13 @@
         "forwardAllArgs": false,
         "description": "Type check with tsc"
       }
+    },
+
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "biome check {projectRoot}"
+      }
     }
   }
 }

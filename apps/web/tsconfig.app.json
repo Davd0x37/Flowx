@@ -4,9 +4,7 @@
     "outDir": "../../dist/apps/web",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["app/*"],
-      "~features/*": ["app/features/*"],
-      "~ui/*": ["app/components/ui/*"]
+      "~/*": ["./src/*"]
     },
     "types": [
       "node",
@@ -17,14 +15,14 @@
     ]
   },
   "exclude": [
-    "app/**/*.spec.ts",
-    "app/**/*.test.ts",
-    "app/**/*.spec.tsx",
-    "app/**/*.test.tsx",
-    "app/**/*.spec.js",
-    "app/**/*.test.js",
-    "app/**/*.spec.jsx",
-    "app/**/*.test.jsx"
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "src/**/*.spec.tsx",
+    "src/**/*.test.tsx",
+    "src/**/*.spec.js",
+    "src/**/*.test.js",
+    "src/**/*.spec.jsx",
+    "src/**/*.test.jsx"
   ],
-  "include": ["app/**/*.js", "app/**/*.jsx", "app/**/*.ts", "app/**/*.tsx"]
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"]
 }

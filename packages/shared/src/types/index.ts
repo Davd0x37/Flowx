@@ -1,2 +1,2 @@
-export * from './mongoose';
-export * from './wrappers';
+export * from './mongoose'
+export * from './wrappers'

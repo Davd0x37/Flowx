@@ -1,21 +1,21 @@
-import { Static, Type } from '@sinclair/typebox';
+import { type Static, Type } from '@sinclair/typebox'
 
-export type UserID = string;
+export type UserID = string
 
-export type UserIDObject = { userId: UserID };
+export type UserIDObject = { userId: UserID }
 export const UserIDObject = Type.Object({
   userId: Type.String(),
-});
+})
 
-export type UserStatus = Static<typeof UserStatus>;
+export type UserStatus = Static<typeof UserStatus>
 export const UserStatus = Type.Enum({
   active: 'active',
   idle: 'idle',
   doNotDisturb: 'doNotDisturb',
   offline: 'offline',
-});
+})
 
-export type UserType = Static<typeof UserType>;
+export type UserType = Static<typeof UserType>
 export const UserType = Type.Object({
   // Non-unique user identifier - must be a string because lucia doesn't support ObjectId - for now
   _id: Type.String({ readOnly: true }),
@@ -55,9 +55,9 @@ export const UserType = Type.Object({
 
   // Date of last activity
   lastActive: Type.String({ format: 'date-time' }),
-});
+})
 
 // Used in LuciaAuth
 export interface IUserAuth {
-  _id: UserID;
+  _id: UserID
 }
