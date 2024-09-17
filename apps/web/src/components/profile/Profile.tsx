@@ -1,8 +1,10 @@
 import { getAcronyms } from '@flowx/shared/utils/string'
+import { useNavigate } from '@tanstack/react-router'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Logout } from '~/assets/icons'
 import { Avatar } from '~/components/avatar/Avatar'
+import { StatusIndicator } from '~/components/avatar/StatusIndicator'
 import { Button } from '~/components/ui/button'
 import {
   DropdownMenu,
@@ -15,7 +17,6 @@ import {
 import { useAuth } from '~/hooks/useAuth'
 import { cn } from '~/lib/utils'
 import useUserStore from '~/stores/user'
-import { StatusIndicator } from '../avatar/StatusIndicator'
 
 type ProfileProps = HTMLAttributes<HTMLDivElement>
 
@@ -24,6 +25,15 @@ const Profile = ({ className }: PropsWithChildren<ProfileProps>) => {
   const auth = useAuth()
   const { name, avatar, status, changeStatus } = useUserStore()
   const { data: nameAcronym = '' } = getAcronyms(name)
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    auth.logout(() =>
+      navigate({
+        to: '/auth/login',
+      }),
+    )
+  }
 
   const statusActions = {
     active: () => {
@@ -84,7 +94,7 @@ const Profile = ({ className }: PropsWithChildren<ProfileProps>) => {
 
       {/* Logout button */}
       <div className="ml-auto flex items-center">
-        <Button variant="ghost" size="sm" onClick={auth.logout}>
+        <Button variant="ghost" size="sm" onClick={handleLogout}>
           <Logout fontSize="1rem" />
         </Button>
       </div>

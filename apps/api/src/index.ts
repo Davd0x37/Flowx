@@ -1,13 +1,12 @@
-// import Routes from './routes';
 import Fastify from 'fastify'
-import { API_PREFIX, isDev } from './common/config'
+import { API_PREFIX } from './common/config'
 import { logger } from './common/logger'
 import Plugins from './plugins'
 import Routes from './routes'
 
 // Fastify instance
 const fastify = Fastify({
-  logger: isDev ? logger : true,
+  loggerInstance: logger,
 })
 
 try {

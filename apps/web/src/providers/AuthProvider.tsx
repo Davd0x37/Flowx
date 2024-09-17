@@ -12,7 +12,7 @@ export type AuthProviderState = {
   user: Record<string, unknown>
   isAuthenticated: boolean
   login: (data: Record<string, unknown>) => void
-  logout: () => void
+  logout: (onSettled: () => void) => void
   checkSession: (onSuccess?: () => void, onError?: (errorData: Error) => void) => void
 }
 
@@ -59,7 +59,7 @@ export function AuthProvider({
     setIsAuthenticated(true)
   }
 
-  const logout = () => {
+  const logout = (onSettled = () => {}) => {
     authLogout.mutate(undefined, {
       onSuccess: () => {
         // Show dialog/toast
@@ -67,6 +67,7 @@ export function AuthProvider({
 
       onSettled: () => {
         setIsAuthenticated(false)
+        onSettled()
       },
 
       onError(error, variables) {

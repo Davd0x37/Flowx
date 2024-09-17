@@ -51,7 +51,7 @@
   "lint-staged": {
     "./{apps,packages}/**/*.{js,ts,tsx}": [
       "biome format apps packages/shared packages/api_types --write",
-      "nx run-many -t lint",
+      "nx run-many -t lint:fix:unsafe",
       "nx run-many -t type-check"
     ]
   },

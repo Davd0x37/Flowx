@@ -3,7 +3,7 @@ import FormBody from '@fastify/formbody'
 import Helmet from '@fastify/helmet'
 import Multipart from '@fastify/multipart'
 import ResponseValidation from '@fastify/response-validation'
-import UnderPressure from '@fastify/under-pressure'
+// import UnderPressure from '@fastify/under-pressure'
 import ajvFormats from 'ajv-formats'
 import type { FastifyInstance, FastifyPluginOptions } from 'fastify'
 import fastifyPlugin from 'fastify-plugin'
@@ -54,12 +54,13 @@ export default fastifyPlugin(
     await register(Cors, corsSettings)
 
     // Process load handler
-    await register(UnderPressure, {
-      maxEventLoopDelay: 1000,
-      maxHeapUsedBytes: 1000000000,
-      maxRssBytes: 1000000000,
-      maxEventLoopUtilization: 0.98,
-    })
+    // @TODO: enable when fastify 5 will be supported
+    // await register(UnderPressure, {
+    //   maxEventLoopDelay: 1000,
+    //   maxHeapUsedBytes: 1000000000,
+    //   maxRssBytes: 1000000000,
+    //   maxEventLoopUtilization: 0.98,
+    // })
 
     // For Lucia auth
     // https://lucia-auth.com/guides/validate-session-cookies/

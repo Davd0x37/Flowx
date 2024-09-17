@@ -13,6 +13,7 @@
   },
   "organizeImports": {
     "enabled": true,
+    "include": ["apps", "packages"],
     "ignore": ["*.gen.ts", "ui/*.ts?"]
   },
   "linter": {
