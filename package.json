@@ -23,7 +23,7 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.0",
+    "@biomejs/biome": "1.9.1",
     "@nx/esbuild": "^19.7.3",
     "@nx/js": "19.7.3",
     "@nx/node": "19.7.3",
@@ -44,8 +44,7 @@
     "nx": "^19.7.3",
     "prettier": "^3.3.3",
     "typescript": "^5.6.2",
-    "typescript-eslint": "^8.4.0",
-    "vite": "^5.4.5",
+    "vite": "^5.4.6",
     "vite-node": "^2.1.1",
     "vitest": "^2.1.1"
   },
