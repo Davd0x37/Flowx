@@ -23,7 +23,7 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.1",
+    "@biomejs/biome": "1.9.2",
     "@nx/esbuild": "^19.7.4",
     "@nx/js": "19.7.4",
     "@nx/node": "19.7.4",
