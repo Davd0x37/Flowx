@@ -24,6 +24,13 @@
     "test": "nx run-many -t test --parallel",
     "typecheck": "nx run-many -t typecheck --parallel"
   },
+  "lint-staged": {
+    "./{apps,packages}/**/*.{ts,tsx}": [
+      "prettier . --write",
+      "nx run-many -t lint --parallel --fix",
+      "nx run-many -t typecheck --parallel"
+    ]
+  },
   "dependencies": {
     "@flowx/api": "workspace:*",
     "@flowx/utils": "workspace:*",
@@ -76,12 +83,5 @@
     "vite-plugin-dts": "~4.4.0",
     "vitest": "^3.0.0-beta.3"
   },
-  "packageManager": "pnpm@9.15.2",
-  "test-lint-staged": {
-    "./{apps,packages}/**/*.{ts,tsx}": [
-      "prettier . --write",
-      "nx run-many -t lint --parallel --fix",
-      "nx run-many -t typecheck --parallel"
-    ]
-  }
+  "packageManager": "pnpm@9.15.2"
 }
