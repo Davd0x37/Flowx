@@ -9,6 +9,7 @@
     "baseUrl": ".",
     "module": "esnext",
     "moduleResolution": "bundler",
+    "noEmit": true,
     "paths": {
       "~/*": ["./src/*"],
       "~ui/*": ["./src/components/ui/*"]
@@ -31,8 +32,6 @@
     "src/**/*.spec.ts",
     "src/**/*.test.tsx",
     "src/**/*.spec.tsx",
-    "src/**/*.ts",
-    "src/**/*.tsx",
     "src/**/*.d.ts"
   ]
 }
