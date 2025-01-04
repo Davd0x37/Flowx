@@ -1,0 +1,21 @@
+{
+  "name": "@flowx/i18n",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": [
+    {
+      "import": "./src/locales/en/translation.json",
+      "default": "./src/locales/en/translation.json"
+    },
+    {
+      "import": "./src/locales/pl/translation.json",
+      "default": "./src/locales/pl/translation.json"
+    }
+  ],
+  "nx": {
+    "name": "@flowx/i18n",
+    "projectType": "library",
+    "sourceRoot": "packages/i18n/src"
+  }
+}

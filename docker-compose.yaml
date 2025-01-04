@@ -1,0 +1,72 @@
+name: 'Flowx'
+
+services:
+  # BACKEND Container
+  backend:
+    container_name: flowx_backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builds_backend
+    # Use your Node base image
+    image: node:lts-alpine
+    depends_on:
+      - postgres
+    networks:
+      - backend
+    env_file:
+      - .env
+    volumes:
+      - type: volume
+        source: backend_volume
+        target: /app
+    ports:
+      - '3000:3000'
+
+  # Frontend Container
+  frontend:
+    container_name: flowx_frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builds_frontend
+    restart: unless-stopped
+    image: caddy:latest
+    networks:
+      - backend
+    env_file:
+      - .env
+    volumes:
+      - type: volume
+        source: frontend_volume
+        target: /srv
+      - ./Caddyfile:/etc/caddy/Caddyfile
+    command: /bin/sh -c "caddy run --config /etc/caddy/Caddyfile"
+    ports:
+      - '80:80'
+      - '443:443'
+      - '443:443/udp'
+
+  # Postgres Container
+  postgres:
+    container_name: flowx_postgres
+    image: postgres:17
+    networks:
+      - backend
+    env_file:
+      - .env
+    ports:
+      - '5432:5432'
+    volumes:
+      - type: volume
+        source: postgres_volume
+        target: /var/lib/postgresql/data
+
+volumes:
+  backend_volume:
+  frontend_volume:
+  postgres_volume:
+
+networks:
+  backend:
+    driver: bridge

@@ -7,7 +7,9 @@
 **/.settings
 **/.toolstarget
 **/.vs
+**/.nx
 **/.vscode
+**/.husky
 **/.idea
 **/.next
 **/.cache
@@ -26,5 +28,9 @@
 **/values.dev.yaml
 **/build
 **/dist
+**/tmp
+.husky
+.nx
+.git
 LICENSE
 README.md

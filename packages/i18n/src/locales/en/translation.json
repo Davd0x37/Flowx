@@ -1,0 +1,109 @@
+{
+  "user": {
+    "page": {
+      "title": {
+        "profile": "Profile",
+        "profile_details": "Profile details",
+        "settings": "Settings",
+        "general": "General",
+        "security": "Security",
+        "notifications": "Notifications",
+        "advanced": "Advanced"
+      }
+    },
+    "dropdown": {
+      "profile": "Profile",
+      "profile_details": "Profile details",
+      "settings": "Settings",
+      "logout": "Logout",
+      "change_status": {
+        "title": "Change status",
+        "active": "Active",
+        "idle": "Idle",
+        "do_not_disturb": "Do not disturb",
+        "offline": "Offline"
+      }
+    }
+  },
+
+  "services": {
+    "page": {
+      "title": {
+        "homepage": "Services",
+        "settings": "Services settings"
+      }
+    }
+  },
+
+  "integrations": {
+    "page": {
+      "title": {
+        "homepage": "Integrations",
+        "settings": "Integrations settings"
+      }
+    }
+  },
+
+  "automations": {
+    "page": {
+      "title": {
+        "homepage": "Automations",
+        "settings": "Automations settings"
+      }
+    }
+  },
+
+  "dashboard": {
+    "page": {
+      "title": {
+        "homepage": "Home"
+      }
+    }
+  },
+
+  "auth": {
+    "page": {
+      "title": {
+        "authenticate": "Authenticate",
+        "login": "Login",
+        "signup": "Signup"
+      }
+    },
+    "placeholder": {
+      "email": "email@example.com"
+    },
+    "fields": {
+      "names": {
+        "username": "Username",
+        "email": "Email",
+        "password": "Password"
+      },
+      "descriptions": {
+        "email_address": "Your email address used to authenticate",
+        "secret_password": "Your super secret password that will allow you to use the app"
+      }
+    },
+    "actions": {
+      "login": "Login",
+      "logout": "Logout",
+      "register": "Register",
+      "remember_me": "Remember me",
+      "recover_password": "Recover password",
+      "create_account": "Create account",
+      "sign_in_with_google": "Sign in with Google",
+      "sign_in_with_github": "Sign in with GitHub",
+      "signup": "You do not have an account? Sign up!",
+      "signin": "Already have account? Sign in!"
+    },
+    "messages": {
+      "errors": {
+        "password_doesnt_match": "Passwords doesn't match",
+        "user_already_exists": "User already exists"
+      },
+      "success": {
+        "welcome_back": "Welcome back, {{name}}!",
+        "account_created": "Your account has been created successfully {{name}}"
+      }
+    }
+  }
+}

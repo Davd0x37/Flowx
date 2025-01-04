@@ -1,0 +1,11 @@
+/dist
+/coverage
+/.nx/cache
+/.nx/workspace-data
+**/*.d.ts
+node_modules
+node_modules/**
+**/node_modules
+.vscode
+**/ui/*
+*-lock.yaml

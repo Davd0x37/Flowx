@@ -1,6 +1,6 @@
 localhost {
   encode zstd gzip
   file_server
-  root * /app
-  try_files {path} /app/index.html
+  root * /srv
+  try_files {path} /srv/index.html
 }

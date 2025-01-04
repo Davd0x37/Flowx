@@ -42,3 +42,6 @@ target
 target/*
 
 .ignored_*
+
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
