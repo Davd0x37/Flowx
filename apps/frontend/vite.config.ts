@@ -26,7 +26,7 @@ export default defineConfig({
     react(),
 
     // Iconify loader
-    Icons({ compiler: 'jsx', jsx: 'react' }),
+    Icons({ autoInstall: true, compiler: 'jsx', jsx: 'react' }),
 
     // Nx paths resolver
     nxViteTsPaths({}),
