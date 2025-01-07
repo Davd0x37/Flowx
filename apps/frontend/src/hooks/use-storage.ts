@@ -1,13 +1,13 @@
 import { useState } from 'react'
 
-export type IKey = string
+type IKey = string
 
-export const CStorageType = {
+const CStorageType = {
   LOCAL: 'localStorage',
   SESSION: 'sessionStorage',
 } as const
 
-export type StorageType = (typeof CStorageType)[keyof typeof CStorageType]
+type StorageType = (typeof CStorageType)[keyof typeof CStorageType]
 
 function getItem(key: IKey, storageType: StorageType): null | string {
   const storage = storageProvider(storageType)
@@ -61,4 +61,6 @@ const useStorage = <T>(
   }
 }
 
-export default useStorage
+export type { IKey, StorageType }
+
+export { CStorageType, useStorage }

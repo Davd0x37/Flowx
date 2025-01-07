@@ -79,6 +79,4 @@ const useFileReader = (
   }
 }
 
-export { READ_TYPE }
-
-export default useFileReader
+export { READ_TYPE, useFileReader }

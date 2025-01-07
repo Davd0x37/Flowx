@@ -1,7 +1,7 @@
 import type { User } from '@flowx/api'
 import { createContext, type PropsWithChildren, useMemo, useState } from 'react'
 import { useAuthLogoutMutation } from '~/api/auth/use-auth-mutation'
-import useStorage from '~/hooks/use-storage'
+import { useStorage } from '~/hooks/use-storage'
 import useUserStore from '~/stores/user'
 
 interface AuthProviderProps {

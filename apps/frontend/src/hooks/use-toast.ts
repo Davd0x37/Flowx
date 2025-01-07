@@ -1,7 +1,4 @@
-'use client'
-
-// Inspired by react-hot-toast library
-import * as React from 'react'
+import { type ReactNode, useEffect, useState } from 'react'
 import type { ToastActionElement, ToastProps } from '~/components/ui/toast'
 
 const TOAST_LIMIT = 1
@@ -9,9 +6,9 @@ const TOAST_REMOVE_DELAY = 1000000
 
 type ToasterToast = ToastProps & {
   action?: ToastActionElement
-  description?: React.ReactNode
+  description?: ReactNode
   id: string
-  title?: React.ReactNode
+  title?: ReactNode
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -169,9 +166,9 @@ function toast({ ...props }: Toast) {
 }
 
 function useToast() {
-  const [state, setState] = React.useState<State>(memoryState)
+  const [state, setState] = useState<State>(memoryState)
 
-  React.useEffect(() => {
+  useEffect(() => {
     listeners.push(setState)
     return () => {
       const index = listeners.indexOf(setState)

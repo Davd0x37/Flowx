@@ -26,4 +26,4 @@ const useIsOnScreen = (
   return isOnScreen
 }
 
-export default useIsOnScreen
+export { useIsOnScreen }

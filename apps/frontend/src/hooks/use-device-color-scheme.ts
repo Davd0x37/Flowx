@@ -23,4 +23,4 @@ const useDeviceColorScheme = () => {
   }
 }
 
-export default useDeviceColorScheme
+export { useDeviceColorScheme }

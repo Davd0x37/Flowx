@@ -1,6 +1,6 @@
 import { createContext, type ReactNode, useEffect } from 'react'
 import { STORAGE_THEME_KEY } from '~/config/constants'
-import useStorage from '~/hooks/use-storage'
+import { useStorage } from '~/hooks/use-storage'
 
 type Theme = 'dark' | 'light' | 'system'
 

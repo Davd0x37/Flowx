@@ -27,8 +27,8 @@
   "lint-staged": {
     "./{apps,packages}/**/*.{ts,tsx}": [
       "prettier . --write",
-      "nx run-many -t lint --parallel --fix",
-      "nx run-many -t typecheck --parallel"
+      "nx run-many -t lint",
+      "nx run-many -t typecheck"
     ]
   },
   "dependencies": {
