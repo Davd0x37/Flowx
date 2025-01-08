@@ -28,64 +28,28 @@
     "@fastify/swagger-ui": "^5.2.0",
     "@types/zxcvbn": "^4.4.5",
     "pino-pretty": "^13.0.0",
-    "prisma": "^6.2.1"
+    "prisma": "^6.2.1",
+    "tsx": "^4.19.2"
   },
   "nx": {
     "name": "@flowx/backend",
     "projectType": "application",
     "sourceRoot": "apps/backend/src",
     "targets": {
-      "build": {
-        "executor": "@nx/esbuild:esbuild",
-        "outputs": [
-          "{options.outputPath}"
-        ],
-        "defaultConfiguration": "production",
+      "serve": {
+        "executor": "nx:run-commands",
         "options": {
-          "platform": "node",
-          "outputPath": "apps/backend/dist",
-          "format": [
-            "esm"
-          ],
-          "bundle": true,
-          "main": "apps/backend/src/server.ts",
-          "tsConfig": "apps/backend/tsconfig.app.json",
-          "esbuildOptions": {
-            "sourcemap": true,
-            "outExtension": {
-              ".js": ".js"
-            }
-          }
-        },
-        "configurations": {
-          "development": {},
-          "production": {
-            "esbuildOptions": {
-              "sourcemap": false,
-              "outExtension": {
-                ".js": ".js"
-              }
-            }
-          }
+          "cwd": "apps/backend",
+          "command": "tsx src/server.ts",
+          "parallel": false
         }
       },
-      "serve": {
-        "executor": "@nx/js:node",
-        "defaultConfiguration": "development",
-        "dependsOn": [
-          "build"
-        ],
+      "watch": {
+        "executor": "nx:run-commands",
         "options": {
-          "buildTarget": "@flowx/backend:build",
-          "runBuildTargetDependencies": false
-        },
-        "configurations": {
-          "development": {
-            "buildTarget": "@flowx/backend:build:development"
-          },
-          "production": {
-            "buildTarget": "@flowx/backend:build:production"
-          }
+          "cwd": "apps/backend",
+          "command": "tsx watch src/server.ts",
+          "parallel": false
         }
       },
       "lint": {
