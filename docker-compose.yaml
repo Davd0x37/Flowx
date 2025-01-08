@@ -10,8 +10,8 @@ services:
       target: builds_backend
     # Use your Node base image
     image: node:lts-alpine
-    depends_on:
-      - postgres
+    # depends_on:
+    #   - postgres
     networks:
       - backend
     env_file:
@@ -21,7 +21,7 @@ services:
         source: backend_volume
         target: /app
     ports:
-      - '3000:3000'
+      - '${PORT}:${PORT}'
 
   # Frontend Container
   frontend:

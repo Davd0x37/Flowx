@@ -42,13 +42,10 @@ FROM bootstrap AS builds_backend
 ENV NX_DAEMON=false
 
 # Generate prisma
-RUN pnpm nx run @flowx/backend:generate-types --verbose
+RUN pnpm backend:generate-types
 
-# Build BACKEND
-RUN pnpm build:backend
-
-# Run node server
-CMD ["node", "./apps/backend/dist/server.js"]
+# Run migrate and start server
+CMD ["pnpm", "run", "backend:serve:migrate"]
 
 # --------------------------
 # 3) Frontend Build Builds Only
@@ -56,7 +53,7 @@ CMD ["node", "./apps/backend/dist/server.js"]
 FROM bootstrap AS builds_frontend
 
 # Build Frontend
-RUN pnpm build:frontend
+RUN pnpm frontend:build
 
 # Copy builded files
 COPY ./apps/frontend/dist/* /srv
