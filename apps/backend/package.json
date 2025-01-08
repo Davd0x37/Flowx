@@ -16,7 +16,7 @@
     "@node-rs/argon2": "^2.0.2",
     "@oslojs/crypto": "^1.0.1",
     "@oslojs/encoding": "^1.1.0",
-    "@prisma/client": "6.2.0",
+    "@prisma/client": "6.2.1",
     "arctic": "^3.1.0",
     "fastify": "^5.2.1",
     "fastify-plugin": "^5.0.1",
@@ -28,7 +28,7 @@
     "@fastify/swagger-ui": "^5.2.0",
     "@types/zxcvbn": "^4.4.5",
     "pino-pretty": "^13.0.0",
-    "prisma": "^6.2.0"
+    "prisma": "^6.2.1"
   },
   "nx": {
     "name": "@flowx/backend",
