@@ -86,7 +86,25 @@ const ResetPasswordRoute = {
 type ResetPasswordRouteRequest = InferRequest<typeof ResetPasswordRoute>
 type ResetPasswordRouteResponse = InferResponse<typeof ResetPasswordRoute>
 
+/**
+ * Check session route configuration
+ *
+ * @satisfies ApiEndpoint
+ */
+const CheckSessionRoute = {
+  method: 'GET' as const,
+  path: '/auth/check-session',
+  schema: {
+    request: z.undefined(),
+    response: z.object({ message: z.string() }),
+  },
+} as const satisfies ApiEndpoint
+type CheckSessionRouteRequest = InferRequest<typeof CheckSessionRoute>
+type CheckSessionRouteResponse = InferResponse<typeof CheckSessionRoute>
+
 export type {
+  CheckSessionRouteRequest,
+  CheckSessionRouteResponse,
   LoginRouteRequest,
   LoginRouteResponse,
   LogoutRouteRequest,
@@ -97,4 +115,10 @@ export type {
   ResetPasswordRouteResponse,
 }
 
-export { LoginRoute, LogoutRoute, RegisterRoute, ResetPasswordRoute }
+export {
+  CheckSessionRoute,
+  LoginRoute,
+  LogoutRoute,
+  RegisterRoute,
+  ResetPasswordRoute,
+}

@@ -8,10 +8,7 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "types": ["node"],
-    "emitDeclarationOnly": false,
-    "paths": {
-      "/*": ["./src/*"]
-    }
+    "emitDeclarationOnly": false
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [

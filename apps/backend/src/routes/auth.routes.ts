@@ -1,5 +1,6 @@
 import type { FastifyInstance } from 'fastify'
 import {
+  CheckSessionRoute,
   LoginRoute,
   LogoutRoute,
   RegisterRoute,
@@ -7,6 +8,7 @@ import {
 } from '@flowx/api'
 import AuthController from '../controllers/auth.controller'
 import prisma from '../db/connect'
+import { authMiddleware } from '../middlewares/auth.middleware'
 import SessionRepository from '../repositories/session.repository'
 import UserRepository from '../repositories/user.repository'
 import AuthService from '../services/auth.service'
@@ -86,5 +88,21 @@ export default (fastifyInstance: FastifyInstance) => {
       },
     },
     url: ResetPasswordRoute.path,
+  })
+
+  /**
+   * Check session route
+   * @TODO: move this to /me?
+   */
+  fastify.route({
+    handler: authController.checkSessionHandler.bind(authController),
+    method: CheckSessionRoute.method,
+    preHandler: [authMiddleware],
+    schema: {
+      response: {
+        200: CheckSessionRoute.schema.response,
+      },
+    },
+    url: CheckSessionRoute.path,
   })
 }

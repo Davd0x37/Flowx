@@ -1,6 +1,15 @@
 import type { User } from '@flowx/api'
-import { createContext, type PropsWithChildren, useMemo, useState } from 'react'
-import { useAuthLogoutMutation } from '~/api/auth/use-auth-mutation'
+import {
+  createContext,
+  type PropsWithChildren,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
+import {
+  useAuthCheckSessionMutation,
+  useAuthLogoutMutation,
+} from '~/api/auth/use-auth-mutation'
 import { useStorage } from '~/hooks/use-storage'
 import useUserStore from '~/stores/user'
 
@@ -9,6 +18,7 @@ interface AuthProviderProps {
 }
 
 interface AuthProviderState {
+  checkSession: () => void
   isAuthenticated: boolean
   login: (data: Record<string, unknown>) => void
   logout: (onSettled: () => void) => void
@@ -16,6 +26,7 @@ interface AuthProviderState {
 }
 
 const initialState: AuthProviderState = {
+  checkSession: () => null,
   isAuthenticated: false,
   login: () => null,
   logout: () => null,
@@ -29,9 +40,8 @@ function AuthProvider({
   localStateKey = 'lastLoggedDate',
 }: PropsWithChildren<AuthProviderProps>) {
   const authLogout = useAuthLogoutMutation()
-
+  const authSession = useAuthCheckSessionMutation()
   const { changeName, changeStatus } = useUserStore()
-
   const { setValue: setUser, storedValue: user } = useStorage<Partial<User>>(
     localStateKey,
     {},
@@ -76,8 +86,28 @@ function AuthProvider({
     })
   }
 
+  const checkSession = () => {
+    authSession.mutate(undefined, {
+      onError(error, variables) {
+        console.log('user is logged out', error, variables)
+
+        // Clear user data from storage
+        setUser({})
+
+        // Redirect user to auth page
+        setIsAuthenticated(false)
+      },
+
+      onSuccess: () => {
+        // Update user data if session is valid
+        updateUserData(user)
+      },
+    })
+  }
+
   const value = useMemo(
     () => ({
+      checkSession,
       isAuthenticated,
       login,
       logout,
@@ -85,6 +115,10 @@ function AuthProvider({
     }),
     [user.email, isAuthenticated],
   )
+
+  useEffect(() => {
+    checkSession()
+  }, [])
 
   return <AuthContext value={value}>{children}</AuthContext>
 }

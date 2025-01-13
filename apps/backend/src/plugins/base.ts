@@ -5,13 +5,19 @@ import fastifyPlugin from 'fastify-plugin'
 
 export default fastifyPlugin(
   async (fastify: FastifyInstance, _options: FastifyPluginOptions) => {
-    const { register } = fastify
+    const {
+      config: { COOKIE_SECRET },
+      register,
+    } = fastify
 
     // Fastify utils
     await register(Sensible)
 
     // Fastify cookies
-    await register(Cookies)
+    await register(Cookies, {
+      parseOptions: {},
+      secret: COOKIE_SECRET,
+    })
   },
   {
     dependencies: ['dotenv'],

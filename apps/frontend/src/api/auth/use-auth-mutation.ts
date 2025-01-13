@@ -1,13 +1,39 @@
 import type {
+  CheckSessionRouteResponse,
   LoginRouteRequest,
   LoginRouteResponse,
   LogoutRouteResponse,
   RegisterRouteRequest,
   RegisterRouteResponse,
 } from '@flowx/api'
-import { ApiRequest, LoginRoute, LogoutRoute, RegisterRoute } from '@flowx/api'
+import {
+  ApiRequest,
+  CheckSessionRoute,
+  LoginRoute,
+  LogoutRoute,
+  RegisterRoute,
+} from '@flowx/api'
 import { encodeRequestBody } from '@flowx/utils'
 import { useMutation } from '@tanstack/react-query'
+
+/**
+ * Custom hook to handle user session validation.
+ *
+ * @returns Mutation object for session validation.
+ */
+function useAuthCheckSessionMutation() {
+  return useMutation({
+    mutationFn: () => {
+      return ApiRequest<CheckSessionRouteResponse>({
+        endpoint: CheckSessionRoute.path,
+        options: {
+          credentials: 'include',
+          method: CheckSessionRoute.method,
+        },
+      })
+    },
+  })
+}
 
 /**
  * Custom hook to handle user login mutation.
@@ -72,4 +98,9 @@ function useAuthRegisterMutation() {
   })
 }
 
-export { useAuthLoginMutation, useAuthLogoutMutation, useAuthRegisterMutation }
+export {
+  useAuthCheckSessionMutation,
+  useAuthLoginMutation,
+  useAuthLogoutMutation,
+  useAuthRegisterMutation,
+}

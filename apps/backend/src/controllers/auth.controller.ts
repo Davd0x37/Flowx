@@ -1,4 +1,6 @@
 import type {
+  CheckSessionRouteRequest,
+  CheckSessionRouteResponse,
   LoginRouteRequest,
   LoginRouteResponse,
   LogoutRouteRequest,
@@ -19,6 +21,20 @@ class AuthController {
     private readonly authService: AuthService,
     private readonly sessionService: SessionService,
   ) {}
+
+  /**
+   * Validates user session
+   *
+   * @param {FastifyRequest} _request Fastify request object
+   * @returns {Promise<ResetPasswordRouteResponse>} Empty response
+   */
+  async checkSessionHandler(
+    _request: FastifyRequest<{ Body: CheckSessionRouteRequest }>,
+  ): Promise<CheckSessionRouteResponse> {
+    return {
+      message: 'Logged in',
+    }
+  }
 
   /**
    * Validates the request body, logs in a user, sets a session, and returns the user information

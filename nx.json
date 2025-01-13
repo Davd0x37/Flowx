@@ -83,6 +83,11 @@
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     },
+    "watch": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
     "@nx/vite:build": {
       "cache": true,
       "dependsOn": ["^build"],

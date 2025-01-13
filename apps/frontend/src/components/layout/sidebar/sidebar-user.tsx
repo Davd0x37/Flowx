@@ -36,11 +36,11 @@ function SidebarUser() {
   const useUserStatus = useUserStatusMutation()
 
   const handleLogout = () => {
-    auth.logout(() =>
+    auth.logout(() => {
       navigate({
         to: '/auth/login',
-      }),
-    )
+      })
+    })
   }
 
   const changeUserStatus = (status: UserStatusType) => () => {

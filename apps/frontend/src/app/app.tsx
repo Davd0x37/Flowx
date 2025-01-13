@@ -50,6 +50,7 @@ function App() {
 function AppRouterWithContext() {
   const auth = useAuth()
 
+  // @TODO: if check-session returns 500, navigate to /auth/login
   return <RouterProvider context={auth} router={router} />
 }
 
